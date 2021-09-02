@@ -65,7 +65,17 @@
         ctx.clearRect(0, 0, width, height);
     });
 
-//  ------------------------------------------FUNCIONES------------------------------------------------
+//  
+	function elegirColor(colorElegido){//pasar a seleccion por queryselector sino funciona
+    ctx.strokeStyle=colorElegido.value;
+}
+
+	function elegirGrosor(grosorElegido){
+		ctx.lineWidth=grosorElegido.value;
+	}
+
+
+------------------------------------------FUNCIONES------------------------------------------------
 
     function obtenerPosicion(event){
         puntero.setCoordenada(event.clientX,event.clientY);
