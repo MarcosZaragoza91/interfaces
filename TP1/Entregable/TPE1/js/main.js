@@ -11,6 +11,8 @@
 
     // Defino el Contexto del Canvas
     let ctx = document.querySelector('#myCanvas');
+    let width = ctx.width;
+    let height = ctx.height;
     ctx = ctx.getContext('2d');
 
     // Se define el objeto Lapiz
@@ -57,6 +59,10 @@
     });
     document.querySelector('#delete').addEventListener('click', ()=>{
         puntero.setColor('#FFFFFF');
+    });
+
+    document.querySelector('#deleteAll').addEventListener('click', ()=>{
+        ctx.clearRect(0, 0, width, height);
     });
 
 //  ------------------------------------------FUNCIONES------------------------------------------------

@@ -6,28 +6,33 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row align-items-start">
+        <div class="row align-items-start bg-secondary">
             <div class="col">
-                <canvas id="myCanvas" width="1024" height="768" style="border: solid 1px black"></canvas>
+                <canvas id="myCanvas" width="1024" height="768" style="border: solid 1px black" class="bg-white"></canvas>
             </div>
             <div class="col text-center bg-secondary">
-                <div>
+                <div  class="row align-items-center" style="border: solid 1px black">
                     <button id="blue" class="btn btn-primary"></button>
-                </div><div>
-                <button id="red" class="btn btn-danger"></button>
-            </div><div>
-                <button id="yellow" class="btn btn-warning"></button>
-            </div><div>
-                <button id="green" class="btn btn-success"></button>
-            </div><div>
-                <button id="black" class="btn btn-dark"></button>
+                </div>
+                <div  class="row align-items-center" style="border: solid 1px black">
+                    <button id="red" class="btn btn-danger"></button>
+                </div>
+                <div>
+                    <button id="yellow" class="btn btn-warning"></button>
+                </div>
+                <div>
+                    <button id="green" class="btn btn-success"></button>
+                </div>
+                <div>
+                    <button id="black" class="btn btn-dark"></button>
+                </div>
             </div>
-            </div>
-            <div class="col text-center bg-secondary text-white fw-bold">
+            <div class="col text-center bg-secondary text-white fw-bold" style="border: solid 1px black">
                 <p>Panel</p>
                 <button id="btn_pencil" class="btn btn-secondary">Lapiz</button>
                 <button id="btn_circle" class="btn btn-secondary">Circulo</button>
                 <button id="delete" class="btn btn-secondary">Borrar</button>
+                <button id="deleteAll" class="btn btn-secondary">Limpiar Canvas</button>
                 <div>
                     <div class="col text-center bg-secondary text-white fw-bold">
                         <p>Trazo</p>
