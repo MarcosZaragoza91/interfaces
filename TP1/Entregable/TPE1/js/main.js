@@ -10,10 +10,8 @@
     });
 
     // Defino el Contexto del Canvas
-    let ctx = document.querySelector('#myCanvas');
-    let width = ctx.width;
-    let height = ctx.height;
-    ctx = ctx.getContext('2d');
+    let canvas = document.querySelector('#myCanvas');
+    let ctx = canvas.getContext('2d');
 
     // Se define el objeto Lapiz
     let puntero = new Lapiz();
@@ -24,61 +22,69 @@
 
     document.querySelector('#btn_pencil').addEventListener('click', ()=> {
         puntero.setForma('pencil');
+        puntero.setColor(puntero.getColorauxiliar());
     });
 
     document.querySelector('#btn_circle').addEventListener('click', ()=> {
         puntero.setForma('circle');
+        puntero.setColor(puntero.getColorauxiliar());
     })
 
 //  -----------------------------------------------GROSOR--------------------------------------------
-    document.querySelector('#btn_5px').addEventListener('click', ()=>{
-        puntero.setGrosor(5);
-    });
-    document.querySelector('#btn_10px').addEventListener('click', ()=>{
-        puntero.setGrosor(10);
-    });
-    document.querySelector('#btn_20px').addEventListener('click', ()=>{
-        puntero.setGrosor(20);
-    });
+//     document.querySelector('#btn_5px').addEventListener('click', ()=>{
+//         puntero.setGrosor(5);
+//     });
+//     document.querySelector('#btn_10px').addEventListener('click', ()=>{
+//         puntero.setGrosor(10);
+//     });
+//     document.querySelector('#btn_20px').addEventListener('click', ()=>{
+//         puntero.setGrosor(20);
+//     });
 
 //  -------------------------------------------COLOR--------------------------------------------------
-    document.querySelector('#blue').addEventListener('click', ()=>{
-        puntero.setColor('#0000FF');
+//     document.querySelector('#blue').addEventListener('click', ()=>{
+//         puntero.setColor('#0000FF');
+//     });
+//     document.querySelector('#red').addEventListener('click', ()=>{
+//         puntero.setColor('#FF0000');
+//     });
+//     document.querySelector('#green').addEventListener('click', ()=>{
+//         puntero.setColor('#008800');
+//     });
+//     document.querySelector('#yellow').addEventListener('click', ()=>{
+//         puntero.setColor('#FFFF00');
+//     });
+//     document.querySelector('#black').addEventListener('click', ()=>{
+//         puntero.setColor('#000000');
+//     });
+
+//
+
+
+//
+
+
+	function elegirColor(colorElegido){//pasar a seleccion por queryselector sino funciona
+        puntero.setColor(colorElegido.value);
+    }
+
+	function elegirGrosor(grosorElegido){
+        puntero.setGrosor(grosorElegido.value);
+	}
+
+    document.querySelector('#deleteAll').addEventListener('click', ()=>{
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
-    document.querySelector('#red').addEventListener('click', ()=>{
-        puntero.setColor('#FF0000');
-    });
-    document.querySelector('#green').addEventListener('click', ()=>{
-        puntero.setColor('#008800');
-    });
-    document.querySelector('#yellow').addEventListener('click', ()=>{
-        puntero.setColor('#FFFF00');
-    });
-    document.querySelector('#black').addEventListener('click', ()=>{
-        puntero.setColor('#000000');
-    });
+
     document.querySelector('#delete').addEventListener('click', ()=>{
+        puntero.setColorauxiliar(puntero.getColor())
         puntero.setColor('#FFFFFF');
     });
 
-    document.querySelector('#deleteAll').addEventListener('click', ()=>{
-        ctx.clearRect(0, 0, width, height);
-    });
-
-//  
-	function elegirColor(colorElegido){//pasar a seleccion por queryselector sino funciona
-    ctx.strokeStyle=colorElegido.value;
-}
-
-	function elegirGrosor(grosorElegido){
-		ctx.lineWidth=grosorElegido.value;
-	}
-
-
-------------------------------------------FUNCIONES------------------------------------------------
+//------------------------------------------FUNCIONES------------------------------------------------
 
     function obtenerPosicion(event){
-        puntero.setCoordenada(event.clientX,event.clientY);
+        puntero.setCoordenada(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
         // coordenadas.x = event.clientX;
         // coordenadas.y = event.clientY;
     }

@@ -10,35 +10,19 @@
             <div class="col">
                 <canvas id="myCanvas" width="1024" height="768" style="border: solid 1px black" class="bg-white"></canvas>
             </div>
-            <div class="col text-center bg-secondary">
-                <div  class="row align-items-center" style="border: solid 1px black">
-                    <button id="blue" class="btn btn-primary"></button>
-                </div>
-                <div  class="row align-items-center" style="border: solid 1px black">
-                    <button id="red" class="btn btn-danger"></button>
-                </div>
-                <div>
-                    <button id="yellow" class="btn btn-warning"></button>
-                </div>
-                <div>
-                    <button id="green" class="btn btn-success"></button>
-                </div>
-                <div>
-                    <button id="black" class="btn btn-dark"></button>
-                </div>
-            </div>
             <div class="col text-center bg-secondary text-white fw-bold" style="border: solid 1px black">
                 <p>Panel</p>
                 <button id="btn_pencil" class="btn btn-secondary">Lapiz</button>
                 <button id="btn_circle" class="btn btn-secondary">Circulo</button>
-                <button id="delete" class="btn btn-secondary">Borrar</button>
-                <button id="deleteAll" class="btn btn-secondary">Limpiar Canvas</button>
+                Color de linea : <input type="color" id="paletColor" onchange= "elegirColor(this)">
+                <button id="delete" class="btn btn-secondary">Goma</button>
+                <button id="deleteAll" class="btn btn-secondary">Limpiar Lienzo</button>
                 <div>
                     <div class="col text-center bg-secondary text-white fw-bold">
                         <p>Trazo</p>
-                        <button id="btn_5px" class="btn btn-secondary">5px</button>
-                        <button id="btn_10px" class="btn btn-secondary">10px</button>
-                        <button id="btn_20px" class="btn btn-secondary">20px</button>
+                        Grosor de linea: <input type="range" id="grosorLinea" oninput="elegirGrosor(this);" min="1" max="20" value="1">
+                        <input type="file"  id="imagen">
+                        <button id="cargar">cargarImagen</button>
                     </div>
                     <div class="col text-center bg-secondary text-white fw-bold">
                         <p>Filtros</p>
@@ -53,15 +37,7 @@
                     </div>
                 </div>
             </div>
-			 <section id= "main">
-					<button id="lapiz">Lapiz</button>
-					Color de linea : <input type="color" id="paletColor" onchange= "elegirColor(this);">
-					Grosor de linea: <input type="range" id="grosorLinea" oninput="elegirGrosor(this);" min="1" max="20" value="1">
-					<button id="goma">Goma</button>
-					<input type="button" value="limpiarLienzo" onclick="limpiar()">
-					<input type="file"  id="imagen" value="imgCargada">
-					<button id="cargar">cargarImagen</button>
-				</section>
+            <script src="js/image.js"></script>
             <script src="js/Lapiz.js"></script>
             <script src="js/main.js"></script>
 

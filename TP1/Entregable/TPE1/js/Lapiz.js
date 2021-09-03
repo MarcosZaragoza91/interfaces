@@ -1,6 +1,7 @@
 class Lapiz {
     constructor() {
         this.coordenadas = {x:0,y:0};
+        this._oolorauxiliar= '#000000';
         this._color = '#000000';
         this._forma = 'circle';
         this._grosor = 5;
@@ -37,5 +38,13 @@ class Lapiz {
     setCoordenada(x,y){
         this.coordenadas.x = x;
         this.coordenadas.y = y;
+    }
+
+    getColorauxiliar() {
+        return this._oolorauxiliar;
+    }
+
+    setColorauxiliar(value) {
+        this._oolorauxiliar = value;
     }
 }
