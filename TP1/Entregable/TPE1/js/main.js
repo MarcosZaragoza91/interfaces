@@ -18,16 +18,22 @@
 
     // Se Crea un flag para dibujar o no en el canvas
     let dibujar = false;
-
+    let borro = false;
 
     document.querySelector('#btn_pencil').addEventListener('click', ()=> {
         puntero.setForma('pencil');
-        puntero.setColor(puntero.getColorauxiliar());
+        if (borro){
+            puntero.setColor(puntero.getColorauxiliar());
+            borro=false;
+        }
     });
 
     document.querySelector('#btn_circle').addEventListener('click', ()=> {
         puntero.setForma('circle');
-        puntero.setColor(puntero.getColorauxiliar());
+        if (borro){
+            puntero.setColor(puntero.getColorauxiliar());
+            borro=false;
+        }
     })
 
 //  -----------------------------------------------GROSOR--------------------------------------------
@@ -66,6 +72,7 @@
 
 	function elegirColor(colorElegido){//pasar a seleccion por queryselector sino funciona
         puntero.setColor(colorElegido.value);
+        borro = false;
     }
 
 	function elegirGrosor(grosorElegido){
@@ -79,6 +86,7 @@
     document.querySelector('#delete').addEventListener('click', ()=>{
         puntero.setColorauxiliar(puntero.getColor())
         puntero.setColor('#FFFFFF');
+        borro = true;
     });
 
 //------------------------------------------FUNCIONES------------------------------------------------
