@@ -55,6 +55,12 @@
         borro = true;
     });
 
+    let descargar =document.querySelector('#btn_descargar_imagen'); 
+    descargar.addEventListener('click', function (e) {
+        let dataURL = canvas.toDataURL('image/png');
+        descargar.href = dataURL;
+    });
+
 //------------------------------------------FUNCIONES------------------------------------------------
 
     function obtenerPosicion(event){
@@ -99,6 +105,11 @@
         // Dibujamos las líneas
         ctx.stroke();
     }
+
+
+
+
+
 
     //----------------------------------------FILTROS--------------------------------------------------git s
 

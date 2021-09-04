@@ -12,6 +12,7 @@ input.onchange = e => {
             let image = new Image();
             image.src = content;
             image.onload = function () {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 canva.width = image.width;
                 canva.heigth = image.heigth;
                 contex.drawImage(image,0,0);
