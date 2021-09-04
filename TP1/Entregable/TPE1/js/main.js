@@ -103,7 +103,7 @@
     //----------------------------------------FILTROS--------------------------------------------------git s
 
 
-document.querySelector('#filter_binario').addEventListener('click',()=>{
+document.querySelector('#filter_binario').addEventListener('click',function(){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
@@ -123,7 +123,7 @@ document.querySelector('#filter_binario').addEventListener('click',()=>{
     ctx.putImageData( imageData, 0, 0 );
 })
 
-document.querySelector('#filter_invert').addEventListener('click',()=>{
+document.querySelector('#filter_invert').addEventListener('click',function(){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
@@ -136,6 +136,53 @@ document.querySelector('#filter_invert').addEventListener('click',()=>{
         pixels[ i * 4 ] = 255 - r;
         pixels[ i * 4 + 1 ] = 255 - g;
         pixels[ i * 4 + 2 ] = 255 - b;
+    }
+
+    ctx.putImageData( imageData, 0, 0 );
+})
+
+document.querySelector('#filter_sephia').addEventListener('click', function(){
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let pixels = imageData.data;
+    let numPixels = imageData.width * imageData.height;
+
+    for ( let i = 0; i < numPixels; i++ ) {
+        let r = pixels[ i * 4 ];
+        let g = pixels[ i * 4 + 1 ];
+        let b = pixels[ i * 4 + 2 ];
+
+        pixels[ i * 4 ] = 255 - r;
+        pixels[ i * 4 + 1 ] = 255 - g;
+        pixels[ i * 4 + 2 ] = 255 - b;
+
+        pixels[ i * 4 ] = ( r * .393 ) + ( g *.769 ) + ( b * .189 );
+        pixels[ i * 4 + 1 ] = ( r * .349 ) + ( g *.686 ) + ( b * .168 );
+        pixels[ i * 4 + 2 ] = ( r * .272 ) + ( g *.534 ) + ( b * .131 );
+    }
+
+    ctx.putImageData( imageData, 0, 0 );
+})
+
+document.querySelector('#filter_contrast').addEventListener('click',function (){
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let pixels = imageData.data;
+    let numPixels = imageData.width * imageData.height;
+
+    let contrast = puntero.getGrosor();//Lo toma del rango del grosor, esto se debe reformar por uno propio
+    let factor = ( 259 * ( contrast + 255 ) ) / ( 255 * ( 259 - contrast ) );
+
+    for ( let i = 0; i < numPixels; i++ ) {
+        let r = pixels[ i * 4 ];
+        let g = pixels[ i * 4 + 1 ];
+        let b = pixels[ i * 4 + 2 ];
+
+        pixels[ i * 4 ] = 255 - r;
+        pixels[ i * 4 + 1 ] = 255 - g;
+        pixels[ i * 4 + 2 ] = 255 - b;
+
+        pixels[ i * 4 ] = factor * ( r - 128 ) + 128;
+        pixels[ i * 4 + 1 ] = factor * ( g - 128 ) + 128;
+        pixels[ i * 4 + 2 ] = factor * ( b - 128 ) + 128;
     }
 
     ctx.putImageData( imageData, 0, 0 );
