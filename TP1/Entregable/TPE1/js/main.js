@@ -36,40 +36,6 @@
         }
     })
 
-//  -----------------------------------------------GROSOR--------------------------------------------
-//     document.querySelector('#btn_5px').addEventListener('click', ()=>{
-//         puntero.setGrosor(5);
-//     });
-//     document.querySelector('#btn_10px').addEventListener('click', ()=>{
-//         puntero.setGrosor(10);
-//     });
-//     document.querySelector('#btn_20px').addEventListener('click', ()=>{
-//         puntero.setGrosor(20);
-//     });
-
-//  -------------------------------------------COLOR--------------------------------------------------
-//     document.querySelector('#blue').addEventListener('click', ()=>{
-//         puntero.setColor('#0000FF');
-//     });
-//     document.querySelector('#red').addEventListener('click', ()=>{
-//         puntero.setColor('#FF0000');
-//     });
-//     document.querySelector('#green').addEventListener('click', ()=>{
-//         puntero.setColor('#008800');
-//     });
-//     document.querySelector('#yellow').addEventListener('click', ()=>{
-//         puntero.setColor('#FFFF00');
-//     });
-//     document.querySelector('#black').addEventListener('click', ()=>{
-//         puntero.setColor('#000000');
-//     });
-
-//
-
-
-//
-
-
 	function elegirColor(colorElegido){//pasar a seleccion por queryselector sino funciona
         puntero.setColor(colorElegido.value);
         borro = false;
@@ -134,3 +100,25 @@
         ctx.stroke();
     }
 
+    //----------------------------------------FILTROS--------------------------------------------------git s
+
+
+document.querySelector('#filter_binario').addEventListener('click',()=>{
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let pixels = imageData.data;
+    let numPixels = imageData.width * imageData.height;
+
+    for ( let i = 0; i < numPixels; i++ ) {
+        let r = pixels[ i * 4 ];
+        let g = pixels[ i * 4 + 1 ];
+        let b = pixels[ i * 4 + 2 ];
+
+        let grey = ( r + g + b ) / 3;
+
+        pixels[ i * 4 ] = grey;
+        pixels[ i * 4 + 1 ] = grey;
+        pixels[ i * 4 + 2 ] = grey;
+    }
+
+    ctx.putImageData( imageData, 0, 0 );
+})
