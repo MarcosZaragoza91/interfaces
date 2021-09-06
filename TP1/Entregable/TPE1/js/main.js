@@ -113,6 +113,60 @@
 
     //----------------------------------------FILTROS--------------------------------------------------git s
 
+document.querySelector('#filter_red').addEventListener('click',function(){
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let pixels = imageData.data;
+    let numPixels = imageData.width * imageData.height;
+
+    for ( let i = 0; i < numPixels; i++ ) {
+        let r = pixels[ i * 4 ];
+        let g = pixels[ i * 4 + 1 ];
+        let b = pixels[ i * 4 + 2 ];
+
+        pixels[ i * 4 ] = r;
+        pixels[ i * 4 + 1 ] = 0;
+        pixels[ i * 4 + 2 ] = 0;
+    }
+
+    ctx.putImageData( imageData, 0, 0 );
+})
+
+document.querySelector('#filter_green').addEventListener('click',function(){
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let pixels = imageData.data;
+    let numPixels = imageData.width * imageData.height;
+
+    for ( let i = 0; i < numPixels; i++ ) {
+        let r = pixels[ i * 4 ];
+        let g = pixels[ i * 4 + 1 ];
+        let b = pixels[ i * 4 + 2 ];
+
+        pixels[ i * 4 ] = 0;
+        pixels[ i * 4 + 1 ] = g;
+        pixels[ i * 4 + 2 ] = 0;
+    }
+
+    ctx.putImageData( imageData, 0, 0 );
+})
+
+document.querySelector('#filter_blue').addEventListener('click',function(){
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let pixels = imageData.data;
+    let numPixels = imageData.width * imageData.height;
+
+    for ( let i = 0; i < numPixels; i++ ) {
+        let r = pixels[ i * 4 ];
+        let g = pixels[ i * 4 + 1 ];
+        let b = pixels[ i * 4 + 2 ];
+
+        pixels[ i * 4 ] = 0;
+        pixels[ i * 4 + 1 ] = 0;
+        pixels[ i * 4 + 2 ] = b;
+    }
+
+    ctx.putImageData( imageData, 0, 0 );
+})
+
 
 document.querySelector('#filter_binario').addEventListener('click',function(){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
@@ -198,3 +252,4 @@ document.querySelector('#filter_contrast').addEventListener('click',function (){
 
     ctx.putImageData( imageData, 0, 0 );
 })
+
