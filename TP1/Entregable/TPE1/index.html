@@ -27,15 +27,15 @@
         </div>
         <div class="container-filtros"> 
             <button id="filter_sephia" class="btn btn-warning"><span class="badge bg-warning text-white">Sepia</span></button>
-            <button class="btn btn-secondary"><span class="badge bg-secondary text-white">Blur</span></button>
+            <button id= "filter_blur" class="btn btn-secondary"><span class="badge bg-secondary text-white">Blur</span></button>
             <button id="filter_binario" class="btn btn-dark"><span class="badge bg-dark text-white">Black/White</span></button>
             <button id="filter_invert" class="btn btn-dark"><span class="badge bg-dark text-white">Invertido</span></button>
             <button id="filter_red" class="btn btn-danger"><span class="badge bg-danger text-white">Rojo</span></button>
             <button id="filter_green"class="btn btn-success"><span class="badge bg-success text-white">Verde</span></button>
             <button id="filter_blue"class="btn btn-primary"><span class="badge bg-primary text-white">Azul</span></button>
             <button id="filter_contrast" class="btn btn-warning"><span class="badge bg-warning text-white">Contraste</span></button>
-            <button id="filter_brillo" class="btn" value="brillo">Brillo</button>
-            <button id="filter_saturacion" class="btn" value="saturacion">Saturacion</button>
+            <button id="filter_brillo" class="btn" value="brillo" onclick="filterBrilloSaturation(this.value)">Brillo</button>
+            <button id="filter_saturacion" class="btn" value="saturacion" onclick="filterBrilloSaturation(this.value)">Saturacion</button>
         </div>
         
     </nav>

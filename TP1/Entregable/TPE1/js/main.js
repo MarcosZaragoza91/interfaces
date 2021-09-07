@@ -233,7 +233,7 @@ document.querySelector('#filter_contrast').addEventListener('click',function (){
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
-    let contrast = puntero.getGrosor();//Lo toma del rango del grosor, esto se debe reformar por uno propio
+    let contrast = 10;
     let factor = ( 259 * ( contrast + 255 ) ) / ( 255 * ( 259 - contrast ) );
 
     for ( let i = 0; i < numPixels; i++ ) {
@@ -253,8 +253,10 @@ document.querySelector('#filter_contrast').addEventListener('click',function (){
     ctx.putImageData( imageData, 0, 0 );
 })
 
-//CONVIERTO DE RGB A HSV
-function rgb_to_hsv(r , g , b) { ///esta es la q anda
+    //------------------------------------Brillo/Saturacion--------------------------------------
+
+    //CONVIERTO DE RGB A HSV
+    function rgb_to_hsv(r , g , b) { ///esta es la q anda
     
     // R, G, B values are divided by 255
             // to change the range from 0..255 to 0..1
@@ -296,128 +298,160 @@ function rgb_to_hsv(r , g , b) { ///esta es la q anda
             hsv.push(Math.round(h),Math.round(s),Math.round (v));
             return hsv;
             
-        }
+    }
         //CONVIERTO DE HSV a RGB
-        function hsvTo_Rgb(h, s, v) {
-            var r, g, b;
-            var i;
-            var f, p, q, t;
-             
-            // Make sure our arguments stay in-range
-            h = Math.max(0, Math.min(360, h));
-            s = Math.max(0, Math.min(100, s));
-            v = Math.max(0, Math.min(100, v));
-             
-            // We accept saturation and value arguments from 0 to 100 because that's
-            // how Photoshop represents those values. Internally, however, the
-            // saturation and value are calculated from a range of 0 to 1. We make
-            // That conversion here.
-            s /= 100;
-            v /= 100;
-             
-            if(s == 0) {
-                // Achromatic (grey)
-                r = g = b = v;
-                return [
-                    Math.round(r * 255), 
-                    Math.round(g * 255), 
-                    Math.round(b * 255)
-                ];
-            }
-             
-            h /= 60; // sector 0 to 5
-            i = Math.floor(h);
-            f = h - i; // factorial part of h
-            p = v * (1 - s);
-            q = v * (1 - s * f);
-            t = v * (1 - s * (1 - f));
-             
-            switch(i) {
-                case 0:
-                    r = v;
-                    g = t;
-                    b = p;
-                    break;
+    function hsvTo_Rgb(h, s, v) {
+        var r, g, b;
+        var i;
+        var f, p, q, t;
 
-                case 1:
-                    r = q;
-                    g = v;
-                    b = p;
-                    break;
-             
-                case 2:
-                    r = p;
-                    g = v;
-                    b = t;
-                    break;
-             
-                case 3:
-                    r = p;
-                    g = q;
-                    b = v;
-                    break;
-             
-                case 4:
-                    r = t;
-                    g = p;
-                    b = v;
-                    break;
- 
-                default: // case 5:
-                    r = v;
-                    g = p;
-                    b = q;
-            }            
-            const rgb = [];
-            rgb.push(Math.round(r * 255),Math.round(g * 255) ,Math.round(b * 255) );
-            return rgb;
-        } 
-        let valorBrillo = document.querySelector('#filter_brillo');
-        valorBrillo.addEventListener('click',filtroBrilloSaturacion(valorBrillo));
+        // Make sure our arguments stay in-range
+        h = Math.max(0, Math.min(360, h));
+        s = Math.max(0, Math.min(100, s));
+        v = Math.max(0, Math.min(100, v));
 
-        let valorSaturacion = document.querySelector('#filter_saturacion');
-        valorSaturacion.addEventListener('click',filtroBrilloSaturacion(valorSaturacion));
+        // We accept saturation and value arguments from 0 to 100 because that's
+        // how Photoshop represents those values. Internally, however, the
+        // saturation and value are calculated from a range of 0 to 1. We make
+        // That conversion here.
+        s /= 100;
+        v /= 100;
 
-        function filtroBrilloSaturacion(valor){ 
-            let rgbTohsv = [];
-            let hsvToRgb = [];
-            let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            let pixels = imageData.data;
-            let numPixels = imageData.width * imageData.height;
-            
-            for ( let i = 0; i < numPixels; i++ ) {
-                let r = pixels[ i * 4 ];
-                let g = pixels[ i * 4 + 1 ];
-                let b = pixels[ i * 4 + 2 ];    
-                rgbTohsv = rgb_to_hsv(r,g,b);
-                let h,s,v;
-                h = rgbTohsv[0];
-                s=rgbTohsv[1];
-                v = rgbTohsv[2];
-                
-                if(valor.value="brillo"){
-                    let brillo=20;
-                    if(v+brillo>100){
-                        v=100
-                    }else{
-                        v=v+brillo    
-                    }    
-                }else{
-                    let saturacion=20;
-                    if(s+saturacion>100){
-                        s=100
-                    }else{
-                        s=s+saturacion;    
-                    }    
-                }
-
-                hsvToRgb = hsvTo_Rgb(h,s,v);
-                r = hsvToRgb[0];
-                g = hsvToRgb[1];
-                b = hsvToRgb[2];
-                pixels[ i * 4 ] =  Math.round(r);
-                pixels[ i * 4 + 1 ] = Math.round(g);
-                pixels[ i * 4 + 2 ] = Math.round(b);
-            }
-            ctx.putImageData( imageData, 0, 0 );
+        if(s == 0) {
+            // Achromatic (grey)
+            r = g = b = v;
+            return [
+                Math.round(r * 255),
+                Math.round(g * 255),
+                Math.round(b * 255)
+            ];
         }
+
+        h /= 60; // sector 0 to 5
+        i = Math.floor(h);
+        f = h - i; // factorial part of h
+        p = v * (1 - s);
+        q = v * (1 - s * f);
+        t = v * (1 - s * (1 - f));
+
+        switch(i) {
+            case 0:
+                r = v;
+                g = t;
+                b = p;
+                break;
+
+            case 1:
+                r = q;
+                g = v;
+                b = p;
+                break;
+
+            case 2:
+                r = p;
+                g = v;
+                b = t;
+                break;
+
+            case 3:
+                r = p;
+                g = q;
+                b = v;
+                break;
+
+            case 4:
+                r = t;
+                g = p;
+                b = v;
+                break;
+
+            default: // case 5:
+                r = v;
+                g = p;
+                b = q;
+        }
+        const rgb = [];
+        rgb.push(Math.round(r * 255),Math.round(g * 255) ,Math.round(b * 255) );
+        return rgb;
+    }
+
+
+    function filterBrilloSaturation(variable){
+        let rgbTohsv = [];
+        let hsvToRgb = [];
+        let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let pixels = imageData.data;
+        let numPixels = imageData.width * imageData.height;
+
+        for ( let i = 0; i < numPixels; i++ ) {
+            let r = pixels[ i * 4 ];
+            let g = pixels[ i * 4 + 1 ];
+            let b = pixels[ i * 4 + 2 ];
+            rgbTohsv = rgb_to_hsv(r,g,b);
+            let h,s,v;
+            h = rgbTohsv[0];
+            s=rgbTohsv[1];
+            v = rgbTohsv[2];
+
+            if(variable==="brillo"){
+                let brillo=20;
+                if(v+brillo>100){
+                    v=100
+                }else{
+                    v=v+brillo
+                }
+            }else{
+                let saturacion=20;
+                if(s+saturacion>100){
+                    s=100
+                }else{
+                    s=s+saturacion;
+                }
+            }
+
+            hsvToRgb = hsvTo_Rgb(h,s,v);
+            r = hsvToRgb[0];
+            g = hsvToRgb[1];
+            b = hsvToRgb[2];
+            pixels[ i * 4 ] =  Math.round(r);
+            pixels[ i * 4 + 1 ] = Math.round(g);
+            pixels[ i * 4 + 2 ] = Math.round(b);
+        }
+        ctx.putImageData( imageData, 0, 0 );
+    }
+
+    //------------------------------------------Blur---------------------------------------------
+    //Incompleto falta determinar los colores
+
+document.querySelector('#filter_blur').addEventListener('click',function (){
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let pixels = imageData.data;
+    let copia = imageData;
+
+    for (let x = 0; x < canvas.width; x++) {
+        for (let y = 0; y < canvas.height; y++) {
+            if (!(x < 1 || y < 1 || (x + 1) === canvas.width || (y + 1) === canvas.height)){
+                let Sum = pixels[x - 1, y + 1] + // Top left
+                    pixels[x, y + 1] + // Top center
+                    pixels[x + 1, y + 1] + // Top right
+                    pixels[x - 1, y] + // Mid left
+                    pixels[x, y] + // Current pixel
+                    pixels[x + 1, y] + // Mid right
+                    pixels[x - 1, y - 1] + // Low left
+                    pixels[x, y - 1] + // Low center
+                    pixels[x + 1, y - 1];  // Low right
+                Sum = Math.round(Sum/9);
+                setPixel(copia,x,y,Sum);
+                Sum=0;
+            }
+        }
+    }
+    ctx.putImageData( copia, 0, 0 );
+});
+
+    function setPixel(imageData,x,y,Sum){
+        let index = (x + y *imageData.width) * 4;
+        imageData.data[index] = Sum;
+        imageData.data[index + 1] = Sum;
+        imageData.data[index + 2] = Sum;
+    }
