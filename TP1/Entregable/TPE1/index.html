@@ -2,44 +2,49 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <title>Paint</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row align-items-start bg-secondary">
-            <div class="col">
-                <canvas id="myCanvas" width="1024" height="768" style="border: solid 1px black" class="bg-white"></canvas>
-            </div>
-            <div class="col text-center bg-secondary text-white fw-bold" style="border: solid 1px black">
-                <p>Panel</p>
+    <nav class="nav">
+        <div class="container-top">
+            <div class="container-nav1">
                 <button id="btn_pencil" class="btn btn-secondary">Lapiz</button>
                 <button id="btn_circle" class="btn btn-secondary">Circulo</button>
-                Color de linea : <input type="color" id="paletColor" onchange= "elegirColor(this)">
                 <button id="delete" class="btn btn-secondary">Goma</button>
                 <button id="deleteAll" class="btn btn-secondary">Limpiar Lienzo</button>
-                <div>
-                    <div class="col text-center bg-secondary text-white fw-bold">
-                        <p>Trazo</p>
-                        Grosor de linea: <input type="range" id="grosorLinea" oninput="elegirGrosor(this);" min="1" max="20" value="1">
-                        Cargar imagen: <input  type="file" id="imagen" accept="image/x-png,image/gif,image/jpeg,image/jpg">
-                        <a href="#" type="button" id="btn_descargar_imagen"class="btn btn-secondary" download="image.png" title="Descargar imagen">Descargar Imagen</a>
-                        <button id="cargar">cargarImagen</button>
-                    </div>
-                    <div class="col text-center bg-secondary text-white fw-bold">
-                        <p>Filtros</p>
-                        <div>
-                            <button id="filter_sephia" class="btn btn-warning"><span class="badge bg-warning text-white">Sepia</span></button>
-                            <button class="btn btn-secondary"><span class="badge bg-secondary text-white">Blur</span></button>
-                            <button id="filter_binario" class="btn btn-dark"><span class="badge bg-dark text-white">Black/White</span></button>
-                            <button id="filter_invert" class="btn btn-dark"><span class="badge bg-dark text-white">Invertido</span></button>
-                            <button id="filter_red" class="btn btn-danger"><span class="badge bg-danger text-white">Rojo</span></button>
-                            <button id="filter_green" class="btn btn-success"><span class="badge bg-success text-white">Verde</span></button>
-                            <button id="filter_blue" class="btn btn-primary"><span class="badge bg-primary text-white">Azul</span></button>
-                            <button id="filter_contrast" class="btn btn-warning"><span class="badge bg-warning text-white">Contraste</span></button>
-                        </div>
-                    </div>
-                </div>
+                Color de linea : <input type="color" id="paletColor" class="btn" onchange= "elegirColor(this)">
+                Grosor de linea: <input type="range" id="grosorLinea" class="btn" oninput="elegirGrosor(this);" min="1" max="20" value="1">
             </div>
+            <div class="container-nav2">
+                Cargar imagen: <input  type="file" id="imagen" class="btn" accept="image/x-png,image/gif,image/jpeg,image/jpg">
+                <a type="button" id="btn_descargar_imagen"class="btn" download="image.png" title="Descargar imagen">
+                    Descargar Imagen
+                </a>
+            </div>
+        </div>
+        <div class="container-filtros"> 
+            <button id="filter_sephia" class="btn btn-warning"><span class="badge bg-warning text-white">Sepia</span></button>
+            <button class="btn btn-secondary"><span class="badge bg-secondary text-white">Blur</span></button>
+            <button id="filter_binario" class="btn btn-dark"><span class="badge bg-dark text-white">Black/White</span></button>
+            <button id="filter_invert" class="btn btn-dark"><span class="badge bg-dark text-white">Invertido</span></button>
+            <button id="filter_red" class="btn btn-danger"><span class="badge bg-danger text-white">Rojo</span></button>
+            <button id="filter_green"class="btn btn-success"><span class="badge bg-success text-white">Verde</span></button>
+            <button id="filter_blue"class="btn btn-primary"><span class="badge bg-primary text-white">Azul</span></button>
+            <button id="filter_contrast" class="btn btn-warning"><span class="badge bg-warning text-white">Contraste</span></button>
+            <button id="filter_brillo" class="btn" value="brillo">Brillo</button>
+            <button id="filter_saturacion" class="btn" value="saturacion">Saturacion</button>
+        </div>
+        
+    </nav>
+    
+    <div class= "container-body">
+        <div class="container-canvas">
+            <canvas id="myCanvas" width="1024" height="768" style="border: solid 1px black" class="bg-white"></canvas>
+        </div>
+    </div>
 
             <script src="js/image.js"></script>
             <script src="js/Lapiz.js"></script>
