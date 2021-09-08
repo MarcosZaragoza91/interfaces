@@ -22,8 +22,9 @@ class Imagen{
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                         canva.width = original.width;
                         canva.heigth = original.heigth;
+                        let img = new Imagen();
+                        img.setOriginal(original);
                         contex.drawImage(original,0,0);
-                        this.setOriginal(original);
                     }
                 }
             }

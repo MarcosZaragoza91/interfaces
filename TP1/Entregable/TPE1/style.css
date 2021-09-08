@@ -41,13 +41,14 @@ a {
    display: flex;
    justify-content: center;
 }
-.container-canvas {
-    
-}
 
 .container-filtros {
     margin-top: 10px;
     
     display: flex;
     justify-content: space-around;
+}
+
+.col {
+    text-align: center;
 }

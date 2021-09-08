@@ -15,10 +15,12 @@
 
     // Se define el objeto Lapiz
     let puntero = new Lapiz();
+    let imagen = new Imagen();
 
     // Se Crea un flag para dibujar o no en el canvas
     let dibujar = false;
     let borro = false;
+
 
     document.querySelector('#btn_pencil').addEventListener('click', ()=> {
         puntero.setForma('pencil');
@@ -60,6 +62,15 @@
         let dataURL = canvas.toDataURL('image/png');
         descargar.href = dataURL;
     });
+
+    document.querySelector('#imagen').addEventListener('click', function(e){
+        imagen.cargarImagen(e);
+    })
+
+    document.querySelector('#original').addEventListener('click', function(){
+        let img = imagen.getOriginal();
+        ctx.drawImage(img,0,0);
+    })
 
 //------------------------------------------FUNCIONES------------------------------------------------
 
@@ -426,7 +437,7 @@ document.querySelector('#filter_contrast').addEventListener('click',function (){
 document.querySelector('#filter_blur').addEventListener('click',function (){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
-    let copia = imageData;
+    let copy = imageData;
 
     for (let x = 0; x < canvas.width; x++) {
         for (let y = 0; y < canvas.height; y++) {
@@ -440,18 +451,27 @@ document.querySelector('#filter_blur').addEventListener('click',function (){
                     pixels[x - 1, y - 1] + // Low left
                     pixels[x, y - 1] + // Low center
                     pixels[x + 1, y - 1];  // Low right
-                Sum = Math.round(Sum/9);
-                setPixel(copia,x,y,Sum);
+                Sum = Sum/9;
+                setPixel(copy,x,y,Sum);
                 Sum=0;
             }
         }
     }
-    ctx.putImageData( copia, 0, 0 );
+    imageData = copy;
+    ctx.putImageData( imageData, 0, 0 );
 });
 
-    function setPixel(imageData,x,y,Sum){
-        let index = (x + y *imageData.width) * 4;
-        imageData.data[index] = Sum;
-        imageData.data[index + 1] = Sum;
-        imageData.data[index + 2] = Sum;
+    function setPixel(copy,x,y,Sum){
+        let index = (x + y *copy.width) * 4;
+        let r = copy.data[ index * 4 ];
+        let g = copy.data[ index * 4 + 1 ];
+        let b = copy.data[ index * 4 + 2 ];
+        let pr = r/255;
+        let pg = g/255;
+        let pb = b/255;
+
+
+        copy.data[index] = Sum * pr;
+        copy.data[index + 1] = Sum * pg;
+        copy.data[index + 2] = Sum * pb;
     }
