@@ -21,9 +21,6 @@ body {
 
 }
 
-.container-nav1 , .container-nav2{
-
-}
 .btn {
     padding: 8px;
     margin: 7px;
@@ -41,9 +38,7 @@ a {
    display: flex;
    justify-content: center;
 }
-.container-canvas {
-    
-}
+
 
 .container-filtros {
     margin-top: 10px;
