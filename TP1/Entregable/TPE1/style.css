@@ -4,7 +4,6 @@
 }
 
 .nav {
-
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -18,12 +17,8 @@ body {
 .container-top {
     display: flex;
     justify-content: space-between;
-
 }
 
-.container-nav1 , .container-nav2{
-
-}
 .btn {
     padding: 8px;
     margin: 7px;
@@ -36,20 +31,15 @@ a {
     background-color:rgb(207, 245, 242);
     
   }
-.container-body {
+
+  .container-body {
     margin-top: 5px;
    display: flex;
    justify-content: center;
 }
 
-
 .container-filtros {
-    margin-top: 10px;
-    
+    margin-top: 10px;    
     display: flex;
     justify-content: space-around;
-}
-
-.col {
-    text-align: center;
 }

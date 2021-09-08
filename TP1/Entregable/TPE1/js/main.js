@@ -433,7 +433,7 @@ document.querySelector('#filter_contrast').addEventListener('click',function (){
 
     //------------------------------------------Blur---------------------------------------------
     //Incompleto falta determinar los colores
-
+/*
 document.querySelector('#filter_blur').addEventListener('click',function (){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
@@ -475,3 +475,74 @@ document.querySelector('#filter_blur').addEventListener('click',function (){
         copy.data[index + 1] = Sum * pg;
         copy.data[index + 2] = Sum * pb;
     }
+*/
+
+function pixelRed(imageData, x, y) {
+    return imageData.data[(x + y * imageData.width) * 4 + 0];
+  }
+  
+  function pixelGreen(imageData, x, y) {
+    return imageData.data[(x + y * imageData.width) * 4 + 1];
+  }
+  
+  function pixelBlue(imageData, x, y) {
+    return imageData.data[(x + y * imageData.width) * 4 + 2];
+  }
+  
+  function setPixel(imageData, x, y, r, g, b) {
+    var index = (x + y * imageData.width) * 4;
+    imageData.data[index + 0] = r;
+    imageData.data[index + 1] = g;
+    imageData.data[index + 2] = b;
+    imageData.data[index + 3] = 255;
+  }
+  
+  document.querySelector('#filter_blur').addEventListener('click',function (){
+      let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+      let pixels = imageData.data;
+      let copy = imageData;
+      let prom = 1/9;
+      let R =0.0;				
+      let G =0.0;	
+      let B =0.0;		
+  
+      for (let x = 0; x < canvas.width; x++) {
+          for (let y = 0; y < canvas.height; y++) {0
+          
+        R = pixelRed(imageData, x-1, y-1) * prom + 
+          pixelRed(imageData, x, y-1) *prom + 
+          pixelRed(imageData, x+1, y-1) *prom + 
+          pixelRed(imageData, x-1, y) *prom + 
+          pixelRed(imageData, x, y) *prom + 
+          pixelRed(imageData, x+1, y) *prom + 
+          pixelRed(imageData, x-1, y+1) *prom + 
+          pixelRed(imageData, x, y+1) *prom + 
+          pixelRed(imageData, x+1, y+1) *prom; 
+   
+          G=	pixelGreen(imageData, x-1, y-1) *prom + 
+          pixelGreen(imageData, x, y-1) *prom + 
+          pixelGreen(imageData, x+1, y-1) *prom + 
+          pixelGreen(imageData, x-1, y) *prom + 
+          pixelGreen(imageData, x, y) *prom + 
+          pixelGreen(imageData, x+1, y) *prom + 
+          pixelGreen(imageData, x-1, y+1) *prom + 
+          pixelGreen(imageData, x, y+1) *prom + 
+          pixelGreen(imageData, x+1, y+1) *prom;
+  
+         B= pixelBlue(imageData, x-1, y-1) * prom + 
+          pixelBlue(imageData, x, y-1) *prom + 
+          pixelBlue(imageData, x+1, y-1) *prom + 
+          pixelBlue(imageData, x-1, y) *prom + 
+          pixelBlue(imageData, x, y) *prom + 
+          pixelBlue(imageData, x+1, y) *prom + 
+          pixelBlue(imageData, x-1, y+1) *prom + 
+          pixelBlue(imageData, x, y+1) *prom + 
+          pixelBlue(imageData, x+1, y+1) *prom;
+  
+          setPixel(imageData, x, y,Math.round(R) ,Math.round(G), Math.round(B)); 
+              }
+          }
+      
+      ctx.putImageData( imageData, 0, 0 );
+  });
+
