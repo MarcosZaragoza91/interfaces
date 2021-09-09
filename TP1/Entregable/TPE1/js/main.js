@@ -586,99 +586,124 @@ let sobelY =
         [0,0,0],
         [-1,-2,-1]
     ];
+    //
+    // for (let x = 0; x < canvas.height; x++) {
+    //     for (let y = 0; y < canvas.width; y++) {
+    //         var r = pixelRed(imageData,x, y);
+    //         var g = pixelGreen(imageData, x, y);
+    //         var b = pixelBlue(imageData,x, y);
+    //
+    //         var avg = (r + g + b) / 3;
+    //         setPixel(imageData, x, y, avg, avg, avg, 255);
+    //     }
+    // }
 
 for (let x = 0; x <= canvas.width; x++) {
     for (let y = 0; y <= canvas.height; y++) {
 
-        // RX = pixelRed(imageData, x-1, y-1) * sobelX[0][0] +
-        //     pixelRed(imageData, x, y-1) *sobelX[0][1] +
-        //     pixelRed(imageData, x+1, y-1) *sobelX[0][2] +
-        //     pixelRed(imageData, x-1, y) *sobelX[1][0] +
-        //     // pixelRed(imageData, x, y) *sobelX[1][1] +
-        //     pixelRed(imageData, x+1, y) *sobelX[1][2] +
-        //     pixelRed(imageData, x-1, y+1) *sobelX[2][0] +
-        //     pixelRed(imageData, x, y+1) *sobelX[2][1] +
-        //     pixelRed(imageData, x+1, y+1) *sobelX[2][2];
-        //
-        // GX=	pixelGreen(imageData, x-1, y-1) * sobelX[0][0] +
-        //     pixelGreen(imageData, x, y-1) *sobelX[0][1] +
-        //     pixelGreen(imageData, x+1, y-1) *sobelX[0][2] +
-        //     pixelGreen(imageData, x-1, y) *sobelX[1][0] +
-        //     // pixelGreen(imageData, x, y) *sobelX[1][1] +
-        //     pixelGreen(imageData, x+1, y) *sobelX[1][2] +
-        //     pixelGreen(imageData, x-1, y+1) *sobelX[2][0] +
-        //     pixelGreen(imageData, x, y+1) *sobelX[2][1] +
-        //     pixelGreen(imageData, x+1, y+1) *sobelX[2][2];
-        //
-        // BX= pixelBlue(imageData, x-1, y-1) * sobelX[0][0] +
-        //     pixelBlue(imageData, x, y-1) *sobelX[0][1] +
-        //     pixelBlue(imageData, x+1, y-1) *sobelX[0][2] +
-        //     pixelBlue(imageData, x-1, y) *sobelX[1][0] +
-        //     // pixelBlue(imageData, x, y) *sobelX[1][1] +
-        //     pixelBlue(imageData, x+1, y) *sobelX[1][2] +
-        //     pixelBlue(imageData, x-1, y+1) *sobelX[2][0] +
-        //     pixelBlue(imageData, x, y+1) *sobelX[2][1] +
-        //     pixelBlue(imageData, x+1, y+1) *sobelX[2][2];
-        //
-        // RY = pixelRed(imageData, x-1, y-1) * sobelY[0][0] +
-        //     pixelRed(imageData, x, y-1) *sobelY[0][1] +
-        //     pixelRed(imageData, x+1, y-1) *sobelY[0][2] +
-        //     pixelRed(imageData, x-1, y) *sobelY[1][0] +
-        //     // pixelRed(imageData, x, y) *sobelX[1][1] +
-        //     pixelRed(imageData, x+1, y) *sobelY[1][2] +
-        //     pixelRed(imageData, x-1, y+1) *sobelY[2][0] +
-        //     pixelRed(imageData, x, y+1) *sobelY[2][1] +
-        //     pixelRed(imageData, x+1, y+1) *sobelY[2][2];
-        //
-        // GY=	pixelGreen(imageData, x-1, y-1) * sobelY[0][0] +
-        //     pixelGreen(imageData, x, y-1) *sobelY[0][1] +
-        //     pixelGreen(imageData, x+1, y-1) *sobelY[0][2] +
-        //     pixelGreen(imageData, x-1, y) *sobelY[1][0] +
-        //     // pixelGreen(imageData, x, y) *sobelX[1][1] +
-        //     pixelGreen(imageData, x+1, y) *sobelY[1][2] +
-        //     pixelGreen(imageData, x-1, y+1) *sobelY[2][0] +
-        //     pixelGreen(imageData, x, y+1) *sobelY[2][1] +
-        //     pixelGreen(imageData, x+1, y+1) *sobelY[2][2];
-        //
-        // BY= pixelBlue(imageData, x-1, y-1) * sobelY[0][0] +
-        //     pixelBlue(imageData, x, y-1) *sobelY[0][1] +
-        //     pixelBlue(imageData, x+1, y-1) *sobelY[0][2] +
-        //     pixelBlue(imageData, x-1, y) *sobelY[1][0] +
-        //     // pixelBlue(imageData, x, y) *sobelX[1][1] +
-        //     pixelBlue(imageData, x+1, y) *sobelY[1][2] +
-        //     pixelBlue(imageData, x-1, y+1) *sobelY[2][0] +
-        //     pixelBlue(imageData, x, y+1) *sobelY[2][1] +
-        //     pixelBlue(imageData, x+1, y+1) *sobelY[2][2];
-        //
-        // RX = (RX+GX+BX)/3;
-        // GX = RX;
-        // BX = RX;
-
-        X = getPixel(imageData, x-1, y-1) * sobelX[0][0] +
-            getPixel(imageData, x, y-1) *sobelX[0][1] +
-            getPixel(imageData, x+1, y-1) *sobelX[0][2] +
-            getPixel(imageData, x-1, y) *sobelX[1][0] +
+        RX = pixelRed(imageData, x-1, y-1) * sobelX[0][0] +
+            pixelRed(imageData, x, y-1) *sobelX[0][1] +
+            pixelRed(imageData, x+1, y-1) *sobelX[0][2] +
+            pixelRed(imageData, x-1, y) *sobelX[1][0] +
             // pixelRed(imageData, x, y) *sobelX[1][1] +
-            getPixel(imageData, x+1, y) *sobelX[1][2] +
-            getPixel(imageData, x-1, y+1) *sobelX[2][0] +
-            getPixel(imageData, x, y+1) *sobelX[2][1] +
-            getPixel(imageData, x+1, y+1) *sobelX[2][2];
+            pixelRed(imageData, x+1, y) *sobelX[1][2] +
+            pixelRed(imageData, x-1, y+1) *sobelX[2][0] +
+            pixelRed(imageData, x, y+1) *sobelX[2][1] +
+            pixelRed(imageData, x+1, y+1) *sobelX[2][2];
 
-        Y = getPixel(imageData, x-1, y-1) * sobelY[0][0] +
-            getPixel(imageData, x, y-1) *sobelY[0][1] +
-            getPixel(imageData, x+1, y-1) *sobelY[0][2] +
-            getPixel(imageData, x-1, y) *sobelY[1][0] +
+        GX=	pixelGreen(imageData, x-1, y-1) * sobelX[0][0] +
+            pixelGreen(imageData, x, y-1) *sobelX[0][1] +
+            pixelGreen(imageData, x+1, y-1) *sobelX[0][2] +
+            pixelGreen(imageData, x-1, y) *sobelX[1][0] +
+            // pixelGreen(imageData, x, y) *sobelX[1][1] +
+            pixelGreen(imageData, x+1, y) *sobelX[1][2] +
+            pixelGreen(imageData, x-1, y+1) *sobelX[2][0] +
+            pixelGreen(imageData, x, y+1) *sobelX[2][1] +
+            pixelGreen(imageData, x+1, y+1) *sobelX[2][2];
+
+        BX= pixelBlue(imageData, x-1, y-1) * sobelX[0][0] +
+            pixelBlue(imageData, x, y-1) *sobelX[0][1] +
+            pixelBlue(imageData, x+1, y-1) *sobelX[0][2] +
+            pixelBlue(imageData, x-1, y) *sobelX[1][0] +
+            // pixelBlue(imageData, x, y) *sobelX[1][1] +
+            pixelBlue(imageData, x+1, y) *sobelX[1][2] +
+            pixelBlue(imageData, x-1, y+1) *sobelX[2][0] +
+            pixelBlue(imageData, x, y+1) *sobelX[2][1] +
+            pixelBlue(imageData, x+1, y+1) *sobelX[2][2];
+
+        RY = pixelRed(imageData, x-1, y-1) * sobelY[0][0] +
+            pixelRed(imageData, x, y-1) *sobelY[0][1] +
+            pixelRed(imageData, x+1, y-1) *sobelY[0][2] +
+            pixelRed(imageData, x-1, y) *sobelY[1][0] +
             // pixelRed(imageData, x, y) *sobelX[1][1] +
-            getPixel(imageData, x+1, y) *sobelY[1][2] +
-            getPixel(imageData, x-1, y+1) *sobelY[2][0] +
-            getPixel(imageData, x, y+1) *sobelY[2][1] +
-            getPixel(imageData, x+1, y+1) *sobelY[2][2];
+            pixelRed(imageData, x+1, y) *sobelY[1][2] +
+            pixelRed(imageData, x-1, y+1) *sobelY[2][0] +
+            pixelRed(imageData, x, y+1) *sobelY[2][1] +
+            pixelRed(imageData, x+1, y+1) *sobelY[2][2];
 
-        // X = RX+GX+BX;
-        // Y= RY+GY+BY;
+        GY=	pixelGreen(imageData, x-1, y-1) * sobelY[0][0] +
+            pixelGreen(imageData, x, y-1) *sobelY[0][1] +
+            pixelGreen(imageData, x+1, y-1) *sobelY[0][2] +
+            pixelGreen(imageData, x-1, y) *sobelY[1][0] +
+            // pixelGreen(imageData, x, y) *sobelX[1][1] +
+            pixelGreen(imageData, x+1, y) *sobelY[1][2] +
+            pixelGreen(imageData, x-1, y+1) *sobelY[2][0] +
+            pixelGreen(imageData, x, y+1) *sobelY[2][1] +
+            pixelGreen(imageData, x+1, y+1) *sobelY[2][2];
+
+        BY= pixelBlue(imageData, x-1, y-1) * sobelY[0][0] +
+            pixelBlue(imageData, x, y-1) *sobelY[0][1] +
+            pixelBlue(imageData, x+1, y-1) *sobelY[0][2] +
+            pixelBlue(imageData, x-1, y) *sobelY[1][0] +
+            // pixelBlue(imageData, x, y) *sobelX[1][1] +
+            pixelBlue(imageData, x+1, y) *sobelY[1][2] +
+            pixelBlue(imageData, x-1, y+1) *sobelY[2][0] +
+            pixelBlue(imageData, x, y+1) *sobelY[2][1] +
+            pixelBlue(imageData, x+1, y+1) *sobelY[2][2];
+
+        RX = (RX+GX+BX)/3;
+        RY = (RY+GY+BY)/3;
+
+        // X = getPixel(imageData, x-1, y-1) * sobelX[0][0] +
+        //     getPixel(imageData, x, y-1) *sobelX[0][1] +
+        //     getPixel(imageData, x+1, y-1) *sobelX[0][2] +
+        //     getPixel(imageData, x-1, y) *sobelX[1][0] +
+        //     getPixel(imageData, x, y) *sobelX[1][1] +
+        //     getPixel(imageData, x+1, y) *sobelX[1][2] +
+        //     getPixel(imageData, x-1, y+1) *sobelX[2][0] +
+        //     getPixel(imageData, x, y+1) *sobelX[2][1] +
+        //     getPixel(imageData, x+1, y+1) *sobelX[2][2];
+        //
+        // Y = getPixel(imageData, x-1, y-1) * sobelY[0][0] +
+        //     getPixel(imageData, x, y-1) *sobelY[0][1] +
+        //     getPixel(imageData, x+1, y-1) *sobelY[0][2] +
+        //     getPixel(imageData, x-1, y) *sobelY[1][0] +
+        //     getPixel(imageData, x, y) *sobelX[1][1] +
+        //     getPixel(imageData, x+1, y) *sobelY[1][2] +
+        //     getPixel(imageData, x-1, y+1) *sobelY[2][0] +
+        //     getPixel(imageData, x, y+1) *sobelY[2][1] +
+        //     getPixel(imageData, x+1, y+1) *sobelY[2][2];
+
+        X = RX;
+        Y= RY;
+        // console.log(X);
+        // console.log(Y);
         let RXY=Math.sqrt(X*X+Y*Y);
+        // console.log ("RXY:"+RXY);
 
-        setPixelAll(imageData, x, y,Math.round(RXY));
+        if(RXY < 0) {
+            setPixel(imageData, x, y, 0,0,0, 255);
+        }
+        else if(RXY > 255) {
+            setPixel(imageData, x, y, 0, 0, 0, 255);
+        }
+        else {
+            setPixel(imageData, x, y, Math.round(RXY), Math.round(RXY), Math.round(RXY), 255);
+        }
+
+
+
+        // setPixel(imageData, x, y, Math.round(RXY),Math.round(RXY),Math.round(RXY),255);
     }
 }
 

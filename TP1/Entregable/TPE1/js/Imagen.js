@@ -22,7 +22,11 @@ class Imagen{
                         ctx.clearRect(0, 0, canva.width, canva.height);
                         canva.width = this.width;
                         canva.height = this.height;
-                        contex.drawImage(this,0,0);
+                        if (canva.width > 2000 || canva.height > 2000){
+
+                        }else{
+                            contex.drawImage(this,0,0);
+                        }
                     }
                 }
             }
