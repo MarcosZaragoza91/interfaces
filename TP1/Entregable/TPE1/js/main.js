@@ -118,9 +118,6 @@
 
 
 
-
-
-
     //----------------------------------------FILTROS--------------------------------------------------git s
 
 document.querySelector('#filter_red').addEventListener('click',function(){
@@ -247,6 +244,7 @@ document.querySelector('#filter_contrast').addEventListener('click',function (){
     let factor = ( 259 * ( contrast + 255 ) ) / ( 255 * ( 259 - contrast ) );
 
     for ( let i = 0; i < numPixels; i++ ) {
+
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
@@ -430,6 +428,26 @@ document.querySelector('#filter_contrast').addEventListener('click',function (){
         ctx.putImageData( imageData, 0, 0 );
     }
 
+
+    document.querySelector('#filtro_brillo').addEventListener('click', function(){
+    
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let pixels = imageData.data;
+    let numPixels = imageData.width * imageData.height;
+
+    for ( let i = 0; i < numPixels; i++ ) {
+        let r = pixels[ i * 4 ];
+        let g = pixels[ i * 4 + 1 ];
+        let b = pixels[ i * 4 + 2 ];
+
+        pixels[ i * 4 ] = r + 20;
+        pixels[ i * 4 + 1 ] = g + 20;
+        pixels[ i * 4 + 2 ] = b + 20;
+    }
+
+    ctx.putImageData( imageData, 0, 0 );
+});
+
     //------------------------------------------Blur---------------------------------------------
     //Incompleto falta determinar los colores
 /*
@@ -511,8 +529,6 @@ function pixelRed(imageData, x, y) {
   
   document.querySelector('#filter_blur').addEventListener('click',function (){
       let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
-      let pixels = imageData.data;
-      let copy = imageData;
       let prom = 1/9;
       let R =0.0;				
       let G =0.0;	
@@ -600,6 +616,12 @@ let sobelY =
 
 for (let x = 0; x <= canvas.width; x++) {
     for (let y = 0; y <= canvas.height; y++) {
+
+
+
+
+
+
 
         RX = pixelRed(imageData, x-1, y-1) * sobelX[0][0] +
             pixelRed(imageData, x, y-1) *sobelX[0][1] +
@@ -690,19 +712,17 @@ for (let x = 0; x <= canvas.width; x++) {
         // console.log(Y);
         let RXY=Math.sqrt(X*X+Y*Y);
         // console.log ("RXY:"+RXY);
-
+        
         if(RXY < 0) {
             setPixel(imageData, x, y, 0,0,0, 255);
         }
         else if(RXY > 255) {
-            setPixel(imageData, x, y, 0, 0, 0, 255);
+            setPixel(imageData, x, y, 255, 255, 255, 255);
         }
         else {
             setPixel(imageData, x, y, Math.round(RXY), Math.round(RXY), Math.round(RXY), 255);
         }
-
-
-
+        
         // setPixel(imageData, x, y, Math.round(RXY),Math.round(RXY),Math.round(RXY),255);
     }
 }

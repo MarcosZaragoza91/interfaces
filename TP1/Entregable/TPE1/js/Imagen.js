@@ -5,7 +5,6 @@ class Imagen{
     }
 
     cargarImagen(e){
-
         let input = document.getElementById("imagen");
         let canva = document.getElementById('myCanvas');
         let contex = canva.getContext("2d");
