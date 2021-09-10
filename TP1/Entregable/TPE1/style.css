@@ -45,18 +45,19 @@ a {
 }
 
 .container-filtros {
-    margin-top: 10px;    
+    margin-top: 20px;    
     display: flex;
     justify-content: space-around;
 }
 
 .container-nav1 {
     display: flex;
-    width: 700px;
+    width: 620px;
     justify-content: space-between;
 }
 
 #myCanvas {
- 
   box-shadow: 0 0 50px 0 grey;
+  margin-top: 15px;
 }
+
