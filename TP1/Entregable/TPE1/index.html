@@ -11,22 +11,24 @@
     <nav class="nav">
         <div class="container-top">
             <div class="container-nav1">
-                <button id="btn_pencil" class="btn btn-secondary">Lapiz</button>
-                <button id="btn_circle" class="btn btn-secondary">Circulo</button>
-                <button id="delete" class="btn btn-secondary">Goma</button>
-                <button id="deleteAll" class="btn btn-secondary">Limpiar Lienzo</button>
-            </div>
-            <div>
-                Color de linea : <input type="color" id="paletColor" class="btn" onchange= "elegirColor(this)">
-            </div>
-            <div class="row align-items-center">
-                <div class="col">
-                    Grosor de linea:
+                <div class="elementos">
+                    <button id="btn_pencil" class="btn btn-secondary">Lapiz</button>
+                    <button id="btn_circle" class="btn btn-secondary">Circulo</button>
+                    <button id="delete" class="btn btn-secondary">Goma</button>
+                    <button id="deleteAll" class="btn btn-secondary">Limpiar Lienzo</button>
                 </div>
-                    <input type="range" id="grosorLinea" class="btn" oninput="elegirGrosor(this);" min="1" max="20" value="1">
-                <div class="col">
+
+                <div class="colors">
+                    <label > Color de linea : </label>
+                    <input type="color" id="paletColor" class="btn" onchange= "elegirColor(this)">
                 </div>
+
+                <div class="colors">
+                   <label>Grosor de linea:</label> 
+                   <input type="range" id="grosorLinea" class="btn" oninput="elegirGrosor(this);" min="1" max="20" value="1">
+                </div>   
             </div>
+
             <div class="container-nav2">
                 Cargar imagen: <input  type="file" id="imagen" class="btn" accept="image/x-png,image/gif,image/jpeg,image/jpg">
                 <a type="button" id="btn_descargar_imagen"class="btn" download="image.png" title="Descargar imagen">
@@ -35,25 +37,31 @@
             </div>
         </div>
         <div class="container-filtros"> 
-            <button id="filter_sephia" class="btn btn-warning"><span class="badge bg-warning text-white">Sepia</span></button>
-            <button id= "filter_blur" class="btn btn-secondary"><span class="badge bg-secondary text-white">Blur</span></button>
-            <button id="filter_binario" class="btn btn-dark"><span class="badge bg-dark text-white">Black/White</span></button>
-            <button id="filter_invert" class="btn btn-dark"><span class="badge bg-dark text-white">Invertido</span></button>
-            <button id="filter_red" class="btn btn-danger"><span class="badge bg-danger text-white">Rojo</span></button>
-            <button id="filter_green"class="btn btn-success"><span class="badge bg-success text-white">Verde</span></button>
-            <button id="filter_blue"class="btn btn-primary"><span class="badge bg-primary text-white">Azul</span></button>
-            <button id="filter_contrast" class="btn btn-warning"><span class="badge bg-warning text-white">Contraste</span></button>
-            <button id="filter_brillo" class="btn" value="brillo" onclick="filterBrilloSaturation(this.value)">Brillo</button>
-            <button id="filter_saturacion" class="btn" value="saturacion" onclick="filterBrilloSaturation(this.value)">Saturacion</button>
-            <button id="original"class="btn btn-primary"><span class="badge bg-primary text-white">Original</span></button>
-            <button id= "filter_sobel" class="btn btn-secondary"><span class="badge bg-secondary text-white">Sobel</span></button>
+            <div>
+                <button id="filter_red" class="btn btn-danger"><span class="badge bg-danger text-white">Rojo</span></button>
+                <button id="filter_green"class="btn btn-success"><span class="badge bg-success text-white">Verde</span></button>
+                <button id="filter_blue"class="btn btn-primary"><span class="badge bg-primary text-white">Azul</span></button>
+            </div>
+            <div>
+                <button id="filter_sephia" class="btn btn-warning"><span class="badge bg-warning text-white">Sepia</span></button>
+                <button id="filter_binario" class="btn btn-dark"><span class="badge bg-dark text-white">Black/White</span></button>
+                <button id="filter_invert" class="btn btn-dark"><span class="badge bg-dark text-white">Invertido</span></button>
+                <button id="filter_contrast" class="btn btn-warning"><span class="badge bg-warning text-white">Contraste</span></button>
+            </div>
+            <div>
+                <button id= "filter_blur" class="btn btn-secondary"><span class="badge bg-secondary text-white">Blur</span></button>
+                <button id="filter_brillo" class="btn" value="brillo" onclick="filterBrilloSaturation(this.value)">Brillo</button>
+                <button id="filter_saturacion" class="btn" value="saturacion" onclick="filterBrilloSaturation(this.value)">Saturacion</button>
+                <button id= "filter_sobel" class="btn btn-secondary"><span class="badge bg-secondary text-white">Sobel</span></button>
+            </div>
+            <button id="original"class="btn btn-primary"><span class="badge bg-primary text-white">Eliminar Filtros</span></button>
         </div>
         
     </nav>
     
     <div class= "container-body">
         <div class="container-canvas">
-            <canvas id="myCanvas" width="1024" height="700" style="border: solid 1px black; background: white" class="bg-white"></canvas>
+            <canvas id="myCanvas" width="1024" height="700" style=" background: white" class="bg-white"></canvas>
         </div>
     </div>
 
