@@ -19,11 +19,11 @@ class Imagen{
                     this.original.src = content;
                     this.original.onload = function () {
                         ctx.clearRect(0, 0, canva.width, canva.height);
-                        canva.width = this.width;
-                        canva.height = this.height;
-                        if (canva.width > 2000 || canva.height > 2000){
-
+                        if (this.width > 2000 || this.height > 2000){
+                            alert('No se puede cargar una imagen tan grande');
                         }else{
+                            canva.width = this.width;
+                            canva.height = this.height;
                             contex.drawImage(this,0,0);
                         }
                     }

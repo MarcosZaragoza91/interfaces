@@ -53,7 +53,10 @@
                 <button id="filter_brillo" class="btn" value="brillo" onclick="filterBrilloSaturation(this.value)">Brillo</button>
                 <button id="filtro_brillo" class="btn" value="brillo">Brillowww</button>
                 <button id="filter_saturacion" class="btn" value="saturacion" onclick="filterBrilloSaturation(this.value)">Saturacion</button>
-                <button id= "filter_sobel" class="btn btn-secondary"><span class="badge bg-secondary text-white">Sobel</span></button>
+                <div>
+                    <button id= "filter_sobel" class="btn btn-secondary"><span class="badge bg-secondary text-white">Sobel</span></button>
+                    <input type="range" id="slider_sobel" class="btn" oninput="slider_sobel(this);" min="50" max="200" value="50">
+                </div>
             </div>
             <button id="original"class="btn btn-primary"><span class="badge bg-primary text-white">Eliminar Filtros</span></button>
         </div>
