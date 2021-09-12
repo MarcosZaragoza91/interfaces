@@ -19,7 +19,7 @@ class Imagen{
                     this.original.src = content;
                     this.original.onload = function () {
                         ctx.clearRect(0, 0, canva.width, canva.height);
-                        if (this.width > 2000 || this.height > 2000){
+                        if (this.width > 1200 || this.height > 800){
                             alert('No se puede cargar una imagen tan grande');
                         }else{
                             canva.width = this.width;

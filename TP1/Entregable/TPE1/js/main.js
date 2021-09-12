@@ -535,7 +535,7 @@ function pixelRed(imageData, x, y) {
       let B =0.0;		
   
       for (let x = 0; x < canvas.width; x++) {
-          for (let y = 0; y < canvas.height; y++) {0
+          for (let y = 0; y < canvas.height; y++) {
           
         R = pixelRed(imageData, x-1, y-1) * prom + 
           pixelRed(imageData, x, y-1) *prom + 
@@ -574,41 +574,34 @@ function pixelRed(imageData, x, y) {
       ctx.putImageData( imageData, 0, 0 );
   });
 
-// -------------------------------------------SOBEL-----------------------------------------------
-    function slider_sobel(value_slider){
-        return value_slider;
-    };
-
-
-
+//   -------------------------------------------SOBEL-----------------------------------------------
 document.querySelector('#filter_sobel').addEventListener('click',function (){
-let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
-let pixels = imageData.data;
-let copy = imageData;
-let array = [];
-;
-let RX =0.0;
-let GX =0.0;
-let BX =0.0;
-let RY =0.0;
-let GY =0.0;
-let BY =0.0;
-let X=0.0;
-let Y=0.0;
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let pixels = imageData.data;
+    let copy = imageData;
+    let prom = 1/9;
+    let RX =0.0;
+    let GX =0.0;
+    let BX =0.0;
+    let RY =0.0;
+    let GY =0.0;
+    let BY =0.0;
+    let X=0.0;
+    let Y=0.0;
 
-let sobelX =
-    [
-        [-1,0,1],
-        [-2,0,2],
-        [-1,0,1]
-    ];
+    let sobelX =
+        [
+            [-1,0,1],
+            [-2,0,2],
+            [-1,0,1]
+        ];
 
-let sobelY =
-    [
-        [-1,-2,-1],
-        [0,0,0],
-        [1,2,1]
-    ];
+    let sobelY =
+        [
+            [1,2,1],
+            [0,0,0],
+            [-1,-2,-1]
+        ];
     //
     // for (let x = 0; x < canvas.height; x++) {
     //     for (let y = 0; y < canvas.width; y++) {
@@ -619,84 +612,11 @@ let sobelY =
     //         var avg = (r + g + b) / 3;
     //         setPixel(imageData, x, y, avg, avg, avg, 255);
     //     }
+    // }
 
-for (let x = 1; x < canvas.width; x++) {
-    for (let y = 1; y < canvas.height; y++) {
+    for (let x = 0; x <= canvas.width; x++) {
+        for (let y = 0; y <= canvas.height; y++) {
 
-        if (x === 0 && y === 0){
-            RX =
-                // pixelRed(imageData, x, y) *sobelX[1][1] +
-                pixelRed(imageData, x+1, y) *sobelX[1][2] +pixelRed(imageData, x+1, y) *sobelY[1][2]+
-
-                pixelRed(imageData, x, y+1) *sobelX[2][1] + pixelRed(imageData, x, y+1) *sobelY[2][1] +
-                pixelRed(imageData, x+1, y+1) *sobelX[2][2] +pixelRed(imageData, x+1, y+1) *sobelY[2][2];
-
-            GX=
-                // pixelRed(imageData, x, y) *sobelX[1][1] +
-                pixelGreen(imageData, x+1, y) *sobelX[1][2] +pixelGreen(imageData, x+1, y) *sobelY[1][2]+
-
-                pixelGreen(imageData, x, y+1) *sobelX[2][1] + pixelGreen(imageData, x, y+1) *sobelY[2][1] +
-                pixelGreen(imageData, x+1, y+1) *sobelX[2][2] +pixelGreen(imageData, x+1, y+1) *sobelY[2][2];
-
-            BX=
-                // pixelRed(imageData, x, y) *sobelX[1][1] +
-                pixelBlue(imageData, x+1, y) *sobelX[1][2] +pixelBlue(imageData, x+1, y) *sobelY[1][2]+
-
-                pixelBlue(imageData, x, y+1) *sobelX[2][1] + pixelBlue(imageData, x, y+1) *sobelY[2][1] +
-                pixelBlue(imageData, x+1, y+1) *sobelX[2][2] +pixelBlue(imageData, x+1, y+1) *sobelY[2][2];
-        }else if (x===0 && y!==0){
-            RX =
-                pixelRed(imageData, x, y-1) *sobelX[0][1] + pixelRed(imageData, x, y-1) *sobelY[0][1]+
-                pixelRed(imageData, x+1, y-1) *sobelX[0][2] + pixelRed(imageData, x+1, y-1) *sobelY[0][2]+
-
-                // pixelRed(imageData, x, y) *sobelX[1][1] +
-                pixelRed(imageData, x+1, y) *sobelX[1][2] +pixelRed(imageData, x+1, y) *sobelY[1][2]+
-
-                pixelRed(imageData, x, y+1) *sobelX[2][1] + pixelRed(imageData, x, y+1) *sobelY[2][1] +
-                pixelRed(imageData, x+1, y+1) *sobelX[2][2] +pixelRed(imageData, x+1, y+1) *sobelY[2][2];
-
-            GX=
-                pixelGreen(imageData, x, y-1) *sobelX[0][1] + pixelGreen(imageData, x, y-1) *sobelY[0][1]+
-                pixelGreen(imageData, x+1, y-1) *sobelX[0][2] + pixelGreen(imageData, x+1, y-1) *sobelY[0][2]+
-
-                // pixelRed(imageData, x, y) *sobelX[1][1] +
-                pixelGreen(imageData, x+1, y) *sobelX[1][2] +pixelGreen(imageData, x+1, y) *sobelY[1][2]+
-
-                pixelGreen(imageData, x, y+1) *sobelX[2][1] + pixelGreen(imageData, x, y+1) *sobelY[2][1] +
-                pixelGreen(imageData, x+1, y+1) *sobelX[2][2] +pixelGreen(imageData, x+1, y+1) *sobelY[2][2];
-
-            BX=
-                pixelBlue(imageData, x, y-1) *sobelX[0][1] + pixelBlue(imageData, x, y-1) *sobelY[0][1]+
-                pixelBlue(imageData, x+1, y-1) *sobelX[0][2] + pixelBlue(imageData, x+1, y-1) *sobelY[0][2]+
-
-                // pixelRed(imageData, x, y) *sobelX[1][1] +
-                pixelBlue(imageData, x+1, y) *sobelX[1][2] +pixelBlue(imageData, x+1, y) *sobelY[1][2]+
-
-                pixelBlue(imageData, x, y+1) *sobelX[2][1] + pixelBlue(imageData, x, y+1) *sobelY[2][1] +
-                pixelBlue(imageData, x+1, y+1) *sobelX[2][2] +pixelBlue(imageData, x+1, y+1) *sobelY[2][2];
-        }else if(x!==0 && y===0){
-            RX =
-                pixelRed(imageData, x-1, y) *sobelX[1][0] + pixelRed(imageData, x-1, y) *sobelY[1][0]+
-                // pixelRed(imageData, x, y) *sobelX[1][1] +
-                pixelRed(imageData, x+1, y) *sobelX[1][2] +pixelRed(imageData, x+1, y) *sobelY[1][2]+
-                pixelRed(imageData, x-1, y+1) *sobelX[2][0] + pixelRed(imageData, x-1, y+1) *sobelY[2][0]+
-                pixelRed(imageData, x, y+1) *sobelX[2][1] + pixelRed(imageData, x, y+1) *sobelY[2][1] +
-                pixelRed(imageData, x+1, y+1) *sobelX[2][2] +pixelRed(imageData, x+1, y+1) *sobelY[2][2];
-
-            GX=	pixelGreen(imageData, x-1, y) *sobelX[1][0] + pixelGreen(imageData, x-1, y) *sobelY[1][0]+
-                // pixelRed(imageData, x, y) *sobelX[1][1] +
-                pixelGreen(imageData, x+1, y) *sobelX[1][2] +pixelGreen(imageData, x+1, y) *sobelY[1][2]+
-                pixelGreen(imageData, x-1, y+1) *sobelX[2][0] + pixelGreen(imageData, x-1, y+1) *sobelY[2][0]+
-                pixelGreen(imageData, x, y+1) *sobelX[2][1] + pixelGreen(imageData, x, y+1) *sobelY[2][1] +
-                pixelGreen(imageData, x+1, y+1) *sobelX[2][2] +pixelGreen(imageData, x+1, y+1) *sobelY[2][2];
-
-            BX= pixelBlue(imageData, x-1, y) *sobelX[1][0] + pixelBlue(imageData, x-1, y) *sobelY[1][0]+
-                // pixelRed(imageData, x, y) *sobelX[1][1] +
-                pixelBlue(imageData, x+1, y) *sobelX[1][2] +pixelBlue(imageData, x+1, y) *sobelY[1][2]+
-                pixelBlue(imageData, x-1, y+1) *sobelX[2][0] + pixelBlue(imageData, x-1, y+1) *sobelY[2][0]+
-                pixelBlue(imageData, x, y+1) *sobelX[2][1] + pixelBlue(imageData, x, y+1) *sobelY[2][1] +
-                pixelBlue(imageData, x+1, y+1) *sobelX[2][2] +pixelBlue(imageData, x+1, y+1) *sobelY[2][2];
-        }else{
             RX = pixelRed(imageData, x-1, y-1) * sobelX[0][0] +  pixelRed(imageData, x-1, y-1) * sobelY[0][0]+
                 pixelRed(imageData, x, y-1) *sobelX[0][1] + pixelRed(imageData, x, y-1) *sobelY[0][1]+
                 pixelRed(imageData, x+1, y-1) *sobelX[0][2] + pixelRed(imageData, x+1, y-1) *sobelY[0][2]+
@@ -726,56 +646,82 @@ for (let x = 1; x < canvas.width; x++) {
                 pixelBlue(imageData, x-1, y+1) *sobelX[2][0] + pixelBlue(imageData, x-1, y+1) *sobelY[2][0]+
                 pixelBlue(imageData, x, y+1) *sobelX[2][1] + pixelBlue(imageData, x, y+1) *sobelY[2][1] +
                 pixelBlue(imageData, x+1, y+1) *sobelX[2][2] +pixelBlue(imageData, x+1, y+1) *sobelY[2][2];
-        }
 
+            /*
+                RY = pixelRed(imageData, x-1, y-1) * sobelY[0][0] +
+                pixelRed(imageData, x, y-1) *sobelY[0][1] +
+                pixelRed(imageData, x+1, y-1) *sobelY[0][2] +
+                pixelRed(imageData, x-1, y) *sobelY[1][0] +
+                // pixelRed(imageData, x, y) *sobelX[1][1] +
+                pixelRed(imageData, x+1, y) *sobelY[1][2] +
+                pixelRed(imageData, x-1, y+1) *sobelY[2][0] +
+                pixelRed(imageData, x, y+1) *sobelY[2][1] +
+                pixelRed(imageData, x+1, y+1) *sobelY[2][2];
 
-        let XX = (RX+GX+BX)/3;
-        array.push(XX);
+            GY=	pixelGreen(imageData, x-1, y-1) * sobelY[0][0] +
+                pixelGreen(imageData, x, y-1) *sobelY[0][1] +
+                pixelGreen(imageData, x+1, y-1) *sobelY[0][2] +
+                pixelGreen(imageData, x-1, y) *sobelY[1][0] +
+                // pixelGreen(imageData, x, y) *sobelX[1][1] +
+                pixelGreen(imageData, x+1, y) *sobelY[1][2] +
+                pixelGreen(imageData, x-1, y+1) *sobelY[2][0] +
+                pixelGreen(imageData, x, y+1) *sobelY[2][1] +
+                pixelGreen(imageData, x+1, y+1) *sobelY[2][2];
 
-        // X = getPixel(imageData, x-1, y-1) * sobelX[0][0] +
-        //     getPixel(imageData, x, y-1) *sobelX[0][1] +
-        //     getPixel(imageData, x+1, y-1) *sobelX[0][2] +
-        //     getPixel(imageData, x-1, y) *sobelX[1][0] +
-        //     getPixel(imageData, x, y) *sobelX[1][1] +
-        //     getPixel(imageData, x+1, y) *sobelX[1][2] +
-        //     getPixel(imageData, x-1, y+1) *sobelX[2][0] +
-        //     getPixel(imageData, x, y+1) *sobelX[2][1] +
-        //     getPixel(imageData, x+1, y+1) *sobelX[2][2];
-        //
-        // Y = getPixel(imageData, x-1, y-1) * sobelY[0][0] +
-        //     getPixel(imageData, x, y-1) *sobelY[0][1] +
-        //     getPixel(imageData, x+1, y-1) *sobelY[0][2] +
-        //     getPixel(imageData, x-1, y) *sobelY[1][0] +
-        //     getPixel(imageData, x, y) *sobelX[1][1] +
-        //     getPixel(imageData, x+1, y) *sobelY[1][2] +
-        //     getPixel(imageData, x-1, y+1) *sobelY[2][0] +
-        //     getPixel(imageData, x, y+1) *sobelY[2][1] +
-        //     getPixel(imageData, x+1, y+1) *sobelY[2][2];
+            BY= pixelBlue(imageData, x-1, y-1) * sobelY[0][0] +
+                pixelBlue(imageData, x, y-1) *sobelY[0][1] +
+                pixelBlue(imageData, x+1, y-1) *sobelY[0][2] +
+                pixelBlue(imageData, x-1, y) *sobelY[1][0] +
+                // pixelBlue(imageData, x, y) *sobelX[1][1] +
+                pixelBlue(imageData, x+1, y) *sobelY[1][2] +
+                pixelBlue(imageData, x-1, y+1) *sobelY[2][0] +
+                pixelBlue(imageData, x, y+1) *sobelY[2][1] +
+                pixelBlue(imageData, x+1, y+1) *sobelY[2][2];
+    */
+            RX = (RX+GX+BX)/3;
+            //RY = (RY+GY+BY)/3;
 
+            // X = getPixel(imageData, x-1, y-1) * sobelX[0][0] +
+            //     getPixel(imageData, x, y-1) *sobelX[0][1] +
+            //     getPixel(imageData, x+1, y-1) *sobelX[0][2] +
+            //     getPixel(imageData, x-1, y) *sobelX[1][0] +
+            //     getPixel(imageData, x, y) *sobelX[1][1] +
+            //     getPixel(imageData, x+1, y) *sobelX[1][2] +
+            //     getPixel(imageData, x-1, y+1) *sobelX[2][0] +
+            //     getPixel(imageData, x, y+1) *sobelX[2][1] +
+            //     getPixel(imageData, x+1, y+1) *sobelX[2][2];
+            //
+            // Y = getPixel(imageData, x-1, y-1) * sobelY[0][0] +
+            //     getPixel(imageData, x, y-1) *sobelY[0][1] +
+            //     getPixel(imageData, x+1, y-1) *sobelY[0][2] +
+            //     getPixel(imageData, x-1, y) *sobelY[1][0] +
+            //     getPixel(imageData, x, y) *sobelX[1][1] +
+            //     getPixel(imageData, x+1, y) *sobelY[1][2] +
+            //     getPixel(imageData, x-1, y+1) *sobelY[2][0] +
+            //     getPixel(imageData, x, y+1) *sobelY[2][1] +
+            //     getPixel(imageData, x+1, y+1) *sobelY[2][2];
 
+            X = RX;
+            //Y= RY;
+            //console.log("x: " + X);
+            //console.log("y : " + Y);
+            let RXY=Math.sqrt(X*X);
+            // console.log ("RXY:"+RXY);
 
-        // console.log(X);
-        // console.log(Y);
-        let RXY=Math.sqrt(XX*XX+XX*XX);
-        // console.log ("RXY:"+RXY);
+            let value = document.querySelector('#slider_sobel').value;
+            if(RXY > value) {
+                setPixel(imageData, x, y, 0,0,0, 255);
+            }else{
+                setPixel(imageData, x, y, 255,255,255, 255);
+            }
 
-        let value = slider_sobel(document.querySelector('#slider_sobel').value);
-        if( XX < RXY) {
-            setPixel(copy, x, y, RXY, RXY, RXY, 255);
-        }
-        else {
-            // if (X==0){
-            //     setPixel(copy, x, y, 0, 0, 0, 255);
-            // }else if(array[X-1]!=XX && RXY < XX*value){
-            //     setPixel(copy, x, y, 255, 255, 255, 255);
-            // }else{
-                setPixel(copy, x, y, 0, 0, 0, 255);
+            // else {
+            //    setPixel(imageData, x, y, Math.round(RXY), Math.round(RXY), Math.round(RXY), 255);
             //}
-        }
-        X = X + 1;
-        // setPixel(imageData, x, y, Math.round(RXY),Math.round(RXY),Math.round(RXY),255);
-    }
-}
 
-ctx.putImageData( copy, 0, 0 );
+            // setPixel(imageData, x, y, Math.round(RXY),Math.round(RXY),Math.round(RXY),255);
+        }
+    }
+
+    ctx.putImageData( imageData, 0, 0 );
 });
