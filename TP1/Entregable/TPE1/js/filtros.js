@@ -282,33 +282,36 @@ function filterSaturation(variable){
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
-        //Convertimos los valores de RGB a HSV
+        //Convertimos los valores de RGB a HSV y tomamos los valores
         rgbTohsv = rgb_to_hsv(r,g,b);
         let h,s,v;
         h = rgbTohsv[0];
         s=rgbTohsv[1];
         v = rgbTohsv[2];
 
-        if(variable==="brillo"){
-            let brillo=20;
-            if(v+brillo>100){
-                v=100
-            }else{
-                v=v+brillo
-            }
-        }else{
+        // Habiamos realizado los dos filtros con la misma funcion, pero determinamos de otra forma el brillo
+        // if(variable==="brillo"){
+        //     let brillo=20;
+        //     if(v+brillo>100){
+        //         v=100
+        //     }else{
+        //         v=v+brillo
+        //     }
+        // }else{
             let saturacion=20;
             if(s+saturacion>100){
                 s=100
             }else{
                 s=s+saturacion;
             }
-        }
+        //}
 
+        //Convertimos de HSV a RGB y tomamos los valores
         hsvToRgb = hsvTo_Rgb(h,s,v);
         r = hsvToRgb[0];
         g = hsvToRgb[1];
         b = hsvToRgb[2];
+        //Seteamos a cada pixel el valor de RGB
         pixels[ i * 4 ] =  Math.round(r);
         pixels[ i * 4 + 1 ] = Math.round(g);
         pixels[ i * 4 + 2 ] = Math.round(b);
@@ -316,18 +319,20 @@ function filterSaturation(variable){
     ctx.putImageData( imageData, 0, 0 );
 }
 
-
+//Evento para aplicar filtro brillo
 document.querySelector('#filtro_brillo').addEventListener('click', function(){
 
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
+    // Recorremos cada pixel en RGB
     for ( let i = 0; i < numPixels; i++ ) {
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
 
+    // Seteamos el valor en RGB subiendo la escala de color.
         pixels[ i * 4 ] = r + 20;
         pixels[ i * 4 + 1 ] = g + 20;
         pixels[ i * 4 + 2 ] = b + 20;
@@ -338,7 +343,7 @@ document.querySelector('#filtro_brillo').addEventListener('click', function(){
 
 //------------------------------------------Blur---------------------------------------------
 
-
+// Definimos para cada valor de RGB la funcion para tomar cada valor
 function pixelRed(imageData, x, y) {
     return imageData.data[(x + y * imageData.width) * 4 + 0];
 }
@@ -351,10 +356,7 @@ function pixelBlue(imageData, x, y) {
     return imageData.data[(x + y * imageData.width) * 4 + 2];
 }
 
-function getPixel(imageData, x, y){
-    return imageData.data[(x + y * imageData.width) * 4];
-}
-
+//Funcion para setear el valor RGBA a cada pixel
 function setPixel(imageData, x, y, r, g, b) {
     let index = (x + y * imageData.width) * 4;
     imageData.data[index + 0] = r;
@@ -363,15 +365,7 @@ function setPixel(imageData, x, y, r, g, b) {
     imageData.data[index + 3] = 255;
 }
 
-function setPixelAll(imageData, x, y, r) {
-    let index = (x + y * imageData.width)*4;
-    imageData.data[index + 0] = r;
-    imageData.data[index + 1] = r;
-    imageData.data[index + 2] = r;
-    imageData.data[index + 3] = 255;
-}
-
-
+// Evento para aplicar el filtro Blur
 document.querySelector('#filter_blur').addEventListener('click',function (){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let prom = 1/9;
@@ -379,9 +373,11 @@ document.querySelector('#filter_blur').addEventListener('click',function (){
     let G =0.0;
     let B =0.0;
 
+    //Recorremos el canvas en x,y
     for (let x = 0; x < canvas.width; x++) {
         for (let y = 0; y < canvas.height; y++) {
 
+            // Aplicamos el valor correspondiente a cada RGB usamos la variable prom simulando la division por 9
             R = pixelRed(imageData, x-1, y-1) * prom +
                 pixelRed(imageData, x, y-1) *prom +
                 pixelRed(imageData, x+1, y-1) *prom +
@@ -412,6 +408,7 @@ document.querySelector('#filter_blur').addEventListener('click',function (){
                 pixelBlue(imageData, x, y+1) *prom +
                 pixelBlue(imageData, x+1, y+1) *prom;
 
+            // Le seteamos el valor de RGB a cada pixel
             setPixel(imageData, x, y,Math.round(R) ,Math.round(G), Math.round(B));
         }
     }
@@ -420,6 +417,8 @@ document.querySelector('#filter_blur').addEventListener('click',function (){
 });
 
 //   -------------------------------------------SOBEL-----------------------------------------------
+
+// Evento para aplicar el intento de filtro Sobel (Luego de buscar diferentes alternativas, nos aproximamos al filtro)
 document.querySelector('#filter_sobel').addEventListener('click',function (){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
 
@@ -429,6 +428,7 @@ document.querySelector('#filter_sobel').addEventListener('click',function (){
     let X=0.0;
     let Y=0.0;
 
+    //Matrix Sobel en X
     let sobelX =
         [
             [-1,0,1],
@@ -436,6 +436,7 @@ document.querySelector('#filter_sobel').addEventListener('click',function (){
             [-1,0,1]
         ];
 
+    //Matriz Sobel en Y
     let sobelY =
         [
             [1,2,1],
@@ -443,9 +444,11 @@ document.querySelector('#filter_sobel').addEventListener('click',function (){
             [-1,-2,-1]
         ];
 
+    //Recorremos el canvas por x,y
     for (let x = 0; x <= canvas.width; x++) {
         for (let y = 0; y <= canvas.height; y++) {
 
+            // Calculaos los valores combinados para cada pixel en RGB
             RX = pixelRed(imageData, x-1, y-1) * sobelX[0][0] +  pixelRed(imageData, x-1, y-1) * sobelY[0][0]+
                 pixelRed(imageData, x, y-1) *sobelX[0][1] + pixelRed(imageData, x, y-1) *sobelY[0][1]+
                 pixelRed(imageData, x+1, y-1) *sobelX[0][2] + pixelRed(imageData, x+1, y-1) *sobelY[0][2]+
@@ -476,9 +479,13 @@ document.querySelector('#filter_sobel').addEventListener('click',function (){
                 pixelBlue(imageData, x, y+1) *sobelX[2][1] + pixelBlue(imageData, x, y+1) *sobelY[2][1] +
                 pixelBlue(imageData, x+1, y+1) *sobelX[2][2] +pixelBlue(imageData, x+1, y+1) *sobelY[2][2];
 
+            // Calculamos el promedio de RGB para hacer escala de grises
             X = (RX+GX+BX)/3;
-            let RXY=Math.sqrt(X*X);
+            // aplicamos la formula para obtener la magnitud del gradiente.
+            let RXY=Math.sqrt(X*X+X*X);
+            //Traemos un valor dentro de un rango
             let value = document.querySelector('#slider_sobel').value;
+            //Condicion para setear el valor 0 o 255 en cada pixel.
             if(RXY > value) {
                 setPixel(imageData, x, y, 0,0,0, 255);
             }else{
