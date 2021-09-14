@@ -1,15 +1,18 @@
 //----------------------------------------FILTROS--------------------------------------------------
 
+// Evento para aplicar el filtro Red a la imagen
 document.querySelector('#filter_red').addEventListener('click',function(){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
+    // Recorremos cada pixel en RGB
     for ( let i = 0; i < numPixels; i++ ) {
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
 
+    // Seteamos solamente el valor Rojo y los otros en cero:
         pixels[ i * 4 ] = r;
         pixels[ i * 4 + 1 ] = 0;
         pixels[ i * 4 + 2 ] = 0;
@@ -18,16 +21,19 @@ document.querySelector('#filter_red').addEventListener('click',function(){
     ctx.putImageData( imageData, 0, 0 );
 })
 
+// Evento para aplicar el filtro Green a la imagen
 document.querySelector('#filter_green').addEventListener('click',function(){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
+    // Recorremos cada pixel en RGB
     for ( let i = 0; i < numPixels; i++ ) {
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
 
+    // Seteamos solamente el valor Green y los otros en cero:
         pixels[ i * 4 ] = 0;
         pixels[ i * 4 + 1 ] = g;
         pixels[ i * 4 + 2 ] = 0;
@@ -36,16 +42,19 @@ document.querySelector('#filter_green').addEventListener('click',function(){
     ctx.putImageData( imageData, 0, 0 );
 })
 
+// Evento para aplicar el filtro Blue a la imagen
 document.querySelector('#filter_blue').addEventListener('click',function(){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
+    // Recorremos cada pixel en RGB
     for ( let i = 0; i < numPixels; i++ ) {
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
 
+    // Seteamos solamente el valor Blue y los otros en cero:
         pixels[ i * 4 ] = 0;
         pixels[ i * 4 + 1 ] = 0;
         pixels[ i * 4 + 2 ] = b;
@@ -54,19 +63,22 @@ document.querySelector('#filter_blue').addEventListener('click',function(){
     ctx.putImageData( imageData, 0, 0 );
 })
 
-
+//Evento para aplicar el filtro binario donde queda la imagen en escala de grises
 document.querySelector('#filter_binario').addEventListener('click',function(){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
+    // Recorremos cada pixel en RGB
     for ( let i = 0; i < numPixels; i++ ) {
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
 
+    // Sumamos los valores de RGB y promediamos
         let grey = ( r + g + b ) / 3;
 
+    // Seteamos a cada pixel en RGB el valor promediado previamente
         pixels[ i * 4 ] = grey;
         pixels[ i * 4 + 1 ] = grey;
         pixels[ i * 4 + 2 ] = grey;
@@ -75,16 +87,19 @@ document.querySelector('#filter_binario').addEventListener('click',function(){
     ctx.putImageData( imageData, 0, 0 );
 })
 
+//Evento para aplicar el filtro invertido
 document.querySelector('#filter_invert').addEventListener('click',function(){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
+    // Recorremos cada pixel en RGB
     for ( let i = 0; i < numPixels; i++ ) {
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
 
+    // Invertimos los valores de cada pixel en RGB
         pixels[ i * 4 ] = 255 - r;
         pixels[ i * 4 + 1 ] = 255 - g;
         pixels[ i * 4 + 2 ] = 255 - b;
@@ -93,16 +108,19 @@ document.querySelector('#filter_invert').addEventListener('click',function(){
     ctx.putImageData( imageData, 0, 0 );
 })
 
+//Evento para aplicar el Filtro Sephia
 document.querySelector('#filter_sephia').addEventListener('click', function(){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
+    // Recorremos cada pixel en RGB
     for ( let i = 0; i < numPixels; i++ ) {
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
 
+    //Aplicamos la formula para el filtro Sephia a cada valor de RGB
         pixels[ i * 4 ] = 255 - r;
         pixels[ i * 4 + 1 ] = 255 - g;
         pixels[ i * 4 + 2 ] = 255 - b;
@@ -115,14 +133,17 @@ document.querySelector('#filter_sephia').addEventListener('click', function(){
     ctx.putImageData( imageData, 0, 0 );
 })
 
+//Evento para aplicar el Filtro que sube el contraste a la imagen
 document.querySelector('#filter_contrast').addEventListener('click',function (){
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
+    // seteamos un valor de contraste y aplicamos la formula.
     let contrast = 10;
     let factor = ( 259 * ( contrast + 255 ) ) / ( 255 * ( 259 - contrast ) );
 
+    // Recorremos cada pixel y aplicamos el valor obtenido de la formula a RGB
     for ( let i = 0; i < numPixels; i++ ) {
 
         let r = pixels[ i * 4 ];
@@ -146,76 +167,66 @@ document.querySelector('#filter_contrast').addEventListener('click',function (){
 //CONVIERTO DE RGB A HSV
 function rgb_to_hsv(r , g , b) { ///esta es la q anda
 
-    // R, G, B values are divided by 255
-    // to change the range from 0..255 to 0..1
+    // R, G, B dividimos los valores por 255
+    // cambiamos el rango de valores de 0 a 255 lo pasamos entre 0 y 1
     r = r / 255.0;
     g = g / 255.0;
     b = b / 255.0;
 
-    // h, s, v = hue, saturation, value
-    var cmax = Math.max(r, Math.max(g, b)); // maximum of r, g, b
-    var cmin = Math.min(r, Math.min(g, b)); // minimum of r, g, b
-    var diff = cmax - cmin; // diff of cmax and cmin.
-    var h = -1, s = -1;
+    // h, s, v = hue, saturation, value (Matiz, Saturacion, Brillo)
+    let cmax = Math.max(r, Math.max(g, b)); // Obtenemos el valor maximo entre RGB
+    let cmin = Math.min(r, Math.min(g, b)); // Obtenemos el valor minimo entre RGB
+    let diff = cmax - cmin; // calculamos la diferencia entre el maximo y minimo de RGB
 
-    // if cmax and cmax are equal then h = 0
+    // Si el maximo y Minimo son iguales seteams el Hue
     if (cmax == cmin)
         h = 0;
 
-    // if cmax equal r then compute h
+    // Si el maximo es igual al valor RGB de cada pixel y aplicamos formula.
     else if (cmax == r)
         h = (60 * ((g - b) / diff) + 360) % 360;
-
-    // if cmax equal g then compute h
     else if (cmax == g)
         h = (60 * ((b - r) / diff) + 120) % 360;
-
-    // if cmax equal b then compute h
     else if (cmax == b)
         h = (60 * ((r - g) / diff) + 240) % 360;
 
-    // if cmax equal zero
+    // Si el valor cmax es igual a 0 Seteamos Saturacion en 0 sino aplicamos formula.
     if (cmax == 0)
         s = 0;
     else
         s = (diff / cmax) * 100;
 
-    // compute v
-    var v = cmax * 100;
+    // Seteamos el valor del Brillo
+    let v = cmax * 100;
     const hsv = [];
+    // Guardamos los valores de HSV en un arreglo y los retorno.
     hsv.push(Math.round(h),Math.round(s),Math.round (v));
     return hsv;
 
 }
 //CONVIERTO DE HSV a RGB
 function hsvTo_Rgb(h, s, v) {
-    var r, g, b;
-    var i;
-    var f, p, q, t;
+    let r, g, b;
+    let i;
+    let f, p, q, t;
 
+    // Calculamos el valor Maximo del minimo entre un valor y HSV para no salir del rango.
     h = Math.max(0, Math.min(360, h));
     s = Math.max(0, Math.min(100, s));
     v = Math.max(0, Math.min(100, v));
 
+    // Converimos los valores de S y V entre 0 y 1.
     s /= 100;
     v /= 100;
-
-    if(s == 0) {
-        r = g = b = v;
-        return [
-            Math.round(r * 255),
-            Math.round(g * 255),
-            Math.round(b * 255)
-        ];
-    }
-
-    h /= 60; // sector 0 to 5
+    // Convertimos el valor de H en el rango de 0 a 5
+    h /= 60;
     i = Math.floor(h);
-    f = h - i; // factorial part of h
+    f = h - i;
     p = v * (1 - s);
     q = v * (1 - s * f);
     t = v * (1 - s * (1 - f));
 
+    // Seteamos RGB segun el valor obtenido de H
     switch(i) {
         case 0:
             r = v;
@@ -252,23 +263,26 @@ function hsvTo_Rgb(h, s, v) {
             g = p;
             b = q;
     }
+    //Guaramos los valores de RGB en un arreglo
     const rgb = [];
     rgb.push(Math.round(r * 255),Math.round(g * 255) ,Math.round(b * 255) );
     return rgb;
 }
 
-
-function filterBrilloSaturation(variable){
+//Funcion para aplicar filtro saturacion.
+function filterSaturation(variable){
     let rgbTohsv = [];
     let hsvToRgb = [];
     let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     let pixels = imageData.data;
     let numPixels = imageData.width * imageData.height;
 
+    //Recorremos los pixels y tomamos los valores de RGB
     for ( let i = 0; i < numPixels; i++ ) {
         let r = pixels[ i * 4 ];
         let g = pixels[ i * 4 + 1 ];
         let b = pixels[ i * 4 + 2 ];
+        //Convertimos los valores de RGB a HSV
         rgbTohsv = rgb_to_hsv(r,g,b);
         let h,s,v;
         h = rgbTohsv[0];
@@ -342,7 +356,7 @@ function getPixel(imageData, x, y){
 }
 
 function setPixel(imageData, x, y, r, g, b) {
-    var index = (x + y * imageData.width) * 4;
+    let index = (x + y * imageData.width) * 4;
     imageData.data[index + 0] = r;
     imageData.data[index + 1] = g;
     imageData.data[index + 2] = b;
@@ -350,7 +364,7 @@ function setPixel(imageData, x, y, r, g, b) {
 }
 
 function setPixelAll(imageData, x, y, r) {
-    var index = (x + y * imageData.width)*4;
+    let index = (x + y * imageData.width)*4;
     imageData.data[index + 0] = r;
     imageData.data[index + 1] = r;
     imageData.data[index + 2] = r;

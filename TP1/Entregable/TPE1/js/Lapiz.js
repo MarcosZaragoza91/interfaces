@@ -1,10 +1,11 @@
+//Generamos la clase Lapiz, que va a ser la encargada de tener los atributos seteados para el uso.
 class Lapiz {
-    constructor() {
+    constructor(grosor) {
         this.coordenadas = {x:0,y:0};
         this._oolorauxiliar= '#000000';
         this._color = '#000000';
-        this._forma = 'circle';
-        this._grosor = 5;
+        this._forma = '';
+        this._grosor = grosor;
     }
 
     getColor() {
