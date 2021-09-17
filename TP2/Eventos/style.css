@@ -1,0 +1,26 @@
+body{
+    background-color: #222233;
+}
+
+.box{
+    display: flex;
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+p{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #77AADD;
+}
+
+.column{
+    display: flex;
+    justify-content: space-around;
+}
