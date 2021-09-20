@@ -1,5 +1,5 @@
 class Jugador {
-    constructor(color){
+    constructor(){
         this.turno=false;
         this.fichas =[];
         this.numero;
@@ -16,6 +16,7 @@ class Jugador {
     getFichas(){
         return this.fichas;
     }
+    
 
 
 }

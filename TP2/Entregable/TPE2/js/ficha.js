@@ -1,9 +1,12 @@
 class Ficha{
     constructor(color){
-        this.color;
-        this.imagen = newImage();
-        this.radio;
+        this.canvas = document.querySelector('#myCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.color = color;
+      //  this.imagen = newImage();
+        this.diametro=30;
         this.posicion = {x: 0 , y:0}
+        this.posicionCentro = {x: 0 , y:0}
         this.seleccionada = false;
         this.usada = false;
     }
@@ -21,12 +24,19 @@ class Ficha{
     getPosicion(){
         return this.posicion;
     }
-
-    setPosicion(x,y){
-        this.posicion =(x ,y);
+    setPosicion(posX, posY) {
+        this.posicion.x=posX;
+        this.posicion.y=posY;
+        this.posicionCentro.x=posX+this.diametro/2;
+        this.posicionCentro.y=posY+this.diametro/2;
     }
-    dibujarFicha(){
 
+    dibujarFicha(posX,posY){
+        this.setPosicion(posX, posY);
+        this.ctx.fillStyle = this.getColor();
+        this.ctx.beginPath();
+        this.ctx.arc(this.posicion.x, this.posicion.y, this.diametro, 0, Math.PI * 2);
+        this.ctx.fill();
     }
 
     setSeleccionada(boolean){
@@ -35,7 +45,5 @@ class Ficha{
     setUsada(boolean){
         this.usada=boolean;
     }
-    
-
 
 }

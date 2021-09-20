@@ -1,0 +1,10 @@
+
+.container-canvas {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+#myCanvas {
+    box-shadow: 0 0 50px 0 grey;
+    margin-top: 15px;
+}
