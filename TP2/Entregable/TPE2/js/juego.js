@@ -1,8 +1,8 @@
 class Juego{
     constructor(){
-        this.jugador1;
-        this.jugador2;
-        this.tablero;
+        this.jugador1=null;
+        this.jugador2=null;
+        this.tablero=null;
         this.turno;
         this.ganador;
     }
@@ -23,7 +23,6 @@ class Juego{
         let colorj2 ='black';
         let fichasCreadas=0;
         
-        
         while ( fichasCreadas < cantFichas) {
             if(fichasCreadas<(cantFichas/2)){
                 let fichaJ1 = new Ficha(colorj1);
@@ -36,7 +35,6 @@ class Juego{
                     posY+=100;
                 }
             }else{
-                
                 let fichaJ2 = new Ficha(colorj2);
                 this.jugador2.fichas.push(fichaJ2);
                 fichaJ2.dibujarFicha(posX + 1100, posY1);
