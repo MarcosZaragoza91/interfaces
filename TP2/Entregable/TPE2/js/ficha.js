@@ -37,6 +37,7 @@ class Ficha{
         this.ctx.beginPath();
         this.ctx.arc(this.posicion.x, this.posicion.y, this.radio*2, 0, Math.PI * 2);
         this.ctx.fill();
+
         if(this.esSeleccionada == true ){
             this.ctx.lineWidth =5;
             this.ctx.arc(this.posicion.x, this.posicion.y, this.radio*2, 0, Math.PI * 2);
@@ -53,6 +54,9 @@ class Ficha{
     }
     setUsada(boolean){
         this.usada=boolean;
+    }
+    setFicha() {
+        this.dibujarFicha(this.posicion.x, this.posicion.y);
     }
 
 }
