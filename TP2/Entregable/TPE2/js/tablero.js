@@ -7,6 +7,7 @@ class Tablero{
         this.filas = 6;
         this.height=700;
         this.width=500;
+        this.range = 100;
     }
 
     adaptarTableroAlCanvas(){
@@ -30,14 +31,18 @@ class Tablero{
                 this.ctx.lineWidth = 2;
                 this.ctx.stroke();
                 this.ctx.fill();
-                y+=valores.anchoColumnas;
+                y+=this.range;
             }
-            x+=valores.altoFilas;
+            x+=this.range;
             y=50;
         }
     }
     seleccionarColumna(){
 
+    }
+
+    getXlines(){
+        return this._Xlines;
     }
 
     insertarFicha(){

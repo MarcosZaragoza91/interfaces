@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>4 En Linea</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/tablero.css">
+    <script src="js/main.js"></script>
 </head>
 <body>
-  
-    <button id="btn_fichas" class="btn btn-secondary">Cargar Fichas</button>
-    <div class="container-canvas">
-        <canvas id="myCanvas" width="1400" height="600" style=" background: rgb(122, 122, 214)" class="bg-white"></canvas>
+    <div class="container">
+        <div class="options">
+            <h1>Bienvenido a Inline</h1>
+            <h3>Defina el juego que quiere jugar</h3>
+            A cuantas Lineas desea Jugar(4,5,6):
+            <button id="btn_four">4</button>
+            <button id="btn_five">5</button>
+            <button id="btn_six">6</button>
+            <h3>Elija las Fichas</h3>
+            <p>Jugador 1:</p>
+            <p>Jugador 2:</p>
+            <button id="btn_fichas">Cargar Juego</button>
+        </div>
+        <canvas id="myCanvas"></canvas>
     </div>
 
     <script src="js/ficha.js"></script>

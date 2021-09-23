@@ -1,0 +1,19 @@
+canvas{
+    display: flex;
+    background-color: #77AADD;
+    justify-content: center;
+    width:1400px;
+    height: 600px;
+    border: 2px solid crimson;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.options{
+    text-align: center;
+    font-family: Purisa;
+    margin: 10px 100px;
+}

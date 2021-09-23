@@ -1,3 +1,4 @@
+//window.addEventListener('DOMContentLoad', function (){
 
 document.querySelector('#btn_fichas').addEventListener('click', ()=>{
     let canvas = document.querySelector('#myCanvas');
@@ -22,7 +23,9 @@ document.querySelector('#btn_fichas').addEventListener('click', ()=>{
     canvas.addEventListener('mouseup',onMouseUp,false);
     canvas.addEventListener('mousemove',onMouseMove,false);
 
-});
+})
+
+//});
 
 
 
