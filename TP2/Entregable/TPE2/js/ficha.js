@@ -1,26 +1,31 @@
 class Ficha{
-    constructor(color){
-        this.canvas = document.querySelector('#myCanvas');
-        this.ctx = this.canvas.getContext('2d');
-        this.color = color;
-      //  this.imagen = newImage();
+    constructor(fondo){
+        this.fondo =fondo;
+        //this.imagen = newImage();
         this.radio=15;
         this.posicion = {x: 0 , y:0}
         this.posicionCentro = {x: 0 , y:0}
         this.seleccionada = false;
         this.usada = false;
+        
+    }  
+
+    setFondo(fondo){
+        this.fondo=fondo;
     }
 
-    getColor(){
-        return this.color;
-    }    
+    getFondo(){
+        return this.fondo;
+    }
 
     esSeleccionada(){
         return this.seleccionada;
     }
+
     fueUsada(){
       return this.fueUsada;  
     }
+
     getPosicion(){
         return this.posicion;
     }
@@ -31,16 +36,16 @@ class Ficha{
         this.posicionCentro.y=posY+this.radio;
     }
 
-    dibujarFicha(posX,posY){
+    dibujarFicha(posX,posY,ctx){
         this.setPosicion(posX, posY);
-        this.ctx.fillStyle = this.getColor();
-        this.ctx.beginPath();
-        this.ctx.arc(this.posicion.x, this.posicion.y, this.radio*2, 0, Math.PI * 2);
-        this.ctx.fill();
+        ctx.fillStyle = this.getFondo();
+        ctx.beginPath();
+        ctx.arc(this.posicion.x, this.posicion.y, this.radio*2, 0, Math.PI * 2);
+        ctx.fill();
 
-        if(this.esSeleccionada == true ){
-            this.ctx.lineWidth =5;
-            this.ctx.arc(this.posicion.x, this.posicion.y, this.radio*2, 0, Math.PI * 2);
+        if(this.esSeleccionada === true ){
+            ctx.lineWidth =5;
+            ctx.arc(this.posicion.x, this.posicion.y, this.radio*2, 0, Math.PI * 2);
         }
     }
 
@@ -49,14 +54,11 @@ class Ficha{
         let y = this.posicion.x-posY;
         return Math.sqrt(x*x + y*y)< this.radio;
     }
+
     setSeleccionada(boolean){
         this.seleccionada = boolean;
     }
     setUsada(boolean){
         this.usada=boolean;
     }
-    setFicha() {
-        this.dibujarFicha(this.posicion.x, this.posicion.y);
-    }
-
 }

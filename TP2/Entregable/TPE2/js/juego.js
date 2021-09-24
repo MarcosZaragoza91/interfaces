@@ -25,7 +25,7 @@ class Juego{
             if(fichasCreadas<(cantFichas/2)){
                 let fichaJ1 = new Ficha(colorj1);
                 this.jugador1.fichas.push(fichaJ1);
-                fichaJ1.dibujarFicha(posX, posY);
+                fichaJ1.dibujarFicha(posX, posY,this.ctx);
                 fichasCreadas+=1;
                 posX += 100;
                 if(fichasCreadas % 3 == 0){
@@ -35,7 +35,7 @@ class Juego{
             }else{
                 let fichaJ2 = new Ficha(colorj2);
                 this.jugador2.fichas.push(fichaJ2);
-                fichaJ2.dibujarFicha(posX + 1100, posY1);
+                fichaJ2.dibujarFicha(posX + 1100, posY1,this.ctx);
                 fichasCreadas+=1;
                 posX += 100;
                 if(fichasCreadas % 3 == 0){
