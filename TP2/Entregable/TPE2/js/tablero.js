@@ -59,13 +59,15 @@ class Tablero{
                 for (let y = 0; y < this.filas; y++) {
                     if (y < this.filas/2){
                         this.casillero.setPosicionesCasillero(x,y);
-                        let fichaJ1 = new Ficha();
+                        let fondo1 = "images/fichaAzul.png";
+                        let fichaJ1 = new Ficha(fondo1);
                         this.arrFichas.push(fichaJ1);
                         fichaJ1.dibujarFicha(x,y,this.ctx);
                         this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
                     }else{
                         this.casillero.setPosicionesCasillero(x,y);
-                        let fichaJ2 = new Ficha();
+                        let fondo2 = "images/fichaRoja.png";
+                        let fichaJ2 = new Ficha(fondo2);
                         this.arrFichas.push(fichaJ2);
                         fichaJ2.dibujarFicha(x,y,this.ctx);
                         this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
