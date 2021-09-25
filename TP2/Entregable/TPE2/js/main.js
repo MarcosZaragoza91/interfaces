@@ -1,12 +1,17 @@
-//window.addEventListener('DOMContentLoad', function (){
+window.addEventListener('load', function (){
 
 document.querySelector('#btn_fichas').addEventListener('click', ()=>{
     let canvas = document.querySelector('#myCanvas');
-    let ctx = canvas.getContext('2d');
+    //let ctx = canvas.getContext('2d');
+    
+    let tablero = new Tablero(canvas);
+    tablero.dibujarTablero();
+    /*
     let juego = new Juego();
     juego.nuevoJuego();
-   
+   */
     
+/*
     function onMouseDown(e){
         juego.onMouseDown(e)
     }
@@ -22,10 +27,10 @@ document.querySelector('#btn_fichas').addEventListener('click', ()=>{
     canvas.addEventListener('mousedown',onMouseDown,false);
     canvas.addEventListener('mouseup',onMouseUp,false);
     canvas.addEventListener('mousemove',onMouseMove,false);
-
+*/
 })
 
-//});
+});
 
 
 
