@@ -57,8 +57,14 @@ class Juego{
         }
     }
 
-    onMouseUp(){
+    onMouseUp(e){
         this.isMouseDown=false;
+        let x=e.layerX;
+        if (e.layerY < 100){
+            if (e.layerX < 200){
+                this.tablero.dibujarFichasJugada(1,6,this.ctx);
+            }
+        }
     }
     getTurno(){
         return this.turno;

@@ -10,18 +10,20 @@
 <body>
     <div class="options">
         <h1>Bienvenido a Inline</h1>
-        <h3>Defina el juego que quiere jugar</h3>
-        A cuantas Lineas desea Jugar(4,5,6):
-        <button id="btn_four">4</button>
-        <button id="btn_five">5</button>
-        <button id="btn_six">6</button>
-        <h3>Elija las Fichas</h3>
-        <p>Jugador 1:</p>
-        <p>Jugador 2:</p>
-        <button id="btn_fichas">Cargar Juego</button>
-        <div class="container-canvas">
-            <canvas id="myCanvas" width="1400" height="700" style=" background: rgb(122, 122, 214)" class="bg-white"></canvas>
+        <div class="select">
+            <h3>Defina el juego que quiere jugar</h3>
+            A cuantas Lineas desea Jugar(4,5,6):
+            <button id="btn_four">4</button>
+            <button id="btn_five">5</button>
+            <button id="btn_six">6</button>
+            <h3>Elija las Fichas</h3>
+            <p>Jugador 1:</p>
+            <p>Jugador 2:</p>
         </div>
+        <button id="btn_fichas">Cargar Juego</button>
+    </div>
+    <div class="container-canvas">
+        <canvas id="myCanvas" width="1400" height="700" style=" background: rgb(122, 122, 214)" class="bg-white"></canvas>
     </div>
 
     <script src="js/jugador.js"></script>

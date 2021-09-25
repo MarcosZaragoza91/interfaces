@@ -91,6 +91,13 @@ class Tablero{
         }
     }
 
+    dibujarFichasJugada(x,y){
+        for (let i = 0; i < this.arrFichas.length; i++) {
+            const element = this.arrFichas[i];
+            this.dibujarCasillero(x,y,element);
+        }
+    }
+
     seleccioneFicha(x,y){
         for (let i = 0; i < this.arrFichas.length; i++) {
             const element = this.arrFichas[i];

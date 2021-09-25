@@ -4,7 +4,20 @@
     display: flex;
     justify-content: center;
 }
+
 #myCanvas {
     box-shadow: 0 0 50px 0 grey;
     margin-top: 15px;
+}
+
+.options{
+    text-align: center;
+    font-family: Purisa;
+    margin: 10px 100px;
+}
+
+.select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

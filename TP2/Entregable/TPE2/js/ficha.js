@@ -36,7 +36,7 @@ class Ficha{
         ctx.fill();
         this.img.src = this.fondo;
         let cargarImg = function(){
-            ctx.drawImage(this.img, this.posicionCanvas.x, this.posicionCanvas.y, this.radio * 2, this.radio * 2);
+            ctx.drawImage(this.img, this.posicionCanvas.x-this.radio, this.posicionCanvas.y-this.radio, this.radio * 2, this.radio * 2);
         };
         this.img.onload = cargarImg.bind(this);
     
@@ -53,10 +53,23 @@ class Ficha{
         ctx.fill();
         this.img.src = this.fondo;
         let cargarImg = function(){
-            ctx.drawImage(this.img, this.posicionCanvas.x, this.posicionCanvas.y, this.radio * 2, this.radio * 2);
+            ctx.drawImage(this.img, this.posicionCanvas.x-this.radio, this.posicionCanvas.y-this.radio, this.radio * 2, this.radio * 2);
         };
         this.img.onload = cargarImg.bind(this);
     }
+
+    reDibujarFichaJugada(x,y,ctx){ //codigo repetido ver...
+        ctx.fillStyle = '#FF0000';
+        ctx.beginPath();
+        ctx.arc(x, y, this.radio*2, 0, Math.PI * 2);
+        ctx.fill();
+        this.img.src = this.fondo;
+        let cargarImg = function(){
+            ctx.drawImage(this.img, x, y, this.radio * 2, this.radio * 2);
+        };
+        this.img.onload = cargarImg.bind(this);
+    }
+
     estoyAdentro(posX,posY){
         let x = this.posicionCanvas.x-posX;
         let y = this.posicionCanvas.y-posY;

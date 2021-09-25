@@ -13,7 +13,8 @@ canvas{
 }
 
 .options{
-    text-align: center;
+    display: flex;
+    justify-content: center;
     font-family: Purisa;
     margin: 10px 100px;
 }
