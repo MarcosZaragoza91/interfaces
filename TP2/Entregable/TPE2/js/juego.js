@@ -26,7 +26,7 @@ class Juego{
         this.limpiarCanvas();
         this.tablero.dibujarTablero();
         //this.setTurno(); falta implementar
-        this.tablero.cargarFichasJugadorPorJugador();
+        this.tablero.dibujarFichas(this.ctx);
     }
     
     dibujarFichas() {

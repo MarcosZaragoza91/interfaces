@@ -64,6 +64,12 @@ class Ficha{
         }
     }
 
+    reDibujarFicha(ctx){
+        ctx.fillStyle = '#FF0000';
+        ctx.beginPath();
+        ctx.arc(this.posicionCanvas.x,this.posicionCanvas.y , this.radio*2, 0, Math.PI * 2);
+        ctx.fill();
+    }
     estoyAdentro(posX,posY){
         let x = this.posicionCanvas.x-posX;
         let y = this.posicionCanvas.y-posY;

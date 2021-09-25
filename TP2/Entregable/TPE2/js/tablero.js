@@ -82,6 +82,12 @@ class Tablero{
         this.ctx.lineWidth = 5;
         this.ctx.stroke();
     }
+    dibujarFichas(){
+        for (let i = 0; i < this.arrFichas.length; i++) {
+            const element = this.arrFichas[i];
+            element.reDibujarFicha(this.ctx);
+        }
+    }
 
     seleccioneFicha(x,y){
         for (let i = 0; i < this.arrFichas.length; i++) {
