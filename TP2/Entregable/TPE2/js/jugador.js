@@ -16,13 +16,6 @@ class Jugador {
         return this.fichas;
     }
 
-    seleccioneFicha(x,y){
-        for (let i = 0; i < this.fichas.length; i++) {
-            const element = this.fichas[i];
-            if(element.estoyAdentro(x,y)){
-                return element;
-            }
-        }
-    }
+
     
 }

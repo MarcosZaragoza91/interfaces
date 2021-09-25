@@ -2,11 +2,13 @@ class Tablero{
 
     constructor(canvas){
         this.canvas = canvas;
-        this.ctx = this.canvas.getContext('2d');
+        this.ctx = canvas.getContext('2d');
         this.columnas = 7;
         this.casillero = new Casillero();
         this.filas = 6;
+        this.colFichas = this.columnas + 6;
         this.matriz =[];
+        this.arrFichas=[];
     }
 
     setColumnas(columnas){
@@ -36,30 +38,58 @@ class Tablero{
         for (let x = 0; x < this.columnas; x++) {
             this.matriz [x] =[];
             for (let y = 0; y < this.filas; y++) {
-                let auxCasillero = new Casillero();
-                auxCasillero.setPosicionesCasillero(x,y);
-                this.ctx.fillStyle = 'white';
+                this.casillero = new Casillero();
+                this.casillero.setPosicionesCasillero(x,y);
                 this.ctx.beginPath();
-                this.ctx.arc((x+1)* auxCasillero.getWidth(),(y+1)* auxCasillero.getHeigth(),30,0,2*Math.PI);
+                this.ctx.fillStyle = '#FFFFFF';
+                this.ctx.arc((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth(),30,0,2*Math.PI);
                 this.ctx.lineWidth = 2;
+                this.ctx.fill();
                 this.ctx.stroke();
-                auxCasillero.setPosicionCanvas((x+1)* auxCasillero.getWidth(),(y+1)* auxCasillero.getHeigth());
-                this.matriz[x][y] = auxCasillero;
+                this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
+                this.matriz[x][y] = this.casillero;
             }
         }
     }
 
-
-    seleccionarColumna(){
-
+    //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
+    cargarFichasJugadorPorJugador(){
+        for (let x = this.columnas + 1; x < this.colFichas; x++) {
+            this.matriz [x] =[];
+                for (let y = 0; y < this.filas; y++) {
+                    if (y < this.filas/2){
+                        this.casillero.setPosicionesCasillero(x,y);
+                        let fichaJ1 = new Ficha();
+                        this.arrFichas.push(fichaJ1);
+                        fichaJ1.dibujarFicha(x,y,this.ctx);
+                        this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
+                    }else{
+                        this.casillero.setPosicionesCasillero(x,y);
+                        let fichaJ2 = new Ficha();
+                        this.arrFichas.push(fichaJ2);
+                        fichaJ2.dibujarFicha(x,y,this.ctx);
+                        this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
+                    }
+                }
+        }
     }
 
-    getXlines(){
-        return this._Xlines;
+    //Esta funcion es para dibujar la ficha a la hora de jugar.
+    dibujarCasillero(x,y,ficha){
+        this.ctx.fillStyle = '#FF0000';
+        this.ctx.beginPath();
+        this.ctx.arc((x)* this.casillero.getWidth(),(y)* this.casillero.getHeigth(),30,0,2*Math.PI);
+        this.ctx.lineWidth = 5;
+        this.ctx.stroke();
     }
 
-    insertarFicha(){
-
+    seleccioneFicha(x,y){
+        for (let i = 0; i < this.arrFichas.length; i++) {
+            const element = this.arrFichas[i];
+            if(element.estoyAdentro(x,y)){
+                return element;
+            }
+        }
     }
 
     checkearGanador(){
