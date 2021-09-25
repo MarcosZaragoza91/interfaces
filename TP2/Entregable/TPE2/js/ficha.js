@@ -48,7 +48,7 @@ class Ficha{
         ctx.fill();
         this.img.src = this.fondo;
         this.img.onload = function(){
-            dibujarFondo(this,this.posicion.x,this.posicion.y);
+            dibujarFondo(this.img,this.posicion.x,this.posicion.y, this.radio * 2, this.radio * 2);
         }
         if(this.esSeleccionada === true ){
             ctx.lineWidth =5;
