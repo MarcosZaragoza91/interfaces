@@ -1,6 +1,7 @@
 class Ficha{
     constructor(fondo){
         this.fondo =fondo;
+        this.img = new Image();
         //this.imagen = newImage();
         this.radio=15;
         this.posicion = {x: 0 , y:0}
@@ -35,6 +36,9 @@ class Ficha{
         this.posicionCentro.x=posX+this.radio;
         this.posicionCentro.y=posY+this.radio;
     }
+    dibujarFondo(Image,x,y){
+        ctx.drawImage(Image,x,y);
+    }
 
     dibujarFicha(posX,posY,ctx){
         this.setPosicion(posX, posY);
@@ -42,7 +46,10 @@ class Ficha{
         ctx.beginPath();
         ctx.arc(this.posicion.x, this.posicion.y, this.radio*2, 0, Math.PI * 2);
         ctx.fill();
-
+        this.img.src = this.fondo;
+        this.img.onload = function(){
+            dibujarFondo(this,this.posicion.x,this.posicion.y);
+        }
         if(this.esSeleccionada === true ){
             ctx.lineWidth =5;
             ctx.arc(this.posicion.x, this.posicion.y, this.radio*2, 0, Math.PI * 2);
