@@ -18,7 +18,7 @@ class Juego{
     }
 
     limpiarCanvas() {
-        this.ctx.fillStyle = "rgb(0,255,0)";
+        this.ctx.fillStyle = "rgb(122, 122, 214)";
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
@@ -27,14 +27,6 @@ class Juego{
         this.tablero.dibujarTablero();
         //this.setTurno(); falta implementar
         this.tablero.dibujarFichas(this.ctx);
-    }
-    
-    dibujarFichas() {
-        for (let i = 0; i < this.jugador1.fichas.length; i++) {
-            this.jugador1.fichas[i].setFicha();        }
-        for (let j = 0; j < this.jugador2.fichas.length; j++) {
-            this.jugador2.fichas[j].setFicha();
-        }
     }
 
     onMouseDown(e){
