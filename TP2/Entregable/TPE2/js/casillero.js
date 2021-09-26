@@ -38,7 +38,7 @@ class Casillero{
     getPosicionesCanvas(){
         return this.posicionCanvas;
     }
-    getPosicionesCelda(){
+    getPosicionesCasillero(){
         return this.posicionCasillero;
     }
 }

@@ -7,8 +7,12 @@ class Tablero{
         this.casillero = new Casillero();
         this.filas = 6;
         this.colFichas = this.columnas + 6;
-        this.matriz =[];
+        this._matriz =[];
         this.arrFichas=[];
+    }
+
+    getMatriz() {
+        return this._matriz;
     }
 
     setColumnas(columnas){
@@ -36,7 +40,7 @@ class Tablero{
     dibujarTablero(){
       //  let valores = this.adaptarTableroAlCanvas();
         for (let x = 0; x < this.columnas; x++) {
-            this.matriz [x] =[];
+            this._matriz [x] =[];
             for (let y = 0; y < this.filas; y++) {
                 this.casillero = new Casillero();
                 this.casillero.setPosicionesCasillero(x,y);
@@ -47,7 +51,7 @@ class Tablero{
                 this.ctx.fill();
                 this.ctx.stroke();
                 this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
-                this.matriz[x][y] = this.casillero;
+                this._matriz[x][y] = this.casillero;
             }
         }
     }
@@ -55,7 +59,7 @@ class Tablero{
     //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
     cargarFichasJugadorPorJugador(){
         for (let x = this.columnas + 1; x < this.colFichas; x++) {
-            this.matriz [x] =[];
+            this._matriz [x] =[];
                 for (let y = 0; y < this.filas; y++) {
                     if (y < this.filas/2){
                         this.casillero.setPosicionesCasillero(x,y);

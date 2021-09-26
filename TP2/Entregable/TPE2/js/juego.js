@@ -59,10 +59,15 @@ class Juego{
 
     onMouseUp(e){
         this.isMouseDown=false;
-        let x=e.layerX;
-        if (e.layerY < 100){
-            if (e.layerX < 200){
-                this.tablero.dibujarFichasJugada(1,6,this.ctx);
+        let casillero = this.tablero.getMatriz();
+        let rangoLimite = 30;
+        let x= Math.floor(e.layerX/100);
+        let y= Math.floor(e.layerY/100);
+        if (y == 0){
+            if (casillero[x][y].getPosicionesCanvas().x > rangoLimite){
+                    this.tablero.dibujarFichasJugada(x,6,this.ctx);
+            }else{
+                alert('Vuelva a tirar la ficha dentro del rango no permitido')
             }
         }
     }
