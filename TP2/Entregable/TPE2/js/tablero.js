@@ -7,7 +7,7 @@ class Tablero{
         this.casillero = new Casillero();
         this.filas = 6;
         this.colFichas = this.columnas + 6;
-        this._matriz =[];
+        this._matriz = [];
         this.arrFichas=[];
     }
 
@@ -41,17 +41,22 @@ class Tablero{
       //  let valores = this.adaptarTableroAlCanvas();
         for (let x = 0; x < this.columnas; x++) {
             this._matriz [x] =[];
-            for (let y = 0; y < this.filas; y++) {
-                this.casillero = new Casillero();
-                this.casillero.setPosicionesCasillero(x,y);
-                this.ctx.beginPath();
-                this.ctx.fillStyle = '#FFFFFF';
-                this.ctx.arc((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth(),30,0,2*Math.PI);
-                this.ctx.lineWidth = 2;
-                this.ctx.fill();
-                this.ctx.stroke();
-                this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
-                this._matriz[x][y] = this.casillero;
+            for (let y = 0; y <= this.filas; y++) {
+                if (y == 0){
+                    this.casillero.setPosicionesCasillero(x,y);
+                    this._matriz[x][y] = this.casillero;
+                }else{
+                    this.casillero = new Casillero();
+                    this.casillero.setPosicionesCasillero(x,y);
+                    this.ctx.beginPath();
+                    this.ctx.fillStyle = '#FFFFFF';
+                    this.ctx.arc((x+1)* this.casillero.getWidth()-50,(y+1)* this.casillero.getHeigth()-50,30,0,2*Math.PI);
+                    this.ctx.lineWidth = 2;
+                    this.ctx.fill();
+                    this.ctx.stroke();
+                    this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
+                    this._matriz[x][y] = this.casillero;
+                }
             }
         }
     }
@@ -84,7 +89,7 @@ class Tablero{
     dibujarCasillero(x,y,ficha){
         this.ctx.fillStyle = '#FF0000';
         this.ctx.beginPath();
-        this.ctx.arc((x)* this.casillero.getWidth(),(y)* this.casillero.getHeigth(),30,0,2*Math.PI);
+        this.ctx.arc((x+1)* this.casillero.getWidth()-50,(y)* this.casillero.getHeigth()-50,30,0,2*Math.PI);
         this.ctx.lineWidth = 5;
         this.ctx.stroke();
     }
@@ -97,8 +102,7 @@ class Tablero{
 
     dibujarFichasJugada(x,y){
         for (let i = 0; i < this.arrFichas.length; i++) {
-            const element = this.arrFichas[i];
-            this.dibujarCasillero(x,y,element);
+            this.dibujarCasillero(x,y,this.arrFichas[i]);
         }
     }
 

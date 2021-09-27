@@ -59,15 +59,19 @@ class Juego{
 
     onMouseUp(e){
         this.isMouseDown=false;
-        let casillero = this.tablero.getMatriz();
+        let arrCasillero = this.tablero.getMatriz();
         let rangoLimite = 30;
         let x= Math.floor(e.layerX/100);
         let y= Math.floor(e.layerY/100);
-        if (y == 0){
-            if (casillero[x][y].getPosicionesCanvas().x > rangoLimite){
-                    this.tablero.dibujarFichasJugada(x,6,this.ctx);
-            }else{
-                alert('Vuelva a tirar la ficha dentro del rango no permitido')
+        let casillero = arrCasillero[x];
+        if (y == 0 && this.ultimaFichaClickeada != null){
+            //Hacer funcion dentro de tablero para encontrar la posicion de columna
+            for (let i = (arrCasillero[x].length - 1) ; i > 0; i--) {
+                if (!arrCasillero[x][i].getFicha()){
+                    arrCasillero[x][i].setFicha(true);
+                    this.tablero.dibujarCasillero(x,i+1,this.ctx);
+                    break;
+                }
             }
         }
     }

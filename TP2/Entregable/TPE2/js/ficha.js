@@ -90,7 +90,7 @@ class Ficha{
         return this.fondo;
     }
 
-    esSeleccionada(){
+    getSeleccionada(){
         return this.seleccionada;
     }
 
@@ -100,5 +100,13 @@ class Ficha{
 
     getPosicion(){
         return this.posicion;
+    }
+
+    getRadio(){
+        return this.radio;
+    }
+
+    getImagen(){
+        return this.img;
     }
 }
