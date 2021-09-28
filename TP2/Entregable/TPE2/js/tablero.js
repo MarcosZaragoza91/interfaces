@@ -37,7 +37,7 @@ class Tablero{
         };
     }
 */
-    dibujarTablero(){
+    crearTablero(){
       //  let valores = this.adaptarTableroAlCanvas();
         for (let x = 0; x < this.columnas; x++) {
             this._matriz [x] =[];
@@ -56,6 +56,25 @@ class Tablero{
                     this.ctx.stroke();
                     this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
                     this._matriz[x][y] = this.casillero;
+                }
+            }
+        }
+    }
+
+    dibujarTablero(){
+        //  let valores = this.adaptarTableroAlCanvas();
+        for (let x = 0; x < this.columnas; x++) {
+            for (let y = 0; y <= this.filas; y++) {
+                if (y == 0){
+                    this.casillero.setPosicionesCasillero(x,y);
+                    this._matriz[x][y] = this.casillero;
+                }else {
+                    this.ctx.beginPath();
+                    this.ctx.fillStyle = '#FFFFFF';
+                    this.ctx.arc((x + 1) * this._matriz[x][y].getWidth() - 50, (y + 1) * this._matriz[x][y].getHeigth() - 50, 30, 0, 2 * Math.PI);
+                    this.ctx.lineWidth = 2;
+                    this.ctx.fill();
+                    this.ctx.stroke();
                 }
             }
         }

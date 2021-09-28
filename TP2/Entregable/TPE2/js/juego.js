@@ -12,7 +12,7 @@ class Juego{
     }
 
     nuevoJuego(){
-        this.tablero.dibujarTablero();
+        this.tablero.crearTablero();
         //this.setJugadores();
         this.tablero.cargarFichasJugadorPorJugador();
     }
