@@ -58,7 +58,7 @@ class Juego{
             for (let i = (arrCasillero[x].length - 1) ; i > 0; i--) {
                 if (!arrCasillero[x][i].getFicha()){
                     arrCasillero[x][i].setFicha(true);
-                    this.tablero.dibujarCasillero(x,i+1,this.ctx);
+                    this.tablero.dibujarCasillero(x,i+1,this.tablero.getArrFichas()[1]);
                     break;
                 }
             }
