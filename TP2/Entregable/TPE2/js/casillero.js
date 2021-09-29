@@ -10,7 +10,7 @@ class Casillero{
         };
         this.width = 100;
         this.heigth = 100;
-        this.ficha=false;
+        this.ficha= null;
         this._tirada = false;
     }
 
@@ -29,8 +29,8 @@ class Casillero{
     getWidth(){
         return this.width;
     }
-    setFicha(boolean){
-        this.ficha=boolean;
+    setFicha(ficha){
+        this.ficha=ficha;
     }
     getFicha(){
         return this.ficha;

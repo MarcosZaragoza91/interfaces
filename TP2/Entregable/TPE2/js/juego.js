@@ -56,10 +56,14 @@ class Juego{
         if (y == 0 && this.ultimaFichaClickeada != null){
             //Hacer funcion dentro de tablero para encontrar la posicion de columna
             for (let i = (arrCasillero[x].length - 1) ; i > 0; i--) {
-                if (!arrCasillero[x][i].getFicha()){
-                    arrCasillero[x][i].setFicha(true);
-                    this.tablero.dibujarCasillero(x,i+1,this.tablero.getArrFichas()[1]);
-                    break;
+                if (arrCasillero[x][i].getFicha()== null){
+                    let arrFicha = this.tablero.getArrFichas(); //hacer validacion
+                    if(arrFicha[0] != null){
+                        arrCasillero[x][i].setFicha(arrFicha[0]);
+                        this.tablero.dibujarCasillero(x,i+1,arrFicha[0]);
+                        arrFicha.shift();
+                        break;
+                    }
                 }
             }
         }

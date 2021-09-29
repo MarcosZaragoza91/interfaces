@@ -68,7 +68,7 @@ class Tablero{
     }
 
     reDibujar() {
-        this.limpiarCanvas();
+       this.limpiarCanvas();
         this.dibujarTablero();
         //this.setTurno(); falta implementar
         for (let i = 0; i < this._arrFichas.length; i++) {
@@ -77,7 +77,7 @@ class Tablero{
         }
     }
 
-    dibujarTablero(posX,posY){
+    dibujarTablero(posX,posY,ficha){
         //  let valores = this.adaptarTableroAlCanvas();
         for (let x = 0; x < this.columnas; x++) {
             for (let y = 0; y <= this.filas; y++) {
@@ -86,12 +86,7 @@ class Tablero{
                     this._matriz[x][y] = this.casillero;
                 }else {
                     if (x==posX && y==(posY-1)){
-                        this.ctx.beginPath();
-                        this.ctx.fillStyle = '#FF0000';
-                        this.ctx.arc((x + 1) * this._matriz[x][y].getWidth() - 50, (y + 1) * this._matriz[x][y].getHeigth() - 50, 30, 0, 2 * Math.PI);
-                        this.ctx.lineWidth = 2;
-                        this.ctx.fill();
-                        this.ctx.stroke();
+                        ficha.dibujarFicha(posX,posY,this.ctx);
                     }else{
                         this.ctx.beginPath();
                         this.ctx.fillStyle = '#FFFFFF';
@@ -131,7 +126,7 @@ class Tablero{
     //Esta funcion es para dibujar la ficha a la hora de jugar.
     dibujarCasillero(x,y,ficha){
         this.limpiarCanvas();
-        this.dibujarTablero(x,y);
+        this.dibujarTablero(x,y,ficha);
         //ficha.reDibujarFichaJugada(x,y,this.ctx);
         // this.ctx.fillStyle = '#FF0000';
         // this.ctx.beginPath();
