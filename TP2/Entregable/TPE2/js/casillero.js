@@ -11,6 +11,16 @@ class Casillero{
         this.width = 100;
         this.heigth = 100;
         this.ficha=false;
+        this._tirada = false;
+    }
+
+
+    getTirada() {
+        return this._tirada;
+    }
+
+    setTirada(value) {
+        this._tirada = value;
     }
 
     getHeigth(){

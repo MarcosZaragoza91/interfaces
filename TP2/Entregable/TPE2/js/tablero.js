@@ -45,6 +45,7 @@ class Tablero{
                 if (y == 0){
                     this.casillero.setPosicionesCasillero(x,y);
                     this._matriz[x][y] = this.casillero;
+                    this.casillero.setTirada = true;
                 }else{
                     this.casillero = new Casillero();
                     this.casillero.setPosicionesCasillero(x,y);
@@ -58,6 +59,21 @@ class Tablero{
                     this._matriz[x][y] = this.casillero;
                 }
             }
+        }
+    }
+
+    limpiarCanvas() {
+        this.ctx.fillStyle = "rgb(122, 122, 214)";
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    reDibujar() {
+        this.limpiarCanvas();
+        this.dibujarTablero();
+        //this.setTurno(); falta implementar
+        for (let i = 0; i < this.arrFichas.length; i++) {
+            const element = this.arrFichas[i];
+            element.reDibujarFicha(this.ctx);
         }
     }
 
@@ -83,24 +99,23 @@ class Tablero{
     //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
     cargarFichasJugadorPorJugador(){
         for (let x = this.columnas + 1; x < this.colFichas; x++) {
-            this._matriz [x] =[];
-                for (let y = 0; y < this.filas; y++) {
-                    if (y < this.filas/2){
-                        this.casillero.setPosicionesCasillero(x,y);
-                        let fondo1 = "images/fichaAzul.png";
-                        let fichaJ1 = new Ficha(fondo1);
-                        this.arrFichas.push(fichaJ1);
-                        fichaJ1.dibujarFicha(x,y,this.ctx);
-                        this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
-                    }else{
-                        this.casillero.setPosicionesCasillero(x,y);
-                        let fondo2 = "images/fichaRoja.png";
-                        let fichaJ2 = new Ficha(fondo2);
-                        this.arrFichas.push(fichaJ2);
-                        fichaJ2.dibujarFicha(x,y,this.ctx);
-                        this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
-                    }
+            for (let y = 0; y < this.filas; y++) {
+                if (y < this.filas/2){
+                    this.casillero.setPosicionesCasillero(x,y);
+                    let fondo1 = "images/fichaAzul.png";
+                    let fichaJ1 = new Ficha(fondo1);
+                    this.arrFichas.push(fichaJ1);
+                    fichaJ1.dibujarFicha(x,y,this.ctx);
+                    this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
+                }else{
+                    this.casillero.setPosicionesCasillero(x,y);
+                    let fondo2 = "images/fichaRoja.png";
+                    let fichaJ2 = new Ficha(fondo2);
+                    this.arrFichas.push(fichaJ2);
+                    fichaJ2.dibujarFicha(x,y,this.ctx);
+                    this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
                 }
+            }
         }
     }
 
@@ -111,18 +126,6 @@ class Tablero{
         this.ctx.arc((x+1)* this.casillero.getWidth()-50,(y)* this.casillero.getHeigth()-50,30,0,2*Math.PI);
         this.ctx.lineWidth = 5;
         this.ctx.stroke();
-    }
-    dibujarFichas(){
-        for (let i = 0; i < this.arrFichas.length; i++) {
-            const element = this.arrFichas[i];
-            element.reDibujarFicha(this.ctx);
-        }
-    }
-
-    dibujarFichasJugada(x,y){
-        for (let i = 0; i < this.arrFichas.length; i++) {
-            this.dibujarCasillero(x,y,this.arrFichas[i]);
-        }
     }
 
     seleccioneFicha(x,y){

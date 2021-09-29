@@ -5,7 +5,7 @@ class Juego{
         this.jugador1=new Jugador(1);
         this.jugador2=new Jugador(2);
         this.tablero= new Tablero(canvas);
-        this.turno;
+        this.turno;//esto tiene jugador
         this.ganador;
         this.isMouseDown=false;
         this.ultimaFichaClickeada = null;
@@ -17,17 +17,6 @@ class Juego{
         this.tablero.cargarFichasJugadorPorJugador();
     }
 
-    limpiarCanvas() {
-        this.ctx.fillStyle = "rgb(122, 122, 214)";
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-    }
-
-    reDibujar() {
-        this.limpiarCanvas();
-        this.tablero.dibujarTablero();
-        //this.setTurno(); falta implementar
-        this.tablero.dibujarFichas(this.ctx);
-    }
 
     onMouseDown(e){
         e.layerX;
@@ -46,14 +35,14 @@ class Juego{
            this.ultimaFichaClickeada = fichaClickeada; // y guarda la ultima clickeada
         }
          console.log(this.ultimaFichaClickeada);
-         this.reDibujar(); //borra y dibuja el canvas 
-    }       
+         this.tablero.reDibujar(); //borra y dibuja el canvas
+    }
          
         
     onMouseMove(e){
         if(this.isMouseDown==true && this.ultimaFichaClickeada !=null){//si el mouse esta abajo y hay una ficha clickeada
             this.ultimaFichaClickeada.setPosicionCanvas(e.layerX,e.layerY); //le pasa la posicion
-            this.reDibujar(); //borra y dibuja
+            this.tablero.reDibujar(); //borra y dibuja
         }
     }
 
