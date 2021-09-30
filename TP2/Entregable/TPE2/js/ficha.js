@@ -1,5 +1,5 @@
 class Ficha{
-    constructor(fondo){
+    constructor(fondo,jugador){
         this.fondo =fondo;
         this.img = new Image();
         this.radio=15;
@@ -8,7 +8,7 @@ class Ficha{
         this.posicionCentro = {x: 0 , y:0};
         this.seleccionada = false;
         this.usada = false;
-        
+        this.jugador=jugador;
     }  
 
     setPosicionCanvas(posX, posY) {
@@ -96,5 +96,13 @@ class Ficha{
 
     getImagen(){
         return this.img;
+    }
+
+    setJugador(jugador){
+        this.jugador = jugador;
+    }
+
+    getJugador(){
+        return this.jugador;
     }
 }

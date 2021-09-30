@@ -5,7 +5,7 @@ class Juego{
         this.jugador1=new Jugador(1);
         this.jugador2=new Jugador(2);
         this.tablero= new Tablero(canvas);
-        this.turno;//esto tiene jugador
+        this.turno = this.jugador1;//esto tiene jugador
         this.ganador;
         this.isMouseDown=false;
         this.ultimaFichaClickeada = null;
@@ -13,8 +13,7 @@ class Juego{
 
     nuevoJuego(){
         this.tablero.crearTablero();
-        //this.setJugadores();
-        this.tablero.cargarFichasJugadorPorJugador();
+        this.tablero.cargarFichasJugadorPorJugador(this.jugador1,this.jugador2);
     }
 
 
@@ -27,8 +26,13 @@ class Juego{
         let fichaClickeada = this.tablero.seleccioneFicha(e.layerX , e.layerY); //se fija si tiene seleccionada una ficha
         console.log(fichaClickeada);
         if(fichaClickeada != null){ //si la tiene
-           fichaClickeada.setSeleccionada(true);//setea la ficha en true
-           this.ultimaFichaClickeada = fichaClickeada; // y guarda la ultima clickeada
+            let jugadorFicha = fichaClickeada.getJugador();
+            if (this.turno.getTurno() == jugadorFicha.getTurno()){
+                fichaClickeada.setSeleccionada(true);//setea la ficha en true
+                this.ultimaFichaClickeada = fichaClickeada; // y guarda la ultima clickeada
+            }else{
+                alert('Debe jugar la ficha el siguiente jugador');
+            }
         }
          console.log(this.ultimaFichaClickeada);
          this.tablero.dibujarTablero(); //borra y dibuja el canvas
@@ -63,6 +67,11 @@ class Juego{
                                 j--;
                             }
                         }
+                        if (this.turno == this.jugador1)
+                            this.setTurno(this.jugador2);
+                        else{
+                            this.setTurno(this.jugador1);
+                        }
                         this.tablero.dibujarTablero();
                         break;
                     }
@@ -77,8 +86,8 @@ class Juego{
         return this.turno;
     }    
 
-    setTurno(){
-
+    setTurno(jugador){
+        this.turno = jugador;
     }
 
     cambiarTurno(){
@@ -88,5 +97,7 @@ class Juego{
     getGanador(){
         return this.ganador;
     }
+
+
 
 }

@@ -90,31 +90,33 @@ class Tablero{
                     }
                 }
             }
-        for (let i = 0; i < this._arrFichas.length; i++) {
-            const element = this._arrFichas[i];
-            element.reDibujarFicha(this.ctx);
-        }
+       for (let i = 0; i < this._arrFichas.length; i++) {
+           const element = this._arrFichas[i];
+           element.reDibujarFicha(this.ctx);
+       }
     }
 
 
     //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
-    cargarFichasJugadorPorJugador(){
+    cargarFichasJugadorPorJugador(jugador1,jugador2){
         for (let x = this.columnas + 1; x < this.colFichas; x++) {
             for (let y = 0; y < this.filas; y++) {
                 if (y < this.filas/2){
                     this.casillero.setPosicionesCasillero(x,y);
                     let fondo1 = "images/fichaAzul.png";
-                    let fichaJ1 = new Ficha(fondo1);
+                    let fichaJ1 = new Ficha(fondo1,jugador1);
                     this._arrFichas.push(fichaJ1);
                     fichaJ1.dibujarFicha(x,y,this.ctx);
                     this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
+                    //fichaJ1.setJugador(jugador1);
                 }else{
                     this.casillero.setPosicionesCasillero(x,y);
                     let fondo2 = "images/fichaRoja.png";
-                    let fichaJ2 = new Ficha(fondo2);
+                    let fichaJ2 = new Ficha(fondo2,jugador2);
                     this._arrFichas.push(fichaJ2);
                     fichaJ2.dibujarFicha(x,y,this.ctx);
                     this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
+                    //fichaJ2.setJugador(jugador2);
                 }
             }
         }

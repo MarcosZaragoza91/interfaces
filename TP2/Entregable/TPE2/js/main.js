@@ -1,11 +1,18 @@
 window.addEventListener('load', function (){
 
+    // let fondoj1 = document.querySelector(#fichaj1).addEventListener('click', function (){
+    //     return this.value;
+    // });
+    // let fondoj2 = document.querySelector(#fichaj2).addEventListener('click', function (){
+    //     return this.value;
+    // })
+
 document.querySelector('#btn_fichas').addEventListener('click', ()=>{
     let canvas = document.querySelector('#myCanvas');
     //let ctx = canvas.getContext('2d');
 
     let juego = new Juego(canvas);
-    juego.nuevoJuego();
+    juego.nuevoJuego();//fondoj1,fondoj2
 
     function onMouseDown(e){
         juego.onMouseDown(e)
