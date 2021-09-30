@@ -19,10 +19,6 @@ class Juego{
 
 
     onMouseDown(e){
-        e.layerX;
-        e.layerY;
-        console.log(e.layerX);
-        console.log(e.layerY);
         this.isMouseDown= true;
         if(this.isMouseDown== true && this.ultimaFichaClickeada != null){ //si tengo clickeada una ficha y voy a clickear otra
             this.ultimaFichaClickeada.setSeleccionada(false);        // le saco el resaltado a la anterior y dejod e guardarla
@@ -35,39 +31,48 @@ class Juego{
            this.ultimaFichaClickeada = fichaClickeada; // y guarda la ultima clickeada
         }
          console.log(this.ultimaFichaClickeada);
-         this.tablero.reDibujar(); //borra y dibuja el canvas
+         this.tablero.dibujarTablero(); //borra y dibuja el canvas
     }
          
         
     onMouseMove(e){
         if(this.isMouseDown==true && this.ultimaFichaClickeada !=null){//si el mouse esta abajo y hay una ficha clickeada
             this.ultimaFichaClickeada.setPosicionCanvas(e.layerX,e.layerY); //le pasa la posicion
-            this.tablero.reDibujar(); //borra y dibuja
+            this.tablero.dibujarTablero(); //borra y dibuja
         }
     }
 
     onMouseUp(e){
         this.isMouseDown=false;
         let arrCasillero = this.tablero.getMatriz();
+        console.log(arrCasillero[1][1]);
         let rangoLimite = 30;
-        let x= Math.floor(e.layerX/100);
+        let x= Math.floor(e.layerX/100)+1;
         let y= Math.floor(e.layerY/100);
-        let casillero = arrCasillero[x];
         if (y == 0 && this.ultimaFichaClickeada != null){
-            //Hacer funcion dentro de tablero para encontrar la posicion de columna
-            for (let i = (arrCasillero[x].length - 1) ; i > 0; i--) {
-                if (arrCasillero[x][i].getFicha()== null){
-                    let arrFicha = this.tablero.getArrFichas(); //hacer validacion
+            for (let i = (arrCasillero[x].length-1) ; i > 0; i--) {
+                let casillero = arrCasillero[x][i];
+                if (casillero.getFicha()== null){
+                    let arrFicha = this.tablero.getArrFichas();
                     if(arrFicha[0] != null){
                         arrCasillero[x][i].setFicha(arrFicha[0]);
-                        this.tablero.dibujarTablero(x,i+1,arrFicha[0]);
-                        arrFicha.shift();
+                        //Buscamos la ficha dentro del arreglo y la eliminamos
+                        for( let j = 0; j < arrFicha.length; j++){
+                            if ( arrFicha[j] == this.ultimaFichaClickeada) {
+                                arrFicha.splice(j, 1);
+                                j--;
+                            }
+                        }
+                        this.tablero.dibujarTablero();
                         break;
                     }
                 }
             }
+        }else{
+            this.tablero.dibujarTablero();
         }
     }
+
     getTurno(){
         return this.turno;
     }    
@@ -83,6 +88,5 @@ class Juego{
     getGanador(){
         return this.ganador;
     }
-    
 
 }
