@@ -60,7 +60,7 @@ class Juego{
                     let arrFicha = this.tablero.getArrFichas(); //hacer validacion
                     if(arrFicha[0] != null){
                         arrCasillero[x][i].setFicha(arrFicha[0]);
-                        this.tablero.dibujarCasillero(x,i+1,arrFicha[0]);
+                        this.tablero.dibujarTablero(x,i+1,arrFicha[0]);
                         arrFicha.shift();
                         break;
                     }

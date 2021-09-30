@@ -68,16 +68,18 @@ class Tablero{
     }
 
     reDibujar() {
-       this.limpiarCanvas();
+        //let auxTablero = this.dibujarTablero();
+        this.limpiarCanvas();
+        //auxTablero.dibujarTablero();
         this.dibujarTablero();
         //this.setTurno(); falta implementar
-        for (let i = 0; i < this._arrFichas.length; i++) {
+        /*for (let i = 0; i < this._arrFichas.length; i++) {
             const element = this._arrFichas[i];
             element.reDibujarFicha(this.ctx);
-        }
+        }*/
     }
 
-    dibujarTablero(posX,posY,ficha){
+    dibujarTablero(){
         //  let valores = this.adaptarTableroAlCanvas();
         for (let x = 0; x < this.columnas; x++) {
             for (let y = 0; y <= this.filas; y++) {
@@ -85,8 +87,15 @@ class Tablero{
                     this.casillero.setPosicionesCasillero(x,y);
                     this._matriz[x][y] = this.casillero;
                 }else {
-                    if (x==posX && y==(posY-1)){
-                        ficha.dibujarFicha(posX,posY,this.ctx);
+                    if (this._matriz[x][y].getFicha() != null){
+                        this.ctx.beginPath();
+                        this.ctx.fillStyle = '#FF0000';
+                        this.ctx.arc((x + 1) * this._matriz[x][y].getWidth() - 50, (y + 1) * this._matriz[x][y].getHeigth() - 50, 30, 0, 2 * Math.PI);
+                        this.ctx.lineWidth = 2;
+                        this.ctx.fill();
+                        this.ctx.stroke();
+
+                        //ficha.dibujarFicha(x,y,this.ctx);
                     }else{
                         this.ctx.beginPath();
                         this.ctx.fillStyle = '#FFFFFF';
@@ -98,7 +107,12 @@ class Tablero{
                 }
             }
         }
+        for (let i = 0; i < this._arrFichas.length; i++) {
+            const element = this._arrFichas[i];
+            element.reDibujarFicha(this.ctx);
+        }
     }
+
 
     //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
     cargarFichasJugadorPorJugador(){
