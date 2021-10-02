@@ -51,4 +51,8 @@ class Casillero{
     getPosicionesCasillero(){
         return this.posicionCasillero;
     }
+
+    getJugadorFicha(){
+        return this.ficha.getNumJugador();
+    }
 }

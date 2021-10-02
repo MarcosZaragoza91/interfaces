@@ -17,6 +17,10 @@ class Ficha{
         this.posicionCentro.x=posX+this.radio;
         this.posicionCentro.y=posY+this.radio;
     }
+
+    getPosicionMatriz(){
+        return this.posicionMatriz;
+    }
     
     setPosicionMatriz(posX, posY){
         this.posicionMatriz.x = posX;
@@ -56,6 +60,10 @@ class Ficha{
             ctx.drawImage(this.img, this.posicionCanvas.x-this.radio, this.posicionCanvas.y-this.radio, this.radio * 2, this.radio * 2);
         };
         this.img.onload = cargarImg.bind(this);
+        /*this.cellImage.onload = function () {
+            this.drawBoard();
+        }.bind(this);
+        */
     }
 
     estoyAdentro(posX,posY){
@@ -104,5 +112,8 @@ class Ficha{
 
     getJugador(){
         return this.jugador;
+    }
+    getNumJugador(){
+        return this.jugador.getTurno();
     }
 }

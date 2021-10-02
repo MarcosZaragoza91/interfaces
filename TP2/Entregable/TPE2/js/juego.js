@@ -16,6 +16,19 @@ class Juego{
         this.tablero.cargarFichasJugadorPorJugador(this.jugador1,this.jugador2);
     }
 
+    checkearGanador(x1,y1){
+        if(this.tablero.checkaerEnVertical(x1)){ //falta implementar checkear en diagonal
+            console.log("hay ganador");
+            console.log(this.tablero.getMatriz());
+            return true;
+        }else if(this.tablero.checkearEnHorizontal(y1)){
+            console.log("hay ganador");
+            console.log(this.tablero.getMatriz());
+            return true;
+        }else{
+            return true;
+        }
+    }
 
     onMouseDown(e){
         this.isMouseDown= true;
@@ -34,7 +47,6 @@ class Juego{
                 alert('Debe jugar la ficha el siguiente jugador');
             }
         }
-         console.log(this.ultimaFichaClickeada);
          this.tablero.dibujarTablero(); //borra y dibuja el canvas
     }
          
@@ -49,8 +61,8 @@ class Juego{
     onMouseUp(e){
         this.isMouseDown=false;
         let arrCasillero = this.tablero.getMatriz();
-        console.log(arrCasillero[1][1]);
         let rangoLimite = 30;
+        let filaSeleccionada=0;
         let x= Math.floor(e.layerX/100)+1;
         let y= Math.floor(e.layerY/100);
         if (y == 0 && this.ultimaFichaClickeada != null){
@@ -59,7 +71,9 @@ class Juego{
                 if (casillero.getFicha()== null){
                     let arrFicha = this.tablero.getArrFichas();
                     if(arrFicha[0] != null){
-                        arrCasillero[x][i].setFicha(arrFicha[0]);
+                        arrCasillero[x][i].setFicha(this.ultimaFichaClickeada);
+                        console.log(arrCasillero[x][i]);
+                        filaSeleccionada=i;
                         //Buscamos la ficha dentro del arreglo y la eliminamos
                         for( let j = 0; j < arrFicha.length; j++){
                             if ( arrFicha[j] == this.ultimaFichaClickeada) {
@@ -76,7 +90,10 @@ class Juego{
                         break;
                     }
                 }
+                 
             }
+            console.log("variable filaSeleccionada" + filaSeleccionada)
+            this.checkearGanador(x,filaSeleccionada);
         }else{
             this.tablero.dibujarTablero();
         }

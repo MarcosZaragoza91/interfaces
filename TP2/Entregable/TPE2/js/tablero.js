@@ -60,6 +60,7 @@ class Tablero{
                 this._matriz[x][y] = this.casillero;
             }
         }
+        console.log(this._matriz);
     }
 
     limpiarCanvas() {
@@ -102,24 +103,26 @@ class Tablero{
         for (let x = this.columnas + 1; x < this.colFichas; x++) {
             for (let y = 0; y < this.filas; y++) {
                 if (y < this.filas/2){
-                    this.casillero.setPosicionesCasillero(x,y);
+                   
                     let fondo1 = "images/fichaAzul.png";
                     let fichaJ1 = new Ficha(fondo1,jugador1);
                     this._arrFichas.push(fichaJ1);
                     fichaJ1.dibujarFicha(x,y,this.ctx);
-                    this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
+                   
                     //fichaJ1.setJugador(jugador1);
                 }else{
-                    this.casillero.setPosicionesCasillero(x,y);
+                
                     let fondo2 = "images/fichaRoja.png";
                     let fichaJ2 = new Ficha(fondo2,jugador2);
                     this._arrFichas.push(fichaJ2);
                     fichaJ2.dibujarFicha(x,y,this.ctx);
-                    this.casillero.setPosicionCanvas((x+1)* this.casillero.getWidth(),(y+1)* this.casillero.getHeigth());
+                    
                     //fichaJ2.setJugador(jugador2);
                 }
             }
+            
         }
+        console.log(this._arrFichas);
     }
 
     seleccioneFicha(x,y){
@@ -130,20 +133,51 @@ class Tablero{
             }
         }
     }
+    
+    checkaerEnVertical(x){ //x seria la posicionX que tiene la ultima ficha clieckeada
+        console.log(x);
+        let cantMismaLinea = 1;
+        let columnaSeleccionada = this._matriz[x];
+        console.log(columnaSeleccionada);
 
-    checkearGanador(){
-        this.checkaerVertical;
-        this.checkearDiagonal;
-        this.checkearHorizontal;
+        for (let i = this.filas; i > 1; i--) {
+            if(columnaSeleccionada[i].getFicha() !== null && columnaSeleccionada[i-1].getFicha() !== null ){//me fijo si en esas posiciones hay algunas fichas
+                if(columnaSeleccionada[i].getJugadorFicha() == columnaSeleccionada[i-1].getJugadorFicha()){// si las dos fichas contienen el mismo nuemero jugador
+                    cantMismaLinea++; 
+                    if(cantMismaLinea==4){//aca deberiamos ver si juega 4,6,7 en linea pasarle por parametro el valor elige
+                        return true;
+                    }
+                }else{
+                    cantMismaLinea=1;
+                }
+            }else{
+                break;
+            }
+        }
+        return false; 
+    } 
+    checkearEnHorizontal(y){///y seria la posicionY que tiene la ultima ficha clieckeada
+        console.log(y);
+        let cantMismaLinea = 1;
+        for (let i = 1; i < this.columnas; i++) {
+            if (this._matriz[i][y].getFicha() !== null && this._matriz[i+1][y].getFicha() !== null) {
+                if (this._matriz[i][y].getJugadorFicha() == this._matriz[i+1][y].getJugadorFicha()) {
+                    cantMismaLinea ++;
+                    if (cantMismaLinea == 4)
+                        return true;
+                }else{
+                    cantMismaLinea=1;
+                }
+            }
+        } 
+        return false; 
+        
     }
-    checkearHorizontal(){
+    
 
-    }
-    checkaerVertical(){
-
-    }
+    
     checkearDiagonal(){
-
+   
     }
 
     getArrFichas() {
