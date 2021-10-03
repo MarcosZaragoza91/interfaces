@@ -6,20 +6,23 @@ class Ficha{
         this.posicionCanvas = {x:0 , y:0};
         this.posicionMatriz = {x: 0 , y:0};
         this.posicionCentro = {x: 0 , y:0};
+        this.posicionInicial = {x:0 , y:0};
         this.seleccionada = false;
         this.usada = false;
         this.jugador=jugador;
-    }  
-
-    setPosicionCanvas(posX, posY) {
-        this.posicionCanvas.x=posX;
-        this.posicionCanvas.y=posY;
-        this.posicionCentro.x=posX+this.radio;
-        this.posicionCentro.y=posY+this.radio;
     }
 
-    getPosicionMatriz(){
-        return this.posicionMatriz;
+
+    setPosicionCanvas(posX, posY) {
+        this.posicionCanvas.x=(posX+1)*100-50;
+        this.posicionCanvas.y=(posY+1)*100-50;
+        this.posicionCentro.x=(posX+1)*100-50+this.radio;
+        this.posicionCentro.y=(posY+1)*100-50+this.radio;
+    }
+
+    setPosicionInicial(posX,posY){
+        this.posicionInicial.x=(this.posicionMatriz.x)*100+50;
+        this.posicionInicial.y=(this.posicionMatriz.y)*100+50;
     }
     
     setPosicionMatriz(posX, posY){
@@ -30,40 +33,35 @@ class Ficha{
     getPosicionCanvas(){
         return this.posicionCanvas;
     }
-    
-    dibujarFicha(posX,posY,ctx){
-        this.setPosicionCanvas((posX+1)*100, (posY+1)*100);
-        this.setPosicionMatriz(posX,posY);
-        ctx.fillStyle = '#FF0000';
-        ctx.beginPath();
-        ctx.arc((posX+1)*100, (posY+1)*100, this.radio*2, 0, Math.PI * 2);
-        ctx.fill();
-        this.img.src = this.fondo;
-        let cargarImg = function(){
-            ctx.drawImage(this.img, this.posicionCanvas.x-this.radio, this.posicionCanvas.y-this.radio, this.radio * 2, this.radio * 2);
-        };
-        this.img.onload = cargarImg.bind(this);
-    
-        if(this.esSeleccionada === true ){
-            ctx.lineWidth =5;
-            ctx.arc(this.posicion.x, this.posicion.y, this.radio*2, 0, Math.PI * 2);
-        }
+
+    getPosicionInicial(){
+        return this.posicionInicial;
     }
     
-    reDibujarFicha(ctx){ //codigo repetido ver...
-        ctx.fillStyle = '#FF0000';
-        ctx.beginPath();
-        ctx.arc(this.posicionCanvas.x,this.posicionCanvas.y , this.radio*2, 0, Math.PI * 2);
-        ctx.fill();
-        this.img.src = this.fondo;
-        let cargarImg = function(){
-            ctx.drawImage(this.img, this.posicionCanvas.x-this.radio, this.posicionCanvas.y-this.radio, this.radio * 2, this.radio * 2);
-        };
-        this.img.onload = cargarImg.bind(this);
-        /*this.cellImage.onload = function () {
-            this.drawBoard();
-        }.bind(this);
-        */
+    dibujarFicha(ctx){
+        //ctx.fillStyle = '#FF0000';
+        if (this.usada || this.seleccionada){
+            //ctx.fillStyle = '#FF0000';
+            ctx.beginPath();
+            ctx.arc(this.posicionCanvas.x,this.posicionCanvas.y , this.radio*2, 0, Math.PI * 2);
+            //ctx.fill();
+            this.img.src = this.fondo;
+            let cargarImg = function(){
+                ctx.drawImage(this.img, this.posicionCanvas.x-this.radio, this.posicionCanvas.y-this.radio, this.radio * 2, this.radio * 2);
+            };
+            this.img.onload = cargarImg.bind(this);
+        }else{
+            //ctx.fillStyle = '#FF0000';
+            ctx.beginPath();
+            ctx.arc(this.posicionInicial.x,this.posicionInicial.y , this.radio*2, 0, Math.PI * 2);
+            //ctx.fill();
+            this.img.src = this.fondo;
+            let cargarImg = function(){
+                ctx.drawImage(this.img, this.posicionInicial.x-this.radio, this.posicionInicial.y-this.radio, this.radio * 2, this.radio * 2);
+            };
+            this.img.onload = cargarImg.bind(this);
+            this.setPosicionCanvas(this.posicionMatriz.x,this.posicionMatriz.y);
+        }
     }
 
     estoyAdentro(posX,posY){
@@ -90,12 +88,12 @@ class Ficha{
         return this.seleccionada;
     }
 
-    fueUsada(){
-      return this.fueUsada;  
+    getUsada(){
+      return this.usada;
     }
 
-    getPosicion(){
-        return this.posicion;
+    getPosicionCentro(){
+        return this.posicionCentro;
     }
 
     getRadio(){

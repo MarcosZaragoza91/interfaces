@@ -18,12 +18,10 @@ class Juego{
 
     checkearGanador(x1,y1){
         if(this.tablero.checkaerEnVertical(x1)){ //falta implementar checkear en diagonal
-            console.log("hay ganador");
-            console.log(this.tablero.getMatriz());
+            alert("hay ganador");
             return true;
         }else if(this.tablero.checkearEnHorizontal(y1)){
-            console.log("hay ganador");
-            console.log(this.tablero.getMatriz());
+            alert("hay ganador");
             return true;
         }else{
             return true;
@@ -53,7 +51,9 @@ class Juego{
         
     onMouseMove(e){
         if(this.isMouseDown==true && this.ultimaFichaClickeada !=null){//si el mouse esta abajo y hay una ficha clickeada
-            this.ultimaFichaClickeada.setPosicionCanvas(e.layerX,e.layerY); //le pasa la posicion
+            let x= Math.floor(e.layerX/100);
+            let y= Math.floor(e.layerY/100);
+            this.ultimaFichaClickeada.setPosicionCanvas(x,y); //le pasa la posicion
             this.tablero.dibujarTablero(); //borra y dibuja
         }
     }
@@ -65,37 +65,44 @@ class Juego{
         let filaSeleccionada=0;
         let x= Math.floor(e.layerX/100)+1;
         let y= Math.floor(e.layerY/100);
-        if (y == 0 && this.ultimaFichaClickeada != null){
-            for (let i = (arrCasillero[x].length-1) ; i > 0; i--) {
-                let casillero = arrCasillero[x][i];
-                if (casillero.getFicha()== null){
-                    let arrFicha = this.tablero.getArrFichas();
-                    if(arrFicha[0] != null){
-                        arrCasillero[x][i].setFicha(this.ultimaFichaClickeada);
-                        console.log(arrCasillero[x][i]);
-                        filaSeleccionada=i;
-                        //Buscamos la ficha dentro del arreglo y la eliminamos
-                        for( let j = 0; j < arrFicha.length; j++){
-                            if ( arrFicha[j] == this.ultimaFichaClickeada) {
-                                arrFicha.splice(j, 1);
-                                j--;
+        let jugable = this.tablero.checkPosicionTablero(e.layerX,e.layerY);
+        if (this.ultimaFichaClickeada != null){
+            if (jugable){
+                for (let i = (arrCasillero[x].length-1) ; i > 0; i--) {
+                    let casillero = arrCasillero[x][i];
+                    if (casillero.getFicha()== null){
+                        let arrFicha = this.tablero.getArrFichas();
+                        if(arrFicha[0] != null){
+                            arrCasillero[x][i].setFicha(this.ultimaFichaClickeada);
+                            console.log(arrCasillero[x][i]);
+                            filaSeleccionada=i;
+                            //Buscamos la ficha dentro del arreglo y la eliminamos
+                            for( let j = 0; j < arrFicha.length; j++){
+                                if ( arrFicha[j] == this.ultimaFichaClickeada) {
+                                    arrFicha[j].setUsada(true);
+                                    // arrFicha.splice(j, 1);
+                                    // j--;
+                                }
                             }
+                            if (this.turno == this.jugador1)
+                                this.setTurno(this.jugador2);
+                            else{
+                                this.setTurno(this.jugador1);
+                            }
+                            this.tablero.dibujarTablero();
+                            break;
                         }
-                        if (this.turno == this.jugador1)
-                            this.setTurno(this.jugador2);
-                        else{
-                            this.setTurno(this.jugador1);
-                        }
-                        this.tablero.dibujarTablero();
-                        break;
                     }
+
                 }
-                 
+                console.log("variable filaSeleccionada" + filaSeleccionada)
+                this.checkearGanador(x,filaSeleccionada);
+            }else{
+                this.ultimaFichaClickeada.setSeleccionada(false);
+                this.tablero.dibujarTablero();
+                console.log("ACA ESTOY-------------------------");
+                console.log(this.tablero.getArrFichas());
             }
-            console.log("variable filaSeleccionada" + filaSeleccionada)
-            this.checkearGanador(x,filaSeleccionada);
-        }else{
-            this.tablero.dibujarTablero();
         }
     }
 
@@ -114,7 +121,5 @@ class Juego{
     getGanador(){
         return this.ganador;
     }
-
-
 
 }

@@ -6,7 +6,7 @@ class Tablero{
         this.columnas = 7;
         this.casillero = new Casillero();
         this.filas = 6;
-        this.colFichas = this.columnas + 6;
+        this.colFichas = this.columnas + 7;
         this._matriz = [];
         this._arrFichas=[];
     }
@@ -60,7 +60,6 @@ class Tablero{
                 this._matriz[x][y] = this.casillero;
             }
         }
-        console.log(this._matriz);
     }
 
     limpiarCanvas() {
@@ -73,29 +72,32 @@ class Tablero{
         for (let x = 1; x <= this.columnas; x++) {
             for (let y = 1; y <= this.filas; y++) {
                     if (this._matriz[x][y].getFicha() != null){
-                        this.ctx.beginPath();
-                        this.ctx.fillStyle = '#FF0000';
-                        this.ctx.arc((x) * this._matriz[x][y].getWidth() - 50, (y + 1) * this._matriz[x][y].getHeigth() - 50, 30, 0, 2 * Math.PI);
-                        this.ctx.lineWidth = 2;
-                        this.ctx.fill();
-                        this.ctx.stroke();
+                        let ficha = this._matriz[x][y].getFicha();
+                        ficha.setPosicionCanvas(x-1, y);
+                        ficha.dibujarFicha(this.ctx);
+                        // this.ctx.beginPath();
+                        // this.ctx.fillStyle = '#FF0000';
+                        // this.ctx.arc((x) * this._matriz[x][y].getWidth() - 50, (y + 1) * this._matriz[x][y].getHeigth() - 50, 30, 0, 2 * Math.PI);
+                        // this.ctx.lineWidth = 2;
+                        // this.ctx.fill();
+                        // this.ctx.stroke();
 
                         //ficha.dibujarFicha(x,y,this.ctx);
                     }else{
                         this.ctx.beginPath();
                         this.ctx.fillStyle = '#FFFFFF';
-                        this.ctx.arc((x) * this._matriz[x][y].getWidth() - 50, (y + 1) * this._matriz[x][y].getHeigth() - 50, 30, 0, 2 * Math.PI);
+                        this.ctx.arc((x) * this._matriz[x][y].getWidth()-50, (y + 1) * this._matriz[x][y].getHeigth()-50, 30, 0, 2 * Math.PI);
                         this.ctx.lineWidth = 2;
                         this.ctx.fill();
                         this.ctx.stroke();
                     }
                 }
             }
-       for (let i = 0; i < this._arrFichas.length; i++) {
+        for (let i = 0; i < this._arrFichas.length; i++) {
            const element = this._arrFichas[i];
-           element.reDibujarFicha(this.ctx);
+           element.dibujarFicha(this.ctx);
        }
-    }
+   }
 
 
     //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
@@ -107,16 +109,20 @@ class Tablero{
                     let fondo1 = "images/fichaAzul.png";
                     let fichaJ1 = new Ficha(fondo1,jugador1);
                     this._arrFichas.push(fichaJ1);
-                    fichaJ1.dibujarFicha(x,y,this.ctx);
-                   
+                    fichaJ1.setPosicionMatriz(x,y);
+                    fichaJ1.setPosicionInicial(x,y);
+                    fichaJ1.setPosicionCanvas(x,y)
+                    fichaJ1.dibujarFicha(this.ctx);
                     //fichaJ1.setJugador(jugador1);
                 }else{
                 
                     let fondo2 = "images/fichaRoja.png";
                     let fichaJ2 = new Ficha(fondo2,jugador2);
                     this._arrFichas.push(fichaJ2);
-                    fichaJ2.dibujarFicha(x,y,this.ctx);
-                    
+                    fichaJ2.setPosicionMatriz(x,y);
+                    fichaJ2.setPosicionInicial(x,y);
+                    fichaJ2.setPosicionCanvas(x,y)
+                    fichaJ2.dibujarFicha(this.ctx);
                     //fichaJ2.setJugador(jugador2);
                 }
             }
@@ -174,7 +180,14 @@ class Tablero{
         
     }
     
-
+    checkPosicionTablero(posX,posY){
+        let limiteHorizontal = this.columnas*this.casillero.getWidth();
+        if (posX < limiteHorizontal && posY < this.casillero.getHeigth()){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
     checkearDiagonal(){
    
