@@ -43,11 +43,11 @@ class Ficha{
         if (this.usada || this.seleccionada){
             //ctx.fillStyle = '#FF0000';
             ctx.beginPath();
-            ctx.arc(this.posicionCanvas.x,this.posicionCanvas.y , this.radio*2, 0, Math.PI * 2);
+            ctx.arc(this.posicionCentro.x,this.posicionCentro.y , this.radio*2, 0, Math.PI * 2);
             //ctx.fill();
             this.img.src = this.fondo;
             let cargarImg = function(){
-                ctx.drawImage(this.img, this.posicionCanvas.x-this.radio, this.posicionCanvas.y-this.radio, this.radio * 2, this.radio * 2);
+                ctx.drawImage(this.img, this.posicionCanvas.x-this.radio*2, this.posicionCanvas.y-this.radio*2, this.radio * 4, this.radio * 4);
             };
             this.img.onload = cargarImg.bind(this);
         }else{
@@ -57,7 +57,7 @@ class Ficha{
             //ctx.fill();
             this.img.src = this.fondo;
             let cargarImg = function(){
-                ctx.drawImage(this.img, this.posicionInicial.x-this.radio, this.posicionInicial.y-this.radio, this.radio * 2, this.radio * 2);
+                ctx.drawImage(this.img, this.posicionInicial.x-this.radio*2, this.posicionInicial.y-this.radio*2, this.radio * 4, this.radio * 4);
             };
             this.img.onload = cargarImg.bind(this);
             this.setPosicionCanvas(this.posicionMatriz.x,this.posicionMatriz.y);

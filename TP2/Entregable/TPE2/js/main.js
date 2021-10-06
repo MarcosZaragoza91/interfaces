@@ -7,7 +7,7 @@ window.addEventListener('load', function (){
     //     return this.value;
     // })
 
-document.querySelector('#btn_fichas').addEventListener('click', ()=>{
+document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     let canvas = document.querySelector('#myCanvas');
     //let ctx = canvas.getContext('2d');
 

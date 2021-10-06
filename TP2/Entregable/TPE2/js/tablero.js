@@ -45,6 +45,8 @@ class Tablero{
       //       this.casillero.setTirada = true;
       //       this._matriz[i][0] = this.casillero;
       //   }
+        this.setTablero();
+
         for (let x = 1; x <= this.columnas; x++) {
             this._matriz [x] =[];
             for (let y = 1; y <= this.filas; y++) {
@@ -63,12 +65,21 @@ class Tablero{
     }
 
     limpiarCanvas() {
-        this.ctx.fillStyle = "rgb(122, 122, 214)";
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        //this.ctx.fillStyle = "rgb(200, 200, 200)";
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    setTablero(){
+        this.ctx.beginPath();
+        this.ctx.fillStyle = "#333333";
+        this.ctx.fillRect(0,0,this.columnas*this.casillero.getWidth(), this.casillero.getHeigth())
+        this.ctx.fillStyle = "#777777";
+        this.ctx.fillRect(0, 100, this.columnas*this.casillero.getWidth(), this.filas*this.casillero.getHeigth());
     }
 
    dibujarTablero(){
         this.limpiarCanvas();
+        this.setTablero();
         for (let x = 1; x <= this.columnas; x++) {
             for (let y = 1; y <= this.filas; y++) {
                     if (this._matriz[x][y].getFicha() != null){
@@ -93,6 +104,7 @@ class Tablero{
                     }
                 }
             }
+
         for (let i = 0; i < this._arrFichas.length; i++) {
            const element = this._arrFichas[i];
            element.dibujarFicha(this.ctx);
@@ -106,7 +118,7 @@ class Tablero{
             for (let y = 0; y < this.filas; y++) {
                 if (y < this.filas/2){
                    
-                    let fondo1 = "images/fichaAzul.png";
+                    let fondo1 = "images/fichaNegra.png";
                     let fichaJ1 = new Ficha(fondo1,jugador1);
                     this._arrFichas.push(fichaJ1);
                     fichaJ1.setPosicionMatriz(x,y);
@@ -116,7 +128,7 @@ class Tablero{
                     //fichaJ1.setJugador(jugador1);
                 }else{
                 
-                    let fondo2 = "images/fichaRoja.png";
+                    let fondo2 = "images/fichaVioleta.png";
                     let fichaJ2 = new Ficha(fondo2,jugador2);
                     this._arrFichas.push(fichaJ2);
                     fichaJ2.setPosicionMatriz(x,y);
@@ -176,8 +188,99 @@ class Tablero{
                 }
             }
         } 
-        return false; 
-        
+        return false;
+    }
+
+    checkearDiagonales(x,y){
+        let valor = 0;
+        let ValorTotal = this.getValorDiagonalAbajoIzq(x,y,valor);
+        ValorTotal = ValorTotal + this.getValorDiagonalArribaDer(x,y,valor);
+        if (ValorTotal >= 3){
+            return true;
+        }else{
+            ValorTotal = this.getValorDiagonalAbajoDer(x,y,valor);
+            ValorTotal = ValorTotal + this.getValorDiagonalArribaIzq(x,y,valor);
+            if (ValorTotal >= 3){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    getValorDiagonalAbajoIzq(x,y,valor){
+        for (y ; y <= this.filas; y++) {
+            if (x<=1 || x > this.columnas || y < 1 || y >= this.filas){
+                return valor;
+            }else{
+                if (this._matriz[x-1][y+1].getFicha() != null){
+                    if (this._matriz[x][y].getJugadorFicha() == this._matriz[x-1][y+1].getJugadorFicha()){
+                        x--;
+                        valor++;
+                    }else{
+                        return valor;
+                    }
+                }else{
+                    return valor;
+                }
+            }
+        }
+    }
+
+    getValorDiagonalArribaDer(x,y,valor){
+        for (y ; y >= 1; y--) {
+            if (x<1 || x >= this.columnas || y <= 1 || y > this.filas){
+                return valor;
+            }else{
+                if (this._matriz[x+1][y-1].getFicha() != null){
+                    if (this._matriz[x][y].getJugadorFicha() == this._matriz[x+1][y-1].getJugadorFicha()){
+                        x++;
+                        valor++;
+                    }else{
+                        return valor;
+                    }
+                }else{
+                    return valor;
+                }
+            }
+        }
+    }
+
+    getValorDiagonalAbajoDer(x,y,valor){
+        for (y ; y <= this.filas; y++) {
+            if (x<1 || x >= this.columnas || y < 1 || y >= this.filas){
+                return valor;
+            }else{
+                if (this._matriz[x+1][y+1].getFicha() != null) {
+                    if (this._matriz[x][y].getJugadorFicha() == this._matriz[x + 1][y + 1].getJugadorFicha()) {
+                        x++;
+                        valor++;
+                    } else {
+                        return valor;
+                    }
+                }else{
+                    return valor;
+                }
+            }
+        }
+    }
+
+    getValorDiagonalArribaIzq(x,y,valor){
+        for (y ; y >= 1; y--) {
+            if (x<=1 || x > this.columnas || y <= 1 || y > this.filas){
+                return valor;
+            }else {
+                if (this._matriz[x-1][y-1].getFicha() != null) {
+                    if (this._matriz[x][y].getJugadorFicha() == this._matriz[x-1][y-1].getJugadorFicha()) {
+                        x--;
+                        valor++;
+                    } else {
+                        return valor;
+                    }
+                }else{
+                    return valor;
+                }
+            }
+        }
     }
     
     checkPosicionTablero(posX,posY){
@@ -187,10 +290,6 @@ class Tablero{
         }else{
             return false;
         }
-    }
-    
-    checkearDiagonal(){
-   
     }
 
     getArrFichas() {

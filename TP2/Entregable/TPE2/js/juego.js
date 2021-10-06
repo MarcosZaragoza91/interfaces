@@ -1,5 +1,5 @@
 class Juego{
-    constructor(canvas){
+    constructor(canvas,modoJuego){
         this.canvas = document.querySelector('#myCanvas');
         this.ctx = this.canvas.getContext('2d');
         this.jugador1=new Jugador(1);
@@ -9,6 +9,19 @@ class Juego{
         this.ganador;
         this.isMouseDown=false;
         this.ultimaFichaClickeada = null;
+        this.modoJuego = modoJuego;
+    }
+
+    setModoJuego(){
+        switch (this.modoJuego) {
+
+            case 4:
+                this.tablero.setFilas(6);
+                this.tablero.setColumnas(7);
+                this.canvas.className = "container-canvas-4";
+                break;
+            case 5:
+        }
     }
 
     nuevoJuego(){
@@ -23,7 +36,8 @@ class Juego{
         }else if(this.tablero.checkearEnHorizontal(y1)){
             alert("hay ganador");
             return true;
-        }else{
+        }else if(this.tablero.checkearDiagonales(x1,y1)){
+            alert("hay ganador");
             return true;
         }
     }
@@ -55,6 +69,7 @@ class Juego{
             let y= Math.floor(e.layerY/100);
             this.ultimaFichaClickeada.setPosicionCanvas(x,y); //le pasa la posicion
             this.tablero.dibujarTablero(); //borra y dibuja
+            document.getElementById("myCanvas").onmouseleave = function() {onMouseUp(e)};
         }
     }
 
