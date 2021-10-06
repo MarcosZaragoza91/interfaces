@@ -39,30 +39,38 @@ class Ficha{
     }
     
     dibujarFicha(ctx){
-        //ctx.fillStyle = '#FF0000';
         if (this.usada || this.seleccionada){
-            //ctx.fillStyle = '#FF0000';
             ctx.beginPath();
-            ctx.arc(this.posicionCentro.x,this.posicionCentro.y , this.radio*2, 0, Math.PI * 2);
-            //ctx.fill();
-            this.img.src = this.fondo;
-            let cargarImg = function(){
-                ctx.drawImage(this.img, this.posicionCanvas.x-this.radio*2, this.posicionCanvas.y-this.radio*2, this.radio * 4, this.radio * 4);
-            };
-            this.img.onload = cargarImg.bind(this);
+            ctx.arc(this.posicionCanvas.x,this.posicionCanvas.y , this.radio*2, 0, Math.PI * 2);
+                if (this.img.src == "") {
+                this.img.src = this.fondo;
+                let cargarImg = function () {
+                    ctx.drawImage(this.img, this.posicionCanvas.x-(this.radio*2), this.posicionCanvas.y-(this.radio*2), this.radio * 4, this.radio * 4);
+                };
+                this.img.onload = cargarImg.bind(this);
+            } else{//cuando ya la tiene cargada, solamente dibuja
+                ctx.drawImage(this.img, this.posicionCanvas.x-(this.radio*2), this.posicionCanvas.y-(this.radio*2), this.radio * 4, this.radio * 4);
+            }
+            ctx.closePath();
+            ctx.fillStyle = "rgba(255,255,255,0.3)";//cuando este seleccionada se aplica un estilo
+            ctx.fill();
         }else{
-            //ctx.fillStyle = '#FF0000';
             ctx.beginPath();
             ctx.arc(this.posicionInicial.x,this.posicionInicial.y , this.radio*2, 0, Math.PI * 2);
-            //ctx.fill();
-            this.img.src = this.fondo;
-            let cargarImg = function(){
-                ctx.drawImage(this.img, this.posicionInicial.x-this.radio*2, this.posicionInicial.y-this.radio*2, this.radio * 4, this.radio * 4);
-            };
-            this.img.onload = cargarImg.bind(this);
+            if (this.img.src == "") {
+                this.img.src = this.fondo;
+                let cargarImg = function () {
+                    ctx.drawImage(this.img, this.posicionCanvas.x-(this.radio*2), this.posicionCanvas.y-(this.radio*2) , this.radio * 4, this.radio * 4);
+                };
+                this.img.onload = cargarImg.bind(this);
+            } else{
+                ctx.drawImage(this.img, this.posicionCanvas.x-(this.radio*2), this.posicionCanvas.y-(this.radio*2), this.radio * 4, this.radio * 4);
+            }
+            ctx.closePath();
             this.setPosicionCanvas(this.posicionMatriz.x,this.posicionMatriz.y);
         }
-    }
+    }    
+ 
 
     estoyAdentro(posX,posY){
         let x = this.posicionCanvas.x-posX;
