@@ -26,7 +26,10 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     }
     function onMouseLeave(e){
         juego.isMouseDown = false;
-        juego.onMouseUp(e)
+        if(juego.ultimaFichaClickeada != null){
+            juego.ultimaFichaClickeada.setSeleccionada(false);
+            juego.onMouseDown(e);
+        }
     }
 
     

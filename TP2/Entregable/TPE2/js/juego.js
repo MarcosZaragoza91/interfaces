@@ -32,13 +32,13 @@ class Juego{
     checkearGanador(x1,y1){
         if(this.tablero.checkaerEnVertical(x1)){ //falta implementar checkear en diagonal
             alert("hay ganador");
-            return true;
+            this.tablero.limpiarCanvas();
         }else if(this.tablero.checkearEnHorizontal(y1)){
             alert("hay ganador");
-            return true;
+            this.tablero.limpiarCanvas();
         }else if(this.tablero.checkearDiagonales(x1,y1)){
             alert("hay ganador");
-            return true;
+            this.tablero.limpiarCanvas();
         }
     }
 
@@ -90,12 +90,10 @@ class Juego{
                             arrCasillero[x][i].setFicha(this.ultimaFichaClickeada);
                             console.log(arrCasillero[x][i]);
                             filaSeleccionada=i;
-                            //Buscamos la ficha dentro del arreglo y la eliminamos
+                            //Buscamos la ficha dentro del arreglo
                             for( let j = 0; j < arrFicha.length; j++){
                                 if ( arrFicha[j] == this.ultimaFichaClickeada) {
                                     arrFicha[j].setUsada(true);
-                                    // arrFicha.splice(j, 1);
-                                    // j--;
                                 }
                             }
                             if (this.turno == this.jugador1)
@@ -107,7 +105,6 @@ class Juego{
                             break;
                         }
                     }
-
                 }
                 console.log("variable filaSeleccionada" + filaSeleccionada)
                 this.checkearGanador(x,filaSeleccionada);

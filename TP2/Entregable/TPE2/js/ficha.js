@@ -12,7 +12,6 @@ class Ficha{
         this.jugador=jugador;
     }
 
-
     setPosicionCanvas(posX, posY) {
         this.posicionCanvas.x=(posX+1)*100-50;
         this.posicionCanvas.y=(posY+1)*100-50;

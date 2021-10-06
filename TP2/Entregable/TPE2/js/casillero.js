@@ -14,7 +14,6 @@ class Casillero{
         this._tirada = false;
     }
 
-
     getTirada() {
         return this._tirada;
     }

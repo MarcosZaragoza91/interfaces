@@ -27,26 +27,9 @@ class Tablero{
     getFilas(){
         return this.filas;
     }
-/*
-    adaptarTableroAlCanvas(){
-        let anchoColumnas = this.range / this.columnas;
-        let altoFilas = this.width /  this.filas;
-        return {
-            anchoColumnas,
-            altoFilas
-        };
-    }
-*/
-    crearTablero(){
-      //  let valores = this.adaptarTableroAlCanvas();
-      //   for (let i = 0; i < this.columnas; i++) {
-      //       this.casillero = new Casillero();
-      //       this.casillero.setPosicionesCasillero(i,0);
-      //       this.casillero.setTirada = true;
-      //       this._matriz[i][0] = this.casillero;
-      //   }
-        this.setTablero();
 
+    crearTablero(){
+        this.setTablero();
         for (let x = 1; x <= this.columnas; x++) {
             this._matriz [x] =[];
             for (let y = 1; y <= this.filas; y++) {
@@ -65,7 +48,6 @@ class Tablero{
     }
 
     limpiarCanvas() {
-        //this.ctx.fillStyle = "rgb(200, 200, 200)";
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
@@ -86,14 +68,6 @@ class Tablero{
                         let ficha = this._matriz[x][y].getFicha();
                         ficha.setPosicionCanvas(x-1, y);
                         ficha.dibujarFicha(this.ctx);
-                        // this.ctx.beginPath();
-                        // this.ctx.fillStyle = '#FF0000';
-                        // this.ctx.arc((x) * this._matriz[x][y].getWidth() - 50, (y + 1) * this._matriz[x][y].getHeigth() - 50, 30, 0, 2 * Math.PI);
-                        // this.ctx.lineWidth = 2;
-                        // this.ctx.fill();
-                        // this.ctx.stroke();
-
-                        //ficha.dibujarFicha(x,y,this.ctx);
                     }else{
                         this.ctx.beginPath();
                         this.ctx.fillStyle = '#FFFFFF';
@@ -125,9 +99,7 @@ class Tablero{
                     fichaJ1.setPosicionInicial(x,y);
                     fichaJ1.setPosicionCanvas(x,y)
                     fichaJ1.dibujarFicha(this.ctx);
-                    //fichaJ1.setJugador(jugador1);
                 }else{
-                
                     let fondo2 = "images/fichaVioleta.png";
                     let fichaJ2 = new Ficha(fondo2,jugador2);
                     this._arrFichas.push(fichaJ2);
@@ -135,12 +107,9 @@ class Tablero{
                     fichaJ2.setPosicionInicial(x,y);
                     fichaJ2.setPosicionCanvas(x,y)
                     fichaJ2.dibujarFicha(this.ctx);
-                    //fichaJ2.setJugador(jugador2);
                 }
             }
-            
         }
-        console.log(this._arrFichas);
     }
 
     seleccioneFicha(x,y){
@@ -154,7 +123,7 @@ class Tablero{
     
     checkaerEnVertical(x){ //x seria la posicionX que tiene la ultima ficha clieckeada
         console.log(x);
-        let cantMismaLinea = 1;
+        let cantMismaLinea = 0;
         let columnaSeleccionada = this._matriz[x];
         console.log(columnaSeleccionada);
 
@@ -166,7 +135,7 @@ class Tablero{
                         return true;
                     }
                 }else{
-                    cantMismaLinea=1;
+                    cantMismaLinea=0;
                 }
             }else{
                 break;
@@ -186,6 +155,8 @@ class Tablero{
                 }else{
                     cantMismaLinea=1;
                 }
+            }else{
+                break;
             }
         } 
         return false;
