@@ -60,11 +60,11 @@ class Ficha{
             if (this.img.src == "") {
                 this.img.src = this.fondo;
                 let cargarImg = function () {
-                    ctx.drawImage(this.img, this.posicionCanvas.x-(this.radio*2), this.posicionCanvas.y-(this.radio*2) , this.radio * 4, this.radio * 4);
+                    ctx.drawImage(this.img, this.posicionInicial.x-(this.radio*2), this.posicionInicial.y-(this.radio*2) , this.radio * 4, this.radio * 4);
                 };
                 this.img.onload = cargarImg.bind(this);
             } else{
-                ctx.drawImage(this.img, this.posicionCanvas.x-(this.radio*2), this.posicionCanvas.y-(this.radio*2), this.radio * 4, this.radio * 4);
+                ctx.drawImage(this.img, this.posicionInicial.x-(this.radio*2), this.posicionInicial.y-(this.radio*2), this.radio * 4, this.radio * 4);
             }
             ctx.closePath();
             this.setPosicionCanvas(this.posicionMatriz.x,this.posicionMatriz.y);
