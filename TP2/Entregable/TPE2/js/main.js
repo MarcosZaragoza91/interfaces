@@ -24,11 +24,16 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     function onMouseUp(e){
         juego.onMouseUp(e)
     }
+    function onMouseLeave(e){
+        juego.isMouseDown = false;
+        juego.onMouseUp(e)
+    }
 
     
-    canvas.addEventListener('mousedown',onMouseDown,false);
-    canvas.addEventListener('mouseup',onMouseUp,false);
-    canvas.addEventListener('mousemove',onMouseMove,false);
+    canvas.addEventListener('mousedown',onMouseDown);
+    canvas.addEventListener('mouseup',onMouseUp);
+    canvas.addEventListener('mousemove',onMouseMove);
+    canvas.addEventListener('mouseleave', onMouseLeave)
 })
 
 });

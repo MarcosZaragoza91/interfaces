@@ -69,7 +69,6 @@ class Juego{
             let y= Math.floor(e.layerY/100);
             this.ultimaFichaClickeada.setPosicionCanvas(x,y); //le pasa la posicion
             this.tablero.dibujarTablero(); //borra y dibuja
-            document.getElementById("myCanvas").onmouseleave = function() {onMouseUp(e)};
         }
     }
 
