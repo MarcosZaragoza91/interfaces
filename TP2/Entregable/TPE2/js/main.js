@@ -9,9 +9,23 @@ window.addEventListener('load', function (){
 
 document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     let canvas = document.querySelector('#myCanvas');
-    //let ctx = canvas.getContext('2d');
-
-    let juego = new Juego(canvas);
+     ctx = canvas.getContext('2d');
+    let cantidadLineas = document.querySelector("#cantLineas").value;
+    let columnas=0;
+    let filas =0;
+    console.log(cantidadLineas);	
+    if(cantidadLineas==4){
+        columnas=7;
+        filas=6;   
+    }else if(cantidadLineas==5) {
+        columnas=8;
+        filas=7;
+    }else if(cantidadLineas==6){
+        columnas=9;
+        filas=8;
+    }
+    console.log("columnas " + columnas + " filas " + filas);
+    let juego = new Juego(canvas,cantidadLineas,columnas,filas);
     juego.tablero.limpiarCanvas();
     juego.nuevoJuego();//fondoj1,fondoj2
 

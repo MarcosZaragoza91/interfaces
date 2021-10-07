@@ -1,15 +1,15 @@
 class Juego{
-    constructor(canvas,modoJuego){
+    constructor(canvas,cantidadLineas,columnas,filas){
         this.canvas = document.querySelector('#myCanvas');
         this.ctx = this.canvas.getContext('2d');
         this.jugador1=new Jugador(1);
         this.jugador2=new Jugador(2);
-        this.tablero= new Tablero(canvas);
+        this.tablero= new Tablero(canvas,cantidadLineas,columnas,filas);
         this.turno = this.jugador1;//esto tiene jugador
         this.ganador=0;
         this.isMouseDown=false;
         this.ultimaFichaClickeada = null;
-        this.modoJuego = modoJuego;
+        this.modoJuego = cantidadLineas;
     }
 
     Tiempo(){
@@ -48,7 +48,7 @@ class Juego{
     }
 
     nuevoJuego(){
-        this.Tiempo();
+        //this.Tiempo();
         this.tablero.crearTablero();
         this.tablero.cargarFichasJugadorPorJugador(this.jugador1,this.jugador2);
     }

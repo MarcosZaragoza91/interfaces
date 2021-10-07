@@ -1,14 +1,15 @@
 class Tablero{
 
-    constructor(canvas){
+    constructor(canvas,cantidadLineas,columnas,filas){
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
-        this.columnas = 7;
+        this.columnas = columnas;
         this.casillero = new Casillero();
-        this.filas = 6;
+        this.filas = filas;
         this.colFichas = this.columnas + 7;
         this._matriz = [];
         this._arrFichas=[];
+        this.cantLineas = cantidadLineas;
     }
 
     getMatriz() {
@@ -157,7 +158,8 @@ class Tablero{
             if(columnaSeleccionada[i].getFicha() !== null && columnaSeleccionada[i-1].getFicha() !== null ){//me fijo si en esas posiciones hay algunas fichas
                 if(columnaSeleccionada[i].getJugadorFicha() == columnaSeleccionada[i-1].getJugadorFicha()){// si las dos fichas contienen el mismo nuemero jugador
                     cantMismaLinea++; 
-                    if(cantMismaLinea==4){//aca deberiamos ver si juega 4,6,7 en linea pasarle por parametro el valor elige
+                    console.log(this.cantLineas);
+                    if(cantMismaLinea==this.cantLineas){//aca deberiamos ver si juega 4,6,7 en linea pasarle por parametro el valor elige
                         return true;
                     }
                 }else{
@@ -176,7 +178,7 @@ class Tablero{
             if (this._matriz[i][y].getFicha() !== null && this._matriz[i+1][y].getFicha() !== null) {
                 if (this._matriz[i][y].getJugadorFicha() == this._matriz[i+1][y].getJugadorFicha()) {
                     cantMismaLinea ++;
-                    if (cantMismaLinea == 4)
+                    if (cantMismaLinea == this.cantLineas)
                         return true;
                 }else{
                     cantMismaLinea=1;
@@ -192,12 +194,12 @@ class Tablero{
         let valor = 0;
         let ValorTotal = this.getValorDiagonalAbajoIzq(x,y,valor);
         ValorTotal = ValorTotal + this.getValorDiagonalArribaDer(x,y,valor);
-        if (ValorTotal >= 3){
+        if (ValorTotal >= this.cantLineas-1){
             return true;
         }else{
             ValorTotal = this.getValorDiagonalAbajoDer(x,y,valor);
             ValorTotal = ValorTotal + this.getValorDiagonalArribaIzq(x,y,valor);
-            if (ValorTotal >= 3){
+            if (ValorTotal >= this.cantLineas-1){
                 return true;
             }
         }
