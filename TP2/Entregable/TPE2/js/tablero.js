@@ -83,6 +83,7 @@ class Tablero{
            const element = this._arrFichas[i];
            element.dibujarFicha(this.ctx);
        }
+      // console.log(this._matriz);
    }
 
 
@@ -123,7 +124,7 @@ class Tablero{
     
     checkaerEnVertical(x){ //x seria la posicionX que tiene la ultima ficha clieckeada
         console.log(x);
-        let cantMismaLinea = 0;
+        let cantMismaLinea = 1;
         let columnaSeleccionada = this._matriz[x];
         console.log(columnaSeleccionada);
 
@@ -135,7 +136,7 @@ class Tablero{
                         return true;
                     }
                 }else{
-                    cantMismaLinea=0;
+                    cantMismaLinea=1;
                 }
             }else{
                 break;
@@ -156,7 +157,7 @@ class Tablero{
                     cantMismaLinea=1;
                 }
             }else{
-                break;
+                cantMismaLinea=1;
             }
         } 
         return false;

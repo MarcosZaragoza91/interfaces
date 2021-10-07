@@ -19,6 +19,11 @@ class Ficha{
         this.posicionCentro.y=(posY+1)*100-50+this.radio;
     }
 
+    setPosicionCanvas2(posx,posy){
+        this.posicionCanvas.x=posx;
+        this.posicionCanvas.y=posy;
+    }
+
     setPosicionInicial(posX,posY){
         this.posicionInicial.x=(this.posicionMatriz.x)*100+50;
         this.posicionInicial.y=(this.posicionMatriz.y)*100+50;

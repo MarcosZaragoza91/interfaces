@@ -65,9 +65,9 @@ class Juego{
         
     onMouseMove(e){
         if(this.isMouseDown==true && this.ultimaFichaClickeada !=null){//si el mouse esta abajo y hay una ficha clickeada
-            let x= Math.floor(e.layerX/100);
-            let y= Math.floor(e.layerY/100);
-            this.ultimaFichaClickeada.setPosicionCanvas(x,y); //le pasa la posicion
+            let x= Math.floor(e.layerX);
+            let y= Math.floor(e.layerY);
+            this.ultimaFichaClickeada.setPosicionCanvas2(x,y); //le pasa la posicion
             this.tablero.dibujarTablero(); //borra y dibuja
         }
     }
