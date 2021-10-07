@@ -86,6 +86,31 @@ class Tablero{
       // console.log(this._matriz);
    }
 
+    dibujarTableroFinal(ganador){
+        this.limpiarCanvas();
+        this.setTablero();
+        for (let x = 1; x <= this.columnas; x++) {
+            for (let y = 1; y <= this.filas; y++) {
+                if (this._matriz[x][y].getFicha() != null){
+                    let ficha = this._matriz[x][y].getFicha();
+                    ficha.setPosicionCanvas(x-1, y);
+                    ficha.dibujarFicha(this.ctx);
+                }else{
+                    this.ctx.beginPath();
+                    this.ctx.fillStyle = '#FFFFFF';
+                    this.ctx.arc((x) * this._matriz[x][y].getWidth()-50, (y + 1) * this._matriz[x][y].getHeigth()-50, 30, 0, 2 * Math.PI);
+                    this.ctx.lineWidth = 2;
+                    this.ctx.fill();
+                    this.ctx.stroke();
+                }
+            }
+        }
+        //Agregar alguna animacion
+        this.ctx.font = "40px Purisa";
+        this.ctx.fillStyle = "#555555";
+        this.ctx.fillText("Gano Jugador: "+ganador, 900, 150);
+    }
+
 
     //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
     cargarFichasJugadorPorJugador(jugador1,jugador2){

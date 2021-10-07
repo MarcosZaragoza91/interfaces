@@ -34,6 +34,9 @@
 
 .select{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+h3{
+    margin: 10px;
 }

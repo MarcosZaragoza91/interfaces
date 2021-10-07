@@ -12,6 +12,7 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     //let ctx = canvas.getContext('2d');
 
     let juego = new Juego(canvas);
+    juego.tablero.limpiarCanvas();
     juego.nuevoJuego();//fondoj1,fondoj2
 
     function onMouseDown(e){
@@ -26,7 +27,7 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     }
     function onMouseLeave(e){
         juego.isMouseDown = false;
-        if(juego.ultimaFichaClickeada != null){
+        if(juego.ultimaFichaClickeada != null && juego.ganador == 0){
             juego.ultimaFichaClickeada.setSeleccionada(false);
             juego.ultimaFichaClickeada.setPosicionCanvas2(juego.ultimaFichaClickeada.getPosicionInicial().x,juego.ultimaFichaClickeada.getPosicionInicial().y);
             juego.tablero.dibujarTablero();
