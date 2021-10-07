@@ -28,7 +28,8 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
         juego.isMouseDown = false;
         if(juego.ultimaFichaClickeada != null){
             juego.ultimaFichaClickeada.setSeleccionada(false);
-            juego.onMouseDown(e);
+            juego.ultimaFichaClickeada.setPosicionCanvas2(juego.ultimaFichaClickeada.getPosicionInicial().x,juego.ultimaFichaClickeada.getPosicionInicial().y);
+            juego.tablero.dibujarTablero();
         }
     }
 

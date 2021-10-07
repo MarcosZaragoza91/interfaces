@@ -31,6 +31,7 @@ class Juego{
 
     checkearGanador(x1,y1){
         if(this.tablero.checkaerEnVertical(x1)){ //falta implementar checkear en diagonal
+            setTimeout(5);
             alert("hay ganador");
             this.tablero.limpiarCanvas();
         }else if(this.tablero.checkearEnHorizontal(y1)){
@@ -80,7 +81,7 @@ class Juego{
         let x= Math.floor(e.layerX/100)+1;
         let y= Math.floor(e.layerY/100);
         let jugable = this.tablero.checkPosicionTablero(e.layerX,e.layerY);
-        if (this.ultimaFichaClickeada != null){
+        if (this.ultimaFichaClickeada != null && this.ultimaFichaClickeada.getSeleccionada()){
             if (jugable){
                 for (let i = (arrCasillero[x].length-1) ; i > 0; i--) {
                     let casillero = arrCasillero[x][i];
