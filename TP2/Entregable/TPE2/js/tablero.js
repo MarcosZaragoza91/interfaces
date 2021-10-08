@@ -87,7 +87,7 @@ class Tablero{
       // console.log(this._matriz);
    }
 
-    dibujarTableroFinal(ganador){
+    dibujarTableroFinal(ganador,mensaje){
         this.limpiarCanvas();
         this.setTablero();
         for (let x = 1; x <= this.columnas; x++) {
@@ -109,17 +109,21 @@ class Tablero{
         //Agregar alguna animacion
         this.ctx.font = "40px Purisa";
         this.ctx.fillStyle = "#555555";
-        this.ctx.fillText("Gano Jugador: "+ganador, 900, 150);
+        if (ganador == 0){
+            this.ctx.fillText("Se termino el Tiempo! ", 800, 150);
+        }else{
+            this.ctx.fillText("Gano Jugador: "+ganador, 900, 150);
+        }
     }
 
 
     //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
-    cargarFichasJugadorPorJugador(jugador1,jugador2){
+    cargarFichasJugadorPorJugador(jugador1,jugador2,fondoj1,fondoj2){
         for (let x = this.columnas + 1; x < this.colFichas; x++) {
             for (let y = 0; y < this.filas; y++) {
                 if (y < this.filas/2){
                    
-                    let fondo1 = "images/fichaNegra.png";
+                    let fondo1 = fondoj1;
                     let fichaJ1 = new Ficha(fondo1,jugador1);
                     this._arrFichas.push(fichaJ1);
                     fichaJ1.setPosicionMatriz(x,y);
@@ -127,7 +131,7 @@ class Tablero{
                     fichaJ1.setPosicionCanvas(x,y)
                     fichaJ1.dibujarFicha(this.ctx);
                 }else{
-                    let fondo2 = "images/fichaVioleta.png";
+                    let fondo2 = fondoj2;
                     let fichaJ2 = new Ficha(fondo2,jugador2);
                     this._arrFichas.push(fichaJ2);
                     fichaJ2.setPosicionMatriz(x,y);

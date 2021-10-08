@@ -1,5 +1,5 @@
 class Juego{
-    constructor(canvas,cantidadLineas,columnas,filas){
+    constructor(canvas,cantidadLineas,columnas,filas,fondoj1,fondoj2){
         this.canvas = document.querySelector('#myCanvas');
         this.ctx = this.canvas.getContext('2d');
         this.jugador1=new Jugador(1);
@@ -10,47 +10,13 @@ class Juego{
         this.isMouseDown=false;
         this.ultimaFichaClickeada = null;
         this.modoJuego = cantidadLineas;
-    }
-
-    Tiempo(){
-        let _second = 1000;
-        let _minute = _second * 60;
-        let timer;
-
-        function showRemaining() {
-            if (distance < 0) {
-
-                clearInterval(timer);
-                document.getElementById('countdown').innerHTML = 'EXPIRED!';
-
-                return;
-            }
-            let minutes = Math.floor((60) / _minute);
-            let seconds = Math.floor((60) / _second);
-
-            document.getElementById('countdown').innerHTML += minutes + ' minutos y ';
-            document.getElementById('countdown').innerHTML += seconds + ' segundos';
-        }
-
-        timer = setInterval(showRemaining, 1000);
-    }
-
-    setModoJuego(){
-        switch (this.modoJuego) {
-
-            case 4:
-                this.tablero.setFilas(6);
-                this.tablero.setColumnas(7);
-                this.canvas.className = "container-canvas-4";
-                break;
-            case 5:
-        }
+        this.fondoj1=fondoj1;
+        this.fondoj2=fondoj2;
     }
 
     nuevoJuego(){
-        //this.Tiempo();
         this.tablero.crearTablero();
-        this.tablero.cargarFichasJugadorPorJugador(this.jugador1,this.jugador2);
+        this.tablero.cargarFichasJugadorPorJugador(this.jugador1,this.jugador2,this.fondoj1,this.fondoj2);
     }
 
     checkearGanador(x1,y1){

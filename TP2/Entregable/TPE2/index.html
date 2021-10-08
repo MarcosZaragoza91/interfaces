@@ -24,15 +24,31 @@
             </div>
             <div>
                 <h3>Elija las Fichas</h3>
-                <div style="">
+                <div class="row">
                     <p>Jugador 1:</p>
-                    <button><img src="images/fuego.png" height="50" width="50"></button>
+                    <button class="fondoj1red" value="images/redCoin.png"><img src="images/redCoin.png" height="30" width="30"></button>
+                    <button class="fondoj1blue" value="images/blueCoin.png"><img src="images/blueCoin.png" height="30" width="30"></button>
+                    <button class="fondoj1green" value="images/greenCoin.png"><img src="images/greenCoin.png" height="30" width="30"></button>
+                    <button class="fondoj1brown" value="images/brownCoin.png"><img src="images/brownCoin.png" height="30" width="30"></button>
+                    <button class="fondoj1grey" value="images/greyCoin.png"><img src="images/greyCoin.png" height="30" width="30"></button>
                 </div>
-                <p>Jugador 2:</p>
+                <div class="row">
+                    <p>Jugador 2:</p>
+                    <button class="fondoj2red" value="images/redCoin.png"><img src="images/redCoin.png" height="30" width="30"></button>
+                    <button class="fondoj2blue" value="images/blueCoin.png"><img src="images/blueCoin.png" height="30" width="30"></button>
+                    <button class="fondoj2green" value="images/greenCoin.png"><img src="images/greenCoin.png" height="30" width="30"></button>
+                    <button class="fondoj2brown" value="images/brownCoin.png"><img src="images/brownCoin.png" height="30" width="30"></button>
+                    <button class="fondoj2grey" value="images/greyCoin.png"><img src="images/greyCoin.png" height="30" width="30"></button>
+                </div>
             </div>
-            <div id="countdown"></div>
         </div>
-        <button id="btn_load_game">Cargar Juego</button>
+            <div id="myProgress">
+                <div id="countdown"></div>
+            </div>
+        <div class="btn_juego">
+            <button class="show" id="btn_load_game">Comenzar Juego</button>
+            <button class="hidden2" onClick="history.go(0);">Reiniciar Juego</button>
+        </div>
     </div>
     <div class="container-canvas">
         <canvas id="myCanvas" width="1400" height="900" style="background: rgb(200, 200, 200)" class="bg-white"></canvas>
