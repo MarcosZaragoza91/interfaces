@@ -1,0 +1,96 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4 En Linea</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="options">
+        <h1>Bienvenido a Inline</h1>
+        <div class="select">
+            <div>
+                <h3>Defina el juego que quiere jugar</h3>
+                A cuantas Lineas desea Jugar(4,5,6):
+
+                <select name="cantLineas" id="cantLineas">
+                    <option value="4">4 en linea</option>
+                    <option value="5">5 en linea</option>
+                    <option value="6">6 en linea</option>
+                </select>
+
+            </div>
+            <div>
+                <h3>Elija las Fichas</h3>
+                <div class="row">
+                    <p>Jugador 1:</p>
+                    <button class="fondoj1red" value="images/redCoin.png"><img src="images/redCoin.png" height="30" width="30"></button>
+                    <button class="fondoj1blue" value="images/blueCoin.png"><img src="images/blueCoin.png" height="30" width="30"></button>
+                    <button class="fondoj1green" value="images/greenCoin.png"><img src="images/greenCoin.png" height="30" width="30"></button>
+                    <button class="fondoj1brown" value="images/brownCoin.png"><img src="images/brownCoin.png" height="30" width="30"></button>
+                    <button class="fondoj1grey" value="images/greyCoin.png"><img src="images/greyCoin.png" height="30" width="30"></button>
+                </div>
+                <div class="row">
+                    <p>Jugador 2:</p>
+                    <button class="fondoj2red" value="images/redCoin.png"><img src="images/redCoin.png" height="30" width="30"></button>
+                    <button class="fondoj2blue" value="images/blueCoin.png"><img src="images/blueCoin.png" height="30" width="30"></button>
+                    <button class="fondoj2green" value="images/greenCoin.png"><img src="images/greenCoin.png" height="30" width="30"></button>
+                    <button class="fondoj2brown" value="images/brownCoin.png"><img src="images/brownCoin.png" height="30" width="30"></button>
+                    <button class="fondoj2grey" value="images/greyCoin.png"><img src="images/greyCoin.png" height="30" width="30"></button>
+                </div>
+            </div>
+        </div>
+            <div id="myProgress">
+                <div id="countdown"></div>
+            </div>
+        <div class="btn_juego">
+            <button class="show" id="btn_load_game">Comenzar Juego</button>
+            <button class="hidden2" onClick="history.go(0);">Reiniciar Juego</button>
+        </div>
+    </div>
+    <div class="container-canvas">
+        <canvas id="myCanvas" width="1400" height="900" style="background: rgb(200, 200, 200)" class="bg-white"></canvas>
+    </div>
+
+    <script src="js/jugador.js"></script>
+    <script src="js/juego.js"></script>
+    <script src="js/ficha.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/tablero.js"></script>
+    <script src="js/casillero.js"></script>
+</body>
+</html>
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4 En Linea</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="options">
+            <h1>Bienvenido a Inline</h1>
+            <h3>Defina el juego que quiere jugar</h3>
+            A cuantas Lineas desea Jugar(4,5,6):
+            <button id="btn_four">4</button>
+            <button id="btn_five">5</button>
+            <button id="btn_six">6</button>
+            <h3>Elija las Fichas</h3>
+            <p>Jugador 1:</p>
+            <p>Jugador 2:</p>
+            <button id="btn_fichas">Cargar Juego</button>
+        </div>
+        <canvas id="myCanvas"></canvas>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/tablero.js"></script>
+    <script src="js/casillero.js"></script>
+</body>
+</html>
+-->
