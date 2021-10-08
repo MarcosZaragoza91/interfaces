@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56aff585-17bd-4244-973b-ac9963669e6b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Entregable/TPE2/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Entregable/TPE2/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entregable/TPE2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Entregable/TPE2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entregable/TPE2/js/juego.js" beforeDir="false" afterPath="$PROJECT_DIR$/Entregable/TPE2/js/juego.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entregable/TPE2/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Entregable/TPE2/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entregable/TPE2/js/tablero.js" beforeDir="false" afterPath="$PROJECT_DIR$/Entregable/TPE2/js/tablero.js" afterDir="false" />
-    </list>
+    <list default="true" id="56aff585-17bd-4244-973b-ac9963669e6b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +71,7 @@
       <workItem from="1633390811141" duration="6530000" />
       <workItem from="1633473388540" duration="6755000" />
       <workItem from="1633553847757" duration="12598000" />
-      <workItem from="1633639096937" duration="17324000" />
+      <workItem from="1633639096937" duration="17660000" />
     </task>
     <servers />
   </component>
