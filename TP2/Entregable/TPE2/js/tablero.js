@@ -6,7 +6,7 @@ class Tablero{
         this.columnas = columnas;
         this.casillero = new Casillero();
         this.filas = filas;
-        this.colFichas = this.columnas + 7;
+        this.colFichas = this.columnas + columnas;
         this._matriz = [];
         this._arrFichas=[];
         this.cantLineas = cantidadLineas;
@@ -137,6 +137,7 @@ class Tablero{
                 }
             }
         }
+        console.log(this._arrFichas);
     }
 
     seleccioneFicha(x,y){

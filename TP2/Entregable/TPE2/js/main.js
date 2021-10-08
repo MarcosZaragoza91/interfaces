@@ -16,13 +16,19 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     console.log(cantidadLineas);	
     if(cantidadLineas==4){
         columnas=7;
-        filas=6;   
+        filas=6;
+        canvas.width = 1400;
+        canvas.height = 900;
     }else if(cantidadLineas==5) {
         columnas=8;
         filas=7;
+        canvas.width = 1500;
+        canvas.height = 1000;
     }else if(cantidadLineas==6){
         columnas=9;
         filas=8;
+        canvas.width = 1600;
+        canvas.height = 1100;
     }
     console.log("columnas " + columnas + " filas " + filas);
     let juego = new Juego(canvas,cantidadLineas,columnas,filas);
