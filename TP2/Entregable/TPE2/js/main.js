@@ -78,16 +78,13 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
         let time = true;
         tiempo();
         juego.nuevoJuego();//fondoj1,fondoj2
-    }else{
-        alert('Seleccione las fichas de ambos jugadores');
-    }
 
     function onMouseDown(e){
         if (time){
             juego.onMouseDown(e)
         }
     }
-     
+
     function onMouseMove(e){
         if (time){
             juego.onMouseMove(e)
@@ -128,6 +125,9 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     canvas.addEventListener('mouseup',onMouseUp);
     canvas.addEventListener('mousemove',onMouseMove);
     canvas.addEventListener('mouseleave', onMouseLeave)
+    }else{
+        alert('Seleccione las fichas de ambos jugadores');
+    }
 })
 
 });
