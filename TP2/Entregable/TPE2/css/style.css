@@ -11,8 +11,6 @@ body {
     background-size: cover;
 }
 
-
-
 /*----------Estilo de textos----------*/
 h1 {
     font-family: 'Bangers', cursive;
@@ -25,7 +23,22 @@ h1 {
     0 0 50px #0e7698,
     0 0 80px #675873;
     letter-spacing: 4px;
+
+    animation-duration: 2s;
+    animation-name: slidein;
 }
+  
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 100%;
+    }
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
 
 h3, p {
     color: rgb(255, 255, 255);
@@ -54,7 +67,6 @@ select, option {
     width: 200px;
     text-align: center;
 }
-
 
 /*----------Estilo botones----------*/
 
@@ -117,9 +129,6 @@ select, option {
     visibility: hidden;
 }
 
-
-
-
 /*----------Progress bar----------*/
 #myProgress {
     width: 100%;
@@ -139,7 +148,41 @@ select, option {
     border-radius: 50px;
 }
 
+/*----------Estilo modal----------*/
+  .modal-visible {
 
+    color: #fff;
+    background:rgba(47, 15, 71, 0.945);
+    border-radius: 30px;
+    
+    position: fixed;
+    width: 1000px; 
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -500px;
+    top: 50%;
+    left: 50%;
+
+    box-shadow:  
+      0 0 20px #5a567d,
+      0 0 60px #675873;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 1s;
+}
+
+#modal-txt {
+    font-size:50px;
+    margin-bottom: 50px;
+}
+
+.modal-oculto {
+    visibility: hidden;
+}
 
 /*----------Estilo canvas----------*/
 
@@ -186,3 +229,4 @@ select, option {
     display: flex;
     margin: 5px;
 }
+

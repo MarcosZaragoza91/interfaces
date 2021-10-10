@@ -5,13 +5,28 @@ class Juego{
         this.jugador1=new Jugador(1);
         this.jugador2=new Jugador(2);
         this.tablero= new Tablero(canvas,cantidadLineas,columnas,filas);
-        this.turno = this.jugador1;//esto tiene jugador
+        this.turno = this.jugador1;
         this.ganador=0;
         this.isMouseDown=false;
         this.ultimaFichaClickeada = null;
         this.modoJuego = cantidadLineas;
         this.fondoj1=fondoj1;
         this.fondoj2=fondoj2;
+    }
+    getTurno(){
+        return this.turno;
+    }    
+    
+    setTurno(jugador){
+        this.turno = jugador;
+    }
+    
+    cambiarTurno(){
+    
+    }
+    
+    getGanador(){
+        return this.ganador;
     }
 
     nuevoJuego(){
@@ -20,16 +35,18 @@ class Juego{
     }
 
     checkearGanador(x1,y1){
-        if(this.tablero.checkaerEnVertical(x1)){ //falta implementar checkear en diagonal
+        if(this.tablero.checkaerEnVertical(x1)){ 
             this.ganador = this.ultimaFichaClickeada.getNumJugador();
             this.tablero.limpiarCanvas();
             this.tablero.dibujarTableroFinal(this.ganador);
         }else if(this.tablero.checkearEnHorizontal(y1)){
             this.ganador = this.ultimaFichaClickeada.getNumJugador();
             this.tablero.limpiarCanvas();
-        }else if(this.tablero.checkearDiagonales(x1,y1)){alert("hay ganador");
+            this.tablero.dibujarTableroFinal(this.ganador);
+        }else if(this.tablero.checkearDiagonales(x1,y1)){
             this.ganador = this.ultimaFichaClickeada.getNumJugador();
             this.tablero.limpiarCanvas();
+            this.tablero.dibujarTableroFinal(this.ganador);
         }
     }
 
@@ -56,7 +73,6 @@ class Juego{
         }
     }
          
-        
     onMouseMove(e){
         if (this.ganador == 0) {
             if (this.isMouseDown == true && this.ultimaFichaClickeada != null) {//si el mouse esta abajo y hay una ficha clickeada
@@ -112,20 +128,5 @@ class Juego{
         }
     }
 
-    getTurno(){
-        return this.turno;
-    }    
-
-    setTurno(jugador){
-        this.turno = jugador;
-    }
-
-    cambiarTurno(){
-
-    }
-
-    getGanador(){
-        return this.ganador;
-    }
 
 }

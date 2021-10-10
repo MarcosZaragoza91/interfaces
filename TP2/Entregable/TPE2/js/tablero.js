@@ -85,40 +85,43 @@ class Tablero{
         for (let i = 0; i < this._arrFichas.length; i++) {
            const element = this._arrFichas[i];
            element.dibujarFicha(this.ctx);
-       }
-      // console.log(this._matriz);
+        }
+      
    }
 
    dibujarTableroFinal(ganador,mensaje){
-    this.limpiarCanvas();
-    this.setTablero();
-    for (let x = 1; x <= this.columnas; x++) {
-        for (let y = 1; y <= this.filas; y++) {
-            if (this._matriz[x][y].getFicha() != null){
-                let ficha = this._matriz[x][y].getFicha();
-                let fichaPosCasillero = this._matriz[x][y].getPosicionesCanvas();
-                ficha.setPosicionCanvas(fichaPosCasillero.x-50 ,fichaPosCasillero.y-50);
-                ficha.dibujarFicha(this.ctx);
-            }else{
-                this.ctx.beginPath();
-                this.ctx.fillStyle = '#FFFFFF';
-                this.ctx.arc((x) * this._matriz[x][y].getWidth()-50, (y + 1) * this._matriz[x][y].getHeigth()-50, 30, 0, 2 * Math.PI);
-                this.ctx.lineWidth = 2;
-                this.ctx.fill();
-                this.ctx.stroke();
+        this.limpiarCanvas();
+        this.setTablero();
+        for (let x = 1; x <= this.columnas; x++) {
+            for (let y = 1; y <= this.filas; y++) {
+                if (this._matriz[x][y].getFicha() != null){
+                    let ficha = this._matriz[x][y].getFicha();
+                    let fichaPosCasillero = this._matriz[x][y].getPosicionesCanvas();
+                    ficha.setPosicionCanvas(fichaPosCasillero.x-50 ,fichaPosCasillero.y-50);
+                    ficha.dibujarFicha(this.ctx);
+                }else{
+                    this.ctx.beginPath();
+                    this.ctx.fillStyle = '#FFFFFF';
+                    this.ctx.arc((x) * this._matriz[x][y].getWidth()-50, (y + 1) * this._matriz[x][y].getHeigth()-50, 30, 0, 2 * Math.PI);
+                    this.ctx.lineWidth = 2;
+                    this.ctx.fill();
+                    this.ctx.stroke();
+                }
             }
         }
-    }
-    //Agregar alguna animacion
-    this.ctx.font = "40px Purisa";
-    this.ctx.fillStyle = "#555555";
-    if (ganador == 0){
-        this.ctx.fillText("Se termino el Tiempo! ", 1000, 150);
-    }else{
-        this.ctx.fillText("Gano Jugador: "+ ganador, 1000, 150);
-    }
-}
 
+        if (ganador == 0){
+            let modal = document.querySelector(".modal");
+            document.querySelector('#modal-txt').innerHTML = "SE TERMINO EL TIEMPO";
+            modal.classList.remove("modal-oculto");
+            modal.classList.add("modal-visible");
+        }else{
+            let modal = document.querySelector(".modal");
+            document.querySelector('#modal-txt').innerHTML = "GANO EL JUGADOR " + ganador;
+            modal.classList.remove("modal-oculto");
+            modal.classList.add("modal-visible");
+        }
+    }
 
     //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
     cargarFichasJugadorPorJugador(jugador1,jugador2,fondoj1,fondoj2){
@@ -148,7 +151,6 @@ class Tablero{
                 }
             }
         }
-        console.log(this._arrFichas);
     }
 
     seleccioneFicha(x,y){
@@ -161,7 +163,7 @@ class Tablero{
     }
     
     checkaerEnVertical(x){ //x seria la posicionX que tiene la ultima ficha clieckeada
-        console.log(x);
+
         let cantMismaLinea = 1;
         let columnaSeleccionada = this._matriz[x];
         console.log(columnaSeleccionada);
@@ -170,7 +172,6 @@ class Tablero{
             if(columnaSeleccionada[i].getFicha() !== null && columnaSeleccionada[i-1].getFicha() !== null ){//me fijo si en esas posiciones hay algunas fichas
                 if(columnaSeleccionada[i].getJugadorFicha() == columnaSeleccionada[i-1].getJugadorFicha()){// si las dos fichas contienen el mismo nuemero jugador
                     cantMismaLinea++; 
-                    console.log(this.cantLineas);
                     if(cantMismaLinea==this.cantLineas){//aca deberiamos ver si juega 4,6,7 en linea pasarle por parametro el valor elige
                         return true;
                     }

@@ -56,6 +56,11 @@ document.querySelector('.fondoj2grey').addEventListener('click', function (){
 
 
 document.querySelector('#btn_load_game').addEventListener('click', ()=>{
+    document.querySelector('.close').addEventListener('click', function (){
+        document.querySelector('.modal').classList.remove("modal-visible");
+        document.querySelector('.modal').classList.add("modal-oculto");
+    })
+    
     if (fondofichaj1 != '' && fondofichaj2 != '') {
         document.querySelector(".show").className = "hidden";
         document.querySelector(".hidden2").className = "show";
@@ -136,7 +141,10 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     canvas.addEventListener('mousemove',onMouseMove);
     canvas.addEventListener('mouseleave', onMouseLeave)
     }else{
-        alert('Seleccione las fichas de ambos jugadores');
+        let modal = document.querySelector(".modal");
+        document.querySelector('#modal-txt').innerHTML = "CADA JUGADOR DEBERA ELEGIR UNA FICHA";
+        modal.classList.remove("modal-oculto");
+        modal.classList.add("modal-visible");
     }
 })
 
