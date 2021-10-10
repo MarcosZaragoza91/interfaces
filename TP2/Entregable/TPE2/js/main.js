@@ -1,55 +1,66 @@
 window.addEventListener('load', function (){
 
-    // let fondoj1 = document.querySelector(#fichaj1).addEventListener('click', function (){
-    //     return this.value;
-    // });
-    // let fondoj2 = document.querySelector(#fichaj2).addEventListener('click', function (){
-    //     return this.value;
-    // })
     let fondofichaj1='';
     let fondofichaj2='';
 
 document.querySelector('.fondoj1red').addEventListener('click', function (){
     fondofichaj1 = "images/redCoin.png";
+    document.querySelector('.fondoj1red').className = 'fichaElegida';
     document.querySelector('.fondoj2red').className='hidden';
 })
 document.querySelector('.fondoj1blue').addEventListener('click', function (){
     fondofichaj1 = "images/blueCoin.png";
+    document.querySelector('.fondoj1blue').className = 'fichaElegida';
     document.querySelector('.fondoj2blue').className='hidden';
 })
 document.querySelector('.fondoj1green').addEventListener('click', function (){
     fondofichaj1 = "images/greenCoin.png";
+    document.querySelector('.fondoj1green').className = 'fichaElegida';
     document.querySelector('.fondoj2green').className='hidden';
 })
 document.querySelector('.fondoj1brown').addEventListener('click', function (){
     fondofichaj1 = "images/brownCoin.png";
+    document.querySelector('.fondoj1brown').className = 'fichaElegida';
     document.querySelector('.fondoj2brown').className='hidden';
 })
 document.querySelector('.fondoj1grey').addEventListener('click', function (){
     fondofichaj1 = "images/greyCoin.png";
+    document.querySelector('.fondoj1grey').className = 'fichaElegida';
     document.querySelector('.fondoj2grey').className='hidden';
 })
 document.querySelector('.fondoj2red').addEventListener('click', function (){
     fondofichaj2 = "images/redCoin.png";
+    document.querySelector('.fondoj2red').className = 'fichaElegida';
+    document.querySelector('.fondoj1red').className='hidden';
 })
 document.querySelector('.fondoj2blue').addEventListener('click', function (){
     fondofichaj2 = "images/blueCoin.png";
+    document.querySelector('.fondoj2blue').className = 'fichaElegida';
+    document.querySelector('.fondoj1blue').className='hidden';
 })
 document.querySelector('.fondoj2green').addEventListener('click', function (){
     fondofichaj2 = "images/greenCoin.png";
+    document.querySelector('.fondoj2green').className = 'fichaElegida';
+    document.querySelector('.fondoj1green').className='hidden';
 })
 document.querySelector('.fondoj2brown').addEventListener('click', function (){
     fondofichaj2 = "images/brownCoin.png";
+    document.querySelector('.fondoj2brown').className = 'fichaElegida';
+    document.querySelector('.fondoj1brown').className='hidden';
 })
 document.querySelector('.fondoj2grey').addEventListener('click', function (){
     fondofichaj2 = "images/greyCoin.png";
+    document.querySelector('.fondoj2grey').className = 'fichaElegida';
+    document.querySelector('.fondoj1grey').className='hidden';
 })
 
 
 document.querySelector('#btn_load_game').addEventListener('click', ()=>{
     if (fondofichaj1 != '' && fondofichaj2 != '') {
         document.querySelector(".show").className = "hidden";
-        document.querySelector(".hidden2").className = "show2";
+        document.querySelector(".hidden2").className = "show";
+        document.querySelector("#myProgress").className="show2";
+        
         let canvas = document.querySelector('#myCanvas');
         ctx = canvas.getContext('2d');
         let cantidadLineas = document.querySelector("#cantLineas").value;
@@ -60,19 +71,18 @@ document.querySelector('#btn_load_game').addEventListener('click', ()=>{
             columnas = 7;
             filas = 6;
             canvas.width = 1400;
-            canvas.height = 900;
+            canvas.height = 700;
         } else if (cantidadLineas == 5) {
             columnas = 8;
             filas = 7;
-            canvas.width = 1500;
-            canvas.height = 1000;
+            canvas.width = 1400;
+            canvas.height = 800;
         } else if (cantidadLineas == 6) {
             columnas = 9;
             filas = 8;
-            canvas.width = 1600;
-            canvas.height = 1100;
+            canvas.width = 1400;
+            canvas.height = 900;
         }
-        console.log("columnas " + columnas + " filas " + filas);
         let juego = new Juego(canvas, cantidadLineas, columnas, filas, fondofichaj1, fondofichaj2);
         juego.tablero.limpiarCanvas();
         let time = true;

@@ -13,11 +13,17 @@ class Ficha{
     }
 
     setPosicionCanvas(posX, posY) {
-        this.posicionCanvas.x=(posX+1)*100-50;
-        this.posicionCanvas.y=(posY+1)*100-50;
-        this.posicionCentro.x=(posX+1)*100-50+this.radio;
-        this.posicionCentro.y=(posY+1)*100-50+this.radio;
-    }
+        /*this.posicionCanvas.x=(posX+1)*100-50;
+          this.posicionCanvas.y=(posY+1)*100-50;
+          this.posicionCentro.x=(posX+1)*100-50+this.radio;
+          this.posicionCentro.y=(posY+1)*100-50+this.radio;
+          */
+          this.posicionCanvas.x=posX;
+          this.posicionCanvas.y=posY;
+          this.posicionCentro.x=posX+this.radio;
+          this.posicionCentro.y=posY+this.radio;
+  
+      }
 
     setPosicionCanvas2(posx,posy){
         this.posicionCanvas.x=posx;
@@ -25,9 +31,11 @@ class Ficha{
     }
 
     setPosicionInicial(posX,posY){
-        this.posicionInicial.x=(this.posicionMatriz.x)*100+50;
-        this.posicionInicial.y=(this.posicionMatriz.y)*100+50;
-    }
+        // this.posicionInicial.x=(this.posicionMatriz.x)*100+50;
+        // this.posicionInicial.y=(this.posicionMatriz.y)*100+50;
+        this.posicionInicial.x=posX;
+        this.posicionInicial.y=posY;
+     }
     
     setPosicionMatriz(posX, posY){
         this.posicionMatriz.x = posX;
@@ -46,7 +54,7 @@ class Ficha{
         if (this.usada || this.seleccionada){
             ctx.beginPath();
             ctx.arc(this.posicionCanvas.x,this.posicionCanvas.y , this.radio*2, 0, Math.PI * 2);
-                if (this.img.src == "") {
+                if (this.img.src == "") {//si todavia no tiene fondo
                 this.img.src = this.fondo;
                 let cargarImg = function () {
                     ctx.drawImage(this.img, this.posicionCanvas.x-(this.radio*2), this.posicionCanvas.y-(this.radio*2), this.radio * 4, this.radio * 4);
@@ -61,7 +69,7 @@ class Ficha{
         }else{
             ctx.beginPath();
             ctx.arc(this.posicionInicial.x,this.posicionInicial.y , this.radio*2, 0, Math.PI * 2);
-            if (this.img.src == "") {
+            if (this.img.src == "") {//si todavia no tiene fondo
                 this.img.src = this.fondo;
                 let cargarImg = function () {
                     ctx.drawImage(this.img, this.posicionInicial.x-(this.radio*2), this.posicionInicial.y-(this.radio*2) , this.radio * 4, this.radio * 4);
@@ -71,9 +79,9 @@ class Ficha{
                 ctx.drawImage(this.img, this.posicionInicial.x-(this.radio*2), this.posicionInicial.y-(this.radio*2), this.radio * 4, this.radio * 4);
             }
             ctx.closePath();
-            this.setPosicionCanvas(this.posicionMatriz.x,this.posicionMatriz.y);
+            this.setPosicionCanvas(this.posicionCanvas.x,this.posicionCanvas.y);
         }
-    }    
+    }
  
 
     estoyAdentro(posX,posY){

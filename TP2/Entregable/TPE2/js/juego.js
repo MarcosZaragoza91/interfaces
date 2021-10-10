@@ -103,13 +103,10 @@ class Juego{
                             }
                         }
                     }
-                    console.log("variable filaSeleccionada" + filaSeleccionada)
                     this.checkearGanador(x, filaSeleccionada);
                 } else {
                     this.ultimaFichaClickeada.setSeleccionada(false);
                     this.tablero.dibujarTablero();
-                    console.log("ACA ESTOY-------------------------");
-                    console.log(this.tablero.getArrFichas());
                 }
             }
         }

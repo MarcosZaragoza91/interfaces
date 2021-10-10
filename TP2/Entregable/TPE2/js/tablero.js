@@ -54,20 +54,22 @@ class Tablero{
 
     setTablero(){
         this.ctx.beginPath();
-        this.ctx.fillStyle = "#333333";
+        this.ctx.fillStyle = "#67587300";
         this.ctx.fillRect(0,0,this.columnas*this.casillero.getWidth(), this.casillero.getHeigth())
         this.ctx.fillStyle = "#777777";
         this.ctx.fillRect(0, 100, this.columnas*this.casillero.getWidth(), this.filas*this.casillero.getHeigth());
     }
 
-   dibujarTablero(){
+    dibujarTablero(){
         this.limpiarCanvas();
         this.setTablero();
         for (let x = 1; x <= this.columnas; x++) {
             for (let y = 1; y <= this.filas; y++) {
                     if (this._matriz[x][y].getFicha() != null){
                         let ficha = this._matriz[x][y].getFicha();
-                        ficha.setPosicionCanvas(x-1, y);
+                        let posicionCasillero1 = this._matriz[x][y].getPosicionesCanvas();
+                        console.log(posicionCasillero1);    
+                        ficha.setPosicionCanvas(posicionCasillero1.x-50, posicionCasillero1.y-50);
                         ficha.dibujarFicha(this.ctx);
                     }else{
                         this.ctx.beginPath();
@@ -87,34 +89,35 @@ class Tablero{
       // console.log(this._matriz);
    }
 
-    dibujarTableroFinal(ganador,mensaje){
-        this.limpiarCanvas();
-        this.setTablero();
-        for (let x = 1; x <= this.columnas; x++) {
-            for (let y = 1; y <= this.filas; y++) {
-                if (this._matriz[x][y].getFicha() != null){
-                    let ficha = this._matriz[x][y].getFicha();
-                    ficha.setPosicionCanvas(x-1, y);
-                    ficha.dibujarFicha(this.ctx);
-                }else{
-                    this.ctx.beginPath();
-                    this.ctx.fillStyle = '#FFFFFF';
-                    this.ctx.arc((x) * this._matriz[x][y].getWidth()-50, (y + 1) * this._matriz[x][y].getHeigth()-50, 30, 0, 2 * Math.PI);
-                    this.ctx.lineWidth = 2;
-                    this.ctx.fill();
-                    this.ctx.stroke();
-                }
+   dibujarTableroFinal(ganador,mensaje){
+    this.limpiarCanvas();
+    this.setTablero();
+    for (let x = 1; x <= this.columnas; x++) {
+        for (let y = 1; y <= this.filas; y++) {
+            if (this._matriz[x][y].getFicha() != null){
+                let ficha = this._matriz[x][y].getFicha();
+                let fichaPosCasillero = this._matriz[x][y].getPosicionesCanvas();
+                ficha.setPosicionCanvas(fichaPosCasillero.x-50 ,fichaPosCasillero.y-50);
+                ficha.dibujarFicha(this.ctx);
+            }else{
+                this.ctx.beginPath();
+                this.ctx.fillStyle = '#FFFFFF';
+                this.ctx.arc((x) * this._matriz[x][y].getWidth()-50, (y + 1) * this._matriz[x][y].getHeigth()-50, 30, 0, 2 * Math.PI);
+                this.ctx.lineWidth = 2;
+                this.ctx.fill();
+                this.ctx.stroke();
             }
         }
-        //Agregar alguna animacion
-        this.ctx.font = "40px Purisa";
-        this.ctx.fillStyle = "#555555";
-        if (ganador == 0){
-            this.ctx.fillText("Se termino el Tiempo! ", 800, 150);
-        }else{
-            this.ctx.fillText("Gano Jugador: "+ganador, 900, 150);
-        }
     }
+    //Agregar alguna animacion
+    this.ctx.font = "40px Purisa";
+    this.ctx.fillStyle = "#555555";
+    if (ganador == 0){
+        this.ctx.fillText("Se termino el Tiempo! ", 1000, 150);
+    }else{
+        this.ctx.fillText("Gano Jugador: "+ ganador, 1000, 150);
+    }
+}
 
 
     //las fichas las vamos a cargar en un espacio con un random para luego ir sacandolas aunque esten apiladas
@@ -127,16 +130,20 @@ class Tablero{
                     let fichaJ1 = new Ficha(fondo1,jugador1);
                     this._arrFichas.push(fichaJ1);
                     fichaJ1.setPosicionMatriz(x,y);
-                    fichaJ1.setPosicionInicial(x,y);
-                    fichaJ1.setPosicionCanvas(x,y)
+                    let posxRandomJ1 = Math.round(Math.random() * (1300 - 950) + 950);
+                    let posyRandomJ1=Math.round(Math.random() * (300 - 50) + 50);
+                    fichaJ1.setPosicionInicial(posxRandomJ1,posyRandomJ1);
+                    fichaJ1.setPosicionCanvas(posxRandomJ1,posyRandomJ1)
                     fichaJ1.dibujarFicha(this.ctx);
                 }else{
                     let fondo2 = fondoj2;
                     let fichaJ2 = new Ficha(fondo2,jugador2);
                     this._arrFichas.push(fichaJ2);
+                    let posxRandomJ2 = Math.round(Math.random() * (1300 - 950) + 950);
+                    let posyRandomJ2=Math.round(Math.random() * ( 650- 350) + 350);
                     fichaJ2.setPosicionMatriz(x,y);
-                    fichaJ2.setPosicionInicial(x,y);
-                    fichaJ2.setPosicionCanvas(x,y)
+                    fichaJ2.setPosicionInicial(posxRandomJ2,posyRandomJ2);
+                    fichaJ2.setPosicionCanvas(posxRandomJ2,posyRandomJ2)
                     fichaJ2.dibujarFicha(this.ctx);
                 }
             }

@@ -1,3 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+/*----------Estilos body----------*/
+* {
+    font-family: 'Bangers', cursive;
+}
+
+body {
+    background-image: url(../css/img/fondo1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+/*----------Estilo de textos----------*/
+h1 {
+    font-family: 'Bangers', cursive;
+    
+    font-size: 90px;
+    color: rgba(38, 10, 81, 0.891);
+    text-shadow:
+    0 0 20px #edd9f0,
+    0 0 20px #d6d5df,
+    0 0 50px #0e7698,
+    0 0 80px #675873;
+    letter-spacing: 4px;
+}
+
+h3, p {
+    color: rgb(255, 255, 255);
+    letter-spacing: 5px;
+    margin: 10px;
+    
+}
+
+h3 {
+    font-size: 45px;
+    text-shadow:
+    0 0 20px #7f3e89,
+    0 0 20px #5a567d,
+    0 0 60px #675873;
+}
+
+p {
+    font-size: 30px;
+}
+
+select, option {
+    color: rgb(82, 21, 123);
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 50px 50px 50px 50px;
+}
+
+
+/*----------Estilo botones----------*/
+.btn-ficha {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-radius: 50%;
+    margin: 4px;
+    padding: 4px;
+}
+
+.show {
+    background-color: rgba(255, 255, 255, 0);
+
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin: 10px;
+    padding: 30px;
+
+    color: white;
+
+    border-style: none;
+    box-shadow:
+    
+    0 0 20px #5a567d,
+    0 0 60px #675873; 
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 300px;
+    height: 100px;
+}
+
+
+
+
+
+/*----------Estilo canvas----------*/
 
 .container-canvas {
     margin-top: 5px;
@@ -22,7 +115,7 @@
 }
 
 #myCanvas {
-    box-shadow: 0 0 50px 0 grey;
+    box-shadow: 0 0 50px 0 rgba(128, 128, 128, 0);
     margin-top: 15px;
 }
 
@@ -76,10 +169,21 @@ p{
     color: white;
 }
 
-.hidden{
+.hidden {
     visibility: hidden;
 }
+.fichaElegida {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-radius: 50%;
+    margin: 4px;
+    padding: 4px;
+    background-color: pink;
+}
 
+
+/* CODIGO ORIGINAL DEL BOTON VERDE 'COMENZAR JUEGO'
 .show {
     margin:10px;
     visibility: visible;
@@ -87,3 +191,4 @@ p{
     font-family: Purisa;
     color: white;
 }
+*/
