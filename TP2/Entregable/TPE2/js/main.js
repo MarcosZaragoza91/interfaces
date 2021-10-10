@@ -2,7 +2,7 @@ window.addEventListener('load', function (){
 
     let fondofichaj1='';
     let fondofichaj2='';
-
+//cuando selecciono el tipo de ficha q quiero  le paso el link de la imagen al parametro fondo de la ficha
 document.querySelector('.fondoj1red').addEventListener('click', function (){
     fondofichaj1 = "images/redCoin.png";
     document.querySelector('.fondoj1red').className = 'fichaElegida';
@@ -10,8 +10,8 @@ document.querySelector('.fondoj1red').addEventListener('click', function (){
 })
 document.querySelector('.fondoj1blue').addEventListener('click', function (){
     fondofichaj1 = "images/blueCoin.png";
-    document.querySelector('.fondoj1blue').className = 'fichaElegida';
-    document.querySelector('.fondoj2blue').className='hidden';
+    document.querySelector('.fondoj1blue').className = 'fichaElegida'; //le agrego estilo ala ficha elegida
+    document.querySelector('.fondoj2blue').className='hidden'; //oculto la ficha al otro jugador
 })
 document.querySelector('.fondoj1green').addEventListener('click', function (){
     fondofichaj1 = "images/greenCoin.png";
@@ -55,24 +55,25 @@ document.querySelector('.fondoj2grey').addEventListener('click', function (){
 })
 
 
-document.querySelector('#btn_load_game').addEventListener('click', ()=>{
+document.querySelector('#btn_load_game').addEventListener('click', ()=>{ //INICIO DEL JUEGO
+ 
     document.querySelector('.close').addEventListener('click', function (){
         document.querySelector('.modal').classList.remove("modal-visible");
         document.querySelector('.modal').classList.add("modal-oculto");
     })
     
-    if (fondofichaj1 != '' && fondofichaj2 != '') {
-        document.querySelector(".show").className = "hidden";
-        document.querySelector(".hidden2").className = "show";
-        document.querySelector("#myProgress").className="show2";
+    if (fondofichaj1 != '' && fondofichaj2 != '') { // SI ALGUNA DE LAS FICHAS NO TIENE FONDO
+        document.querySelector(".show").className = "hidden"; //muestro el boton reiniciar
+        document.querySelector(".hidden2").className = "show";//oculto el boton comenzar juego
+        document.querySelector("#myProgress").className="show2"; //muestro al barra de tiempo 
         
         let canvas = document.querySelector('#myCanvas');
         ctx = canvas.getContext('2d');
-        let cantidadLineas = document.querySelector("#cantLineas").value;
+        let cantidadLineas = document.querySelector("#cantLineas").value; //cantidad de lineas modo de juego
         let columnas = 0;
         let filas = 0;
-        console.log(cantidadLineas);
-        if (cantidadLineas == 4) {
+        //segun el modo de juego elegido sera el tamanio del tablero 
+        if (cantidadLineas == 4) {  
             columnas = 7;
             filas = 6;
             canvas.width = 1400;
