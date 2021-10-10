@@ -56,7 +56,7 @@ class Tablero{
         this.ctx.beginPath();
         this.ctx.fillStyle = "#67587300";
         this.ctx.fillRect(0,0,this.columnas*this.casillero.getWidth(), this.casillero.getHeigth())
-        this.ctx.fillStyle = "#777777";
+        this.ctx.fillStyle = "rgba(72, 11, 138, 0.1)";
         this.ctx.fillRect(0, 100, this.columnas*this.casillero.getWidth(), this.filas*this.casillero.getHeigth());
     }
 

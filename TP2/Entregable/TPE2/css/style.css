@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url(../css/img/fondo1.jpg);
+    background-image: url(../css/img/fondo-img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -51,11 +51,17 @@ select, option {
     font-size: 25px;
     padding: 10px;
     border-radius: 50px 50px 50px 50px;
+    width: 200px;
+    text-align: center;
 }
 
 
 /*----------Estilo botones----------*/
+
+/*Fichas*/
 .btn-ficha {
+    background-color: rgba(255, 0, 0, 0.054);
+    border: solid white 1px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -64,6 +70,16 @@ select, option {
     padding: 4px;
 }
 
+.fichaElegida {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border-radius: 50%;
+    margin: 4px;
+    padding: 2px;
+}
+
+/*Boton 'Comenzar juego' y 'Reiniciar'*/
 .show {
     background-color: rgba(255, 255, 255, 0);
 
@@ -86,7 +102,42 @@ select, option {
     height: 100px;
 }
 
+.show:hover {
+  color: rgba(38, 10, 81, 0.891);
+  background-color: rgba(255, 255, 255, 0.585);
+  transition: all 1s;
+}
 
+/*Ocultar botones*/
+.hidden2{
+    visibility: hidden;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+
+
+
+/*----------Progress bar----------*/
+#myProgress {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    background-color: rgba(208, 196, 196, 0.204);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+}
+
+#countdown {
+    background-color: #1a0c498e;
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    border-radius: 50px;
+}
 
 
 
@@ -98,7 +149,6 @@ select, option {
     justify-content: center;
 }
 .container-canvas-5 {
-    background-color: rgb(200,200,200);
     margin-top: 5px;
     display: flex;
     justify-content: center;
@@ -106,7 +156,6 @@ select, option {
     height: 800px;
 }
 .container-canvas-6 {
-    background-color: rgb(200,200,200);
     margin-top: 5px;
     display: flex;
     justify-content: center;
@@ -115,8 +164,10 @@ select, option {
 }
 
 #myCanvas {
-    box-shadow: 0 0 50px 0 rgba(128, 128, 128, 0);
+    box-shadow: 0 0 50px 0 rgba(132, 110, 157, 0.952);
     margin-top: 15px;
+    margin-bottom: 30px;
+
 }
 
 .options{
@@ -130,65 +181,8 @@ select, option {
     justify-content: space-around;
     align-items: center;
 }
-h3{
-    margin: 10px;
-}
-
-#myProgress {
-    width: 100%;
-    height: 30px;
-    position: relative;
-    background-color: #ddd;
-}
 
 .row{
     display: flex;
     margin: 5px;
 }
-
-p{
-    margin: 10px;
-}
-
-#countdown {
-    background-color: #999999;
-    width: 1px;
-    height: 30px;
-    position: absolute;
-}
-
-.hidden2{
-    visibility: hidden;
-}
-
-.show2{
-    margin: 10px;
-    visibility: visible;
-    background-color: darkred;
-    font-family: Purisa;
-    color: white;
-}
-
-.hidden {
-    visibility: hidden;
-}
-.fichaElegida {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border-radius: 50%;
-    margin: 4px;
-    padding: 4px;
-    background-color: pink;
-}
-
-
-/* CODIGO ORIGINAL DEL BOTON VERDE 'COMENZAR JUEGO'
-.show {
-    margin:10px;
-    visibility: visible;
-    background-color: green;
-    font-family: Purisa;
-    color: white;
-}
-*/
