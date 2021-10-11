@@ -86,37 +86,34 @@ class Juego{
     }
 
     onMouseUp(e){
-        if (this.ganador == 0) {
-            this.isMouseDown = false;
-            let arrCasillero = this.tablero.getMatriz();
-            let filaSeleccionada = 0;
-            let x = Math.floor(e.layerX / 100) + 1;
-            let y = Math.floor(e.layerY / 100);
-            let jugable = this.tablero.checkPosicionTablero(e.layerX, e.layerY);
-            if (this.ultimaFichaClickeada != null && this.ultimaFichaClickeada.getSeleccionada()) {
-                if (jugable) {
-                    for (let i = (arrCasillero[x].length - 1); i > 0; i--) {
+        if (this.ganador == 0) { //Validamos que no haya ganados
+            this.isMouseDown = false; //Determinamos que el jugador tiene una ficha seleccionada
+            let arrCasillero = this.tablero.getMatriz(); //Traemos los casilleros del tablero
+            let filaSeleccionada = 0; //Inicializamos para realizar la validacion del ganador por fila
+            let x = Math.floor(e.layerX / 100) + 1; //Maneja la logica del tablero, haciendo esa cuenta para tomar por casillero
+            let y = Math.floor(e.layerY / 100); //Maneja la logica del tablero, haciendo esa cuenta para tomar por casillero
+            let jugable = this.tablero.checkPosicionTablero(e.layerX, e.layerY); //Logica para la jugabilidad de la ficha, no nos permite soltarla en cualquier lugar
+            if (this.ultimaFichaClickeada != null && this.ultimaFichaClickeada.getSeleccionada()) { //Validamos que tengamos una ficha seleccionada
+                if (jugable) { //Si es jugable nos permite acceder a la logica del juego
+                    for (let i = (arrCasillero[x].length - 1); i > 0; i--) { //Recorremos el tablero para verificar espacios libres en la columna
                         let casillero = arrCasillero[x][i];
-                        if (casillero.getFicha() == null) {
+                        if (casillero.getFicha() == null) { //Checkeamos el casillero de la columna no tenga una ficha
                             let arrFicha = this.tablero.getArrFichas();
-                            if (arrFicha[0] != null) {
-                                arrCasillero[x][i].setFicha(this.ultimaFichaClickeada);
-                                console.log(arrCasillero[x][i]);
-                                filaSeleccionada = i;
-                                //Buscamos la ficha dentro del arreglo
-                                for (let j = 0; j < arrFicha.length; j++) {
-                                    if (arrFicha[j] == this.ultimaFichaClickeada) {
-                                        arrFicha[j].setUsada(true);
-                                    }
+                            arrCasillero[x][i].setFicha(this.ultimaFichaClickeada);
+                            filaSeleccionada = i;
+                            //Buscamos la ficha dentro del arreglo
+                            for (let j = 0; j < arrFicha.length; j++) {
+                                if (arrFicha[j] == this.ultimaFichaClickeada) {
+                                    arrFicha[j].setUsada(true);
                                 }
-                                if (this.turno == this.jugador1)
-                                    this.setTurno(this.jugador2);
-                                else {
-                                    this.setTurno(this.jugador1);
-                                }
-                                this.tablero.dibujarTablero();
-                                break;
                             }
+                            if (this.turno == this.jugador1)
+                                this.setTurno(this.jugador2);
+                            else {
+                                this.setTurno(this.jugador1);
+                            }
+                            this.tablero.dibujarTablero();
+                            break;
                         }
                     }
                     this.checkearGanador(x, filaSeleccionada);

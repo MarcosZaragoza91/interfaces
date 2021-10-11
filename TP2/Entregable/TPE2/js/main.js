@@ -2,9 +2,11 @@ window.addEventListener('load', function (){
 
     let fondofichaj1='';
     let fondofichaj2='';
-//cuando selecciono el tipo de ficha q quiero  le paso el link de la imagen al parametro fondo de la ficha
 
-    
+    //------------------------------------SELECCION FICHA JUGADOR 1 y 2----------------------------------------
+    //cuando selecciono el tipo de ficha q quiero  le paso el link de la imagen al parametro fondo de la ficha
+    //En caso de tener seleccionada una ficha, no permite volver a elegir y oculta la seleccion del otro jugador
+
         document.querySelector('.fondoj1red').addEventListener('click', function (){
             if(fondofichaj1 == ''){
                 fondofichaj1 = "images/redCoin.png";
@@ -40,8 +42,6 @@ window.addEventListener('load', function (){
                 document.querySelector('.fondoj2grey').className='hidden';
             }
         })
-       
-    
             
         document.querySelector('.fondoj2red').addEventListener('click', function (){
             if(fondofichaj2 == ''){
@@ -84,18 +84,21 @@ window.addEventListener('load', function (){
     document.querySelector('#btn_load_game').addEventListener('click', ()=>{ //INICIO DEL JUEGO
         
     document.querySelector('.close').addEventListener('click', function (){
+        //Ocultar el modal al precionar "CERRAR"
         document.querySelector('.modal').classList.remove("modal-visible");
         document.querySelector('.modal').classList.add("modal-oculto");
     })
     
-    if (fondofichaj1 != '' && fondofichaj2 != '') { // SI LAS FICHAS TIENEN FONDO
+    if (fondofichaj1 != '' && fondofichaj2 != '') { // SI LAS FICHAS TIENEN FONDO COMIENZA LA LOGICA DEL JUEGO
         document.querySelector(".show").className = "hidden"; //muestro el boton reiniciar
         document.querySelector(".hidden2").className = "show";//oculto el boton comenzar juego
         document.querySelector("#myProgress").className=" "; //muestro al barra de tiempo 
-        
+
+        //Tomo el canvas y le defino el contexto
         let canvas = document.querySelector('#myCanvas');
         ctx = canvas.getContext('2d');
         let cantidadLineas = document.querySelector("#cantLineas").value; //cantidad de lineas modo de juego
+        //Inicializamos las variables
         let columnas = 0;
         let filas = 0;
         //segun el modo de juego elegido sera el tamanio del tablero 
@@ -115,37 +118,46 @@ window.addEventListener('load', function (){
             canvas.width = 1400;
             canvas.height = 800;
         }
+        //Definimos un nuevo Juego, instanciando la clase Juego.
         let juego = new Juego(canvas, cantidadLineas, columnas, filas, fondofichaj1, fondofichaj2);
         juego.tablero.limpiarCanvas();
         let time = true;
+        //Determinamos el timer con el llamado de la funcion
         tiempo();
+        //Comienza la logica del juego, donde dibuja tablero, fichas y define las funciones del juego
         juego.nuevoJuego();
 
     function onMouseDown(e){
+        //Chequeamos que estemos dentro del tiempo limite del juego
         if (time){
             juego.onMouseDown(e)
         }
     }
     
     function onMouseMove(e){
+        //Chequeamos que estemos dentro del tiempo limite del juego
         if (time){
             juego.onMouseMove(e)
         }
     }
     function onMouseUp(e){
+        //Chequeamos que estemos dentro del tiempo limite del juego
         if (time){
             juego.onMouseUp(e)
         }
     }
+
+    //Definimos esta funcion para cuando salimos del canvas devuelve la ficha a su posicion inicial, si estamos dentro del tiempo limite y no hay ganadores.
     function onMouseLeave(e){
         juego.isMouseDown = false;
-        if((juego.ultimaFichaClickeada != null && juego.ganador == 0) || time){
+        if((juego.ultimaFichaClickeada != null && juego.ultimaFichaClickeada.getSeleccionada() && juego.ganador == 0) || time){
             juego.ultimaFichaClickeada.setSeleccionada(false);
             juego.ultimaFichaClickeada.setPosicionCanvas(juego.ultimaFichaClickeada.getPosicionInicial().x,juego.ultimaFichaClickeada.getPosicionInicial().y);
             juego.tablero.dibujarTablero();
         }
     }
-    
+
+    //Funcion que maneja el timer del juego, al terminal el Intervalo de tiempo nos devuelve un modal indicando que se termino el juego y no nos permite interactuar
     function tiempo(){
         let elem = document.getElementById("countdown");
         let width = 0;
@@ -162,11 +174,13 @@ window.addEventListener('load', function (){
         }
     }
 
+    //Eventos de escucha del canvas
     canvas.addEventListener('mousedown',onMouseDown);
     canvas.addEventListener('mouseup',onMouseUp);
     canvas.addEventListener('mousemove',onMouseMove);
     canvas.addEventListener('mouseleave', onMouseLeave)
 }else{
+        //Modal que indica que el jugador debe seleccionar las fichas para comenzar el juego
         let modal = document.querySelector(".modal");
         document.querySelector('#modal-txt').innerHTML = "CADA JUGADOR DEBERA ELEGIR UNA FICHA";
         modal.classList.remove("modal-oculto");
