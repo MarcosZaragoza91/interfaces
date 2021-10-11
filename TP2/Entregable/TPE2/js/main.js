@@ -100,15 +100,15 @@ window.addEventListener('load', function (){
         let filas = 0;
         //segun el modo de juego elegido sera el tamanio del tablero 
         if (cantidadLineas == 4) {  
-            columnas = 6;
-            filas = 5;
-            canvas.width = 1400;
-            canvas.height = 600;
-        } else if (cantidadLineas == 5) {
             columnas = 7;
             filas = 6;
             canvas.width = 1400;
             canvas.height = 700;
+        } else if (cantidadLineas == 5) {
+            columnas = 8;
+            filas = 7;
+            canvas.width = 1400;
+            canvas.height = 800;
         } else if (cantidadLineas == 6) {
             columnas = 8;
             filas = 7;
