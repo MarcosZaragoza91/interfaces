@@ -91,7 +91,7 @@ window.addEventListener('load', function (){
     if (fondofichaj1 != '' && fondofichaj2 != '') { // SI LAS FICHAS TIENEN FONDO
         document.querySelector(".show").className = "hidden"; //muestro el boton reiniciar
         document.querySelector(".hidden2").className = "show";//oculto el boton comenzar juego
-        document.querySelector("#myProgress").className="show2"; //muestro al barra de tiempo 
+        document.querySelector("#myProgress").className=" "; //muestro al barra de tiempo 
         
         let canvas = document.querySelector('#myCanvas');
         ctx = canvas.getContext('2d');
