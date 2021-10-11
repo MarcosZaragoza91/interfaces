@@ -5,7 +5,7 @@ class Juego{
         this.jugador1=new Jugador(1);
         this.jugador2=new Jugador(2);
         this.tablero= new Tablero(canvas,cantidadLineas,columnas,filas);
-        this.turno = this.jugador1;//esto tiene jugador
+        this.turno = this.jugador1;
         this.ganador=0;
         this.isMouseDown=false;
         this.ultimaFichaClickeada = null;
@@ -13,56 +13,73 @@ class Juego{
         this.fondoj1=fondoj1;
         this.fondoj2=fondoj2;
     }
+    getTurno(){
+        return this.turno;
+    }    
+    
+    setTurno(jugador){
+        this.turno = jugador;
+    }
+    
+    cambiarTurno(){
+    
+    }
+    
+    getGanador(){
+        return this.ganador;
+    }
 
     nuevoJuego(){
         this.tablero.crearTablero();
         this.tablero.cargarFichasJugadorPorJugador(this.jugador1,this.jugador2,this.fondoj1,this.fondoj2);
     }
 
-    checkearGanador(x1,y1){
-        if(this.tablero.checkaerEnVertical(x1)){ //falta implementar checkear en diagonal
+    checkearGanador(x1,y1){ // le paso la posicion x e y al momento de ser insertada en un casillero del tablero
+        if(this.tablero.checkaerEnVertical(x1)){  
             this.ganador = this.ultimaFichaClickeada.getNumJugador();
             this.tablero.limpiarCanvas();
             this.tablero.dibujarTableroFinal(this.ganador);
         }else if(this.tablero.checkearEnHorizontal(y1)){
             this.ganador = this.ultimaFichaClickeada.getNumJugador();
             this.tablero.limpiarCanvas();
-        }else if(this.tablero.checkearDiagonales(x1,y1)){alert("hay ganador");
+            this.tablero.dibujarTableroFinal(this.ganador);
+        }else if(this.tablero.checkearDiagonales(x1,y1)){
             this.ganador = this.ultimaFichaClickeada.getNumJugador();
             this.tablero.limpiarCanvas();
+            this.tablero.dibujarTableroFinal(this.ganador);
         }
     }
 
     onMouseDown(e){
-        if (this.ganador == 0){
+        if (this.ganador == 0){ //si no contengo ganador
             this.isMouseDown= true;
             if(this.isMouseDown== true && this.ultimaFichaClickeada != null){ //si tengo clickeada una ficha y voy a clickear otra
                 this.ultimaFichaClickeada.setSeleccionada(false);        // le saco el resaltado a la anterior y dejod e guardarla
                 this.ultimaFichaClickeada =null;
             }
             let fichaClickeada = this.tablero.seleccioneFicha(e.layerX , e.layerY); //se fija si tiene seleccionada una ficha
-            console.log(fichaClickeada);
             if(fichaClickeada != null){ //si la tiene
-                let jugadorFicha = fichaClickeada.getJugador();
-                if (this.turno.getTurno() == jugadorFicha.getTurno()){
+                let jugadorFicha = fichaClickeada.getJugador(); //le pido el jugador
+                if (this.turno.getTurno() == jugadorFicha.getTurno()){ //si el turno de la ficha corresponde con el turno del juego
                     fichaClickeada.setSeleccionada(true);//setea la ficha en true
                     this.ultimaFichaClickeada = fichaClickeada; // y guarda la ultima clickeada
                 }else{
-                    alert('Debe jugar la ficha el siguiente jugador');
+                    let modal = document.querySelector(".modal"); //cambio el msj del modal
+                    document.querySelector('#modal-txt').innerHTML = "ES EL TURNO DEL OTRO JUGADOR";
+                    modal.classList.remove("modal-oculto");
+                    modal.classList.add("modal-visible");
                 }
             }
-            console.log(this.ganador);
             this.tablero.dibujarTablero(); //borra y dibuja el canvas
         }
     }
          
-        
     onMouseMove(e){
-        if (this.ganador == 0) {
+        if (this.ganador == 0) { //SI NO CONTENGO GANADOR
             if (this.isMouseDown == true && this.ultimaFichaClickeada != null) {//si el mouse esta abajo y hay una ficha clickeada
                 let x = Math.floor(e.layerX);
                 let y = Math.floor(e.layerY);
-                this.ultimaFichaClickeada.setPosicionCanvas2(x, y); //le pasa la posicion
+                this.ultimaFichaClickeada.setPosicionCanvas(x, y); //le pasa la posicion
                 this.tablero.dibujarTablero(); //borra y dibuja
             }
         }
@@ -72,7 +89,6 @@ class Juego{
         if (this.ganador == 0) {
             this.isMouseDown = false;
             let arrCasillero = this.tablero.getMatriz();
-            let rangoLimite = 30;
             let filaSeleccionada = 0;
             let x = Math.floor(e.layerX / 100) + 1;
             let y = Math.floor(e.layerY / 100);
@@ -103,32 +119,12 @@ class Juego{
                             }
                         }
                     }
-                    console.log("variable filaSeleccionada" + filaSeleccionada)
                     this.checkearGanador(x, filaSeleccionada);
                 } else {
                     this.ultimaFichaClickeada.setSeleccionada(false);
                     this.tablero.dibujarTablero();
-                    console.log("ACA ESTOY-------------------------");
-                    console.log(this.tablero.getArrFichas());
                 }
             }
         }
     }
-
-    getTurno(){
-        return this.turno;
-    }    
-
-    setTurno(jugador){
-        this.turno = jugador;
-    }
-
-    cambiarTurno(){
-
-    }
-
-    getGanador(){
-        return this.ganador;
-    }
-
 }

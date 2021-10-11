@@ -1,3 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+/*----------Estilos body----------*/
+* {
+    font-family: 'Bangers', cursive;
+}
+
+body {
+    background-image: url(../css/img/fondo-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*----------Estilo de textos----------*/
+h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 70px;
+    color: rgba(38, 10, 81, 0.891);
+    text-shadow:
+    0 0 20px #edd9f0,
+    0 0 20px #d6d5df,
+    0 0 50px #0e7698,
+    0 0 80px #675873;
+    letter-spacing: 4px;
+
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+  
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 100%;
+    }
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+
+h3, p {
+    color: rgb(255, 255, 255);
+    letter-spacing: 5px;
+    margin: 10px;
+    
+}
+
+h3 {
+    font-size: 33px;
+    text-shadow:
+    0 0 20px #7f3e89,
+    0 0 20px #5a567d,
+    0 0 60px #675873;
+}
+
+p {
+    font-size: 22px;
+}
+
+select, option {
+    color: rgb(82, 21, 123);
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50px 50px 50px 50px;
+    width: 200px;
+    text-align: center;
+}
+
+/*----------Estilo botones----------*/
+
+/*Fichas*/
+.btn-ficha {
+    background-color: rgba(255, 0, 0, 0.054);
+    border: solid white 1px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-radius: 50%;
+    margin: 4px;
+    padding: 4px;
+}
+
+.fichaElegida {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border-radius: 50%;
+    margin: 4px;
+    padding: 2px;
+}
+
+/*Boton 'Comenzar juego' y 'Reiniciar'*/
+.show {
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin: 7px;
+    padding: 25px;
+
+    color: white;
+
+    border-style: none;
+    box-shadow:
+    
+    0 0 20px #5a567d,
+    0 0 60px #675873; 
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 300px;
+    height: 100px;
+}
+
+.show:hover, .btn-modal:hover {
+  color: rgba(38, 10, 81, 0.891);
+  background-color: rgba(255, 255, 255, 0.585);
+  transition: all 1s;
+}
+
+/*Ocultar botones*/
+.hidden2{
+    visibility: hidden;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/*----------Progress bar----------*/
+#myProgress {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    background-color: rgba(208, 196, 196, 0.204);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+#countdown {
+    background-color: #1a0c498e;
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    border-radius: 50px;
+}
+
+/*----------Estilo modal----------*/
+  .modal-visible {
+
+    color: #fff;
+    background:rgba(47, 15, 71, 0.945);
+    border-radius: 30px;
+    
+    position: fixed;
+    width: 750px; 
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -375px;
+    top: 50%;
+    left: 50%;
+
+    box-shadow:  
+      0 0 20px #5a567d,
+      0 0 60px #675873;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 1s;
+}
+.btn-modal {
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin: 7px;
+    padding: 25px;
+
+    color: white;
+
+    border-style: none;
+    box-shadow:
+    
+    0 0 20px #5a567d,
+    0 0 60px #675873; 
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 250px;
+    height: 75px;
+}
+
+
+#modal-txt {
+    font-size:38px;
+    margin-bottom: 50px;
+}
+
+.modal-oculto {
+    visibility: hidden;
+}
+
+/*----------Estilo canvas----------*/
 
 .container-canvas {
     margin-top: 5px;
@@ -5,7 +211,6 @@
     justify-content: center;
 }
 .container-canvas-5 {
-    background-color: rgb(200,200,200);
     margin-top: 5px;
     display: flex;
     justify-content: center;
@@ -13,7 +218,6 @@
     height: 800px;
 }
 .container-canvas-6 {
-    background-color: rgb(200,200,200);
     margin-top: 5px;
     display: flex;
     justify-content: center;
@@ -22,8 +226,10 @@
 }
 
 #myCanvas {
-    box-shadow: 0 0 50px 0 grey;
+    box-shadow: 0 0 50px 0 rgba(132, 110, 157, 0.952);
     margin-top: 15px;
+    margin-bottom: 30px;
+
 }
 
 .options{
@@ -37,53 +243,9 @@
     justify-content: space-around;
     align-items: center;
 }
-h3{
-    margin: 10px;
-}
-
-#myProgress {
-    width: 100%;
-    height: 30px;
-    position: relative;
-    background-color: #ddd;
-}
 
 .row{
     display: flex;
     margin: 5px;
 }
 
-p{
-    margin: 10px;
-}
-
-#countdown {
-    background-color: #999999;
-    width: 1px;
-    height: 30px;
-    position: absolute;
-}
-
-.hidden2{
-    visibility: hidden;
-}
-
-.show2{
-    margin: 10px;
-    visibility: visible;
-    background-color: darkred;
-    font-family: Purisa;
-    color: white;
-}
-
-.hidden{
-    visibility: hidden;
-}
-
-.show {
-    margin:10px;
-    visibility: visible;
-    background-color: green;
-    font-family: Purisa;
-    color: white;
-}
