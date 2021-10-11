@@ -143,7 +143,7 @@ class Tablero{
                     let fichaJ2 = new Ficha(fondo2,jugador2);
                     this._arrFichas.push(fichaJ2);
                     let posxRandomJ2 = Math.round(Math.random() * (1300 - 950) + 950);
-                    let posyRandomJ2=Math.round(Math.random() * ( 650- 350) + 350);
+                    let posyRandomJ2=Math.round(Math.random() * ( 600- 350) + 350);
                     fichaJ2.setPosicionMatriz(x,y);
                     fichaJ2.setPosicionInicial(posxRandomJ2,posyRandomJ2);
                     fichaJ2.setPosicionCanvas(posxRandomJ2,posyRandomJ2)
