@@ -118,7 +118,7 @@ class Tablero{
             modal.classList.add("modal-visible");
         }else{ //cambio el msj del modal
             let modal = document.querySelector(".modal");
-            document.querySelector('#modal-txt').innerHTML = "GANO EL JUGADOR " + ganador;
+            document.querySelector('#modal-txt').innerHTML = "ENHORABUENA JUGADOR " + ganador + " HAS GANADO !!!";
             modal.classList.remove("modal-oculto");
             modal.classList.add("modal-visible");
         }

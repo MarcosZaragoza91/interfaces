@@ -14,8 +14,7 @@ body {
 /*----------Estilo de textos----------*/
 h1 {
     font-family: 'Bangers', cursive;
-    
-    font-size: 90px;
+    font-size: 70px;
     color: rgba(38, 10, 81, 0.891);
     text-shadow:
     0 0 20px #edd9f0,
@@ -48,7 +47,7 @@ h3, p {
 }
 
 h3 {
-    font-size: 45px;
+    font-size: 33px;
     text-shadow:
     0 0 20px #7f3e89,
     0 0 20px #5a567d,
@@ -56,12 +55,12 @@ h3 {
 }
 
 p {
-    font-size: 30px;
+    font-size: 22px;
 }
 
 select, option {
     color: rgb(82, 21, 123);
-    font-size: 25px;
+    font-size: 20px;
     padding: 10px;
     border-radius: 50px 50px 50px 50px;
     width: 200px;
@@ -94,11 +93,10 @@ select, option {
 /*Boton 'Comenzar juego' y 'Reiniciar'*/
 .show {
     background-color: rgba(255, 255, 255, 0);
-
-    font-size: 30px;
+    font-size: 22px;
     letter-spacing: 3px;
-    margin: 10px;
-    padding: 30px;
+    margin: 7px;
+    padding: 25px;
 
     color: white;
 
@@ -114,7 +112,7 @@ select, option {
     height: 100px;
 }
 
-.show:hover {
+.show:hover, .btn-modal:hover {
   color: rgba(38, 10, 81, 0.891);
   background-color: rgba(255, 255, 255, 0.585);
   transition: all 1s;
@@ -135,8 +133,8 @@ select, option {
     height: 30px;
     position: relative;
     background-color: rgba(208, 196, 196, 0.204);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border-radius: 50px;
 }
 
@@ -156,10 +154,10 @@ select, option {
     border-radius: 30px;
     
     position: fixed;
-    width: 1000px; 
-    height: 400px;
-    margin-top: -200px;
-    margin-left: -500px;
+    width: 750px; 
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -375px;
     top: 50%;
     left: 50%;
 
@@ -174,9 +172,30 @@ select, option {
 
     transition: all 1s;
 }
+.btn-modal {
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin: 7px;
+    padding: 25px;
+
+    color: white;
+
+    border-style: none;
+    box-shadow:
+    
+    0 0 20px #5a567d,
+    0 0 60px #675873; 
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 250px;
+    height: 75px;
+}
+
 
 #modal-txt {
-    font-size:50px;
+    font-size:38px;
     margin-bottom: 50px;
 }
 
