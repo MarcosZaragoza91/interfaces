@@ -13,26 +13,12 @@ class Ficha{
     }
 
     setPosicionCanvas(posX, posY) { //seteo la posicion en relacion al canvas de la ficha
-        /*this.posicionCanvas.x=(posX+1)*100-50;
-          this.posicionCanvas.y=(posY+1)*100-50;
-          this.posicionCentro.x=(posX+1)*100-50+this.radio;
-          this.posicionCentro.y=(posY+1)*100-50+this.radio;
-          */
           this.posicionCanvas.x=posX;
           this.posicionCanvas.y=posY;
-          //this.posicionCentro.x=posX+this.radio;
-          //this.posicionCentro.y=posY+this.radio;
   
       }
-/*
-    setPosicionCanvas2(posx,posy){
-        this.posicionCanvas.x=posx;
-        this.posicionCanvas.y=posy;
-    }
-*/
+
     setPosicionInicial(posX,posY){ //seteo la posicion inicial de la ficha
-        // this.posicionInicial.x=(this.posicionMatriz.x)*100+50;
-        // this.posicionInicial.y=(this.posicionMatriz.y)*100+50;
         this.posicionInicial.x=posX;
         this.posicionInicial.y=posY;
      }

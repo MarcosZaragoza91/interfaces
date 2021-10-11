@@ -119,7 +119,7 @@ window.addEventListener('load', function (){
         juego.tablero.limpiarCanvas();
         let time = true;
         tiempo();
-        juego.nuevoJuego();//fondoj1,fondoj2
+        juego.nuevoJuego();
 
     function onMouseDown(e){
         if (time){
@@ -154,7 +154,7 @@ window.addEventListener('load', function (){
             if (width == 100 || juego.ganador != 0) {
                 clearInterval(id);
                 time = false;
-                juego.tablero.dibujarTableroFinal(juego.ganador, mensaje);
+                juego.tablero.dibujarTableroFinal(juego.ganador);
             } else {
                 width++;
                 elem.style.width = width + '%';
