@@ -41,46 +41,46 @@ window.addEventListener('load', function (){
             }
         })
        
-    if(fondofichaj2 == '' ){
-            
-            document.querySelector('.fondoj2red').addEventListener('click', function (){
-                if(fondofichaj2 == ''){
-                    fondofichaj2 = "images/redCoin.png";
-                    document.querySelector('.fondoj2red').className = 'fichaElegida';
-                    document.querySelector('.fondoj1red').className='hidden';
-                }
-            })
-            document.querySelector('.fondoj2blue').addEventListener('click', function (){
-                if(fondofichaj2 == ''){
-                    fondofichaj2 = "images/blueCoin.png";
-                    document.querySelector('.fondoj2blue').className = 'fichaElegida';
-                    document.querySelector('.fondoj1blue').className='hidden';
-                }    
-            })
-            document.querySelector('.fondoj2green').addEventListener('click', function (){
-                if(fondofichaj2 == ''){
-                    fondofichaj2 = "images/greenCoin.png";
-                    document.querySelector('.fondoj2green').className = 'fichaElegida';
-                    document.querySelector('.fondoj1green').className='hidden';
-                }    
-            })
-            document.querySelector('.fondoj2brown').addEventListener('click', function (){
-                if(fondofichaj2 == ''){
-                    fondofichaj2 = "images/brownCoin.png";
-                    document.querySelector('.fondoj2brown').className = 'fichaElegida';
-                    document.querySelector('.fondoj1brown').className='hidden';
-                }    
-            })
-            document.querySelector('.fondoj2grey').addEventListener('click', function (){
-                if(fondofichaj2 == ''){
-                    fondofichaj2 = "images/greyCoin.png";
-                    document.querySelector('.fondoj2grey').className = 'fichaElegida';
-                    document.querySelector('.fondoj1grey').className='hidden';
-                }    
-            })
-    }
-
     
+            
+        document.querySelector('.fondoj2red').addEventListener('click', function (){
+            if(fondofichaj2 == ''){
+                fondofichaj2 = "images/redCoin.png";
+                document.querySelector('.fondoj2red').className = 'fichaElegida';
+                document.querySelector('.fondoj1red').className='hidden';
+            }
+        })
+        document.querySelector('.fondoj2blue').addEventListener('click', function (){
+            if(fondofichaj2 == ''){
+                fondofichaj2 = "images/blueCoin.png";
+                document.querySelector('.fondoj2blue').className = 'fichaElegida';
+                document.querySelector('.fondoj1blue').className='hidden';
+            }    
+        })
+        document.querySelector('.fondoj2green').addEventListener('click', function (){
+            if(fondofichaj2 == ''){
+                fondofichaj2 = "images/greenCoin.png";
+                document.querySelector('.fondoj2green').className = 'fichaElegida';
+                document.querySelector('.fondoj1green').className='hidden';
+            }    
+        })
+        document.querySelector('.fondoj2brown').addEventListener('click', function (){
+            if(fondofichaj2 == ''){
+                fondofichaj2 = "images/brownCoin.png";
+                document.querySelector('.fondoj2brown').className = 'fichaElegida';
+                document.querySelector('.fondoj1brown').className='hidden';
+            }    
+        })
+        document.querySelector('.fondoj2grey').addEventListener('click', function (){
+            if(fondofichaj2 == ''){
+                fondofichaj2 = "images/greyCoin.png";
+                document.querySelector('.fondoj2grey').className = 'fichaElegida';
+                document.querySelector('.fondoj1grey').className='hidden';
+            }    
+        })
+    
+
+
     document.querySelector('#btn_load_game').addEventListener('click', ()=>{ //INICIO DEL JUEGO
         
     document.querySelector('.close').addEventListener('click', function (){
@@ -100,20 +100,20 @@ window.addEventListener('load', function (){
         let filas = 0;
         //segun el modo de juego elegido sera el tamanio del tablero 
         if (cantidadLineas == 4) {  
+            columnas = 6;
+            filas = 5;
+            canvas.width = 1400;
+            canvas.height = 600;
+        } else if (cantidadLineas == 5) {
             columnas = 7;
             filas = 6;
             canvas.width = 1400;
             canvas.height = 700;
-        } else if (cantidadLineas == 5) {
+        } else if (cantidadLineas == 6) {
             columnas = 8;
             filas = 7;
             canvas.width = 1400;
             canvas.height = 800;
-        } else if (cantidadLineas == 6) {
-            columnas = 9;
-            filas = 8;
-            canvas.width = 1400;
-            canvas.height = 900;
         }
         let juego = new Juego(canvas, cantidadLineas, columnas, filas, fondofichaj1, fondofichaj2);
         juego.tablero.limpiarCanvas();

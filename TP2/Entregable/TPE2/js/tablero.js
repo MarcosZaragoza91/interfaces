@@ -134,7 +134,7 @@ class Tablero{
                     this._arrFichas.push(fichaJ1); //agrego la ficha al arreglo de fichas
                     fichaJ1.setPosicionMatriz(x,y); //le seteo ala ficha la posicion en la matriz
                     let posxRandomJ1 = Math.round(Math.random() * (1300 - 950) + 950); // la posx de la ficha es aleatoria entre esos pixels del canvas
-                    let posyRandomJ1=Math.round(Math.random() * (300 - 50) + 50);// la posy de la ficha es aleatoria entre esos pixels del canvas
+                    let posyRandomJ1=Math.round(Math.random() * (300 - 100) + 100);// la posy de la ficha es aleatoria entre esos pixels del canvas
                     fichaJ1.setPosicionInicial(posxRandomJ1,posyRandomJ1); // posicion inicial cuando se crea la ficha
                     fichaJ1.setPosicionCanvas(posxRandomJ1,posyRandomJ1)
                     fichaJ1.dibujarFicha(this.ctx); //dibujo la ficha
