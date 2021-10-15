@@ -1,0 +1,30 @@
+header{
+    background-color: lightblue;
+    height: 100px;
+}
+
+section{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    height: 600px;
+}
+
+footer{
+    background-color: aquamarine;
+    height: 100px;
+}
+
+.personajeCaminando{
+    width: 148px;
+    height: 200px;
+    margin: auto;
+    background: url(../imagenes/correr.png)repeat-x;
+    animation: corriendo 1.5s steps(6) infinite ;
+}
+
+@keyframes corriendo {
+    0%{background-position: 0}
+    100%{background-position: 900px}
+}
