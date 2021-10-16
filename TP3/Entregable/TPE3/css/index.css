@@ -21,21 +21,21 @@ footer{
     height: 200px;
     margin: auto;
     background: url(../imagenes/correr.png)repeat-x;
-    animation: corriendo 1.5s steps(6) infinite ;
+    animation: corriendo 0.5s steps(6) infinite ;
     position: relative;
     top: 30%;
-    right: 40%;
+    right: 10%;
 }
 
 .personajeSaltando{
-    width: 125px;
-    height: 230px;
+    width: 139px;
+    height: 300px;
     margin: auto;
-    background: url(../imagenes/salto.png)repeat-x;
-    animation: corriendo 1.5s steps(9) infinite ;
+    background: url(../imagenes/salto2.png)repeat-x;
+    animation: saltando 1s steps(9) infinite ;
     position: relative;
-    top: 30%;
-    right: 40%;
+    top: 20%;
+    right: 50%;
 }
 
 @keyframes corriendo {
@@ -45,5 +45,5 @@ footer{
 
 @keyframes saltando {
     0%{background-position: 0}
-    100%{background-position: 1200px}
+    100%{background-position: 1260px}
 }
