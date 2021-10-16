@@ -15,10 +15,20 @@ footer{
     background-color: aquamarine;
     height: 100px;
 }
+.personaje {
+    width: 77px;
+    height: 300px;
+    margin: auto;
+    background: url(../imagenes/parado.png)repeat-x; /*agregar spreet sheet personaje parado*/
+    animation: parado 0.5s steps(3) infinite ;
+    position: relative;
+    top: 30%;
+    right: 10%;
+}
 
-.personajeCaminando{
+.personajeCorriendo {
     width: 148px;
-    height: 200px;
+    height: 300px;
     margin: auto;
     background: url(../imagenes/correr.png)repeat-x;
     animation: corriendo 0.5s steps(6) infinite ;
@@ -27,7 +37,7 @@ footer{
     right: 10%;
 }
 
-.personajeSaltando{
+.personajeSaltando {
     width: 139px;
     height: 300px;
     margin: auto;
@@ -35,7 +45,11 @@ footer{
     animation: saltando 1s steps(9) infinite ;
     position: relative;
     top: 20%;
-    right: 50%;
+    right: 10%;
+}
+@keyframes parado {
+    0%{background-position: 0}
+    100%{background-position: 233px}
 }
 
 @keyframes corriendo {
@@ -46,4 +60,14 @@ footer{
 @keyframes saltando {
     0%{background-position: 0}
     100%{background-position: 1260px}
+}
+
+
+.premio {
+
+}
+
+@keyframes premio {
+    0%{background-position: 0}
+    100%{background-position: 900px}
 }

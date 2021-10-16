@@ -11,4 +11,12 @@ class Obstaculo{
     setEsPremio(value) {
         this._esPremio = value;
     }
+
+    crearPremio(){
+        
+    }
+
+    dibujarPremio() {
+        setInterval()    
+    }
 }
