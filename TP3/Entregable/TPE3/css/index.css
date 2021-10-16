@@ -9,6 +9,8 @@ section{
     align-items: center;
     background-color: white;
     height: 600px;
+    background: url(../imagenes/fondo.png);
+    background-position: center;
 }
 
 footer{
@@ -62,12 +64,16 @@ footer{
     100%{background-position: 1260px}
 }
 
-
 .premio {
-
+    width: 81px;
+    height: 83px;
+    margin: auto;
+    background: url(../imagenes/monedas.png)repeat-x;
+    animation: premio 1s steps(11) infinite ;
+    position: relative;
 }
 
 @keyframes premio {
     0%{background-position: 0}
-    100%{background-position: 900px}
+    100%{background-position: 879px}
 }
