@@ -49,6 +49,16 @@ footer{
     top: 20%;
     right: 10%;
 }
+.personajeAgachado {
+    width: 239px;
+    height: 300px;
+    margin: auto;
+    background: url(../imagenes/agachado.png)repeat-x;
+    animation: agachado 0.5s steps(3) infinite ;
+    position: relative;
+    top: 30%;
+    right: 10%;
+}
 @keyframes parado {
     0%{background-position: 0}
     100%{background-position: 233px}
@@ -64,16 +74,52 @@ footer{
     100%{background-position: 1260px}
 }
 
+@keyframes agachado {
+    0%{background-position: 0}
+    100%{background-position: 717px}
+}
+
 .premio {
     width: 81px;
     height: 83px;
-    margin: auto;
     background: url(../imagenes/monedas.png)repeat-x;
     animation: premio 1s steps(11) infinite ;
     position: relative;
 }
 
+
 @keyframes premio {
     0%{background-position: 0}
     100%{background-position: 879px}
+}
+
+.obstaculoSerp {
+    width: 45px;
+    height: 40px;
+    background: url(../imagenes/obstaculoSerp.png)repeat-x;
+    animation: obstaculoSerp 1s steps(12) infinite ;
+    position: relative;
+    top: 40%;
+    right: 50%;
+}
+
+
+@keyframes obstaculoSerp {
+    0%{background-position: 0}
+    100%{background-position: 535px}
+}
+.obstaculoMurg {
+    width: 270px;
+    height: 200px;
+    background: url(../imagenes/obstaculoMurg.png)repeat-x;
+    animation: obstaculoMurg 1s steps(6) infinite ;
+    position: relative;
+    top: 5%;
+    right: 40%;   
+}
+
+
+@keyframes obstaculoMurg {
+    0%{background-position: 0}
+    100%{background-position: 1618px}
 }

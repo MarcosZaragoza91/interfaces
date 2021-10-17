@@ -8,6 +8,9 @@ class Juego{
             if(nuevaDireccion == 'up'){
                 this.personaje.saltar();
                 setTimeout(this.personaje.correr,1000);
+            }else if(nuevaDireccion == 'down'){
+                this.personaje.agacharse();
+                setTimeout(this.personaje.correr,1000);
             }
         }  
     };
