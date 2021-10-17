@@ -18,11 +18,11 @@ footer{
     height: 100px;
 }
 .personaje {
-    width: 77px;
+    width: 92px;
     height: 300px;
     margin: auto;
     background: url(../imagenes/parado.png)repeat-x; /*agregar spreet sheet personaje parado*/
-    animation: parado 0.5s steps(3) infinite ;
+    animation: parado 0.4s steps(3) infinite ;
     position: relative;
     top: 30%;
     right: 10%;
@@ -50,18 +50,18 @@ footer{
     right: 10%;
 }
 .personajeAgachado {
-    width: 239px;
+    width: 118px;
     height: 300px;
     margin: auto;
     background: url(../imagenes/agachado.png)repeat-x;
-    animation: agachado 0.5s steps(3) infinite ;
+    animation: agachado 0.2s steps(2) infinite ;
     position: relative;
     top: 30%;
     right: 10%;
 }
 @keyframes parado {
     0%{background-position: 0}
-    100%{background-position: 233px}
+    100%{background-position: 281px}
 }
 
 @keyframes corriendo {
@@ -76,7 +76,7 @@ footer{
 
 @keyframes agachado {
     0%{background-position: 0}
-    100%{background-position: 717px}
+    100%{background-position: 235px}
 }
 
 .premio {

@@ -17,4 +17,5 @@ class Personaje{
         let stylePerson = document.querySelector('#personaje');
             stylePerson.className="personajeAgachado";
     }
+    
 }

@@ -10,7 +10,7 @@ class Juego{
                 setTimeout(this.personaje.correr,1000);
             }else if(nuevaDireccion == 'down'){
                 this.personaje.agacharse();
-                setTimeout(this.personaje.correr,1000);
+                setTimeout(this.personaje.correr,500);
             }
         }  
     };
