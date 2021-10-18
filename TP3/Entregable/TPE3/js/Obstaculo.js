@@ -18,6 +18,14 @@ class Obstaculo{
         this._esPremio = value;
     }
 
+    crearObstaculo(){//crear que se cree un obstaculo u otro cada tanto tiempo
+        let obstaculoM = document.querySelector('#obstaculoMurg');
+        obstaculoM.className = 'obstaculoMurg';
+
+        let obstaculoS = document.querySelector('#obstaculoSerp');
+        obstaculoS.className = 'obstaculoSerp';
+    }
+
     crearPremio(){
 
     }

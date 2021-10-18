@@ -1,8 +1,9 @@
 class Juego{
     constructor(posicionPer,posicionObsMurg,posicionSerp) {
-      this.personaje = new Personaje(posicionPer);
-      this.obstaculoMurg = new Obstaculo(posicionObsMurg);
-      this.obstaculoSerp = new Obstaculo(posicionSerp);  
+        this.personaje = new Personaje(posicionPer);
+        this.obstaculoMurg = new Obstaculo(posicionObsMurg);
+        this.obstaculoSerp = new Obstaculo(posicionSerp);  
+        this.nuevaDireccion= '';
     }
     
     personajeMuerto(){
@@ -10,6 +11,7 @@ class Juego{
     }
 
     startGameLoop (nuevaDireccion){
+        
         if(nuevaDireccion){
             if(nuevaDireccion == 'up'){
                 this.personaje.saltar();
@@ -18,9 +20,17 @@ class Juego{
                 this.personaje.agacharse();
                 //setTimeout(this.personaje.correr,500);
             }
-            setTimeout(this.personaje.correr,1000);
         }  
     };
+
+    keyUp(e){
+        if(this.nuevaDireccion == 'up'){
+            setTimeout(this.personaje.correr,1000);
+        }else if(this.nuevaDireccion == 'down'){
+            setTimeout(this.personaje.correr,500);
+        }
+    }
+
 
     keyInput(e) {
         let teclaApretada = e.which || e.keyCode;
@@ -30,8 +40,8 @@ class Juego{
             '87': 'up',    // w
             '83': 'down',  // s
         }
-        let nuevaDireccion = keyMap[teclaApretada];
-        this.startGameLoop(nuevaDireccion);
+        this.nuevaDireccion = keyMap[teclaApretada];
+        this.startGameLoop(this.nuevaDireccion);
     };
     
 

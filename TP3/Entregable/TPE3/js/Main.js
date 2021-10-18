@@ -7,19 +7,28 @@ document.addEventListener("DOMContentLoaded",function(){
         let posicionPersonaje = personaje.getBoundingClientRect();
         console.log(posicionPersonaje);
 
-        let obstaculoSerp = document.querySelector('.obstaculoSerp');
+        let obstaculoSerp = document.querySelector('#obstaculoSerp');
         let posObstaculoSerp = obstaculoSerp.getBoundingClientRect();
 
-        let obstaculoMurg = document.querySelector('.obstaculoMurg');
+        let obstaculoMurg = document.querySelector('#obstaculoMurg');
         let posObstaculoMurg = obstaculoMurg.getBoundingClientRect();
-
+        
         let juego = new Juego(posicionPersonaje,posObstaculoMurg , posObstaculoSerp);
+
+        juego.obstaculoMurg.crearObstaculo();
+        
         let stylePerson = document.querySelector('#personaje');
         stylePerson.className = "personajeCorriendo";
+        
         function keyPress(e){
             juego.keyInput(e);   
         }    
+
+        function keyUp(e){
+            juego.keyUp(e);
+        }
         window.addEventListener('keydown', keyPress);
+        window.addEventListener('keyup', keyUp);
     });
     
     
