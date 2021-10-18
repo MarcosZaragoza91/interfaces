@@ -1,7 +1,13 @@
 class Obstaculo{
 
-    constructor() {
+    constructor(posicion) {
+        this.posicion = posicion;
         this._esPremio = false;
+    }
+
+    posCentro(){
+        let x = this.posicion.left + (this.posicion.width/2);
+        let y = this.posicion.top + (this.posicion.height/2);
     }
 
     getEsPremio() {
@@ -13,10 +19,11 @@ class Obstaculo{
     }
 
     crearPremio(){
-        
+
     }
 
     dibujarPremio() {
         setInterval()    
     }
+    
 }
