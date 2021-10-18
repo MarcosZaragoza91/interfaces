@@ -103,6 +103,18 @@ footer{
     right: 50%;
 }
 
+.obstaculoSerpConMovimiento {
+    width: 45px;
+    height: 40px;
+    background: url(../imagenes/obstaculoSerp.png)repeat-x;
+    animation: obstaculoSerp 1s steps(12) infinite ;
+    position: relative;
+    top: 40%;
+    right: 50%;
+    transition: 19s;
+    transform: translateX(-700px);
+}
+
 
 @keyframes obstaculoSerp {
     0%{background-position: 0}

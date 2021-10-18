@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded",function(){
 
         let obstaculoMurg = document.querySelector('#obstaculoMurg');
         let posObstaculoMurg = obstaculoMurg.getBoundingClientRect();
-        
-        let juego = new Juego(posicionPersonaje,posObstaculoMurg , posObstaculoSerp);
+        console.log(obstaculoMurg);
+        let juego = new Juego(posicionPersonaje,posObstaculoMurg ,obstaculoMurg, posObstaculoSerp);
 
         juego.obstaculoMurg.crearObstaculo();
-        
+        //juego.obstaculoSerp.avanzar();
         let stylePerson = document.querySelector('#personaje');
         stylePerson.className = "personajeCorriendo";
         

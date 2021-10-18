@@ -18,7 +18,8 @@ class Obstaculo{
         this._esPremio = value;
     }
 
-    crearObstaculo(){//crear que se cree un obstaculo u otro cada tanto tiempo
+    crearObstaculo(contenedorObstaculo){//hacer que se cree un obstaculo u otro cada tanto tiempo
+        //mal pensado llevarlo bien a a objetos
         let obstaculoM = document.querySelector('#obstaculoMurg');
         obstaculoM.className = 'obstaculoMurg';
 
@@ -29,7 +30,20 @@ class Obstaculo{
     crearPremio(){
 
     }
-
+/*
+    avanzar(){
+        //mal pensado llevarlo bien a a objetos
+        let obstaculoS = document.querySelector('#obstaculoSerp');
+        obstaculoS.className='obstaculoSerpConMovimiento';
+        setInterval(function(){ 
+            obstaculoS.className='obstaculoSerpConMovimiento';
+                setTimeout(() => {
+                    obstaculoS.className= 'obstaculoSerp';            
+                }, 20000); 
+            }, 21000);
+            
+    }
+*/
     dibujarPremio() {
         setInterval()    
     }
