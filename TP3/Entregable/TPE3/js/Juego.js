@@ -10,8 +10,19 @@ class Juego{
         
     }   
 
+    avanzar(obstaculoS,obstaculoM){
+        obstaculoS.className='obstaculoConMovimientoS';
+        obstaculoM.className='obstaculoConMovMurg';
+        setInterval(function(){ 
+            setTimeout(() => {            
+                    obstaculoS.className='obstaculoConMovimientoS';
+                    obstaculoM.className='obstaculoConMovMurg';
+                }, 1000); 
+                obstaculoS.className= 'obstaculoSerp';
+                obstaculoM.className= 'obstaculoMurg';
+            }, 10000);
+    }
 
-    
     startGameLoop (nuevaDireccion){
         if(nuevaDireccion){
             if(nuevaDireccion == 'up'){

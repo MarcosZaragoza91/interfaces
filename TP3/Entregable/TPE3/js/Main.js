@@ -5,18 +5,17 @@ document.addEventListener("DOMContentLoaded",function(){
     document.querySelector('#btn_start_game').addEventListener('click', ()=>{ //INICIO DEL JUEGO
         let personaje = document.querySelector('.personaje');
         let posicionPersonaje = personaje.getBoundingClientRect();
-        console.log(posicionPersonaje);
 
         let obstaculoSerp = document.querySelector('#obstaculoSerp');
         let posObstaculoSerp = obstaculoSerp.getBoundingClientRect();
 
         let obstaculoMurg = document.querySelector('#obstaculoMurg');
         let posObstaculoMurg = obstaculoMurg.getBoundingClientRect();
-        console.log(obstaculoMurg);
-        let juego = new Juego(posicionPersonaje,posObstaculoMurg ,obstaculoMurg, posObstaculoSerp);
+       
+        let juego = new Juego(posicionPersonaje,posObstaculoMurg, posObstaculoSerp);
 
         juego.obstaculoMurg.crearObstaculo();
-        //juego.obstaculoSerp.avanzar();
+        juego.avanzar(obstaculoSerp,obstaculoMurg);
         let stylePerson = document.querySelector('#personaje');
         stylePerson.className = "personajeCorriendo";
         

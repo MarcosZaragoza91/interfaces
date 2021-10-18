@@ -103,7 +103,7 @@ footer{
     right: 50%;
 }
 
-.obstaculoSerpConMovimiento {
+.obstaculoConMovimientoS {
     width: 45px;
     height: 40px;
     background: url(../imagenes/obstaculoSerp.png)repeat-x;
@@ -129,7 +129,17 @@ footer{
     top: 5%;
     right: 40%;   
 }
-
+.obstaculoConMovMurg {
+    width: 270px;
+    height: 200px;
+    background: url(../imagenes/obstaculoMurg.png)repeat-x;
+    animation: obstaculoMurg 1s steps(6) infinite ;
+    position: relative;
+    top: 5%;
+    right: 40%;
+    transition: 15s;
+    transform: translateX(-700px);   
+}
 
 @keyframes obstaculoMurg {
     0%{background-position: 0}
