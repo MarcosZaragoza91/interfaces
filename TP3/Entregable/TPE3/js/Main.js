@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
         juego.obstaculoMurg.crearObstaculo();
         juego.avanzar(obstaculoSerp,obstaculoMurg);
+        //juego.avanzar2(obstaculoSerp);
         let stylePerson = document.querySelector('#personaje');
         stylePerson.className = "personajeCorriendo";
         
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded",function(){
         }
         window.addEventListener('keydown', keyPress);
         window.addEventListener('keyup', keyUp);
+
     });
     
     

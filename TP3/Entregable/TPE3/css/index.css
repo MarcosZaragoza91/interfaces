@@ -50,11 +50,11 @@ footer{
     right: 10%;
 }
 .personajeAgachado {
-    width: 118px;
-    height: 300px;
+    width: 160px;
+    height: 150px;
     margin: auto;
     background: url(../imagenes/agachado.png)repeat-x;
-    animation: agachado 0.2s steps(2) infinite ;
+    animation: agachado 0.5s steps(3) infinite ;
     position: relative;
     top: 30%;
     right: 10%;
@@ -76,7 +76,7 @@ footer{
 
 @keyframes agachado {
     0%{background-position: 0}
-    100%{background-position: 235px}
+    100%{background-position: 480px}
 }
 
 .premio {
@@ -100,7 +100,7 @@ footer{
     animation: obstaculoSerp 1s steps(12) infinite ;
     position: relative;
     top: 40%;
-    right: 50%;
+    right: -20%;
 }
 
 .obstaculoConMovimientoS {
@@ -110,9 +110,8 @@ footer{
     animation: obstaculoSerp 1s steps(12) infinite ;
     position: relative;
     top: 40%;
-    right: 50%;
     transition: 19s;
-    transform: translateX(-700px);
+    transform: translateX(-3000px);
 }
 
 
@@ -127,7 +126,7 @@ footer{
     animation: obstaculoMurg 1s steps(6) infinite ;
     position: relative;
     top: 5%;
-    right: 40%;   
+    right: -20%;
 }
 .obstaculoConMovMurg {
     width: 270px;
@@ -136,9 +135,8 @@ footer{
     animation: obstaculoMurg 1s steps(6) infinite ;
     position: relative;
     top: 5%;
-    right: 40%;
     transition: 15s;
-    transform: translateX(-700px);   
+    transform: translateX(-3000px);
 }
 
 @keyframes obstaculoMurg {
