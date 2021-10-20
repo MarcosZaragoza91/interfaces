@@ -6,16 +6,13 @@ document.addEventListener("DOMContentLoaded",function(){
         let personaje = document.querySelector('.personaje');
         let posicionPersonaje = personaje.getBoundingClientRect();
 
-        let obstaculoSerp = document.querySelector('#obstaculoSerp');
-        let posObstaculoSerp = obstaculoSerp.getBoundingClientRect();
-
-        let obstaculoMurg = document.querySelector('#obstaculoMurg');
-        let posObstaculoMurg = obstaculoMurg.getBoundingClientRect();
+        let obstaculo = document.querySelector('#obstaculo');
+        let posObstaculo = obstaculo.getBoundingClientRect();
        
-        let juego = new Juego(posicionPersonaje,posObstaculoMurg, posObstaculoSerp);
+        let juego = new Juego(posicionPersonaje);
 
-        juego.obstaculoMurg.crearObstaculo();
-        juego.avanzar(obstaculoSerp,obstaculoMurg);
+        //juego.obstaculoMurg.crearObstaculo();
+        //juego.avanzar();
         //juego.avanzar2(obstaculoSerp);
         let stylePerson = document.querySelector('#personaje');
         stylePerson.className = "personajeCorriendo";

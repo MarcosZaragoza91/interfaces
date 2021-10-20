@@ -1,3 +1,5 @@
+/*------------------PAGINA--------------------------------*/
+
 header{
     background-color: lightblue;
     height: 100px;
@@ -17,6 +19,9 @@ footer{
     background-color: aquamarine;
     height: 100px;
 }
+
+/*---------------------PERSONAJE-----------------------------------*/
+
 .personaje {
     width: 92px;
     height: 300px;
@@ -79,6 +84,13 @@ footer{
     100%{background-position: 480px}
 }
 
+
+
+/*--------------------------------OBSTACULO/PREMIO---------------------------------*/
+.obstaculo{
+    border: solid 2px black;
+}
+
 .premio {
     width: 81px;
     height: 83px;
@@ -86,7 +98,6 @@ footer{
     animation: premio 1s steps(11) infinite ;
     position: relative;
 }
-
 
 @keyframes premio {
     0%{background-position: 0}
@@ -102,23 +113,11 @@ footer{
     top: 40%;
     right: -20%;
 }
-
-.obstaculoConMovimientoS {
-    width: 45px;
-    height: 40px;
-    background: url(../imagenes/obstaculoSerp.png)repeat-x;
-    animation: obstaculoSerp 1s steps(12) infinite ;
-    position: relative;
-    top: 40%;
-    transition: 19s;
-    transform: translateX(-3000px);
-}
-
-
 @keyframes obstaculoSerp {
     0%{background-position: 0}
     100%{background-position: 535px}
 }
+
 .obstaculoMurg {
     width: 270px;
     height: 200px;
@@ -128,18 +127,9 @@ footer{
     top: 5%;
     right: -20%;
 }
-.obstaculoConMovMurg {
-    width: 270px;
-    height: 200px;
-    background: url(../imagenes/obstaculoMurg.png)repeat-x;
-    animation: obstaculoMurg 1s steps(6) infinite ;
-    position: relative;
-    top: 5%;
-    transition: 15s;
-    transform: translateX(-3000px);
-}
-
 @keyframes obstaculoMurg {
     0%{background-position: 0}
     100%{background-position: 1618px}
 }
+
+

@@ -1,8 +1,6 @@
 class Juego{
-    constructor(posicionPer,posicionObsMurg,posicionSerp) {
+    constructor(posicionPer) {
         this.personaje = new Personaje(posicionPer);
-        this.obstaculoMurg = new Obstaculo(posicionObsMurg);
-        this.obstaculoSerp = new Obstaculo(posicionSerp);  
         this.nuevaDireccion= '';
 
         //Pato
@@ -13,8 +11,8 @@ class Juego{
         
     }   
 
-    avanzar(obstaculoS,obstaculoM){
-        obstaculoS.className='obstaculoConMovimientoS';
+    avanzar(){
+        obstaculo.className='obstaculoConMovimientoS';
         obstaculoM.className='obstaculoConMovMurg';
         setInterval(function(){
             setTimeout(() => {
@@ -27,6 +25,7 @@ class Juego{
     }
 
     startGameLoop (nuevaDireccion){
+        this.obstaculo.setPosicionDiv(100);
         if(nuevaDireccion){
             if(nuevaDireccion == 'up'){
                 this.personaje.saltar();
@@ -35,37 +34,6 @@ class Juego{
             }
         }  
     };
-
-    //Pato
-
-    startGameLoop2 (nuevaDireccion){
-        if(nuevaDireccion){
-            if(nuevaDireccion == 'up'){
-                this.personaje.saltar();
-            }else if(nuevaDireccion == 'down'){
-                this.personaje.agacharse();
-            }
-        }
-    };
-
-    avanzar2(obstaculoS){
-        this.obstaculo = obstaculoS;
-        this.obstaculo.className = 'obstaculoConMovimientoS';
-        // obstaculoS.className='obstaculoConMovimientoS';
-        // obstaculoM.className='obstaculoConMovMurg';
-        setInterval(function(){
-            setTimeout(() => {
-                this.obstaculo.crearObstaculo(obstaculoS);
-                console.log(this.obstaculo);
-                this.obstaculo.className = 'obstaculoConMovimientoS';
-                // obstaculoS.className='obstaculoConMovimientoS';
-                // obstaculoM.className='obstaculoConMovMurg';
-            }, 1000);
-            //this.obstaculo.className = 'obstaculoSerp';
-            // obstaculoS.className= 'obstaculoSerp';
-            // obstaculoM.className= 'obstaculoMurg';
-        }, 10000);
-    }
 
     keyUp(e){
         if(this.nuevaDireccion == 'up'){

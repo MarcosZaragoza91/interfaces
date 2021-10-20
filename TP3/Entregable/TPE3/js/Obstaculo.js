@@ -1,13 +1,27 @@
 class Obstaculo{
 
     constructor(posicion) {
-        this.posicion = posicion;
+        this.div = document.querySelector('#obstaculo');
         this._esPremio = false;
+        this._posicion = this.div.getBoundingClientRect();
+    }
+
+    getPosicion() {
+        return this._posicion;
+    }
+
+    setPosicionDiv(value) {
+        //this._posicion.left = this._posicion.left - value;
+        this.div.setAttribute("left",this._posicion.left - value);
+        //this.div.style.left = this._posicion.left - value;
+        console.log(this._posicion);
+        console.log(this.div);
+        //console.log(this.div.style);
     }
 
     posCentro(){
-        let x = this.posicion.left + (this.posicion.width/2);
-        let y = this.posicion.top + (this.posicion.height/2);
+        let x = this._posicion.left + (this._posicion.width/2);
+        let y = this._posicion.top + (this._posicion.height/2);
     }
 
     getEsPremio() {
