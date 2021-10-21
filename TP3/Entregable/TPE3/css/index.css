@@ -1,18 +1,23 @@
 /*------------------PAGINA--------------------------------*/
-
+body{
+    margin: 0;
+}
 header{
     background-color: lightblue;
     height: 100px;
 }
 
 section{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    /*display: flex;*/
+    /*justify-content: flex-start;*/
+    /*align-items: center;*/
     background-color: white;
     height: 600px;
+    width: 100%;
     background: url(../imagenes/fondo.png);
     background-position: center;
+    background-size: cover;
+    position: relative;
 }
 
 footer{
@@ -25,44 +30,41 @@ footer{
 .personaje {
     width: 92px;
     height: 300px;
-    margin: auto;
     background: url(../imagenes/parado.png)repeat-x; /*agregar spreet sheet personaje parado*/
     animation: parado 0.4s steps(3) infinite ;
-    position: relative;
-    top: 30%;
-    right: 10%;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
 }
 
 .personajeCorriendo {
     width: 148px;
     height: 300px;
-    margin: auto;
     background: url(../imagenes/correr.png)repeat-x;
     animation: corriendo 0.5s steps(6) infinite ;
-    position: relative;
-    top: 30%;
-    right: 10%;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+
 }
 
 .personajeSaltando {
     width: 139px;
     height: 300px;
-    margin: auto;
     background: url(../imagenes/salto2.png)repeat-x;
     animation: saltando 1s steps(9) infinite ;
-    position: relative;
-    top: 20%;
-    right: 10%;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
 }
 .personajeAgachado {
     width: 160px;
     height: 150px;
-    margin: auto;
     background: url(../imagenes/agachado.png)repeat-x;
     animation: agachado 0.5s steps(3) infinite ;
-    position: relative;
-    top: 30%;
-    right: 10%;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
 }
 @keyframes parado {
     0%{background-position: 0}
@@ -89,6 +91,9 @@ footer{
 /*--------------------------------OBSTACULO/PREMIO---------------------------------*/
 .obstaculo{
     border: solid 2px black;
+    position:absolute;
+    top: 70%;
+    left: 1000px;
 }
 
 .premio {
@@ -109,10 +114,11 @@ footer{
     height: 40px;
     background: url(../imagenes/obstaculoSerp.png)repeat-x;
     animation: obstaculoSerp 1s steps(12) infinite ;
-    position: relative;
-    top: 40%;
-    right: -20%;
+    position: absolute;
+    right: -45px;
+    bottom: 0;
 }
+
 @keyframes obstaculoSerp {
     0%{background-position: 0}
     100%{background-position: 535px}
@@ -122,10 +128,10 @@ footer{
     width: 270px;
     height: 200px;
     background: url(../imagenes/obstaculoMurg.png)repeat-x;
-    animation: obstaculoMurg 1s steps(6) infinite ;
-    position: relative;
-    top: 5%;
-    right: -20%;
+    animation: obstaculoMurg 1s steps(6) infinite ;  
+    position: absolute;
+    right: -270px;
+    bottom: 400px;
 }
 @keyframes obstaculoMurg {
     0%{background-position: 0}

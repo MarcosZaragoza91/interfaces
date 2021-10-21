@@ -2,7 +2,6 @@ class Juego{
     constructor(posicionPer) {
         this.personaje = new Personaje(posicionPer);
         this.nuevaDireccion= '';
-
         //Pato
         this.obstaculo = new Obstaculo();
     }
@@ -11,21 +10,9 @@ class Juego{
         
     }   
 
-    avanzar(){
-        obstaculo.className='obstaculoConMovimientoS';
-        obstaculoM.className='obstaculoConMovMurg';
-        setInterval(function(){
-            setTimeout(() => {
-                    obstaculoS.className='obstaculoConMovimientoS';
-                    obstaculoM.className='obstaculoConMovMurg';
-                }, 1000); 
-                obstaculoS.className= 'obstaculoSerp';
-                obstaculoM.className= 'obstaculoMurg';
-            }, 10000);
-    }
-
-    startGameLoop (nuevaDireccion){
-        this.obstaculo.setPosicionDiv(100);
+    keyLoop (nuevaDireccion){
+        this.obstaculo.elegirObstaculo(1);//valor harcodeado poner ramdon
+        this.obstaculo.moverIzquierda();//este iria en el loop del juego
         if(nuevaDireccion){
             if(nuevaDireccion == 'up'){
                 this.personaje.saltar();
@@ -34,6 +21,7 @@ class Juego{
             }
         }  
     };
+
 
     keyUp(e){
         if(this.nuevaDireccion == 'up'){
@@ -45,7 +33,6 @@ class Juego{
         }
     }
 
-
     keyInput(e) {
         let teclaApretada = e.which || e.keyCode;
         let keyMap = {
@@ -55,7 +42,7 @@ class Juego{
             '83': 'down',  // s
         }
         this.nuevaDireccion = keyMap[teclaApretada];
-        this.startGameLoop(this.nuevaDireccion);
+        this.keyLoop(this.nuevaDireccion);
     };
 
 

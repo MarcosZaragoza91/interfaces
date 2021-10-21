@@ -2,21 +2,31 @@ class Obstaculo{
 
     constructor(posicion) {
         this.div = document.querySelector('#obstaculo');
+        this.PosInicialX= document.querySelector('#section').offsetWidth;
         this._esPremio = false;
-        this._posicion = this.div.getBoundingClientRect();
     }
-
+    
     getPosicion() {
         return this._posicion;
     }
+    
+    moverIzquierda() {
+        let aux = this.PosInicialX - 5;
+        this.setPosInicialX(aux);
+        let value = String(aux) +'px';
+        console.log(value);
+        this.div.style.left= value;
+        console.log(this.div.style);
+    
+        //this.div.style.left=value; 
+    }
 
-    setPosicionDiv(value) {
-        //this._posicion.left = this._posicion.left - value;
-        this.div.setAttribute("left",this._posicion.left - value);
-        //this.div.style.left = this._posicion.left - value;
-        console.log(this._posicion);
-        console.log(this.div);
-        //console.log(this.div.style);
+    getPosInicialX(){
+        return this.PosInicialX;
+    }
+
+    setPosInicialX(value){
+        this.PosInicialX=value;
     }
 
     posCentro(){
@@ -32,13 +42,17 @@ class Obstaculo{
         this._esPremio = value;
     }
 
-    crearObstaculo(contenedorObstaculo){//hacer que se cree un obstaculo u otro cada tanto tiempo
+    elegirObstaculo(numero){//hacer que se cree un obstaculo u otro cada tanto tiempo
         //mal pensado llevarlo bien a a objetos
-        let obstaculoM = document.querySelector('#obstaculoMurg');
-        obstaculoM.className = 'obstaculoMurg';
+        if(numero == 1){
+            let obstaculoM = document.querySelector('#obstaculo');
+            obstaculoM.className = 'obstaculoMurg';
+        }else{
+            let obstaculoS = document.querySelector('#obstaculo');
+            obstaculoS.className = 'obstaculoSerp';
+        }
+        
 
-        let obstaculoS = document.querySelector('#obstaculoSerp');
-        obstaculoS.className = 'obstaculoSerp';
     }
 
     crearPremio(){

@@ -1,6 +1,7 @@
 
 document.addEventListener("DOMContentLoaded",function(){    
-    
+
+   
 
     document.querySelector('#btn_start_game').addEventListener('click', ()=>{ //INICIO DEL JUEGO
         let personaje = document.querySelector('.personaje');
@@ -9,11 +10,10 @@ document.addEventListener("DOMContentLoaded",function(){
         let obstaculo = document.querySelector('#obstaculo');
         let posObstaculo = obstaculo.getBoundingClientRect();
        
-        let juego = new Juego(posicionPersonaje);
 
-        //juego.obstaculoMurg.crearObstaculo();
-        //juego.avanzar();
-        //juego.avanzar2(obstaculoSerp);
+
+        let juego = new Juego(posicionPersonaje);
+        
         let stylePerson = document.querySelector('#personaje');
         stylePerson.className = "personajeCorriendo";
         
