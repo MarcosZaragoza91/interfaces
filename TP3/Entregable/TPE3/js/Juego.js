@@ -1,6 +1,6 @@
 class Juego{
-    constructor(posicionPer) {
-        this.personaje = new Personaje(posicionPer);
+    constructor() {
+        this.personaje = new Personaje();
         this.nuevaDireccion= '';
         //Pato
         this.obstaculo = new Obstaculo();
@@ -11,7 +11,7 @@ class Juego{
     }   
 
     keyLoop (nuevaDireccion){
-        this.obstaculo.elegirObstaculo(1);//valor harcodeado poner ramdon
+        this.crearObstaculo(2)
         this.obstaculo.moverIzquierda();//este iria en el loop del juego
         if(nuevaDireccion){
             if(nuevaDireccion == 'up'){
@@ -33,7 +33,7 @@ class Juego{
         }
     }
 
-    keyInput(e) {
+    keyPress(e) {
         let teclaApretada = e.which || e.keyCode;
         let keyMap = {
             '38': 'up',    // up arrow
@@ -44,6 +44,28 @@ class Juego{
         this.nuevaDireccion = keyMap[teclaApretada];
         this.keyLoop(this.nuevaDireccion);
     };
+
+    elegirClase(numero){//hacer que se cree un obstaculo u otro cada tanto tiempo
+        let clase ='';
+        if(numero > 1 && numero < 3){
+            clase= 'obstaculoMurg';
+        }else if (numero > 3 && numero < 6 ){
+            clase = 'obstaculoSerp';
+        }else{
+            clase = 'premio';
+        }
+        return clase;
+    }
+
+    crearObstaculo(numero){
+        let clase = this.elegirClase(numero);
+        this.obstaculo.setClass(clase)
+    }
+
+    obstaculoRandom(){
+        let numero = Math.round(Math.floor(Math.random() * 9));
+        setTimeout(this.crearObstaculo(numero), 5000);
+    }
 
 
     //Pato

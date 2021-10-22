@@ -4,32 +4,89 @@ body{
 }
 header{
     background-color: lightblue;
-    height: 100px;
 }
 
-section{
+h1{
+    display: flex;
+    justify-content: center;
+    font-family: AnjaliOldLipi;
+
+}
+
+section.container{
     /*display: flex;*/
     /*justify-content: flex-start;*/
     /*align-items: center;*/
-    background-color: white;
-    height: 600px;
+    height: 700px;
     width: 100%;
-    background: url(../imagenes/fondo.png);
-    background-position: center;
-    background-size: cover;
     position: relative;
 }
 
 footer{
     background-color: aquamarine;
-    height: 100px;
+}
+
+/*---------------------FONDO--------------------------------------*/
+
+.layer{
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-repeat: repeat-x;
+    top: 0;
+    left: 0;
+    animation-name: scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.layer-7{
+    background-image: url("../imagenes/fondo/7.png");
+}
+
+.layer-6{
+    background-image: url("../imagenes/fondo/6.png");
+    animation: scroll 30s infinite linear;
+}
+
+.layer-5{
+    background-image: url("../imagenes/fondo/5.png");
+    animation: scroll 20s infinite linear;
+}
+
+.layer-4{
+    background-image: url("../imagenes/fondo/4.png");
+    animation: scroll 15s infinite linear;
+}
+
+.layer-3{
+    background-image: url("../imagenes/fondo/3.png");
+    animation: scroll 10s infinite linear;
+}
+
+.layer-2{
+    background-image: url("../imagenes/fondo/2.png");
+    animation: scroll 7s infinite linear;
+}
+
+.layer-1{
+    height: 100%;
+
+    background-image: url("../imagenes/fondo/1.png");
+    animation: scroll 7s infinite linear;
+}
+
+@keyframes scroll {
+    0%{background-position: 0}
+    100%{background-position: -1920px}
 }
 
 /*---------------------PERSONAJE-----------------------------------*/
 
 .personaje {
     width: 92px;
-    height: 300px;
+    height: 150px;
     background: url(../imagenes/parado.png)repeat-x; /*agregar spreet sheet personaje parado*/
     animation: parado 0.4s steps(3) infinite ;
     position: absolute;
@@ -39,7 +96,7 @@ footer{
 
 .personajeCorriendo {
     width: 148px;
-    height: 300px;
+    height: 160px;
     background: url(../imagenes/correr.png)repeat-x;
     animation: corriendo 0.5s steps(6) infinite ;
     position: absolute;

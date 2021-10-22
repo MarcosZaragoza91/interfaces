@@ -1,12 +1,8 @@
 class Personaje{
-    constructor(posicion) {
-       this.posicion=posicion; 
+    constructor() {
+       this.posicion=0;
     }
 
-    posCentro(){
-        let x = this.posicion.left + (this.posicion.width/2);
-        let y = this.posicion.top + (this.posicion.height /2);
-    }
     getPosicion(){
         return this.posicion;
     }    

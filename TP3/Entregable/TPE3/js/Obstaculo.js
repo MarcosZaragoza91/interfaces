@@ -2,12 +2,16 @@ class Obstaculo{
 
     constructor(posicion) {
         this.div = document.querySelector('#obstaculo');
-        this.PosInicialX= document.querySelector('#section').offsetWidth;
+        this.PosInicialX= document.querySelector('.container').offsetWidth;
         this._esPremio = false;
     }
     
     getPosicion() {
         return this._posicion;
+    }
+
+    setClass(clase){
+        this.div.className=clase;
     }
     
     moverIzquierda() {
