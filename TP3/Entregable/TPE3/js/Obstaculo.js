@@ -1,15 +1,24 @@
 class Obstaculo{
 
-    constructor(posicion) {
-        this.div = document.querySelector('#obstaculo');
+    constructor(clase) {
+        this.div = document.createElement("div");
+        this.class = this.div.className=clase;
         this.PosInicialX= document.querySelector('.container').offsetWidth;
+        document.querySelector('.container').appendChild(this.div);
         this._esPremio = false;
     }
     
-    getPosicion() {
-        return this._posicion;
+    matePersonaje(x,y){
+        
     }
 
+    getPosicion() {
+        return this.PosInicialX;
+    }
+
+    getDiv(){
+        return this.div;
+    }
     setClass(clase){
         this.div.className=clase;
     }
@@ -20,8 +29,6 @@ class Obstaculo{
         let value = String(aux) +'px';
         console.log(value);
         this.div.style.left= value;
-        console.log(this.div.style);
-    
         //this.div.style.left=value; 
     }
 
@@ -44,19 +51,6 @@ class Obstaculo{
 
     setEsPremio(value) {
         this._esPremio = value;
-    }
-
-    elegirObstaculo(numero){//hacer que se cree un obstaculo u otro cada tanto tiempo
-        //mal pensado llevarlo bien a a objetos
-        if(numero == 1){
-            let obstaculoM = document.querySelector('#obstaculo');
-            obstaculoM.className = 'obstaculoMurg';
-        }else{
-            let obstaculoS = document.querySelector('#obstaculo');
-            obstaculoS.className = 'obstaculoSerp';
-        }
-        
-
     }
 
     crearPremio(){

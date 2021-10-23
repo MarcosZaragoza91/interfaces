@@ -36,9 +36,7 @@ footer{
     background-repeat: repeat-x;
     top: 0;
     left: 0;
-    animation-name: scroll;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+   
 }
 
 .layer-7{
@@ -158,7 +156,9 @@ footer{
     height: 83px;
     background: url(../imagenes/monedas.png)repeat-x;
     animation: premio 1s steps(11) infinite ;
-    position: relative;
+    position: absolute;
+    bottom: 270px;;
+    border: solid black 2px;
 }
 
 @keyframes premio {
@@ -170,10 +170,11 @@ footer{
     width: 45px;
     height: 40px;
     background: url(../imagenes/obstaculoSerp.png)repeat-x;
-    animation: obstaculoSerp 1s steps(12) infinite ;
+    animation: obstaculoSerp 1s steps(12) infinite;
     position: absolute;
     right: -45px;
-    bottom: 0;
+    bottom: 3px;
+    border: solid black 2px;
 }
 
 @keyframes obstaculoSerp {
@@ -188,7 +189,8 @@ footer{
     animation: obstaculoMurg 1s steps(6) infinite ;  
     position: absolute;
     right: -270px;
-    bottom: 400px;
+    bottom: 125px;
+    border: solid black 2px;
 }
 @keyframes obstaculoMurg {
     0%{background-position: 0}

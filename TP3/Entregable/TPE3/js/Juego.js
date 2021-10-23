@@ -2,17 +2,18 @@ class Juego{
     constructor() {
         this.personaje = new Personaje();
         this.nuevaDireccion= '';
-        //Pato
-        this.obstaculo = new Obstaculo();
+        this.arrObstaculos=[];        
+        this.seccion = document.querySelector('#container');
     }
-    
-    personajeMuerto(){
+
+    getObstaculo (){
+        return this.obstaculo;
+    }
+    colicion(Obstaculo){
         
     }   
 
     keyLoop (nuevaDireccion){
-        this.crearObstaculo(2)
-        this.obstaculo.moverIzquierda();//este iria en el loop del juego
         if(nuevaDireccion){
             if(nuevaDireccion == 'up'){
                 this.personaje.saltar();
@@ -21,8 +22,7 @@ class Juego{
             }
         }  
     };
-
-
+    
     keyUp(e){
         if(this.nuevaDireccion == 'up'){
             this.nuevaDireccion='';
@@ -57,25 +57,31 @@ class Juego{
         return clase;
     }
 
+    moverObstaculos() {   
+            if(this.arrObstaculos.length != 0){
+                for (let i = 0; i < this.arrObstaculos.length; i++) {
+                    const element = this.arrObstaculos[i];
+                    element.moverIzquierda();
+                }
+            }            
+    }
+
     crearObstaculo(numero){
         let clase = this.elegirClase(numero);
-        this.obstaculo.setClass(clase)
-    }
-
-    obstaculoRandom(){
-        let numero = Math.round(Math.floor(Math.random() * 9));
-        setTimeout(this.crearObstaculo(numero), 5000);
-    }
-
-
-    //Pato
-    obstaculoRandom(){
-        let randomObs = Math.floor(Math.random() * 2);
-        let randomTime = Math.floor(Math.random() * 3)
-        let obj = {
-            'objeto':randomObs,
-            'tiempo':randomTime
+        let obstaculo= null;
+        if(clase == 'premio'){
+            obstaculo = new Obstaculo(clase);
+            obstaculo.setEsPremio(true);
+        }else{
+            obstaculo = new Obstaculo(clase);
         }
-        return obj;
+        this.arrObstaculos.push(obstaculo);  
     }
+
+    obstaculoRandom(){
+
+            let numero = Math.round(Math.floor(Math.random() * 9));
+            this.crearObstaculo(numero);
+    }
+
 }

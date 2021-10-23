@@ -8,19 +8,27 @@ document.addEventListener("DOMContentLoaded",function(){
         stylePerson.className = "personajeCorriendo";
 
         let juego = new Juego();
-
-        let interval = setInterval(function (){
+                    
             function keyPress(e){
                 juego.keyPress(e);
             }
-
+            
             function keyUp(e){
                 juego.keyUp(e);
             }
             window.addEventListener('keydown', keyPress);
             window.addEventListener('keyup', keyUp);
-        },500);
+            
+            setInterval(function() {
+                    juego.obstaculoRandom();
+            },3000);
 
+            setInterval(function() {
+                juego.moverObstaculos();
+            },20);
+             
+             
+    
     });
     
     
