@@ -18,13 +18,27 @@ document.addEventListener("DOMContentLoaded",function(){
             }
             window.addEventListener('keydown', keyPress);
             window.addEventListener('keyup', keyUp);
-            
-            setInterval(function() {
-                    juego.obstaculoRandom();
-            },3000);
 
-            setInterval(function() {
+            let tiempoJuego=setInterval(function (){
+                juego.timer--;
+                document.querySelector(".timer2").innerHTML = juego.timer;
+                if (juego.timer == 0){
+                    clearInterval(tiempoJuego);
+                }
+            }, 1000)
+
+            let obstaculos = setInterval(function() {
+                    juego.obstaculoRandom();
+                    if (juego.timer == 5){
+                        clearInterval(obstaculos)
+                    }
+            },4000);
+
+            let moverObstaculos = setInterval(function() {
                 juego.moverObstaculos();
+                if (juego.deleteObstaculo() && juego.personaje.getMuerto()){
+                    clearInterval(moverObstaculos);
+                }
             },20);
              
              

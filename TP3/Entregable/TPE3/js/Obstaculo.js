@@ -22,12 +22,14 @@ class Obstaculo{
     setClass(clase){
         this.div.className=clase;
     }
+    getClass(){
+        return this.class;
+    }
     
     moverIzquierda() {
-        let aux = this.PosInicialX - 5;
+        let aux = this.PosInicialX - 10;
         this.setPosInicialX(aux);
         let value = String(aux) +'px';
-        console.log(value);
         this.div.style.left= value;
         //this.div.style.left=value; 
     }
