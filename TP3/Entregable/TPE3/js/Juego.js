@@ -1,6 +1,6 @@
 class Juego{
-    constructor() {
-        this.personaje = new Personaje();
+    constructor(avatar) {
+        this.personaje = new Personaje(avatar);
         this.nuevaDireccion= 'run';
         this.arrObstaculos=[];        
         this.seccion = document.querySelector('#container');
@@ -17,7 +17,6 @@ class Juego{
             }
         }
     }
-
 
     keyLoop(nuevaDireccion){
         if(nuevaDireccion){
@@ -62,13 +61,22 @@ class Juego{
                 }
                 this.nuevaDireccion = keyMap[teclaApretada];
                 this.keyLoop(this.nuevaDireccion);
-                setTimeout(this.personaje.correr, 1000);
+                console.log(this.personaje.posicionY);
+                let timer = setTimeout(this.tiempoEspera, 1000,this.personaje);
+                // if (this.nuevaDireccion !== 'run'){
+                //     clearTimeout(timer);
+                // }
+                console.log(this.personaje.posicionY);
                 this.nuevaDireccion = 'run';
         }
 
         // if (!(this.nuevaDireccion === keyMap[teclaApretada])){
         // }
     };
+
+    tiempoEspera(jugador){
+        jugador.correr();
+    }
 
     elegirClase(numero){//hacer que se cree un obstaculo u otro cada tanto tiempo
         let clase ='';
