@@ -26,6 +26,39 @@ footer{
     background-color: aquamarine;
 }
 
+.timer{
+    width: 150px;
+    height: 150px;
+    font-family: Purisa;
+    font-weight: bolder;
+    font-size: 20px;
+    color: whitesmoke;
+    position: absolute;
+    right: 100px;
+}
+
+.premio2{
+    width: 81px;
+    height: 83px;
+    background: url(../imagenes/monedas.png)repeat-x;
+    animation: premio 1s steps(11) infinite ;
+    position: absolute;
+    position: absolute;
+    right: 700px;
+}
+
+.puntos{
+    width: 81px;
+    height: 83px;
+    right: 600px;
+    top: 25px;
+    position: absolute;
+    font-family: Purisa;
+    font-weight: bolder;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
 /*---------------------FONDO--------------------------------------*/
 
 .layer{
@@ -116,11 +149,20 @@ footer{
     width: 160px;
     height: 150px;
     background: url(../imagenes/agachado.png)repeat-x;
-    animation: agachado 0.5s steps(3) infinite ;
+    animation: agachado 1s steps(3) infinite ;
     position: absolute;
     left: 100px;
     bottom: 0;
 }
+.personajeMuerto{
+    width: 160px;
+    height: 150px;
+    border: solid 2px black;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+
 @keyframes parado {
     0%{background-position: 0}
     100%{background-position: 281px}
@@ -141,15 +183,12 @@ footer{
     100%{background-position: 480px}
 }
 
-
+@keyframes muerto {
+    0%{background-position: 0}
+    100%{background-position: 480px}
+}
 
 /*--------------------------------OBSTACULO/PREMIO---------------------------------*/
-.obstaculo{
-    border: solid 2px black;
-    position:absolute;
-    top: 70%;
-    left: 1000px;
-}
 
 .premio {
     width: 81px;
@@ -157,7 +196,7 @@ footer{
     background: url(../imagenes/monedas.png)repeat-x;
     animation: premio 1s steps(11) infinite ;
     position: absolute;
-    bottom: 270px;;
+    bottom: 180px;;
     border: solid black 2px;
 }
 
