@@ -1,9 +1,10 @@
 class Personaje{
-    constructor() {
+    constructor(avatar) {
        this.posicionY=0;
        this.div = document.querySelector("#personaje");
        this._posicionX= this.div.offsetWidth + this.div.getAttribute("width")/2;
        this._muerto = false;
+       this.avatar=avatar;
     }
 
 
@@ -29,25 +30,25 @@ class Personaje{
 
     saltar(){
         let stylePerson = document.querySelector('#personaje');
-        stylePerson.className = "personajeSaltando";
+        stylePerson.className = "personajeSaltando"+String(this.avatar);
         this.posicionY = 110;
     }
     
     correr(){
         let stylePerson = document.querySelector('#personaje');
-        stylePerson.className="personajeCorriendo";
+        stylePerson.className="personajeCorriendo"+String(this.avatar);
         this.posicionY=100;
     }
 
     agacharse(){
         let stylePerson = document.querySelector('#personaje');
-        stylePerson.className="personajeAgachado";
+        stylePerson.className="personajeAgachado"+String(this.avatar);
         this.posicionY = 90;
     }
 
     morir(){
         let stylePerson = document.querySelector('#personaje');
-        stylePerson.className="personajeMuerto";
+        stylePerson.className="personajeMuerto"+String(this.avatar);;
     }
 
 }

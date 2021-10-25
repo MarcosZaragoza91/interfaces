@@ -1,14 +1,28 @@
 
-document.addEventListener("DOMContentLoaded",function(){    
+document.addEventListener("DOMContentLoaded",function(){
 
-   
+    let stylePerson = '';
+    let avatar = 0;
+
+    document.querySelector('.avatar1').addEventListener('click', function (){
+        stylePerson = document.querySelector('.personaje');
+        stylePerson.classname = 'personaje1';
+        avatar = 1;
+    })
+
+    document.querySelector('.avatar2').addEventListener('click', function (){
+        let stylePerson = document.querySelector('.personaje');
+        stylePerson.classname = 'personaje2';
+        avatar = 2;
+    })
+
 
     document.querySelector('#btn_start_game').addEventListener('click', ()=>{ //INICIO DEL JUEGO
-        let stylePerson = document.querySelector('#personaje');
-        stylePerson.className = "personajeCorriendo";
 
-        let juego = new Juego();
-                    
+        let juego = new Juego(avatar);
+        let stylePerson = document.querySelector('#personaje');
+        stylePerson.className = "personajeCorriendo"+String(juego.personaje.avatar);;
+
             function keyPress(e){
                 juego.keyPress(e);
             }
