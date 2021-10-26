@@ -106,18 +106,19 @@ class Juego{
                             }else{
                                 this.personaje.morir();
                                 this.personaje.setMuerto(true);
-                                setTimeout(function () {
-                                    let modal = document.querySelector(".modal");
-                                    console.log(this.puntaje);
-                                    document.querySelector('#modal-txt').innerHTML = "AH MUERT...SU PUNTAJE ES " + this.puntaje;
-                                    modal.classList.remove("modal-oculto");
-                                    modal.classList.add("modal-visible");
-                                },500);
+                                setTimeout(this.modalMuerte,500,this.puntaje);
                             }
                         }
                     }
                 }
             }
+    }
+
+    modalMuerte(puntaje){
+        let modal = document.querySelector(".modal");
+        document.querySelector('#modal-txt').innerHTML = "AH MUERTO...SU PUNTAJE ES " + puntaje;
+        modal.classList.remove("modal-oculto");
+        modal.classList.add("modal-visible");
     }
 
     hayColision(obstaculo){

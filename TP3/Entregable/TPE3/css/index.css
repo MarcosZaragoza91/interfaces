@@ -77,7 +77,7 @@ footer{
 
 .layer-6{
     background-image: url("../imagenes/fondo/6.png");
-    animation: scroll 10s linear infinite ;
+    animation: scroll 30s linear infinite ;
 }
 
 .layer-5{
@@ -107,7 +107,7 @@ footer{
 
 @keyframes scroll {
     0%{background-position-x: 0}
-    100%{background-position-x: -1080px}
+    100%{background-position-x: -1920px}
 }
 
 /*---------------------PERSONAJE-----------------------------------*/
