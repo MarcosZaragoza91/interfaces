@@ -43,7 +43,6 @@ footer{
     background: url(../imagenes/monedas.png)repeat-x;
     animation: premio 1s steps(11) infinite ;
     position: absolute;
-    position: absolute;
     right: 700px;
 }
 
@@ -78,39 +77,37 @@ footer{
 
 .layer-6{
     background-image: url("../imagenes/fondo/6.png");
-    animation: scroll 30s infinite linear;
+    animation: scroll 10s linear infinite ;
 }
 
 .layer-5{
     background-image: url("../imagenes/fondo/5.png");
-    animation: scroll 20s infinite linear;
+    animation: scroll 28s linear infinite;
 }
 
 .layer-4{
     background-image: url("../imagenes/fondo/4.png");
-    animation: scroll 15s infinite linear;
+    animation: scroll 21s linear infinite;
 }
 
 .layer-3{
     background-image: url("../imagenes/fondo/3.png");
-    animation: scroll 10s infinite linear;
+    animation: scroll 14s linear infinite;
 }
 
 .layer-2{
     background-image: url("../imagenes/fondo/2.png");
-    animation: scroll 7s infinite linear;
+    animation: scroll 7s linear infinite;
 }
 
 .layer-1{
-    height: 100%;
-
     background-image: url("../imagenes/fondo/1.png");
-    animation: scroll 7s infinite linear;
+    animation: scroll 7s linear infinite;
 }
 
 @keyframes scroll {
-    0%{background-position: 0}
-    100%{background-position: -1920px}
+    0%{background-position-x: 0}
+    100%{background-position-x: -1080px}
 }
 
 /*---------------------PERSONAJE-----------------------------------*/
@@ -224,6 +221,20 @@ footer{
     100%{background-position: 879px}
 }
 
+.destello {
+    width: 81px;
+    height: 83px;
+    background: url(../imagenes/monedas.png)repeat-x;
+    animation: destello 1s steps(11) infinite ;
+    position: absolute;
+    right: 700px;
+}
+
+@keyframes destello {
+    0%{background-position: 0}
+    50%{transform: scale(2)}
+    100%{background-position: 879px}
+}
 .obstaculoSerp {
     width: 45px;
     height: 40px;
@@ -256,3 +267,58 @@ footer{
 }
 
 
+/*----------Estilo modal----------*/
+.modal-visible {
+    color: #fff;
+    background:rgba(47, 15, 71, 0.945);
+    border-radius: 30px;
+    
+    position: fixed;
+    width: 750px; 
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -375px;
+    top: 50%;
+    left: 50%;
+
+    box-shadow:  
+      0 0 20px #5a567d,
+      0 0 60px #675873;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 1s;
+}
+.btn-modal {
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin: 7px;
+    padding: 25px;
+
+    color: white;
+
+    border-style: none;
+    box-shadow:
+    
+    0 0 20px #5a567d,
+    0 0 60px #675873; 
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 250px;
+    height: 75px;
+}
+
+
+#modal-txt {
+    font-size:38px;
+    margin-bottom: 50px;
+}
+
+.modal-oculto {
+    visibility: hidden;
+}

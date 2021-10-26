@@ -24,8 +24,6 @@ class Juego{
                 this.personaje.saltar();
             }else if(nuevaDireccion == 'down'){
                 this.personaje.agacharse();
-            }else if (nuevaDireccion == 'run'){
-                this.personaje.correr();
             }
         }
     };
@@ -48,7 +46,6 @@ class Juego{
             // console.log(this.personaje.posicionY);
         }
     }
-
 
     keyPress(e) {
             if (this.nuevaDireccion == 'run'){
@@ -98,11 +95,24 @@ class Juego{
                     if (element.getPosicion() < this.personaje.getPosicionX()+5 && element.getPosicion() > this.personaje.getPosicionX()-5){
                         if (this.hayColision(element)){
                             if (element.getEsPremio()){
-                                this.puntaje = this.puntaje + 10;
+                                this.puntaje += 10;
                                 document.querySelector('.puntos').innerHTML = this.puntaje;
+                                this.seccion.removeChild(this.arrObstaculos[i].getDiv());
+                                this.arrObstaculos.splice(i,1);
+                                document.querySelector('.premio2').className = 'destello';
+                                setTimeout(function () {
+                                    document.querySelector('.destello').className = 'premio2';
+                                },800);
                             }else{
                                 this.personaje.morir();
                                 this.personaje.setMuerto(true);
+                                setTimeout(function () {
+                                    let modal = document.querySelector(".modal");
+                                    console.log(this.puntaje);
+                                    document.querySelector('#modal-txt').innerHTML = "AH MUERT...SU PUNTAJE ES " + this.puntaje;
+                                    modal.classList.remove("modal-oculto");
+                                    modal.classList.add("modal-visible");
+                                },500);
                             }
                         }
                     }

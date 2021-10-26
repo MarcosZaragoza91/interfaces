@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
     let stylePerson = '';
     let avatar = 0;
-
+    
     document.querySelector('.avatar1').addEventListener('click', function (){
         stylePerson = document.querySelector('.personaje');
         stylePerson.classname = 'personaje1';
@@ -16,13 +16,20 @@ document.addEventListener("DOMContentLoaded",function(){
         avatar = 2;
     })
 
-
     document.querySelector('#btn_start_game').addEventListener('click', ()=>{ //INICIO DEL JUEGO
 
-        let juego = new Juego(avatar);
-        let stylePerson = document.querySelector('#personaje');
-        stylePerson.className = "personajeCorriendo"+String(juego.personaje.avatar);;
+        document.querySelector('.close').addEventListener('click', function (){
+            document.querySelector('.modal').classList.remove("modal-visible");
+            document.querySelector('.modal').classList.add("modal-oculto");
+        });
 
+        if(avatar!=0){
+
+            let juego = new Juego(avatar);
+            let stylePerson = document.querySelector('#personaje');
+            stylePerson.className = "personajeCorriendo"+String(juego.personaje.avatar);;
+
+            
             function keyPress(e){
                 juego.keyPress(e);
             }
@@ -30,9 +37,10 @@ document.addEventListener("DOMContentLoaded",function(){
             function keyUp(e){
                 juego.keyUp(e);
             }
+            
             window.addEventListener('keydown', keyPress);
             window.addEventListener('keyup', keyUp);
-
+            
             let tiempoJuego=setInterval(function (){
                 juego.timer--;
                 document.querySelector(".timer2").innerHTML = juego.timer;
@@ -40,23 +48,28 @@ document.addEventListener("DOMContentLoaded",function(){
                     clearInterval(tiempoJuego);
                 }
             }, 1000)
-
+            
             let obstaculos = setInterval(function() {
-                    juego.obstaculoRandom();
-                    if (juego.timer == 5){
-                        clearInterval(obstaculos)
-                    }
+                juego.obstaculoRandom();
+                if (juego.timer == 5 || juego.personaje.getMuerto()){
+                    clearInterval(obstaculos)
+                }
             },4000);
+            
 
             let moverObstaculos = setInterval(function() {
                 juego.moverObstaculos();
                 if (juego.deleteObstaculo() && juego.personaje.getMuerto()){
                     clearInterval(moverObstaculos);
                 }
-            },20);
-             
-             
-    
+                },20);    
+        }else{
+            let modal = document.querySelector(".modal");
+            document.querySelector('#modal-txt').innerHTML = "DEBE ELEGIR UN PERSONAJE PARA INICIAR EL JUEGO";
+            modal.classList.remove("modal-oculto");
+            modal.classList.add("modal-visible");
+        }    
+
     });
     
     
