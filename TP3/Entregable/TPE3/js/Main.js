@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded",function(){
             let juego = new Juego(avatar);
             let stylePerson = document.querySelector('#personaje');
             stylePerson.className = "personajeCorriendo"+String(juego.personaje.avatar);;
-
             
             function keyPress(e){
                 juego.keyPress(e);

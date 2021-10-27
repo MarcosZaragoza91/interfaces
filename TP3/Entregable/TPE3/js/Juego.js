@@ -97,7 +97,7 @@ class Juego{
                             if (element.getEsPremio()){
                                 this.puntaje += 10;
                                 document.querySelector('.puntos').innerHTML = this.puntaje;
-                                this.seccion.removeChild(this.arrObstaculos[i].getDiv());
+                                this.seccion.removeChild(this.arrObstaculos[i].div);
                                 this.arrObstaculos.splice(i,1);
                                 document.querySelector('.premio2').className = 'destello';
                                 setTimeout(function () {

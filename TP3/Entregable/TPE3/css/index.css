@@ -1,35 +1,27 @@
-/*------------------PAGINA--------------------------------*/
-body{
-    margin: 0;
-}
-header{
-    background-color: lightblue;
-}
+/*Imports fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
 
-h1{
-    display: flex;
-    justify-content: center;
-    font-family: AnjaliOldLipi;
+/*------------------PAGINA JUEGO---------------------*/
 
-}
+
 
 section.container{
     /*display: flex;*/
     /*justify-content: flex-start;*/
     /*align-items: center;*/
-    height: 700px;
+
+    /* height: 600px;*/
+
+    height:450px;
     width: 100%;
     position: relative;
+    box-shadow:rgba(116, 138, 184, 0.26)1px 1px 9px 20px;
 }
 
-footer{
-    background-color: aquamarine;
-}
 
 .timer{
     width: 150px;
     height: 150px;
-    font-family: Purisa;
     font-weight: bolder;
     font-size: 20px;
     color: whitesmoke;
@@ -52,7 +44,6 @@ footer{
     right: 600px;
     top: 25px;
     position: absolute;
-    font-family: Purisa;
     font-weight: bolder;
     font-size: 20px;
     color: whitesmoke;
@@ -67,8 +58,7 @@ footer{
     position: absolute;
     background-repeat: repeat-x;
     top: 0;
-    left: 0;
-   
+    left: 0;   
 }
 
 .layer-7{
@@ -77,37 +67,39 @@ footer{
 
 .layer-6{
     background-image: url("../imagenes/fondo/6.png");
-    animation: scroll 30s linear infinite ;
+    animation: scroll 30s infinite linear;
 }
 
 .layer-5{
     background-image: url("../imagenes/fondo/5.png");
-    animation: scroll 28s linear infinite;
+    animation: scroll 20s infinite linear;
 }
 
 .layer-4{
     background-image: url("../imagenes/fondo/4.png");
-    animation: scroll 21s linear infinite;
+    animation: scroll 15s infinite linear;
 }
 
 .layer-3{
     background-image: url("../imagenes/fondo/3.png");
-    animation: scroll 14s linear infinite;
+    animation: scroll 10s infinite linear;
 }
 
 .layer-2{
     background-image: url("../imagenes/fondo/2.png");
-    animation: scroll 7s linear infinite;
+    animation: scroll 7s infinite linear;
 }
 
 .layer-1{
+    height: 100%;
+
     background-image: url("../imagenes/fondo/1.png");
-    animation: scroll 7s linear infinite;
+    animation: scroll 7s infinite linear;
 }
 
 @keyframes scroll {
-    0%{background-position-x: 0}
-    100%{background-position-x: -1920px}
+    0%{background-position: 0}
+    100%{background-position: -1920px}
 }
 
 /*---------------------PERSONAJE-----------------------------------*/
@@ -235,6 +227,7 @@ footer{
     50%{transform: scale(2)}
     100%{background-position: 879px}
 }
+
 .obstaculoSerp {
     width: 45px;
     height: 40px;
@@ -261,16 +254,16 @@ footer{
     bottom: 125px;
     border: solid black 2px;
 }
+
 @keyframes obstaculoMurg {
     0%{background-position: 0}
     100%{background-position: 1618px}
 }
 
-
 /*----------Estilo modal----------*/
 .modal-visible {
     color: #fff;
-    background:rgba(47, 15, 71, 0.945);
+    background-color:rgba(15, 25, 71, 0.63);
     border-radius: 30px;
     
     position: fixed;
@@ -315,6 +308,7 @@ footer{
 
 
 #modal-txt {
+    text-align: center;
     font-size:38px;
     margin-bottom: 50px;
 }
@@ -322,3 +316,4 @@ footer{
 .modal-oculto {
     visibility: hidden;
 }
+
