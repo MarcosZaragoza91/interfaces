@@ -58,21 +58,13 @@ class Juego{
                 }
                 this.nuevaDireccion = keyMap[teclaApretada];
                 this.keyLoop(this.nuevaDireccion);
-               // console.log(this.personaje.posicionY);
-                let timer = setTimeout(this.tiempoEspera, 1000,this.personaje);
-                // if (this.nuevaDireccion !== 'run'){
-                //     clearTimeout(timer);
-                // }
-                console.log(this.personaje.posicionY);
-                this.nuevaDireccion = 'run';
+                let game = this;
+                setTimeout(()=>{
+                    game.personaje.correr();
+                    game.nuevaDireccion = 'run';
+                }, 1000);
         }
-        // if (!(this.nuevaDireccion === keyMap[teclaApretada])){
-        // }
     };
-
-    //tiempoEspera(jugador){
-    //    jugador.correr();
-    //}
 
     elegirClase(numero){//hacer que se cree un obstaculo u otro cada tanto tiempo
         let clase ='';
@@ -96,6 +88,7 @@ class Juego{
                             if (element.getEsPremio()){
                                 this.puntaje += 10;
                                 document.querySelector('.puntos').innerHTML = this.puntaje;
+                                console.log(this.arrObstaculos);
                                 this.seccion.removeChild(this.arrObstaculos[i].div);
                                 this.arrObstaculos.splice(i,1);
                                 document.querySelector('.premio2').className = 'destello';
@@ -106,6 +99,7 @@ class Juego{
                                 this.personaje.morir();
                                 this.personaje.setMuerto(true);
                                 setTimeout(this.modalMuerte,500,this.puntaje);
+                                break;
                             }
                         }
                     }
@@ -144,8 +138,13 @@ class Juego{
     }
 
     obstaculoRandom(){
-            let numero = Math.round(Math.floor(Math.random() * 9));
-            this.crearObstaculo(numero);
+        let numero = Math.round(Math.floor(Math.random() * 9));
+        this.crearObstaculo(numero);
+    }
+
+    obstaculoRandomTimer(){
+        let numero = Math.round(Math.floor(Math.random() * 3)+2);
+        return numero*1000;
     }
 
 }

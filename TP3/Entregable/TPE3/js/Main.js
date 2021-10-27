@@ -1,20 +1,17 @@
 
 document.addEventListener("DOMContentLoaded",function(){
 
-    let stylePerson = '';
     let avatar = 0;
     
     document.querySelector('.avatar1').addEventListener('click', function (){
    
-        stylePerson = document.querySelector('.personaje');
-        stylePerson.classname = 'personaje1';
+        stylePerson = document.querySelector('#personaje').className = 'personajeCorriendo1';
         avatar = 1;
     })
 
     document.querySelector('.avatar2').addEventListener('click', function (){
       
-        let stylePerson = document.querySelector('.personaje');
-        stylePerson.classname = 'personaje2';
+        let stylePerson = document.querySelector('#personaje').className = 'personajeCorriendo2';
         avatar = 2;
     })
 
@@ -45,7 +42,7 @@ document.addEventListener("DOMContentLoaded",function(){
             let tiempoJuego=setInterval(function (){
                 juego.timer--;
                 document.querySelector(".timer2").innerHTML = juego.timer;
-                if (juego.timer == 0){
+                if (juego.timer == 0 || juego.personaje.getMuerto()){
                     clearInterval(tiempoJuego);
                 }
             }, 1000)
@@ -55,12 +52,13 @@ document.addEventListener("DOMContentLoaded",function(){
                 if (juego.timer == 5 || juego.personaje.getMuerto()){
                     clearInterval(obstaculos)
                 }
-            },4000);
+            },juego.obstaculoRandomTimer());
             
 
             let moverObstaculos = setInterval(function() {
                 juego.moverObstaculos();
-                if (juego.deleteObstaculo() && juego.personaje.getMuerto()){
+                juego.deleteObstaculo();
+                if (juego.personaje.getMuerto()){
                     clearInterval(moverObstaculos);
                 }
                 },20);    

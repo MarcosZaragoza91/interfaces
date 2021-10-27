@@ -104,35 +104,6 @@ section.container{
 
 /*---------------------PERSONAJE-----------------------------------*/
 
-.personaje{
-    width: 92px;
-    height: 150px;
-    background: url(../imagenes/parado.png)repeat-x; /*agregar spreet sheet personaje parado*/
-    animation: parado 0.4s steps(3) infinite ;
-    position: absolute;
-    left: 100px;
-    bottom: 0;
-}
-
-.personaje1 {
-    width: 92px;
-    height: 150px;
-    background: url(../imagenes/parado.png)repeat-x; /*agregar spreet sheet personaje parado*/
-    animation: parado 0.4s steps(3) infinite ;
-    position: absolute;
-    left: 100px;
-    bottom: 0;
-}
-.personaje2 {
-    width: 92px;
-    height: 150px;
-    background: url(../imagenes/fondo.png)repeat-x; /*agregar spreet sheet personaje parado*/
-    animation: parado 0.4s steps(3) infinite ;
-    position: absolute;
-    left: 100px;
-    bottom: 0;
-}
-
 .personajeCorriendo1 {
     width: 148px;
     height: 160px;
@@ -141,7 +112,16 @@ section.container{
     position: absolute;
     left: 100px;
     bottom: 0;
+}
 
+.personajeCorriendo2 {
+    width: 135px;
+    height: 166px;
+    background: url(../imagenes/personajeCorriendo2.png)repeat-x;
+    animation: corriendo2 0.5s steps(6) infinite ;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
 }
 
 .personajeSaltando1 {
@@ -162,10 +142,20 @@ section.container{
     left: 100px;
     bottom: 0;
 }
-.personajeMuerto1 {
+.personajeAgachado2 {
     width: 160px;
-    height: 150px;
-    border: solid 2px black;
+    height: 130px;
+    background: url(../imagenes/personajeAgachado2.png)repeat-x;
+    animation: agachado 1s steps(3) infinite ;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeMuerto1 {
+    width: 168px;
+    height: 200px;
+    background: url(../imagenes/muerteFinal.png);
+    animation: muerto 1s steps(5) 1;
     position: absolute;
     left: 100px;
     bottom: 0;
@@ -177,13 +167,18 @@ section.container{
 }
 
 @keyframes corriendo {
-    0%{background-position: 0}
-    100%{background-position: 900px}
+    0%{background-position: 900px}
+    100%{background-position: 0px}
+}
+
+@keyframes corriendo2 {
+    0%{background-position: 809px}
+    100%{background-position: 0px}
 }
 
 @keyframes saltando {
-    0%{background-position: 0}
-    100%{background-position: 1260px}
+    0%{background-position: 1260px}
+    100%{background-position: 0px}
 }
 
 @keyframes agachado {
@@ -192,8 +187,8 @@ section.container{
 }
 
 @keyframes muerto {
-    0%{background-position: 0}
-    100%{background-position: 480px}
+    0%{background-position: 861px}
+    100%{background-position: 0px}
 }
 
 /*--------------------------------OBSTACULO/PREMIO---------------------------------*/
@@ -204,6 +199,7 @@ section.container{
     background: url(../imagenes/monedas.png)repeat-x;
     animation: premio 1s steps(11) infinite ;
     position: absolute;
+    right: -81px;
     bottom: 180px;;
     border: solid black 2px;
 }
