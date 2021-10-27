@@ -5,12 +5,14 @@ document.addEventListener("DOMContentLoaded",function(){
     let avatar = 0;
     
     document.querySelector('.avatar1').addEventListener('click', function (){
+   
         stylePerson = document.querySelector('.personaje');
         stylePerson.classname = 'personaje1';
         avatar = 1;
     })
 
     document.querySelector('.avatar2').addEventListener('click', function (){
+      
         let stylePerson = document.querySelector('.personaje');
         stylePerson.classname = 'personaje2';
         avatar = 2;

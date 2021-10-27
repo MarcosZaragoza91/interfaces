@@ -58,7 +58,7 @@ class Juego{
                 }
                 this.nuevaDireccion = keyMap[teclaApretada];
                 this.keyLoop(this.nuevaDireccion);
-                console.log(this.personaje.posicionY);
+               // console.log(this.personaje.posicionY);
                 let timer = setTimeout(this.tiempoEspera, 1000,this.personaje);
                 // if (this.nuevaDireccion !== 'run'){
                 //     clearTimeout(timer);
@@ -66,14 +66,13 @@ class Juego{
                 console.log(this.personaje.posicionY);
                 this.nuevaDireccion = 'run';
         }
-
         // if (!(this.nuevaDireccion === keyMap[teclaApretada])){
         // }
     };
 
-    tiempoEspera(jugador){
-        jugador.correr();
-    }
+    //tiempoEspera(jugador){
+    //    jugador.correr();
+    //}
 
     elegirClase(numero){//hacer que se cree un obstaculo u otro cada tanto tiempo
         let clase ='';
