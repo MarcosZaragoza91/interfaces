@@ -17,11 +17,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
     document.querySelector('#btn_start_game').addEventListener('click', ()=>{ //INICIO DEL JUEGO
 
-        document.querySelector('.close').addEventListener('click', function (){
-            document.querySelector('.modal').classList.remove("modal-visible");
-            document.querySelector('.modal').classList.add("modal-oculto");
-        });
-
+        
         if(avatar!=0){
 
             let juego = new Juego(avatar);
