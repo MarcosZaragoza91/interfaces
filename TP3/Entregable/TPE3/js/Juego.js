@@ -4,7 +4,7 @@ class Juego{
         this.nuevaDireccion= 'run';
         this.arrObstaculos=[];        
         this.seccion = document.querySelector('#container');
-        this.timer = 100;
+        this.timer = 10;
         this.puntaje = 0;
     }
 
@@ -98,7 +98,8 @@ class Juego{
                             }else{
                                 this.personaje.morir();
                                 this.personaje.setMuerto(true);
-                                setTimeout(this.modalMuerte,500,this.puntaje);
+                                let mensajeMuerte = 'AH MUERTO...SU PUNTAJE ES ';
+                                setTimeout(this.modalMuerte,500,this.puntaje,mensajeMuerte);
                                 break;
                             }
                         }
@@ -107,9 +108,9 @@ class Juego{
             }
     }
 
-    modalMuerte(puntaje){
+    modalMuerte(puntaje,mensajeMuerte){
         let modal = document.querySelector(".modal");
-        document.querySelector('#modal-txt').innerHTML = "AH MUERTO...SU PUNTAJE ES " + puntaje;
+        document.querySelector('#modal-txt').innerHTML = mensajeMuerte + puntaje;
         modal.classList.remove("modal-oculto");
         modal.classList.add("modal-visible");
     }

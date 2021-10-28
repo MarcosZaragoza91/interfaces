@@ -4,20 +4,25 @@ document.addEventListener("DOMContentLoaded",function(){
     let avatar = 0;
     
     document.querySelector('.avatar1').addEventListener('click', function (){
-   
         stylePerson = document.querySelector('#personaje').className = 'personajeCorriendo1';
         avatar = 1;
     })
 
     document.querySelector('.avatar2').addEventListener('click', function (){
-      
+        
+        
         let stylePerson = document.querySelector('#personaje').className = 'personajeCorriendo2';
         avatar = 2;
     })
 
     document.querySelector('#btn_start_game').addEventListener('click', ()=>{ //INICIO DEL JUEGO
+        let btnComienzo = document.querySelector('#btn_start_game');
+        btnComienzo.className= 'hidden';
+     
+        let containerAvatars= document.querySelector('#container-Avatars');
+        containerAvatars.className = 'hidden';  
+    
 
-        
         if(avatar!=0){
 
             let juego = new Juego(avatar);
@@ -35,10 +40,13 @@ document.addEventListener("DOMContentLoaded",function(){
             window.addEventListener('keydown', keyPress);
             window.addEventListener('keyup', keyUp);
             
+
             let tiempoJuego=setInterval(function (){
                 juego.timer--;
                 document.querySelector(".timer2").innerHTML = juego.timer;
                 if (juego.timer == 0 || juego.personaje.getMuerto()){
+                    let mensajeTiempo = 'SE TERMINO EL TIEMPO...SU PUNTAJE ES ';
+                    juego.modalMuerte(juego.puntaje , mensajeTiempo);    
                     clearInterval(tiempoJuego);
                 }
             }, 1000)
@@ -47,6 +55,7 @@ document.addEventListener("DOMContentLoaded",function(){
                 juego.obstaculoRandom();
                 if (juego.timer == 5 || juego.personaje.getMuerto()){
                     clearInterval(obstaculos)
+                    
                 }
             },juego.obstaculoRandomTimer());
             
@@ -54,7 +63,7 @@ document.addEventListener("DOMContentLoaded",function(){
             let moverObstaculos = setInterval(function() {
                 juego.moverObstaculos();
                 juego.deleteObstaculo();
-                if (juego.personaje.getMuerto()){
+                if (juego.timer == 0 || juego.personaje.getMuerto()){
                     clearInterval(moverObstaculos);
                 }
                 },20);    
