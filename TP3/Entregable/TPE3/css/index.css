@@ -133,6 +133,15 @@ section.container{
     left: 100px;
     bottom: 0;
 }
+.personajeSaltando2 {
+    width: 130px;
+    height: 250px;
+    background: url(../imagenes/personajeSaltando2.png)repeat-x;
+    animation: saltando2 1s steps(9) infinite ;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
 .personajeAgachado1 {
     width: 160px;
     height: 150px;
@@ -160,6 +169,15 @@ section.container{
     left: 100px;
     bottom: 0;
 }
+.personajeMuerto2 {
+    width: 140px;
+    height: 160px;
+    background: url(../imagenes/personajeMuerto2.png);
+    animation: muerto2 1s steps(5) 1;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
 
 @keyframes parado {
     0%{background-position: 0}
@@ -181,6 +199,11 @@ section.container{
     100%{background-position: 0px}
 }
 
+@keyframes saltando2 {
+    0%{background-position: 1170px}
+    100%{background-position: 0px}
+}
+
 @keyframes agachado {
     0%{background-position: 0}
     100%{background-position: 480px}
@@ -188,6 +211,11 @@ section.container{
 
 @keyframes muerto {
     0%{background-position: 861px}
+    100%{background-position: 0px}
+}
+
+@keyframes muerto2 {
+    0%{background-position: 700px}
     100%{background-position: 0px}
 }
 

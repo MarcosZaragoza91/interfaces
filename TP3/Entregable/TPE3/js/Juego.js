@@ -50,7 +50,7 @@ class Juego{
     keyPress(e) {
             if (this.nuevaDireccion == 'run'){
                 let teclaApretada = e.which || e.keyCode;
-                let keyMap = {
+                let keyMap = { //Keymap fiera de la funcion
                     '38': 'up',    // up arrow
                     '40': 'down',  // down arrow
                     '87': 'up',    // w
