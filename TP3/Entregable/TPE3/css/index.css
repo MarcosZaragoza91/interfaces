@@ -1,0 +1,356 @@
+/*Imports fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+
+/*------------------PAGINA JUEGO---------------------*/
+
+
+
+section.container{
+    /*display: flex;*/
+    /*justify-content: flex-start;*/
+    /*align-items: center;*/
+
+    /* height: 600px;*/
+
+    height:450px;
+    width: 100%;
+    position: relative;
+    box-shadow:rgba(116, 138, 184, 0.26)1px 1px 9px 20px;
+}
+
+
+.timer{
+    width: 150px;
+    height: 150px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: whitesmoke;
+    position: absolute;
+    right: 100px;
+}
+
+.premio2{
+    width: 81px;
+    height: 83px;
+    background: url(../imagenes/monedas.png)repeat-x;
+    animation: premio 1s steps(11) infinite ;
+    position: absolute;
+    right: 700px;
+}
+
+.puntos{
+    width: 81px;
+    height: 83px;
+    right: 600px;
+    top: 25px;
+    position: absolute;
+    font-weight: bolder;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+/*---------------------FONDO--------------------------------------*/
+
+.layer{
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-repeat: repeat-x;
+    top: 0;
+    left: 0;   
+}
+
+.layer-7{
+    background-image: url("../imagenes/fondo/7.png");
+}
+
+.layer-6{
+    background-image: url("../imagenes/fondo/6.png");
+    animation: scroll 30s infinite linear;
+}
+
+.layer-5{
+    background-image: url("../imagenes/fondo/5.png");
+    animation: scroll 20s infinite linear;
+}
+
+.layer-4{
+    background-image: url("../imagenes/fondo/4.png");
+    animation: scroll 15s infinite linear;
+}
+
+.layer-3{
+    background-image: url("../imagenes/fondo/3.png");
+    animation: scroll 10s infinite linear;
+}
+
+.layer-2{
+    background-image: url("../imagenes/fondo/2.png");
+    animation: scroll 7s infinite linear;
+}
+
+.layer-1{
+    height: 100%;
+
+    background-image: url("../imagenes/fondo/1.png");
+    animation: scroll 7s infinite linear;
+}
+
+@keyframes scroll {
+    0%{background-position: 0}
+    100%{background-position: -1920px}
+}
+
+/*---------------------PERSONAJE-----------------------------------*/
+
+.personajeCorriendo1 {
+    width: 148px;
+    height: 160px;
+    background: url(../imagenes/correr.png)repeat-x;
+    animation: corriendo 0.5s steps(6) infinite ;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+
+.personajeCorriendo2 {
+    width: 135px;
+    height: 166px;
+    background: url(../imagenes/personajeCorriendo2.png)repeat-x;
+    animation: corriendo2 0.5s steps(6) infinite ;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+
+.personajeSaltando1 {
+    width: 139px;
+    height: 300px;
+    background: url(../imagenes/salto2.png)repeat-x;
+    animation: saltando 1s steps(9) infinite ;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeSaltando2 {
+    width: 130px;
+    height: 250px;
+    background: url(../imagenes/personajeSaltando2.png)repeat-x;
+    animation: saltando2 1s steps(9) infinite ;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeAgachado1 {
+    width: 160px;
+    height: 150px;
+    background: url(../imagenes/agachado.png)repeat-x;
+    animation: agachado 0.5s steps(3) infinite ;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeAgachado2 {
+    width: 160px;
+    height: 130px;
+    background: url(../imagenes/personajeAgachado2.png)repeat-x;
+    animation: agachado 0.5s steps(3) infinite ;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeMuerto1 {
+    width: 168px;
+    height: 200px;
+    background: url(../imagenes/muerteFinal.png);
+    animation: muerto 0.5s steps(5) 1;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeMuerto2 {
+    width: 140px;
+    height: 160px;
+    background: url(../imagenes/personajeMuerto2.png);
+    animation: muerto2 0.5s steps(5) 1;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeMorirFinal1 {
+    width: 168px;
+    height: 200px;
+    background: url(../imagenes/personajeMorirFinal1.png);
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeMorirFinal2 {
+    width: 143px;
+    height: 160px;
+    background: url(../imagenes/personajeMorirFinal2.png);
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+
+@keyframes parado {
+    0%{background-position: 0}
+    100%{background-position: 281px}
+}
+
+@keyframes corriendo {
+    0%{background-position: 900px}
+    100%{background-position: 0px}
+}
+
+@keyframes corriendo2 {
+    0%{background-position: 809px}
+    100%{background-position: 0px}
+}
+
+@keyframes saltando {
+    0%{background-position: 1260px}
+    100%{background-position: 0px}
+}
+
+@keyframes saltando2 {
+    0%{background-position: 1170px}
+    100%{background-position: 0px}
+}
+
+@keyframes agachado {
+    0%{background-position: 0}
+    100%{background-position: 480px}
+}
+
+@keyframes muerto {
+    0%{background-position: 861px}
+    100%{background-position: 0px}
+}
+
+@keyframes muerto2 {
+    0%{background-position: 700px}
+    100%{background-position: 0px}
+}
+
+/*--------------------------------OBSTACULO/PREMIO---------------------------------*/
+
+.premio {
+    width: 81px;
+    height: 83px;
+    background: url(../imagenes/monedas.png)repeat-x;
+    animation: premio 1s steps(11) infinite ;
+    position: absolute;
+    right: -81px;
+    bottom: 180px;;
+}
+
+@keyframes premio {
+    0%{background-position: 0}
+    100%{background-position: 879px}
+}
+
+.destello {
+    width: 81px;
+    height: 83px;
+    background: url(../imagenes/monedas.png)repeat-x;
+    animation: destello 1s steps(11) infinite ;
+    position: absolute;
+    right: 700px;
+}
+
+@keyframes destello {
+    0%{background-position: 0}
+    50%{transform: scale(2)}
+    100%{background-position: 879px}
+}
+
+.obstaculoSerp {
+    width: 45px;
+    height: 40px;
+    background: url(../imagenes/obstaculoSerp.png)repeat-x;
+    animation: obstaculoSerp 1s steps(12) infinite;
+    position: absolute;
+    right: -45px;
+    bottom: 3px;
+}
+
+@keyframes obstaculoSerp {
+    0%{background-position: 0}
+    100%{background-position: 535px}
+}
+
+.obstaculoMurg {
+    width: 270px;
+    height: 200px;
+    background: url(../imagenes/obstaculoMurg.png)repeat-x;
+    animation: obstaculoMurg 1s steps(6) infinite ;  
+    position: absolute;
+    right: -270px;
+    bottom: 125px;
+}
+
+@keyframes obstaculoMurg {
+    0%{background-position: 0}
+    100%{background-position: 1618px}
+}
+
+/*----------Estilo modal----------*/
+.modal-visible {
+    color: #fff;
+    background-color:rgba(15, 25, 71, 0.63);
+    border-radius: 30px;
+    
+    position: fixed;
+    width: 750px; 
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -375px;
+    top: 50%;
+    left: 50%;
+
+    box-shadow:  
+      0 0 20px #5a567d,
+      0 0 60px #675873;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 1s;
+}
+.btn-modal {
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin: 7px;
+    padding: 25px;
+
+    color: white;
+
+    border-style: none;
+    box-shadow:
+    
+    0 0 20px #5a567d,
+    0 0 60px #675873; 
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 250px;
+    height: 75px;
+}
+
+
+#modal-txt {
+    text-align: center;
+    font-size:38px;
+    margin-bottom: 50px;
+}
+
+.modal-oculto {
+    visibility: hidden;
+}
+

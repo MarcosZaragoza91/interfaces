@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Runner</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="js/Main.js"></script>
+    <script src="js/Juego.js"></script>
+    <script src="js/Personaje.js"></script>
+    <script src="js/Obstaculo.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="title-game">In the dark forest</h1>
+
+        <div class="container-game-1">
+            <div>
+                <button class="button-back-game"><a href="./welcome.html" class="a-button-back-game">Home</a></button>
+            </div>
+
+            <div id = 'container-Avatars' class="container-game-1">
+                <h4>Elige un avatar</h4>
+                <button class="avatar1 button-game-top" value="avatar1"><img class ="img-button-game-top" src="imagenes/blueNinja.png" ></button>
+                <button class="avatar2 button-game-top" value="avatar2"><img class ="img-button-game-top" src="imagenes/blackNinja.png" ></button>
+            </div>
+        </div>
+    </header>
+
+    <section id="container" class="container">
+        <div class="layer layer-7"></div>
+        <div class="layer layer-6"></div>
+        <div class="layer layer-5"></div>
+        <div class="layer layer-4"></div>
+        <div class="layer layer-3"></div>
+        <div class="layer layer-2"></div>
+        <div class="layer layer-1"></div>
+        <div id="puntaje" class="premio2"></div>
+        <span class="puntos">0</span>
+        <div id="timer" class="timer">Tiempo: <span class="timer2">100</span></div>
+        <div id ="personaje" class="personaje"></div>
+    </section>
+
+    <div class="container-game-1">
+        <button id="btn_start_game" class="button-game-bottom">Comenzar</button>
+        <button class="button-game-bottom"><a href="Index.html" class="a-button-back-game" >Reiniciar</a> </button>
+    </div>
+
+	<div class="modal-oculto modal">
+        <span id="modal-txt"></span>
+        <button class="close btn-modal"><a href="Index.html" class="a-button-back-game" >Cerrar</a></button> 
+	</div>	
+   
+</body>
+</html>
