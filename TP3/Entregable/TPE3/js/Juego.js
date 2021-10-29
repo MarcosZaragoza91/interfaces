@@ -4,7 +4,7 @@ class Juego{
         this.nuevaDireccion= 'run';
         this.arrObstaculos=[];        
         this.seccion = document.querySelector('#container');
-        this.timer = 10;
+        this.timer = 100;
         this.puntaje = 0;
     }
 
@@ -28,31 +28,10 @@ class Juego{
         }
     };
     
-    keyUp(e){
-        if(this.nuevaDireccion == 'up'){
-            //this.nuevaDireccion='run';
-            // this.personaje.setPosicionY(110)
-            // console.log(this.personaje.posicionY)
-            //setTimeout(this.personaje.correr,1000);
-            // //this.personaje.setPosicionY(100);
-            // console.log("espera");
-            // console.log(this.personaje.posicionY);
-        }else if(this.nuevaDireccion == 'down'){
-            //this.nuevaDireccion='run';
-            // this.personaje.setPosicionY(90);
-            // console.log(this.personaje.posicionY);
-            //setTimeout(this.personaje.correr,1000);
-            // this.personaje.setPosicionY(100);
-            // console.log(this.personaje.posicionY);
-        }
-    }
-
     keyPress(e) {
             if (this.nuevaDireccion == 'run'){
-                let teclaApretada = e.which || e.keyCode;
+                let teclaApretada = e.keyCode;
                 let keyMap = { //Keymap fiera de la funcion
-                    '38': 'up',    // up arrow
-                    '40': 'down',  // down arrow
                     '87': 'up',    // w
                     '83': 'down',  // s
                 }
@@ -68,9 +47,9 @@ class Juego{
 
     elegirClase(numero){//hacer que se cree un obstaculo u otro cada tanto tiempo
         let clase ='';
-        if(numero > 1 && numero < 3){
+        if(numero >= 1 && numero < 4){
             clase= 'obstaculoMurg';
-        }else if (numero > 3 && numero < 6 ){
+        }else if (numero >= 4 && numero < 7 ){
             clase = 'obstaculoSerp';
         }else{
             clase = 'premio';
@@ -144,7 +123,7 @@ class Juego{
     }
 
     obstaculoRandomTimer(){
-        let numero = Math.round(Math.floor(Math.random() * 3)+2);
+        let numero = Math.round(Math.floor(Math.random() * 3)+1);
         return numero*1000;
     }
 

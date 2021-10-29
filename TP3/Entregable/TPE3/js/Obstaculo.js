@@ -8,10 +8,6 @@ class Obstaculo{
         this._esPremio = false;
     }
     
-    matePersonaje(x,y){
-        
-    }
-
     getPosicion() {
         return this.PosInicialX;
     }
@@ -30,8 +26,7 @@ class Obstaculo{
         let aux = this.PosInicialX - 10;
         this.setPosInicialX(aux);
         let value = String(aux) +'px';
-        this.div.style.left= value;
-        //this.div.style.left=value; 
+        this.div.style.left= value; 
     }
 
     getPosInicialX(){
@@ -42,38 +37,12 @@ class Obstaculo{
         this.PosInicialX=value;
     }
 
-    posCentro(){
-        let x = this._posicion.left + (this._posicion.width/2);
-        let y = this._posicion.top + (this._posicion.height/2);
-    }
-
     getEsPremio() {
         return this._esPremio;
     }
 
     setEsPremio(value) {
         this._esPremio = value;
-    }
-
-    crearPremio(){
-
-    }
-/*
-    avanzar(){
-        //mal pensado llevarlo bien a a objetos
-        let obstaculoS = document.querySelector('#obstaculoSerp');
-        obstaculoS.className='obstaculoSerpConMovimiento';
-        setInterval(function(){ 
-            obstaculoS.className='obstaculoSerpConMovimiento';
-                setTimeout(() => {
-                    obstaculoS.className= 'obstaculoSerp';            
-                }, 20000); 
-            }, 21000);
-            
-    }
-*/
-    dibujarPremio() {
-        setInterval()    
     }
     
 }

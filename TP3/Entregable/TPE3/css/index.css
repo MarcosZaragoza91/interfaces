@@ -146,7 +146,7 @@ section.container{
     width: 160px;
     height: 150px;
     background: url(../imagenes/agachado.png)repeat-x;
-    animation: agachado 1s steps(3) infinite ;
+    animation: agachado 0.5s steps(3) infinite ;
     position: absolute;
     left: 100px;
     bottom: 0;
@@ -155,7 +155,7 @@ section.container{
     width: 160px;
     height: 130px;
     background: url(../imagenes/personajeAgachado2.png)repeat-x;
-    animation: agachado 1s steps(3) infinite ;
+    animation: agachado 0.5s steps(3) infinite ;
     position: absolute;
     left: 100px;
     bottom: 0;

@@ -76,21 +76,4 @@ document.addEventListener("DOMContentLoaded",function(){
 
     });
     
-    
-    
-    /*
-    window.start_game = startGameLoop() {
-        if(!timer) {
-          timer = setInterval(update, frameDuration);
-        }
-    }
-    
-      window.pause_game = function pauseGameLoop() {
-        clearInterval(timer);
-        timer = null;
-    }
-    
-    */
-
-
 });
