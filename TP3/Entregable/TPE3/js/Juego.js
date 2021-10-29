@@ -40,8 +40,12 @@ class Juego{
                 this.keyLoop(this.nuevaDireccion);
                 let game = this;
                 setTimeout(()=>{
-                    game.personaje.correr();
-                    game.nuevaDireccion = 'run';
+                    if (game.personaje.getMuerto()){
+                        game.personaje.morir();
+                    }else{
+                        game.personaje.correr();
+                        game.nuevaDireccion = 'run';
+                    }
                 }, 1000);
             }
         }
