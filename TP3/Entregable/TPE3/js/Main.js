@@ -32,14 +32,9 @@ document.addEventListener("DOMContentLoaded",function(){
             function keyPress(e){
                 juego.keyPress(e);
             }
-            
-            function keyUp(e){
-                juego.keyUp(e);
-            }
+
             
             window.addEventListener('keydown', keyPress);
-            window.addEventListener('keyup', keyUp);
-            
 
             let tiempoJuego=setInterval(function (){
                 juego.timer--;

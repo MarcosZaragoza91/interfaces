@@ -164,7 +164,7 @@ section.container{
     width: 168px;
     height: 200px;
     background: url(../imagenes/muerteFinal.png);
-    animation: muerto 1s steps(5) 1;
+    animation: muerto 0.5s steps(5) 1;
     position: absolute;
     left: 100px;
     bottom: 0;
@@ -173,7 +173,23 @@ section.container{
     width: 140px;
     height: 160px;
     background: url(../imagenes/personajeMuerto2.png);
-    animation: muerto2 1s steps(5) 1;
+    animation: muerto2 0.5s steps(5) 1;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeMorirFinal1 {
+    width: 168px;
+    height: 200px;
+    background: url(../imagenes/personajeMorirFinal1.png);
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+}
+.personajeMorirFinal2 {
+    width: 143px;
+    height: 160px;
+    background: url(../imagenes/personajeMorirFinal2.png);
     position: absolute;
     left: 100px;
     bottom: 0;

@@ -1,6 +1,6 @@
 class Personaje{
     constructor(avatar) {
-       this.posicionY=0;
+       this.posicionY=100;
        this.div = document.querySelector("#personaje");
        this._posicionX= this.div.offsetWidth + this.div.getAttribute("width")/2;
        this._muerto = false;
@@ -48,7 +48,11 @@ class Personaje{
 
     morir(){
         let stylePerson = document.querySelector('#personaje');
-        stylePerson.className="personajeMuerto"+String(this.avatar);;
+        stylePerson.className="personajeMuerto"+String(this.avatar);
+        let aux = this.avatar;
+        setTimeout(function (){
+            stylePerson.className = "personajeMorirFinal"+aux;
+        },500);
     }
 
 }

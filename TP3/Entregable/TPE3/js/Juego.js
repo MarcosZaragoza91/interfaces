@@ -29,6 +29,7 @@ class Juego{
     };
     
     keyPress(e) {
+        if(!this.personaje.getMuerto()){
             if (this.nuevaDireccion == 'run'){
                 let teclaApretada = e.keyCode;
                 let keyMap = { //Keymap fiera de la funcion
@@ -42,6 +43,7 @@ class Juego{
                     game.personaje.correr();
                     game.nuevaDireccion = 'run';
                 }, 1000);
+            }
         }
     };
 
