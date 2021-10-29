@@ -8,6 +8,7 @@ Keyframes:
   - Serpiente cuando aparece en el juego "serpenteo".
 
 
-Observaciones: se probo en una resolucion de 1920*1080.
-
+Observaciones: 
+ - Se probo en una resolucion de 1920*1080.
+ - Tuvimos el incoveniente de que en una computadora funcionaba el avatar ninja con los obstaculos y en otra pc no, por eso adjuntamos un link a un video. https://watch.screencastify.com/v/xnpOtUPGdrbC5ErUXjSl
 
