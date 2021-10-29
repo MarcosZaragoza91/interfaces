@@ -40,9 +40,7 @@ class Juego{
                 this.keyLoop(this.nuevaDireccion);
                 let game = this;
                 setTimeout(()=>{
-                    if (game.personaje.getMuerto()){
-                        game.personaje.morir();
-                    }else{
+                    if (!game.personaje.getMuerto()){
                         game.personaje.correr();
                         game.nuevaDireccion = 'run';
                     }
