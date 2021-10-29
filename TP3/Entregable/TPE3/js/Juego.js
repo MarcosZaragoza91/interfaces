@@ -8,6 +8,7 @@ class Juego{
         this.puntaje = 0;
     }
 
+    //Funcion para borrar los divs generados como obstaculos
     deleteObstaculo (){
         for (let i = 0; i < this.arrObstaculos.length; i++) {
             if (this.arrObstaculos[i].getPosicion() < -270){
@@ -18,6 +19,7 @@ class Juego{
         }
     }
 
+    //Segun la direccion que traemos por parametro, elije la animacion del personaje a realizar
     keyLoop(nuevaDireccion){
         if(nuevaDireccion){
             if(nuevaDireccion == 'up'){
@@ -27,7 +29,9 @@ class Juego{
             }
         }
     };
-    
+
+    //Funcion que detecta el evento de la tecla y la pasamos por parametro a KeyLoop,
+    //ademas hace el timeOut para no pisar la animacion anterior
     keyPress(e) {
         if(!this.personaje.getMuerto()){
             if (this.nuevaDireccion == 'run'){
@@ -49,7 +53,8 @@ class Juego{
         }
     };
 
-    elegirClase(numero){//hacer que se cree un obstaculo u otro cada tanto tiempo
+    //Funcion que elije la clase del obstaculo/premio creado
+    elegirClase(numero){
         let clase ='';
         if(numero >= 1 && numero < 4){
             clase= 'obstaculoMurg';
@@ -61,6 +66,8 @@ class Juego{
         return clase;
     }
 
+    //Funciona que realiza la logica de los obstaculos que se van moviendo, determina si
+    //chocamos con el obstaculo/premio para luego realizar la accion necesaria para cada caso
     moverObstaculos() {   
             if(this.arrObstaculos.length != 0){
                 for (let i = 0; i < this.arrObstaculos.length; i++) {
@@ -91,6 +98,7 @@ class Juego{
             }
     }
 
+    //Funcion que arroja el Modal, que nos informa el piuntaje Final.
     modalMuerte(puntaje,mensajeMuerte){
         let modal = document.querySelector(".modal");
         document.querySelector('#modal-txt').innerHTML = mensajeMuerte + puntaje;
@@ -98,9 +106,8 @@ class Juego{
         modal.classList.add("modal-visible");
     }
 
+    //Funcion booleana que determina si nustro personaje choco con algun objeto/precio
     hayColision(obstaculo){
-        console.log("----hayColision------")
-        console.log(this.personaje.posicionY);
         if (obstaculo.getClass() === "obstaculoSerp" && this.personaje.posicionY > 100 ||
             obstaculo.getClass() === "obstaculoMurg" && this.personaje.posicionY < 100 ||
             obstaculo.getClass() === "premio" && this.personaje.posicionY <= 100){
@@ -109,6 +116,7 @@ class Juego{
             return true;
     }
 
+    //Funcion que crea el obstaculo/premio y los agrega al arreglo de obstaculos
     crearObstaculo(numero){
         let clase = this.elegirClase(numero);
         let obstaculo= null;
@@ -121,11 +129,13 @@ class Juego{
         this.arrObstaculos.push(obstaculo);  
     }
 
+    //Esta funcion nos genera que personaje vamos a tener
     obstaculoRandom(){
         let numero = Math.round(Math.floor(Math.random() * 9));
         this.crearObstaculo(numero);
     }
 
+    //Esta funcion nos genera el numero random de aparicion del personaje
     obstaculoRandomTimer(){
         let numero = Math.round(Math.floor(Math.random() * 3)+1);
         return numero*1000;
