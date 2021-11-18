@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'padmaa', cursive;
+    letter-spacing: 3px;
+}
+
+a{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    display: flex;
+    justify-content: center;
+}
