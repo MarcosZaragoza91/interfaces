@@ -1,0 +1,35 @@
+/*------------------Estilos de la NavBar------------------*/
+
+.navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-color: #DDDDDD;
+}
+
+.navBar .buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navBar .buttons a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+}
+
+.navBar .searchBar{
+    border-radius: 20px;
+    padding: 10px;
+    width: 70%;
+}
+
+.navBar .searchBar-mi-cuenta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
