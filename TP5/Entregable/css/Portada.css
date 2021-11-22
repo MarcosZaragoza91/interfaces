@@ -27,9 +27,13 @@
 
 .portada .col-2{
     display: flex;
-    width: 25%;
+    width: 20%;
+    padding: 50px;
     flex-direction: column;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    border-style: solid;
+    border-color: #DDDDDD;
 }
 
 .portada .formulario{
@@ -51,10 +55,33 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-style: hidden;
+    margin: 20px 0px;
+    width: 100%;
     padding: 10px 16px;
     background: #651287;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
     border-radius: 4px;
+}
+
+.portada .btn-submit-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-style: hidden;
+    margin: 20px 0px;
+    width: 100%;
+    padding: 10px 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px #651287;
+    border-radius: 4px;
+}
+
+.portada .link{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
 }
 
 .btn-texto{
@@ -66,4 +93,17 @@
     line-height: 16px;
     letter-spacing: 1.25px;
     text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-texto-2{
+    color: #651287;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
