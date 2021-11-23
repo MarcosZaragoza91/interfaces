@@ -32,4 +32,8 @@
     align-items: center;
     width: 20%;
 }
-
+.navBar .marcada {
+    border-bottom-style: solid;
+    border-bottom-color: #651287;
+    margin-bottom: 5px;
+}
