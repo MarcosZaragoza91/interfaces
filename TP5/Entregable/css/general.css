@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
 /*------------------Estilos de la NavBar------------------*/
 
 .navBar{
@@ -14,14 +22,12 @@
     align-items: center;
 }
 
-.navBar .buttons a{
+.navBar .buttons a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
 }
-
-
 
 .navBar .searchBar-mi-cuenta{
     display: flex;
@@ -65,3 +71,150 @@
 .avatar-perfil {
     margin-left: 20px;
 }
+
+/*------------------Estilos del Body-----------------*/
+.contenido {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+    border:solid 1px blue ;
+}
+/*---------------------Contenedor izquierdo----------------------*/
+.container-izq {
+    width: 360px;
+    height: 100%;
+    border-radius: 25px;
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.container-search-amigos{
+    margin-left: 17px;
+}
+.container-amigos{
+    margin-top: 18px;
+}
+.card-avatar {
+    width: 328px;
+    height: 45px;
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.text-avatar-card {
+    margin-left: 20px;
+}
+.text-avatar-card h5, .text-avatar-card h6 {
+    margin: 0px;
+}
+.text-avatar-card h6 {
+    color: rgba(0, 0, 0, 0.500);
+}
+.img-avatar {
+    width: 45px;
+    height:45px;
+}
+
+/*-------------------Contenedor centro------------------------*/
+.container-center {
+    width: 600px;
+    height: 100%;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/*-----------------------PUBLICAR HISTORIA-------------------*/
+.publicar-historia{
+    width: 600px;
+    height: 154px;
+    border-radius: 25px;
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    margin-bottom: 40px;
+}
+
+.containter-avatar-search {
+    display: flex;
+}
+.img-avatar-historia {
+    margin-left: 20px;
+    margin-right: 26px;
+}
+.iconos-elementos-historia {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-around;
+}
+.icon-historia{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icon-historia p {
+    color: rgba(0, 0, 0, 0.500);
+}
+/*---------------------CARD---------------------*/
+.container-historias {
+    width: 600px;
+    height: 600px;
+    border-radius: 25px;
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    margin-bottom: 40px;
+}
+.text-avatar-card h4 {
+    color: rgba(0, 0, 0, 0.500);
+    margin: 0;
+}
+.text-avatar-card h3 {
+    margin:0;
+}
+
+.container-historias .card-avatar {
+    margin-top: 12px;
+}
+
+.container-historias  .iconos-elementos-historia {
+    margin-top: 20px;
+}
+
+.container-historias p {
+    margin: 12px;
+}
+
+/*------------------------CONTENEDOR DERECHO--------------------------*/
+
+.container-der {
+    border:solid 1px red ;
+    width: 360px;
+    height: 100%;
+}
+/*----VETERINARIOS FAMOSOS----*/
+.container-vet-famosos {
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    width: 360px;
+    height: 335px;
+}
+.container-avatar-vet {
+    margin-top: 30px;
+    margin-left: 18px;
+}
+.container-avatar-vet .card-avatar{
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.container-vet-famosos h3 {
+    margin:0;
+}
+
+/*----PUBLICIDAD----*/
+
+
+
+
+
+
