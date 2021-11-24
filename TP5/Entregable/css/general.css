@@ -12,8 +12,9 @@
     display: flex;
     justify-content: space-between;
     box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25);
-position: sticky;
-top: 0px;
+    background-color: white;
+    position: sticky;
+    top: 0px;
 }
 .buttons {
     width: 590px;
@@ -51,12 +52,17 @@ top: 0px;
    
 }
 
+.input-search:focus{
+    outline:none;
+}
+
 .input-search {
     width: 70%;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0);
     padding: 10px;
     border: 0px;
+    text-decoration: none;
 }
 
 .icon-search {
@@ -86,6 +92,7 @@ top: 0px;
     height: 100%;
     border-radius: 25px;
     box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
 }
 
 .container-search-amigos{
@@ -136,6 +143,9 @@ top: 0px;
     box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
     background-color: white;
     margin-bottom: 40px
+}
+.icon-historia p {
+    margin-left: 3px;
 }
 
 .container-avatar-search {
