@@ -10,23 +10,16 @@
 
 .navBar{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25);
-  
 }
-
+.buttons {
+    width: 590px;
+}
 .navBar .buttons{
     display: flex;
-    justify-content: center;
+    justify-content:space-evenly;
     align-items: center;
-}
-
-.navBar .buttons a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
 }
 
 .navBar .searchBar-mi-cuenta{
@@ -127,7 +120,6 @@
 /*-----------------------PUBLICAR HISTORIA-------------------*/
 .publicar-historia{
     display: flex;
-    
     flex-direction: column;
     justify-content: space-around;
     width: 600px;
@@ -248,6 +240,8 @@
 .text-publicidad h5{
     margin: 0px;
 }
+
+
 
 
 
