@@ -18,3 +18,19 @@
     color:#651287;
     margin-right: 4%;
 }
+
+.circle-notificacion {
+    height: 20px;
+    width: 20px;
+    background-color:#651287;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.circle-notificacion p {
+    color: white;
+    font-size: 10px;
+}
