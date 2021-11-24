@@ -71,6 +71,7 @@
     justify-content: space-between;
     margin: 40px;
     border:solid 1px blue ;
+    height: 100%;
 }
 /*---------------------Contenedor izquierdo----------------------*/
 .container-izq {
@@ -183,6 +184,8 @@
 .container-historias p {
     margin: 12px 12px 12px 20px;
 }
+
+
 
 
 /*------------------------CONTENEDOR DERECHO--------------------------*/

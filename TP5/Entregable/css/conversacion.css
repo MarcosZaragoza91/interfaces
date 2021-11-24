@@ -1,19 +1,34 @@
 .container-conversacion {
     border-radius: 15px 15px 15px 15px ;
     box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
-    height: 860 px;
     width: 600 px;
+    height: 860px;
+    display: flex;
+    flex-direction: column;
 }
 
+.container-conversacion .card-avatar {
+    margin-top: 5%;
+    margin-left: 4%;
+}
+.cam-conver {
+    margin-left: 105%;
+}
+.container-conversacion .img-avatar {
+    height: 70px;
+    width: 70px;
+}
 
 .viñeta-violeta {
     width: 330px;
     height: 100%;
     border-radius: 0px 15px 15px 15px ;
     background-color:#651287;
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+    margin-left: 4%;
 }
 
 .viñeta-violeta p {
@@ -23,13 +38,12 @@
 
 .viñeta-gris {
     width: 330px;
-    height: 100%;
     border-radius: 15px 15px 0px 15px ;
     box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 500px;
+    margin-left: 37%;
 }
 
 .viñeta-gris p {
@@ -43,4 +57,38 @@
 
 .msj-conversacion {
     justify-content: space-between;
+    background-color: #7e6c8540;
+    width: 528px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+}
+.escribir-msj {
+    display: flex;
+    justify-content: center;
+    margin-top: 65%;
+}
+
+.input-conver::placeholder{
+    color:black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.input-conver {
+    
+}
+
+.circle-send {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px 25px 25px 25px ;
+    background-color:#651287;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.enviar {
+    margin-left:15px;
+    color: white;
 }
