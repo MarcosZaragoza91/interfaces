@@ -1,3 +1,10 @@
+
+.text-mensajes p {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.585);
+}
+
 .container-conversacion {
     border-radius: 15px 15px 15px 15px ;
     box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
@@ -10,15 +17,18 @@
 .container-conversacion .card-avatar {
     margin-top: 5%;
     margin-left: 4%;
+    width: 550px;
 }
 .cam-conver {
-    margin-left: 105%;
+    margin-left: 37%;
 }
 .container-conversacion .img-avatar {
     height: 70px;
     width: 70px;
 }
-
+.textavatar-conversacion {
+    width: 200px;
+}
 .viñeta-violeta {
     width: 330px;
     height: 100%;
@@ -73,10 +83,6 @@
     color:black;
     font-size: 16px;
     font-weight: bold;
-}
-
-.input-conver {
-    
 }
 
 .circle-send {

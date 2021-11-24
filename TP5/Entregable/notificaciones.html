@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
       rel="stylesheet">
 
@@ -14,10 +14,10 @@
         <img class="logo" src="images/logo-pagina.png" alt="">
 
         <div class="buttons">
-            <a href=""><img src="images/icono-home.png" alt=""></a>
-            <a class="marcada" href=""><img src="images/icono-perfil.png" alt=""></a>
-            <a href=""><img src="images/icono-mensaje.png" alt=""></a>
-            <a href=""><img src="images/icono-notificacion.png" alt=""></a>
+            <a class="icon-nav" href=""><img src="images/icono-home.png" alt=""></a>
+            <a class="icon-nav" href=""><img src="images/icono-perfil.png" alt=""></a>
+            <a class="icon-nav" href=""><img src="images/icono-mensaje.png" alt=""></a>
+            <a class="marcada" href=""><img src="images/icono-notificacion.png" alt=""></a>
         </div>
 
         <div class="searchBar-mi-cuenta">
@@ -95,79 +95,103 @@
                             <h6>Azul, Bs.As</h6>
                         </div>
                     </article>
+                    <article class="card-avatar">
+                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
+                        <div class= "text-avatar-card">
+                            <h5>Nicci Troaini</h5>
+                            <h6>Azul, Bs.As</h6>
+                        </div>
+                    </article>
                 </section>
             </div>
         </div>
 
         <div class= "container-center">
-            
-            <article class="card-perfil">
-                <div class="conteiner-img-perfil">
-                    <img class= "img-portada" src="images/perro.jpg" alt="">
-                    <img class= "img-perfil" src="images/fotoperfil.jpg" alt="">
-                </div>
-                <h2>Jane</h2>
-                
-                <div class= "nav-perfil">
-                    <a id = "btn-nav-perfil" href=""><h4>INFORMACION</h4></a>
-                    <a id = "btn-nav-perfil" href=""><h4>GALERIA</h4></a>
-                    <a id = "btn-nav-perfil" href=""><h4>MI VET</h4></a>
-                    <a id = "btn-nav-perfil" href=""><h4>CASOS CLINICOS</h4></a>
-                </div>
-            </article> 
-        
-            <div class= "publicar-historia">
-               
-                <div class="container-avatar-search">
-                    <img class= "img-avatar img-avatar-historia" src="images/avatar-mujer.png" alt="">
-                    <div class= "contenedor-search">
-                        <input class="input-search" type="text" placeholder="¿En que estas pensando?">
-                    </div>
-                </div>
 
-                <div class="iconos-elementos-historia">
-                    <article class="icon-historia">
-                        <span class="material-icons">videocam </span>
-                        <p>Video en vivo</p>
-                    </article>
-                    <article class="icon-historia">
-                        <span class="material-icons">perm_media</span>
-                        <p>Foto / Video</p>
-                    </article>
-                    <article class="icon-historia">
-                        <span class="material-icons">mood</span>
-                        <p>Sentimiento / Actividad</p>
+            <div class="container-notificaciones">
+                <h3>Notificaciones</h3>
+                <div class="notificacion-pendiente">
+                    <article class="card-avatar notifi">
+                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
+                        <div class="text-notificacion">
+                            <div class= "text-avatar-card text-avatar-notificacion">
+                                <h5>Nicci Troaini</h5>
+                                <h6>Notificacion pendiente</h6>
+                            </div>
+                            <div class="hora-notificacion-pendiente">
+                                <p>12:10</p>
+                            </div> 
+                        </div>
                     </article>
                 </div>
-            </div>
-
-            <div class="container-historias">
-                <article class="card-avatar">
-                    <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
-                    <div class= "text-avatar-card">
-                        <h3>Nicci Troaini</h3>
-                        <h4>14 min</h4>
-                    </div>
-                </article> 
-
-                <p>
-                    ¿Sabías que los gatos se consideran animales domésticos desde hace más de 9000 años? Ya en la civilización egipcia eran muy valorados como animales de compañía e incluso se pueden ver representados en sus manifestaciones artísticas
-                </p>
-
-                <img class= "img-card" src="images/gato.png" alt="">
-
-                <div class="iconos-elementos-historia">
-                    <article class="icon-historia">
-                        <span class="material-icons"> thumb_up </span>
-                        <p>Me Gusta</p>
+                <div class="notificacion-leida">
+                    <article class="card-avatar notifi">
+                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
+                        <div class="text-notificacion">
+                            <div class= "text-avatar-card text-avatar-notificacion-leida">
+                                <h5>Nicci Troaini</h5>
+                                <h6>Notificacion leida</h6>
+                            </div>
+                            <div class="hora-notificacion-leida">
+                                <p>12:10</p>
+                            </div> 
+                        </div>
                     </article>
-                    <article class="icon-historia">
-                        <span class="material-icons">speaker_notes</span>
-                        <p>Comentar</p>
+                </div>
+                <div class="notificacion-leida">
+                    <article class="card-avatar notifi">
+                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
+                        <div class="text-notificacion">
+                            <div class= "text-avatar-card text-avatar-notificacion-leida">
+                                <h5>Nicci Troaini</h5>
+                                <h6>Notificacion leida</h6>
+                            </div>
+                            <div class="hora-notificacion-leida">
+                                <p>12:10</p>
+                            </div> 
+                        </div>
                     </article>
-                    <article class="icon-historia">
-                        <span class="material-icons">share</span>
-                        <p>Compartir</p>
+                </div>
+                <div class="notificacion-leida">
+                    <article class="card-avatar notifi">
+                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
+                        <div class="text-notificacion">
+                            <div class= "text-avatar-card text-avatar-notificacion-leida">
+                                <h5>Nicci Troaini</h5>
+                                <h6>Notificacion leida</h6>
+                            </div>
+                            <div class="hora-notificacion-leida">
+                                <p>12:10</p>
+                            </div> 
+                        </div>
+                    </article>
+                </div>
+                <div class="notificacion-leida">
+                    <article class="card-avatar notifi">
+                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
+                        <div class="text-notificacion">
+                            <div class= "text-avatar-card text-avatar-notificacion-leida">
+                                <h5>Nicci Troaini</h5>
+                                <h6>Notificacion leida</h6>
+                            </div>
+                            <div class="hora-notificacion-leida">
+                                <p>12:10</p>
+                            </div> 
+                        </div>
+                    </article>
+                </div>
+                <div class="notificacion-leida">
+                    <article class="card-avatar notifi">
+                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
+                        <div class="text-notificacion">
+                            <div class= "text-avatar-card text-avatar-notificacion-leida">
+                                <h5>Nicci Troaini</h5>
+                                <h6>Notificacion leida</h6>
+                            </div>
+                            <div class="hora-notificacion-leida">
+                                <p>12:10</p>
+                            </div> 
+                        </div>
                     </article>
                 </div>
             </div>
