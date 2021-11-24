@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/perfil.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
       rel="stylesheet">
 
@@ -13,10 +14,10 @@
         <img class="logo" src="images/logo-pagina.png" alt="">
 
         <div class="buttons">
-            <a class="marcada" href=""><img src="images/icono-home.png" alt=""></a>
-            <a class="icon-nav" href=""><img src="images/icono-perfil.png" alt=""></a>
-            <a class="icon-nav" href=""><img src="images/icono-mensaje.png" alt=""></a>
-            <a class="icon-nav" href=""><img src="images/icono-notificacion.png" alt=""></a>
+            <a href=""><img src="images/icono-home.png" alt=""></a>
+            <a class="marcada" href=""><img src="images/icono-perfil.png" alt=""></a>
+            <a href=""><img src="images/icono-mensaje.png" alt=""></a>
+            <a href=""><img src="images/icono-notificacion.png" alt=""></a>
         </div>
 
         <div class="searchBar-mi-cuenta">
@@ -31,20 +32,9 @@
     <div class= "contenido">
         <div class="container-izq">
             <div class="container-search-amigos">
-                <h3>Amigos</h3>
-
-                <div class= "contenedor-search">
-                    <span class="material-icons icon-search" >search</span>
-                    <input class="input-search" type="text" placeholder="Buscar amigos">
-                </div>
+                <h3>Mensajes</h3>
+                
                 <section class="container-amigos">
-                    <article class="card-avatar">
-                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
-                        <div class= "text-avatar-card">
-                            <h5>Nicci Troaini</h5>
-                            <h6>Azul, Bs.As</h6>
-                        </div>
-                    </article>
                     <article class="card-avatar">
                         <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
                         <div class= "text-avatar-card">
@@ -106,6 +96,22 @@
         </div>
 
         <div class= "container-center">
+            
+            <article class="card-perfil">
+                <div class="conteiner-img-perfil">
+                    <img class= "img-portada" src="images/perro.jpg" alt="">
+                    <img class= "img-perfil" src="images/fotoperfil.jpg" alt="">
+                </div>
+                <h2>Jane</h2>
+                
+                <div class= "nav-perfil">
+                    <a id = "btn-nav-perfil" href=""><h4>INFORMACION</h4></a>
+                    <a id = "btn-nav-perfil" href=""><h4>GALERIA</h4></a>
+                    <a id = "btn-nav-perfil" href=""><h4>MI VET</h4></a>
+                    <a id = "btn-nav-perfil" href=""><h4>CASOS CLINICOS</h4></a>
+                </div>
+            </article> 
+        
             <div class= "publicar-historia">
                
                 <div class="container-avatar-search">
@@ -161,41 +167,6 @@
                     </article>
                 </div>
             </div>
-
-            <div class="container-historias">
-                <article class="card-avatar">
-                    <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
-                    <div class= "text-avatar-card">
-                        <h3>Nicci Troaini</h3>
-                        <h4>14 min</h4>
-                    </div>
-                </article> 
-
-                <p>
-                    ¿Sabías que los gatos se consideran animales domésticos desde hace más de 9000 años? Ya en la civilización egipcia eran muy valorados como animales de compañía e incluso se pueden ver representados en sus manifestaciones artísticas
-                </p>
-
-                <img class= "img-card" src="images/gato.png" alt="">
-
-                <div class="iconos-elementos-historia">
-                    <article class="icon-historia">
-                        <span class="material-icons icon-search" >search</span>
-                        <p>Me Gusta</p>
-                    </article>
-                    <article class="icon-historia">
-                        <span class="material-icons icon-search" >search</span>
-                        <p>Comentar</p>
-                    </article>
-                    <article class="icon-historia">
-                        <span class="material-icons icon-search" >search</span>
-                        <p>Compartir</p>
-                    </article>
-                </div>
-            </div>
-
-
-
-
         </div>
 
         <div class="container-der">
@@ -248,9 +219,6 @@
                     </div>
                 </article>
             </div>
-
-
-
         </div>
     </div>
 
