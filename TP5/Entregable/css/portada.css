@@ -42,13 +42,12 @@
     box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.portada .formulario{
+.portada .formulario ,  .formulario-registrarse{
     display: flex;
     flex-direction: column;
-   
 }
 
-.portada input{
+.portada input , .input-registrarse{
     background: #FFFFFF;
     border: 1px solid rgba(101, 18, 135, 0.6);
     box-sizing: border-box;
@@ -57,7 +56,7 @@
     margin: 10px 0px;
 }
 
-.portada .btn-submit{
+.portada .btn-submit, .btn-submit-registrarse{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -111,4 +110,76 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
     font-weight: bold;
+    
+}
+
+.btn-submit:hover,.btn-submit:focus, 
+.btn-submit-registrarse:hover,.btn-submit-registrarse:focus {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.25em);
+}
+
+
+.btn-submit-2:hover,
+.btn-submit-2:focus {
+  transform: translateY(-0.25em);
+}
+
+#btn-registro:hover,
+#btn-registro:focus {
+    transform: translateY(-0.25em);
+}
+#crearCuenta{
+    text-decoration: none;
+}
+
+/*----------------Modal--------------*/
+
+.modal-oculto {
+    display: none;
+}
+
+.modal-registrarse {
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px ;
+    height: 660px;
+    width: 410px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: hidden;
+    margin: 20px 0px;
+    padding: 10px 16px;
+    background: #FFFFFF;
+    position: fixed;
+    top: 10%;
+    left: 40%;
+
+}
+
+.formulario-registrarse {
+    width: 310px;
+    height: 425px;
+    justify-content: space-around;
+
+}
+
+.modal-registrarse p ,.col-2 p{
+    display: flex;
+    font-size: 36px;
+    color: #414848;
+    justify-content: center;
+}
+
+.formulario-registrarse a {
+    margin-top: 10px;
+}
+
+.icon-cerrar-registrarse {
+    color:#651287;
+    margin-left: 400px;
+}
+
+.btn-submit-registrarse {
+   padding: 10px 0px 10px 0px;
 }
