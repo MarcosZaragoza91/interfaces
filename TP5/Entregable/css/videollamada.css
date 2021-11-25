@@ -1,0 +1,64 @@
+.container-videollamada {
+    border-radius: 25px;
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+    width: 600px;
+    height: 720px;
+}
+
+.pantalla {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.botones-videollamada {
+    width: 525px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top:485px;
+    left:37px;
+    background-color: rgba(239, 223, 223, 0.72);
+    border-radius: 15px;
+}
+
+.circle-call {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px 25px 25px 25px ;
+        background-color:#651287;
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        justify-content: center;
+}
+
+.circle-call-red {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px 25px 25px 25px ;
+    background-color:#D8270F;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;   
+    justify-content: center;
+}
+
+.cam-call , .micro-call , .telefono-call {
+    color: white;
+}
+
+.img-cam1 {
+    position: absolute;
+    top:100px;
+    left:417px;
+}
+
+.card-avatar-call{
+    margin-left: 4%; 
+}
