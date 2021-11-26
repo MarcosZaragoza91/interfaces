@@ -21,14 +21,22 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
     //Solucionar este tema (No funciona)
-    let btnCamara = document.querySelector(".camara");
-    if (btnCamara.className == 'videollamada-oculto camara'){
-        btnCamara.addEventListener('click', function(){
-            if (btnCamara.className == 'videollamada-oculto'){
-                btnCamara.className = 'container-videollamada';
-            }else{
-                btnCamara.className = 'videollamada-oculto';
-            }
-        });
+    let btnCamara = document.querySelector(".cam-conver");
+    if (btnCamara.className == 'material-icons cam-conver'){
+        btnCamara.addEventListener('click', modalCamara);
+    }
+
+    let btnTelefono = document.querySelector(".telefono-call");
+    if (btnTelefono.className == 'material-icons telefono-call'){
+        btnTelefono.addEventListener('click',modalCamara);
+    }
+
+    function modalCamara(){
+        let modalCamara = document.querySelector(".camara");
+        if (modalCamara.className == 'videollamada-oculto camara'){
+            modalCamara.className = 'container-videollamada camara';
+        }else{
+            modalCamara.className = 'videollamada-oculto camara';
+        }
     }
 });
