@@ -20,14 +20,13 @@ document.addEventListener("DOMContentLoaded",function(){
     }
 
 
-    //Solucionar este tema (No funciona)
     let btnCamara = document.querySelector(".cam-conver");
-    if (btnCamara.className == 'material-icons cam-conver'){
+    if (btnCamara!= null){
         btnCamara.addEventListener('click', modalCamara);
     }
 
     let btnTelefono = document.querySelector(".telefono-call");
-    if (btnTelefono.className == 'material-icons telefono-call'){
+    if (btnTelefono != null){
         btnTelefono.addEventListener('click',modalCamara);
     }
 
