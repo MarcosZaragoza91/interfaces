@@ -1,0 +1,20 @@
+# Tareas Faltantes
+
+- Validaciones por js en los inputs de registro
+- Busqueda de personas (Logica y Pagina) 
+- Estilar Version Mobile
+- Realizar animacion parallax en la portada (index.html)
+- Arreglar registracion, hacer lo mismo que en js.js con los mensajes
+- Arreglar el hover del icono de mensajes(esta dentro de un div y no toma estilos en css)
+- Justificar el porque de donde estan los hovers
+- Hacer el Loader para transicion de paginas
+- Hacer el cerrar sesion
+- Modificar mockups con contenido variable
+
+## Promocion
+- Agregar el like/dislike y preguntar a que se refiere con justificar
+- Agregar Promocionar Publicacion tambien hacer la consulta
+
+## Preguntas
+- Consultar el tema de las busquedas, mostrar el figma para ver si es lo requerido
+- Consultar los puntos de promocion para clarificar

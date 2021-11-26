@@ -4,6 +4,11 @@
     width: 600px;
     height: 720px;
     border: solid blue;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    display: inline;
+    z-index: 5;
 }
 
 .pantalla {
@@ -68,4 +73,8 @@
     border: solid green;
     margin-top: 4%;
     margin-bottom: 4%;
+}
+
+.videollamada-oculto {
+    display: none;
 }
