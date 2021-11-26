@@ -28,6 +28,9 @@
 .buttons a:hover {
     border-bottom: solid 2px #651287;
 }
+.buttons div:hover {
+    border-bottom: solid 2px #651287;
+}
 
 .navBar .searchBar-mi-cuenta{
     display: flex;
