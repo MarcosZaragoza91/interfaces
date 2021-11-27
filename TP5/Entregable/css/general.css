@@ -50,7 +50,7 @@
 }
 .contenedor-search {
     background-color: #E8E8E8;
-    width: 70%;
+    width: 80%;
     border-radius: 20px;
     display: flex;
    
@@ -61,7 +61,7 @@
 }
 
 .input-search {
-    width: 70%;
+    width: 80%;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0);
     padding: 10px;

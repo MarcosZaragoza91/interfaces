@@ -15,7 +15,10 @@
 .container-msj h3 {
     margin-left: 4%;
 }
-.container-amigos .card-avatar {
+.cardNotificacion .card-mensaje {
+    margin-left: 4%;
+}
+.container-amigos .card-mensaje {
     margin-left: 4%;
 }
 .titulo-cerrar {
