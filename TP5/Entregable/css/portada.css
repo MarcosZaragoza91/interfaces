@@ -175,10 +175,30 @@
 }
 
 .icon-cerrar-registrarse {
-    color:#651287;
+    color:hsl(283, 75%, 66%);
     margin-left: 400px;
 }
 
 .btn-submit-registrarse {
    padding: 10px 0px 10px 0px;
+}
+
+/*------------- Animacion------------------*/
+
+.nombre {
+    animation-duration: 4s;
+    animation-name: desplazamiento;
+  }
+  
+@keyframes desplazamiento {
+    from {
+      color: hsl(283, 79%, 64%);  
+      margin-left: 100%;
+      width: 50%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
 }
