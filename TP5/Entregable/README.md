@@ -1,8 +1,8 @@
 # Tareas Faltantes
 
 - Validaciones por js en los inputs de registro
-- Busqueda de personas (Logica y Pagina) 
-- Estilar Version Mobile
+- Busqueda de personas (Logica y Pagina(hecho)) 
+- Estilar Version Mobile( hecho)
 - Realizar animacion parallax en la portada (index.html)
 - ~~Arreglar registracion, hacer lo mismo que en js.js con los mensajes~~
 - Arreglar el hover del icono de mensajes(esta dentro de un div y no toma estilos en css)

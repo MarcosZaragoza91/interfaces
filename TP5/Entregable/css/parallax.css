@@ -1,2 +1,16 @@
+.portada {
+    background-size: 100% 100%;
+    background-repeat: repeat-x;      
+  
+}
 
+.layer-1{
+    background-image: url("../images/huellitas2.png");
+    animation: scroll 20s infinite linear;
+}
+
+@keyframes scroll {
+    0%{background-position: 0}
+    100%{background-position: -1000px}
+}
 
