@@ -3,8 +3,8 @@
 - Validaciones por js en los inputs de registro
 - Busqueda de personas (Logica y Pagina(hecho)) 
 - Estilar Version Mobile( hecho)
-- Realizar animacion parallax en la portada (index.html)
-- ~~Arreglar registracion, hacer lo mismo que en js.js con los mensajes~~
+- Realizar animacion parallax en la portada (index.html) (hecho)
+- ~~Arreglar registracion, hacer lo mismo que en js.js con los mensajes~~ (hecho)
 - Arreglar el hover del icono de mensajes(esta dentro de un div y no toma estilos en css)
 - Justificar el porque de donde estan los hovers
 - Hacer el Loader para transicion de paginas
