@@ -8,7 +8,7 @@
 - Arreglar el hover del icono de mensajes(esta dentro de un div y no toma estilos en css)
 - Justificar el porque de donde estan los hovers
 - Hacer el Loader para transicion de paginas
-- Hacer el cerrar sesion
+- Hacer el cerrar sesion(hecho-falta darle estilo)
 - Modificar mockups con contenido variable
 
 ## Promocion
