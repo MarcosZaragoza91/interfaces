@@ -38,4 +38,16 @@ document.addEventListener("DOMContentLoaded",function(){
             modalCamara.className = 'videollamada-oculto camara';
         }
     }
+
+    let cerrarSesion = document.querySelector(".cerrarSesion");
+    cerrarSesion.className = 'cerrarSesionOculto'
+
+    let btnAvatar = document.querySelector(".avatar-perfil");
+    btnAvatar.addEventListener('click', function (){
+        if (cerrarSesion.className == 'cerrarSesionOculto'){
+            cerrarSesion.className = 'cerrarSesionVisible';
+        }else{
+            cerrarSesion.className = 'cerrarSesionOculto';
+        }
+    });
 });

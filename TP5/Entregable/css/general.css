@@ -37,6 +37,7 @@
     justify-content: center;
     align-items: center;
     width: 20%;
+    margin-right: 29px;
 }
 .navBar .marcada {
     border-bottom: 3px;
@@ -294,8 +295,44 @@
     margin: 0px;
 }
 
+/*-----------CerrarSesion-----------------------*/
+
+.cerrarSesionOculto {
+    display: none;
+}
+
+.cerrarSesionVisible {
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    background-color:white;
+    width: 175px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 11%;
+    left: 88%;
+}
 
 
+.botones-avatar-perfil{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.botones-avatar-perfil:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.25em);
+  box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+}
+.botones-avatar-perfil p {
+    color: black;
+    font-weight: bold;
+    margin-left: 5px;
+}
 
 
 
