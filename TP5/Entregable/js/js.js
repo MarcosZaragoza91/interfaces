@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded",function(){
         btnCamara.addEventListener('click', modalCamara);
     }
 
-    let btnTelefono = document.querySelector(".telefono-call");
+    let btnTelefono = document.querySelector(".circle-call-red");
     if (btnTelefono != null){
         btnTelefono.addEventListener('click',modalCamara);
     }
@@ -50,4 +50,8 @@ document.addEventListener("DOMContentLoaded",function(){
             cerrarSesion.className = 'cerrarSesionOculto';
         }
     });
+
+
+
+
 });

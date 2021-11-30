@@ -35,6 +35,10 @@
 
 .cam-conver {
     margin-left: 380px;
+    border-radius: 25%;
+}
+.cam-conver:hover {
+    background-color: #E8E8E8;
 }
 .viñeta-violeta {
     width: 330px;
