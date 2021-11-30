@@ -162,7 +162,7 @@
 }
 .iconos-elementos-historia {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .icon-historia{
     display: flex;
@@ -172,6 +172,9 @@
 
 .icon-historia p {
     color: rgba(0, 0, 0, 0.500);
+}
+.primer-icon-historia{
+    margin-left: 11px;
 }
 /*---------------------CARD---------------------*/
 .container-historias {
