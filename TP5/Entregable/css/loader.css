@@ -1,0 +1,25 @@
+.contenedor-loader {
+    height: 500;
+    width: 500px;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+}
+
+.loader {
+    border: 15px solid black;
+    border-top-color: blue;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    animation: girar 1.5s linear infinite;
+}
+
+@keyframes girar {
+    from{
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
