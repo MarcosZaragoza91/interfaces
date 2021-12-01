@@ -6,45 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
     <link rel="stylesheet" href="css/homeMobile.css">
-
+    <script src="js/mobile.js"></script>
     <title>Document</title>
 </head>
+<header class="navBar">
+    <section class="barraSuperiorNav">
+        <span class="material-icons icon-navbar btn-menuHamburg">reorder</span>
+        <a href=""><h1 class="nombre icon-navbar">Petbook</h1></a>
+        <span class="material-icons icon-search icon-navbar" >search</span>  
+    </section>
+    <section class="barraInferiorNav">
+        <div class="buttons">
+            <a class="marcada" href="home.html"><span class="material-icons">home</span></a>
+            <div class="icon-nav btn-msj-recibidos" href=""><span class="material-icons">mark_as_unread</span></div>
+            <a class="icon-nav" href="notificaciones.html"><span class="material-icons">notifications</span></a>
+            <a class="icon-nav" href="perfil.html"><span class="material-icons ">person</span></a>
+        </div>
+    </section>
+</header>
 <body>
     <div class="containerHome">
-        <header class="navBar">
-            <section class="barraSuperiorNav">
-                <span class="material-icons icon-navbar">reorder</span>
-                <h1 class="nombre icon-navbar">Petbook</h1>
-                <span class="material-icons icon-search icon-navbar" >search</span>  
-            </section>
-            <section class="barraInferiorNav">
-                <div class="buttons">
-                    <a class="marcada" href="home.html"><span class="material-icons">home</span></a>
-                    <div class="icon-nav btn-msj-recibidos" href=""><span class="material-icons">mark_as_unread</span></div>
-                    <a class="icon-nav" href="notificaciones.html"><span class="material-icons">notifications</span></a>
-                    <a class="icon-nav" href="perfil.html"><span class="material-icons ">person</span></a>
-                </div>
-            </section>
-        </header>
-        <div class="publicar-historia">
-                <div class="container-avatar-search">
-                    <img class= "img-avatar img-avatar-mobile" src="images/avatar-mujer.png" alt="">
-                    <div class= "contenedor-search">
-                        <input class="input-search" type="text" placeholder="  Crear publicacion">
+            <div class="publicar-historia">
+                    <div class="container-avatar-search">
+                        <img class= "img-avatar img-avatar-mobile" src="images/avatar-mujer.png" alt="">
+                        <div class= "contenedor-search">
+                            <input class="input-search" type="text" placeholder="  Crear publicacion">
+                        </div>
                     </div>
-                </div>
-                <div class="iconos-elementos-historia">
-                    <article class="icon-historia">
-                        <span class="material-icons">videocam </span>
-                        <p>Video en vivo</p>
-                    </article>
-                    <article class="icon-historia">
-                        <span class="material-icons">perm_media</span>
-                        <p>Foto / Video</p>
-                    </article>
-                </div>
-        </div>
-        <body>
+                    <div class="iconos-elementos-historia">
+                        <article class="icon-historia">
+                            <span class="material-icons">videocam </span>
+                            <p>Video en vivo</p>
+                        </article>
+                        <article class="icon-historia">
+                            <span class="material-icons">perm_media</span>
+                            <p>Foto / Video</p>
+                        </article>
+                    </div>
+            </div>
+       
+        <div class="conteiner-contenido">
             <div class="card-mobile">
                 <article class="card-avatar-mobile">
                     <img class= "img-avatar-mobile" src="images/avatar-mujer.png" alt="">
@@ -76,7 +77,7 @@
                     </article>
                 </div>
             </div>
-            <div class="card-mobile">
+            <div class="card-mobile card-solo-text">
                 <article class="card-avatar-mobile">
                     <img class= "img-avatar-mobile" src="images/avatar-mujer.png" alt="">
                     <div class= "text-avatar-card">
@@ -104,10 +105,28 @@
                     </article>
                 </div>
             </div>
-
-            
-        </body>
+        </div>
+        
     </div>
+    
+    <div class="menu-hamburg-oculto menu-hamburg">
+        <div class="logo-mobile">
+            <a href=""><h1 class="nombre icon-navbar">Petbook</h1></a>
+        </div>
+        <div class="conteiner-opcionMenu">
+            <article class="card-avatar card-avatar-mobile card-avatar-hamburg">
+                <img class= "img-avatar-mobile" src="images/avatar-mujer.png" alt="">
+                <div class= "text-avatar-card">
+                    <h3>Nicci Troaini</h3>
+                </div>
+            </article> 
+            <article class="opcion-menu">
+                <span class="material-icons">group</span>
+                <p>Amigos</p>
+            </article>
+        </div>
+    </div>
+    
     
 </body>
 </html>

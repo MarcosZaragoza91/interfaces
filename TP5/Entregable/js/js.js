@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded",function(){
 
     let mensajes = document.querySelector(".mensajes");
-    mensajes.className = 'container-msj-oculto'
+    mensajes.className = 'container-msj-oculto';
 
     let btnMjsRecibido = document.querySelector(".btn-msj-recibidos");
     btnMjsRecibido.addEventListener('click', function (){
