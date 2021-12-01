@@ -56,7 +56,9 @@
     flex-direction: column;
 }
 
-
+.img-portada {
+    border-radius: 15px 15px 0px 0px;
+}
 .portada input , .input-registrarse{
     background: #FFFFFF;
     border: 1px solid rgba(101, 18, 135, 0.6);
@@ -185,7 +187,7 @@
 }
 
 .icon-cerrar-registrarse {
-    color:hsl(283, 75%, 66%);
+    color: #651287;
     margin-left: 400px;
 }
 
