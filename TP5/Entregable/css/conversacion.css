@@ -17,7 +17,9 @@
     flex-direction: column;
     padding:4%;
 }
-
+.textavatar-conversacion h3{
+    width: 150px;
+}
 .container-conversacion .card-avatar {
     margin-top: 5%;
   
@@ -34,7 +36,7 @@
 }
 
 .cam-conver {
-    margin-left: 380px;
+    margin-left: 245px;
     border-radius: 25%;
 }
 .cam-conver:hover {
