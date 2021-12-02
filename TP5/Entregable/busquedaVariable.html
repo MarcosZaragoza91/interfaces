@@ -35,32 +35,23 @@
         </div>
     </header>
 
+    
     <div class= "contenido busqueda">
-        <a href="busquedaVariable.html" class="circle-back">
-            <span class="material-icons">arrow_back</span>
-        </a>
-        <div class="busqueda-avanzada">
+        
+        <div class="busqueda-avanzada busqueda-btn-grandes">
             <h3>Filtrar resultados</h3>
-            <form action="" class="formulario-registrarse form-busqueda">
-                <label>Pais</label>
-                <input class = "input-registrarse" type="text" placeholder="Pais">
-                <label>Ciudad</label>
-                <input class = "input-registrarse" type="text" placeholder="Ciudad">
-                <label>Edad</label>
-                <input class = "input-registrarse" type="email" placeholder="Edad">
-                <label>Profesion</label>
-                <input class = "input-registrarse" type="number" placeholder="Profesion">
-                <label>Universidad</label>
-                <input class = "input-registrarse" type="password" placeholder="Universidad">   
-                <a href="home.html"><span class="btn-texto btn-submit-registrarse">APLICAR FILTROS</span></a>
+            <form action="" class="formulario-registrarse form-busqueda"> 
+                <a href="busqueda.html"><span class="btn-texto btn-submit-registrarse btn-filtrar">PERSONAS</span></a>
+                <a href=""><span class="btn-texto btn-submit-registrarse btn-filtrar">PUBLICACIONES</span></a>
+                <a href=""><span class="btn-texto btn-submit-registrarse btn-filtrar">GRUPOS</span></a>
             </form>
         </div>	
-      
+    
         <div class= "container-center resultados-busqueda">
-            <div class="container-notificaciones">
+            <div class="container-notificaciones resultados-busqueda-variable">
                 <h3>Resultados de la busqueda</h3>
-                <div class="notificacion-leida">
-                    <article class="card-avatar notifi">
+                <div class="notificacion-leida notificacion-busqueda">
+                    <article class="card-avatar notifi card-busqueda-variable">
                         <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
                         <div class="text-notificacion text-notificacion-busqueda">
                             <div class= "text-avatar-card text-avatar-notificacion-leida">
@@ -68,77 +59,99 @@
                                 <h6>Medico Veterinario</h6>
                             </div>
                             <div class="hora-notificacion-leida">
-                                <span class="material-icons">person_add_alt_1</span>
+                                <a href=""><span class="material-icons icon-busqueda-variable">person_add_alt_1</span></a>
                             </div> 
                         </div>
                     </article>
                 </div>
-                <div class="notificacion-leida">
-                    <article class="card-avatar notifi">
+                <div class="notificacion-leida notificacion-busqueda">
+                    <article class="card-avatar notifi card-busqueda-variable">
+                        <img class= "img-avatar img-avatar-grupo" src="images/vetegrupo.png" alt="">
+                        <div class="text-notificacion text-notificacion-busqueda">
+                            <div class= "text-avatar-card text-avatar-notificacion-leida contenido-grupos">
+                                <h5>Ayuda y consejos veterinarios</h5>
+                                <h6>Este grupo se hizo para dar consejos y ayuda</h6>
+                            </div>
+                            <div class="hora-notificacion-leida icon-groups">
+                               <a href=""> <span class="material-icons icon-busqueda-variable"> groups</span></a>
+                                    
+                            </div> 
+                        </div>
+                    </article>
+                </div>
+                <div class="container-historias">
+                    <article class="card-avatar">
+                        <img class= "img-avatar" src="images/avatar8.png" alt="">
+                        <div class= "text-avatar-card">
+                            <h3>Veterinarios</h3>
+                            <h4>44 min</h4>
+                        </div>
+                    </article> 
+    
+                    <p>
+                        ¿Sabías que los gatos se consideran animales domésticos desde hace más de 9000 años? Ya en la civilización egipcia eran muy valorados como animales de compañía e incluso se pueden ver representados en sus manifestaciones artísticas. Esta apariencia en el Gato Esfinge, es fruto de una mutación genética espontánea de tipo recesivo, que ocurrió en Canadá en la década de los 60 .
+                    </p>
+    
+                    <img class= "img-card" src="images/gato egipcio.jpg" alt="">
+    
+                    <div class="iconos-elementos-historia">
+                        <article class="icon-historia">
+                            <span class="material-icons primer-icon-historia"> thumb_up </span>
+                            <p>1025</p>
+                        </article>
+                        <article class="icon-historia">
+                            <span class="material-icons">thumb_down_alt</span>
+                            <p>No me Gusta</p>
+                        </article>
+                        <article class="icon-historia">
+                            <span class="material-icons">speaker_notes</span>
+                            <p>Comentar</p>
+                        </article>
+                        <article class="icon-historia">
+                            <span class="material-icons">share</span>
+                            <p>Compartir</p>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="notificacion-leida notificacion-busqueda">
+                    <article class="card-avatar notifi card-busqueda-variable">
                         <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
                         <div class="text-notificacion text-notificacion-busqueda">
                             <div class= "text-avatar-card text-avatar-notificacion-leida">
                                 <h5>Nicci Troaini</h5>
-                                <h6>Encargado de campo</h6>
+                                <h6>Veterinario Ganadero</h6>
                             </div>
                             <div class="hora-notificacion-leida">
-                                <span class="material-icons">person_add_alt_1</span>
+                                <a href=""><span class="material-icons icon-busqueda-variable">person_add_alt_1</span></a>
                             </div> 
                         </div>
                     </article>
                 </div>
-                <div class="notificacion-leida">
-                    <article class="card-avatar notifi">
-                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
+                <div class="notificacion-leida notificacion-busqueda">
+                    <article class="card-avatar notifi card-busqueda-variable">
+                        <img class= "img-avatar img-avatar-grupo" src="images/vetegrupo.png" alt="">
                         <div class="text-notificacion text-notificacion-busqueda">
-                            <div class= "text-avatar-card text-avatar-notificacion-leida">
-                                <h5>Nicci Troaini</h5>
-                                <h6>Ingeniero agronomo</h6>
+                            <div class= "text-avatar-card text-avatar-notificacion-leida contenido-grupos">
+                                <h5>Veterinarios online</h5>
+                                <h6>Vive en Bs.As</h6>
                             </div>
-                            <div class="hora-notificacion-leida">
-                                <span class="material-icons">person_add_alt_1</span>
+                            <div class="hora-notificacion-leida icon-groups">
+                                <a href=""><span class="material-icons icon-busqueda-variable"> groups</span></a>
                             </div> 
                         </div>
                     </article>
                 </div>
-                <div class="notificacion-leida">
-                    <article class="card-avatar notifi">
+                <div class="notificacion-leida notificacion-busqueda">
+                    <article class="card-avatar notifi card-busqueda-variable">
                         <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
                         <div class="text-notificacion text-notificacion-busqueda">
                             <div class= "text-avatar-card text-avatar-notificacion-leida">
-                                <h5>Nicci Troaini</h5>
-                                <h6>Ganadero</h6>
-                            </div>
-                            <div class="hora-notificacion-leida">
-                                <span class="material-icons">person_add_alt_1</span>
-                            </div> 
-                        </div>
-                    </article>
-                </div>
-                <div class="notificacion-leida">
-                    <article class="card-avatar notifi">
-                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
-                        <div class="text-notificacion text-notificacion-busqueda">
-                            <div class= "text-avatar-card text-avatar-notificacion-leida">
-                                <h5>Nicci Troaini</h5>
-                                <h6>Particular</h6>
-                            </div>
-                            <div class="hora-notificacion-leida">
-                                <span class="material-icons">person_add_alt_1</span>
-                            </div> 
-                        </div>
-                    </article>
-                </div>
-                <div class="notificacion-leida">
-                    <article class="card-avatar notifi">
-                        <img class= "img-avatar" src="images/avatar-mujer.png" alt="">
-                        <div class="text-notificacion text-notificacion-busqueda">
-                            <div class= "text-avatar-card text-avatar-notificacion-leida">
-                                <h5>Nicci Troaini</h5>
-                                <h6>Bañador de perros</h6>
+                                <h5>Veterinarios Azul</h5>
+                                <h6>Sanidad animal</h6>
                             </div>
                             <div class="icon-notificacion-leida">
-                                <span class="material-icons">person_add_alt_1</span>
+                               <a href=""><span class="material-icons icon-busqueda-variable"> groups</span></a> 
                             </div> 
                         </div>
                     </article>
