@@ -71,7 +71,6 @@
 }
 
 .circle-back , .circle-search-busqueda{
-    
     width: 30px;
     height: 30px;
     border-radius: 15px;
@@ -93,7 +92,16 @@
 }
 .modal-busqueda-nav {
     width: 363px;
-    height: 412px;
+    height: 450px;
+    box-shadow :0px 4px 4px rgba(0, 0, 0, 0.25),0px -4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 11.5%;
+    left: 75%;
+    background-color: white;
+
 }
 
 .container-avatar-vet .card-busqueda:hover {
@@ -101,6 +109,10 @@
 }
 .circle-search-busqueda .search-busquedaModal-violet {
     color: #651287;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .h5search-violet {
     color: #651287;
@@ -113,6 +125,15 @@
     width: 200px;
 }
 
-.linkBuscarVeterinarios{
+.linkBuscarVeterinarios {
     text-decoration: none;
+}
+.card-busqueda-primera {
+    margin-top: 4%;
+}
+.h5comun {
+    font-weight: normal;
+}
+.modal-busqueda-invisible{
+    display: none;
 }
