@@ -122,7 +122,7 @@
 }
 
 .card-busqueda-modal h5 {
-    width: 200px;
+    width: 125px;
 }
 
 .linkBuscarVeterinarios {
@@ -133,6 +133,7 @@
 }
 .h5comun {
     font-weight: normal;
+    width: 125px;
 }
 .modal-busqueda-invisible{
     display: none;

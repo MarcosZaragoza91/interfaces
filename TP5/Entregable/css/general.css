@@ -247,7 +247,10 @@
 .container-avatar-vet .img-avatar{
     margin-left: 4%;
 }
-
+.imgavatar{
+    margin-left: 17px;
+    margin-right: 4%;
+}
 .container-vet-famosos h3 {
     margin-left:17px;
 }
