@@ -188,6 +188,10 @@ h1 {
 .card-solo-text {
     height: 100%;
 }
+.card-publicidad-mobile {
+    height: 320px;
+    margin-bottom: 10px;
+}
 /*------------------menu-Hamburg---------*/
 .menu-hamburg-visible {
     display: flex;
