@@ -50,6 +50,5 @@ document.addEventListener("DOMContentLoaded",function(){
             cerrarSesion.className = 'cerrarSesionOculto';
         }
     });
-
     
 });

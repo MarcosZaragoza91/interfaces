@@ -195,6 +195,13 @@
    padding: 10px 0px 10px 0px;
 }
 
+.formulario .contraseña-form {
+    border:2px solid red;
+}
+.falta-completar {
+    font-size: 11px;
+    color: red;
+}
 /*------------- Animacion------------------*/
 
 .nombre {
